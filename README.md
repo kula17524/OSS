@@ -7,4 +7,6 @@
 - JavaScript
 
 ## 使用予定のAPI
-Web Speech APi
+Web Speech API
+Next.js(React)
+(Firebase)
