@@ -1,0 +1,31 @@
+/* 画面設定と背景設定 */
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #f1d3e5;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* ロゴ */
+.logo {
+  text-align: center;
+  width: auto;
+  max-height: 20vh;
+  max-width: 100%;
+  padding: 10vh 0 0 0;
+}
+.logo-img {
+  width: auto;
+  max-height: 20vh;
+  max-width: 80%;
+  text-align: center;
+}
+
+/* ログインボックス */
+
+/*  新規登録ボタン */
