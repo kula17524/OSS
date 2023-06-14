@@ -1,0 +1,35 @@
+#back{
+    position: relative;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+#sidebar{
+    position: absolute;
+    left: -15vw;
+    top: -111.5vh;
+    margin: 0;
+    size: 100% 100%;
+    scale: 40%;
+    
+}
+#topbar{
+    position: absolute;
+    left: -100vw;
+    top: -18vh;
+    margin: 0;
+    size: 100% 100%;
+    scale: 50%;
+}
+#icon{
+    position: absolute;
+    left: -8vw;
+    top: -4vh;
+    margin: 0;
+    size: 100% 100%;
+    scale: 40%;
+}
