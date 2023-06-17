@@ -1,35 +1,49 @@
+
+/*PC用のCSSを記入*/
+/*背景設定*/
 #back{
-    position: relative;
+    position: fixed;
+    left: -6px;
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 105vw;
+    height: 105vh;
     background-repeat: no-repeat;
     background-position:center center;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
 #sidebar{
-    position: absolute;
-    left: -15vw;
-    top: -111.5vh;
-    margin: 0;
-    size: 100% 100%;
-    scale: 40%;
-    
+    position: fixed;
+    display: block;
+    top: -15;
+    left: -20;
+    width: 141.33px;
+    height: 628.66px;
 }
 #topbar{
-    position: absolute;
-    left: -100vw;
-    top: -18vh;
-    margin: 0;
-    size: 100% 100%;
-    scale: 50%;
+    float: left;
+    display: block;
+    position: fixed;
+    top: -15px;
+    left: -25px;
+    width: 107vw;
+    height: 17%;
 }
 #icon{
-    position: absolute;
-    left: -8vw;
-    top: -4vh;
-    margin: 0;
-    size: 100% 100%;
-    scale: 40%;
+    position: fixed;
+    display: block;
+    top: 13;
+    left: 20;
+    width: 615px;
+    height: 133px;
+    transform-origin: 0% 0%; /*左上基準*/
+    transform: scale(0.32);
 }
+
+
+
+@media screen and (max-width: 519px) {
+/*スマホ用のCSSを記入*/
+
+}
+
