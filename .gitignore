@@ -1,1 +1,6 @@
 .env.private
+.env
+node_modules/*
+package.json
+package-lock.json
+private.js

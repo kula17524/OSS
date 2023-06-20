@@ -1,31 +1,107 @@
+@font-face {
+  font-family: "ＭＳゴシック";
+  src: url("../font/MS-Gothic-01.ttf");
+}
+
 /* 画面設定と背景設定 */
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("../img/background.png");
+  background-image: url("../img/blue_PC_background.png");
   background-repeat: no-repeat;
   background-position: center center;
-  background-color: #f1d3e5;
+  background-color: #c2e7ef;
   background-attachment: fixed;
   background-size: 100% 100%;
+  font-family: "ＭＳゴシック", "ＭＳ Ｐゴシック", "MS PGothic",
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
 }
 
 /* ロゴ */
 .logo {
   text-align: center;
   width: auto;
-  max-height: 20vh;
+  height: 125px;
+  min-height: 10vh;
   max-width: 100%;
   padding: 10vh 0 0 0;
 }
 .logo-img {
   width: auto;
-  max-height: 20vh;
+  height: 100%;
   max-width: 80%;
   text-align: center;
 }
 
 /* ログインボックス */
+.login {
+  padding: 0.5em 1em;
+  margin: 5vh auto;
+  /*background: #ffffff;*/
+  background-image: url("../img/blue_loginBack.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  /*box-shadow: 10px 10px 5px rgba(194, 231, 239, 25);
+  border-radius: 1em;*/
+  text-align: center;
+  width: 70%;
+  max-width: 450px;
+}
+.login input {
+  font-size: 16px;
+  text-align: left;
+  border: solid 1px #caeaf2;
+  padding: 0.3em;
+  transition: 0.5s;
+  background: transparent;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+#login-pass {
+  width: 90%;
+  margin-bottom: 2em;
+}
+#login-mail {
+  width: 90%;
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
 
+.login input:hover {
+  background-color: #f6fafb;
+}
+.login input:focus {
+  outline: none;
+  border: solid 1px #1aa7c5;
+}
+.login-button-wrap {
+  margin-bottom: 3em;
+}
+button {
+  width: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+#login-button img {
+  display: fixed;
+  position: center;
+  margin-bottom: 2em;
+  width: 125px;
+}
+#login-button img:hover {
+  /* 透明度を上げることで、画像の色を薄く見せる。*/
+  opacity: 0.6;
+}
+#login-button img:active {
+  position: relative;
+  top: 3px;
+}
 /*  新規登録ボタン */
