@@ -164,7 +164,7 @@
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 960px) {
 /*タブレット用のCSSを記入*/
     #back{
         position: fixed;
@@ -330,7 +330,7 @@
 
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 480px) {
     /*スマホ用のCSSを記入*/
         #back{
             position: fixed;
@@ -343,7 +343,7 @@
             background-attachment: fixed;
             background-size: 100% 100%;
         }
-        #sidebar{
+        /*#sidebar{
             position: fixed;
             display: block;
             top: -90;
@@ -351,7 +351,7 @@
             width: 173px;
             height: 951px;
             transform: scale(0.7);
-        }
+        }*/
         #topbar{
             float: left;
             display: block;
@@ -361,12 +361,12 @@
             width: 107vw;
             height: 17%;
         }
-        #logoicon{
+        /*#logoicon{
             position: fixed;
             display: block;
             top: 10;
             left: 20;
-            transform-origin: 0% 0%; /*左上基準*/
+            transform-origin: 0% 0%; 
             transform: scale(0.09);
         }
         #label{
@@ -384,10 +384,10 @@
             left: 140;
             transform-origin: 0%; 
             transform: scale(0.3);
-        }
+        }*/
     
         /*サイドバーの機能設定*/
-        #saveicon{
+        /*#saveicon{
             position: fixed;
             display: block;
             top: 60;
@@ -402,7 +402,7 @@
             left: 30;
             transform-origin: 0% ; 
             transform: scale(0.35);
-        }
+        }*/
     
         /*テキストボックス*/
         .mojisu-label,
