@@ -37,7 +37,12 @@
         display: none;
     }
     #labeltext{
-        display: none;
+        position: fixed;
+        display: block;
+        top: 82;
+        left: 148;
+        transform-origin: 0%; 
+        transform: scale(0.4);
     }
 
     /*サイドバーの機能設定*/
