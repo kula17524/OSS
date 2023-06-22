@@ -1,0 +1,165 @@
+@media screen and (max-width: 480px) {
+/*スマホ用のCSSを記入*/
+    #back{
+        position: fixed;
+        left: -6px;
+        margin: 0;
+        width: 105vw;
+        height: 105vh;
+        background-repeat: no-repeat;
+        background-position:center center;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    /*#sidebar{
+        position: fixed;
+        display: block;
+        top: -90;
+        left: -40;
+        width: 173px;
+        height: 951px;
+        transform: scale(0.7);
+    }*/
+    #topbar{
+        float: left;
+        display: block;
+        position: fixed;
+        top: -15px;
+        left: -25px;
+        width: 107vw;
+        height: 17%;
+    }
+    #logoicon{
+        position: fixed;
+        display: block;
+        top: 10;
+        left: 20;
+        transform-origin: 0% 0%; /*左上基準*/
+        transform: scale(0.09);
+    }
+    #label{
+        position: fixed;
+        display: block;
+        top: -47;
+        left: 93;
+        transform-origin: 0%; 
+        transform: scale(0.17);
+    }
+    #labeltext{
+        position: fixed;
+        display: block;
+        top: 92;
+        left: 140;
+        transform-origin: 0%; 
+        transform: scale(0.3);
+    }
+
+    /*サイドバーの機能設定*/
+    #saveicon{
+        position: fixed;
+        display: block;
+        top: 60;
+        left: 25;
+        transform-origin: 0% ; 
+        transform: scale(0.35);
+    }
+    #exiticon{
+        position: fixed;
+        display: block;
+        top: 160;
+        left: 30;
+        transform-origin: 0% ; 
+        transform: scale(0.35);
+    }
+
+    /*テキストボックス*/
+    .mojisu-label,
+    .mojisu {
+        color: #073b57;
+    }
+
+    .mojisu-label {
+        display: inline-block;
+        width: calc(100% - 2em);
+        font-size: .9em;
+    }
+    .mojisu {
+        position: fixed;
+        display: block;
+        top: 180;
+        left: 200;
+        width: 6%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .mojisu:focus{
+        outline:solid 2px rgb(205, 246, 255);
+    }
+    .mojisu::placeholder {
+        color: #999;
+    }
+    .time-label,
+    .time {
+        color: #333;
+    }
+    .time-label {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-size: .9em;
+    }
+    .time {
+        position: fixed;
+        top: 180;
+        left: 400;
+        width: 6%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+
+    .time::placeholder {
+        color: #999;
+    }
+    .genko_title {
+        position: fixed;
+        top: 230;
+        left: 200;
+        width: 70%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+
+    .genko_title::placeholder {
+        color: #999;
+    }
+    #textarea {
+        position: fixed;
+        top: 280;
+        left: 200;
+        width: 70%;
+        height: 40%;
+        padding: 8px 10px;
+        border-radius: 3px;
+        font-size: 1em;
+        display: inline-block;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        box-sizing: border-box;
+        margin: 0.5em 0;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+
+    #texarea::placeholder {
+        color: #999;
+    }
+
+}
