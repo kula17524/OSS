@@ -1,5 +1,9 @@
+@font-face {
+    font-family: "ＭＳゴシック";
+    src: url("../font/MS-Gothic-01.ttf");
+  }
 /*PC用のCSSを記入*/
-@media screen and(min-width: 960px) {
+@media screen and(min-width: 2161px) {
     /*背景設定*/
     #back{
         position: fixed;
@@ -29,6 +33,9 @@
         left: -25px;
         width: 107vw;
         height: 17%;
+    }
+    #topbar_sm{
+        display: none;
     }
     #logoicon{
         position: fixed;
@@ -161,5 +168,8 @@
 
     #texarea::placeholder {
         color: #999;
+    }
+    #saveicon_2{
+        display: none;
     }
 }
