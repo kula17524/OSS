@@ -14,31 +14,38 @@
     </div>
 
     <!-- 通常ログイン枠 -->
-    <div class="login">
-      <input
-        type="email"
-        id="login-mail"
-        placeholder="メールアドレス"
-        required
-      />
-      <input
-        type="password"
-        id="login-pass"
-        placeholder="パスワード"
-        required
-      />
-      <div class="login-button-wrap" ontouchstart="">
-        <button type="button" id="login-button">
-          <img src="img/blue_login_Button.png" />
-        </button>
+    <div class="card">
+      <div class="login">
+        <input
+          type="email"
+          id="login-mail"
+          placeholder="メールアドレス"
+          required
+        />
+        <input
+          type="password"
+          id="login-pass"
+          placeholder="パスワード"
+          required
+        />
+        <div id="login-error-text"></div>
+        <div class="login-button-wrap" ontouchstart="">
+          <button type="button" id="login-button">
+            <img src="img/blue_login_Button.png" />
+          </button>
+        </div>
+        <!-- Googleログインボタン -->
+        <p>グーグルでログイン</p>
+      </div>
+      <div class="new">
+        <!-- 新規登録ボタン(新規登録ページに遷移) -->
+        <div class="new-button-wrap" ontouchstart="">
+          <button type="button" id="new-button">
+            <img src="img/blue_shinki_Button.png" />
+          </button>
+        </div>
       </div>
     </div>
-
-    <!-- Googleログインボタン -->
-    <p>または</p>
-    <p>グーグルでログイン</p>
-    <!-- 新規登録ボタン(新規登録ページに遷移) -->
-    <p>新規登録</p>
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/index.js"></script>
   </body>

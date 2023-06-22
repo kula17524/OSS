@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "MS";
+  src: url("../font/MS-Gothic-01.ttf");
+}
+html {
+  font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+  font-size: 15px;
+}
+/* 画面設定と背景設定 */
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/blue_PC_background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #c2e7ef;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}

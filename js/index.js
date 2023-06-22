@@ -18,19 +18,7 @@ initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 let login_button = document.getElementById("login-button");
-
-// ログインしているかどうか
-window.addEventListener("DOMContentLoaded", function () {
-  // 0.5秒ごとに実行
-  setInterval(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-      } else {
-        location.href = "mainmenu.html";
-      }
-    });
-  }, 500);
-});
+let new_button = document.getElementById("new-button");
 
 //ログイン処理
 document.addEventListener("DOMContentLoaded", function () {
@@ -39,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function () {
       var mailAddress = document.getElementById("login-mail").value;
       var password = document.getElementById("login-pass").value;
+      document.getElementById("login-error-text").innerText = "";
 
       signInWithEmailAndPassword(auth, mailAddress, password)
         .then((userCredential) => {
@@ -47,11 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
           location.href = "mainmenu.html";
         })
         .catch((error) => {
-          alert(
-            "メールアドレスまたはパスワードが異なります。再度入力してください。"
-          );
+          document.getElementById("login-error-text").innerText =
+            "メールアドレスまたはパスワードが正しくありません。";
         });
     },
     false
   );
 });
+
+// 新規作成ページに遷移
+new_button.onclick = function () {
+  location.href = "new_account.html";
+};
