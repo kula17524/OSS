@@ -6,7 +6,9 @@
 /*スマホ用のCSSを記入*/
     #back{
         position: fixed;
+        display: block;
         left: -6px;
+        top: 40px;
         margin: 0;
         width: 105vw;
         height: 105vh;
@@ -25,7 +27,8 @@
         float: left;
         display: block;
         position: fixed;
-        top: -60px;
+        margin: auto;
+        top: -30px;
         left: -37px;
         width: 120vw;
         height: 30%;
@@ -39,10 +42,10 @@
     #labeltext{
         position: fixed;
         display: block;
-        top: 82;
-        left: 148;
+        margin: auto;
+        top: 95;
         transform-origin: 0%; 
-        transform: scale(0.4);
+        width: 100%;
     }
 
     /*サイドバーの機能設定*/
@@ -148,21 +151,29 @@
     /*ボタン設定*/
     #saveicon_2{
         position: fixed;
+        display: block;
+        margin: auto;
         left: -215;
         top: 560;
         transform: scale(0.2);
     }
     #back_button{
         position: fixed;
-        left: -155;
-        top: -110;
-        transform: scale(0.2);
+        float: none;
+        margin: auto;
+        padding: 8px 10px;
+        top: 100;
+        left: 25;
+        width: 20%;
     }
     #hmb{
         position: fixed;
-        left: 110;
-        top: -110;
-        transform: scale(0.2);
+        margin: auto;
+        float: none;
+        padding: 8px 10px;
+        top: 100;
+        left: 290;
+        width: 20%;
     }
 
 }

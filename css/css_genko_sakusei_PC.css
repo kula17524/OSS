@@ -87,6 +87,7 @@
     }
 
     .mojisu-label {
+        position: fixed;
         display: inline-block;
         width: calc(100% - 2em);
         font-size: .9em;
@@ -114,6 +115,7 @@
         color: #333;
     }
     .time-label {
+        position: fixed;
         display: inline-block;
         margin-bottom: 5px;
         font-size: .9em;

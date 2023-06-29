@@ -3,7 +3,7 @@
     src: url("../font/MS-Gothic-01.ttf");
   }
 @media screen and (max-width: 2160px) {
-/*タブレット用のCSSを記入*/
+/*タブレット用(横向き)のCSSを記入*/
     #back{
         position: fixed;
         left: -6px;
