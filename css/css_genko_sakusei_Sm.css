@@ -4,8 +4,13 @@
   }
 @media screen and (max-width: 480px) {
 /*スマホ用のCSSを記入*/
+    .background{
+        text-align: center;
+    }
+
     #back{
-        position: fixed;
+    
+        position: relative;
         display: block;
         left: -6px;
         top: 40px;
@@ -24,14 +29,12 @@
         display: none;
     }
     #topbar_sm{
-        float: left;
         display: block;
         position: fixed;
-        margin: auto;
-        top: -30px;
-        left: -37px;
-        width: 120vw;
-        height: 30%;
+        top: -2px;
+        left: -12px;
+        width: 120%;
+        height: auto;
     }
     #logoicon{
         display: none;
@@ -40,12 +43,15 @@
         display: none;
     }
     #labeltext{
-        position: fixed;
-        display: block;
-        margin: auto;
-        top: 95;
-        transform-origin: 0%; 
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 85;
+        left: 50%;
+        right: 50%;
+        margin-left: -12%;
         width: 100%;
+        height: auto;
     }
 
     /*サイドバーの機能設定*/
@@ -157,22 +163,21 @@
         top: 560;
         transform: scale(0.2);
     }
+
     #back_button{
-        position: fixed;
+        position: absolute;
         float: none;
         margin: auto;
-        padding: 8px 10px;
-        top: 100;
-        left: 25;
+        top: 90;
+        left: 25px;
         width: 20%;
     }
     #hmb{
-        position: fixed;
+        position: absolute;
         margin: auto;
         float: none;
-        padding: 8px 10px;
-        top: 100;
-        left: 290;
+        top: 90;
+        right: 5px;
         width: 20%;
     }
 
