@@ -35,51 +35,6 @@ body {
   text-align: center;
 }
 
-/* ログインボックス */
-.login {
-  padding: 0.5em 1em;
-  margin: 5vh auto;
-  /*background: #ffffff;*/
-  background-image: url("../img/blue_loginBack.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% 100%;
-  /*box-shadow: 10px 10px 5px rgba(194, 231, 239, 25);
-  border-radius: 1em;*/
-  text-align: center;
-  width: 80%;
-  max-width: 450px;
-}
-.login input {
-  text-align: left;
-  border: solid 1px #caeaf2;
-  padding: 0.3em;
-  transition: 0.5s;
-  background: transparent;
-  letter-spacing: 1px;
-  border-radius: 4px;
-}
-#login-pass {
-  width: 90%;
-  margin-bottom: 1em;
-}
-#login-mail {
-  width: 90%;
-  margin-top: 2.5em;
-  margin-bottom: 2em;
-}
-/* ログインボタン */
-.login input:hover {
-  background-color: #ecf6f9;
-}
-.login input:focus {
-  outline: none;
-  border: solid 1px #0f7f98;
-  background-color: #dceef3;
-}
-.login-button-wrap {
-  margin-bottom: 2.5em;
-}
 button {
   width: auto;
   padding: 0;
@@ -93,40 +48,27 @@ button {
   margin-left: 1em;
   margin-right: 1em;
 }
-#login-error-text {
-  margin-bottom: 1em;
-  color: red;
-  transform: rotate(0.003deg);
-  font-size: 0.8rem;
+
+ul {
+  padding-left: 0;
 }
-#login-button img {
+
+li {
+  list-style: none;
+  text-align: center;
+  margin-top: 3em;
+}
+
+button img {
   display: fixed;
   position: center;
   margin-bottom: 2em;
   width: 100px;
 }
-#login-button img:hover {
+button img:hover {
   opacity: 0.6;
 }
-#login-button img:active {
-  position: relative;
-  top: 3px;
-}
-/*  新規登録ボタン */
-.new-button-wrap {
-  margin-bottom: 2.5em;
-  text-align: center;
-}
-#new-button img {
-  display: fixed;
-  position: center;
-  margin-bottom: 2em;
-  width: 105px;
-}
-#new-button img:hover {
-  opacity: 0.6;
-}
-#new-button img:active {
+button img:active {
   position: relative;
   top: 3px;
 }

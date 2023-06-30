@@ -6,45 +6,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="shortcut icon" href="./icon/icon.ico" />
   </head>
   <body>
-    <!-- ページタイトルロゴ -->
+    <!-- タイトルロゴ -->
     <div class="logo">
-      <img class="logo-img" src="img/blue_login.png" alt="ログインロゴ" />
+      <img
+        class="logo-img"
+        src="img/blue_PC_titlelogo_2.png"
+        alt="ReO.comのロゴ"
+      />
     </div>
+    <a href="">サインアウト</a>
 
-    <!-- 通常ログイン枠 -->
-    <div class="card">
-      <div class="login">
-        <input
-          type="email"
-          id="login-mail"
-          placeholder="メールアドレス"
-          required
-        />
-        <input
-          type="password"
-          id="login-pass"
-          placeholder="パスワード"
-          required
-        />
-        <div id="login-error-text"></div>
-        <div class="login-button-wrap" ontouchstart="">
-          <button type="button" id="login-button">
-            <img src="img/blue_login_Button.png" />
+    <!-- 選択ボタン -->
+    <div class="choice_menu">
+      <ul>
+        <li>
+          <button type="button" id="create_menu">
+            <img src="img/blue_genko_icon.png" />
           </button>
-        </div>
-        <!-- Googleログインボタン -->
-        <p>グーグルでログイン</p>
-      </div>
-      <div class="new">
-        <!-- 新規登録ボタン(新規登録ページに遷移) -->
-        <div class="new-button-wrap" ontouchstart="">
-          <button type="button" id="new-button">
-            <img src="img/blue_shinki_Button.png" />
+        </li>
+        <li>
+          <button type="button" id="practice_menu">
+            <img src="img/blue_rensyu_Button.png" />
           </button>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/index.js"></script>
