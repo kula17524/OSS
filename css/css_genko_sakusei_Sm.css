@@ -9,10 +9,10 @@
     }
 
     #back{
-    
-        position: relative;
+        position: fixed;
+        
         display: block;
-        left: -6px;
+        left: -9px;
         top: 40px;
         margin: 0;
         width: 105vw;
@@ -32,7 +32,7 @@
         display: block;
         position: fixed;
         top: -2px;
-        left: -12px;
+        left: -17px;
         width: 120%;
         height: auto;
     }
@@ -43,14 +43,18 @@
         display: none;
     }
     #labeltext{
+        display: none;
+    }
+    #labeltext_sm{
+        position: fixed;
         position: absolute;
         display: flex;
         justify-content: center;
-        top: 85;
+        top: 13%;
         left: 50%;
         right: 50%;
-        margin-left: -12%;
-        width: 100%;
+        margin-left: -17%;
+        width: 35%;
         height: auto;
     }
 
@@ -63,22 +67,28 @@
     }
 
     /*テキストボックス*/
+    .textbox{
+ 
+        text-align: center;
+    }
+
     .mojisu-label,
     .mojisu {
         color: #073b57;
+        position: fixed;
     }
 
     .mojisu-label {
-        display: inline-block;
         width: calc(100% - 2em);
         font-size: .9em;
+        top: 28%;
+        left: -1%;
     }
     .mojisu {
-        position: fixed;
         display: block;
-        top: 250;
-        left: 80;
-        width: 20%;
+        top: 27%;
+        left: 15%;
+        width: 23%;
         height: 5%;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
@@ -94,18 +104,19 @@
     }
     .time-label,
     .time {
+        position: fixed;
         color: #333;
     }
     .time-label {
-        display: inline-block;
-        margin-bottom: 5px;
+        width: calc(100% - 2em);
         font-size: .9em;
+        top: 36%;
+        left: -3%;
     }
     .time {
-        position: fixed;
-        top: 320;
-        left: 80;
-        width: 20%;
+        top: 35%;
+        left: 15%;
+        width: 23%;
         height: 5%;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
@@ -154,30 +165,33 @@
         color: #999;
     }
 
-    /*ボタン設定*/
+    /*スマホボタン設定*/
     #saveicon_2{
         position: fixed;
-        display: block;
-        margin: auto;
-        left: -215;
-        top: 560;
-        transform: scale(0.2);
+        display: flex;
+        justify-content: center;
+        left: 50%;
+        margin-left: -71.515px;
+        top: 85%;
+        width: 35%;
+        height: auto;
+
     }
 
     #back_button{
         position: absolute;
         float: none;
         margin: auto;
-        top: 90;
-        left: 25px;
+        top: 10%;
+        left: 20px;
         width: 20%;
     }
     #hmb{
         position: absolute;
         margin: auto;
         float: none;
-        top: 90;
-        right: 5px;
+        top: 10%;
+        right: 20px;
         width: 20%;
     }
 

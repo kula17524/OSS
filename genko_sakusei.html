@@ -20,24 +20,29 @@
         <img id="logoicon" src="./img/blue_PC_titlelogo_2.png">
         <img id="label" src="./img/blue_PC_label.png">
         <img id="labeltext" src="./img/text_shinkisakusei.png">
+        <img id="labeltext_sm" src="./img/text_shinkisakusei_black.png">
     </div>
-    <!--PCのみの機能ボタン-->
-    <div class="function_button">
+    
+    <div class="function_button"><!--PCのみの機能ボタン-->
         <img id="saveicon" src="./img/PC_save_icon.png">
         <img id="exiticon" src="./img/PC_door_icon.png">
+    </div>
+    <div class="sm_function"><!--スマホの機能ボタン-->
         <img id="saveicon_2" src="./img/blue_hozon_Button.png">
         <img id="back_button" src="./img/blue_back_Button.png">
         <img id="hmb" src="./img/blue_hmb.png">
     </div>
+   
         
-    
-    <span class="mojisu-label">文字</span>
-    <input type="number" class="mojisu" placeholder="文字数"/>
-    <span class="time-label">分</span>
-    <input type="number" class="time" placeholder="時間"/>
-    <input type="text" class="genko_title" placeholder="原稿タイトル"/>
-    <textarea id="textarea" name="main" placeholder="本文"></textarea>
- 
+    <div class="textbox">
+        <span class="mojisu-label">文字</span>
+        <input type="number" class="mojisu" placeholder="目標文字数"/>
+        <span class="time-label">分</span>
+        <input type="number" class="time" placeholder="目標時間"/>
+        <input type="text" class="genko_title" placeholder="原稿タイトル"/>
+        <textarea id="textarea" name="main" placeholder="本文"></textarea>
+    </div>
+
     <script>
     </script>
 </body>
