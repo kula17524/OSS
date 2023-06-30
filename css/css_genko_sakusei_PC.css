@@ -71,6 +71,16 @@
         transform-origin: 0% ; 
         transform: scale(0.35);
     }
+    #saveicon:hover{
+        opacity:0.5;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #saveicon_2:active{
+        position: fixed;
+	    top: 61;
+    }
+
     #exiticon{
         position: fixed;
         display: block;
@@ -79,6 +89,16 @@
         transform-origin: 0% ; 
         transform: scale(0.35);
     }
+    #exiticon:hover{
+        opacity:0.5;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #exiticon:active{
+        position: fixed;
+	    top: 161;
+    }
+
 
     /*テキストボックス*/
     .mojisu-label,
@@ -152,6 +172,7 @@
     }
     #textarea {
         position: fixed;
+        resize: none;
         top: 280;
         left: 200;
         width: 70%;
