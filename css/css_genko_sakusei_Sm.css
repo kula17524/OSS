@@ -11,7 +11,6 @@
 
     #back{
         position: fixed;
-        
         display: block;
         left: -9px;
         top: 40px;
@@ -26,10 +25,10 @@
     #sidebar{
         display: none;
     }
+    /*pc用ヘッダー*/
     #topbar{
         display: none;
     }
-
     /*スマホ用ヘッダー*/
     #topbar_sm{
         display: block;
@@ -45,10 +44,10 @@
     #label{
         display: none;
     }
+    /*「新規作成」*/
     #labeltext{
         display: none;
     }
-    /*「新規作成」*/
     #labeltext_sm{
         position: absolute;
         display: flex;
@@ -56,8 +55,8 @@
         top: 13%;
         left: 50%;
         right: 50%;
-        margin-left: -17%;
-        width: 35%;
+        margin-left: -16%;
+        width: 33%;
         height: auto;
     }
 
@@ -209,7 +208,7 @@
         position: fixed;
 	    top: 85.5%;
     }
-
+    /*戻るボタン*/
     #back_button{
         position: absolute;
         float: none;
@@ -227,6 +226,7 @@
 	    top: 10.5%;
     }
 
+    /*ハンバーガーボタン*/
     #hmb{
         position: absolute;
         float: none;

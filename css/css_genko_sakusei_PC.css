@@ -2,11 +2,12 @@
     font-family: "ＭＳゴシック";
     src: url("../font/MS-Gothic-01.ttf");
   }
-/*PC用のCSSを記入*/
-@media screen and(min-width: 2161px) {
+/*PC用のCSSを記入
+@media screen and(min-width: 2161px) {*/
     /*背景設定*/
     #back{
         position: fixed;
+        display: block;
         left: -6px;
         margin: 0;
         width: 105vw;
@@ -25,6 +26,7 @@
         height: 951px;
         transform: scale(0.7);
     }
+    /*PC用ヘッダー*/
     #topbar{
         float: left;
         display: block;
@@ -34,9 +36,11 @@
         width: 107vw;
         height: 17%;
     }
+    /*スマホ用ヘッダー*/
     #topbar_sm{
         display: none;
     }
+    /*左上のロゴ*/
     #logoicon{
         position: fixed;
         display: block;
@@ -53,6 +57,7 @@
         transform-origin: 0%; 
         transform: scale(0.17);
     }
+    /*「新規作成」*/
     #labeltext{
         position: fixed;
         display: block;
@@ -60,6 +65,9 @@
         left: 140;
         transform-origin: 0%; 
         transform: scale(0.3);
+    }
+    #labeltext_sm{
+        display: none;
     }
 
     /*サイドバーの機能設定*/
@@ -76,7 +84,7 @@
         /* リンクをホバーしたときのカーソルに*/
         cursor: pointer;
     }
-    #saveicon_2:active{
+    #saveicon:active{
         position: fixed;
 	    top: 61;
     }
@@ -101,23 +109,25 @@
 
 
     /*テキストボックス*/
+    /*目標文字数*/
     .mojisu-label,
     .mojisu {
+        font-family: inherit;
         color: #073b57;
+        position: fixed;
     }
 
     .mojisu-label {
-        position: fixed;
-        display: inline-block;
         width: calc(100% - 2em);
         font-size: .9em;
+        top: 187;
+        left: 26%;
     }
     .mojisu {
-        position: fixed;
         display: block;
         top: 180;
-        left: 200;
-        width: 6%;
+        left: 16%;
+        width: 9%;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
         border-radius: 3px;
@@ -125,40 +135,47 @@
         box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
     }
     .mojisu:focus{
-        outline:solid 2px rgb(205, 246, 255);
+        outline:solid 1px rgb(117, 139, 168);
     }
     .mojisu::placeholder {
-        color: #999;
+        color: #c2c2c2;
     }
+    /*目標時間*/
     .time-label,
     .time {
-        color: #333;
+        font-family: inherit;
+        position: fixed;
+        color: #073b57;
     }
     .time-label {
-        position: fixed;
-        display: inline-block;
-        margin-bottom: 5px;
+        width: calc(100% - 2em);
         font-size: .9em;
+        top: 187;
+        left: 46%;
     }
     .time {
-        position: fixed;
         top: 180;
-        left: 400;
-        width: 6%;
+        left: 36%;
+        width: 9%;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
         border-radius: 3px;
         line-height: 1.5;
         box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
     }
-
-    .time::placeholder {
-        color: #999;
+    .time:focus{
+        outline:solid 1px rgb(117, 139, 168);
     }
+    .time::placeholder {
+        color: #c2c2c2;
+    }
+
+    /*原稿タイトル*/
     .genko_title {
+        font-family: inherit;
         position: fixed;
         top: 230;
-        left: 200;
+        left: 16%;
         width: 70%;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
@@ -166,15 +183,20 @@
         line-height: 1.5;
         box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
     }
-
-    .genko_title::placeholder {
-        color: #999;
+    .genko_title:focus{
+        outline:solid 1px rgb(117, 139, 168);
     }
+    .genko_title::placeholder {
+        color: #c2c2c2;
+    }
+
+    /*原稿本文*/
     #textarea {
+        font-family: inherit;
         position: fixed;
         resize: none;
         top: 280;
-        left: 200;
+        left: 16%;
         width: 70%;
         height: 40%;
         padding: 8px 10px;
@@ -188,11 +210,14 @@
         line-height: 1.5;
         box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
     }
-
-    #texarea::placeholder {
-        color: #999;
+    #textarea:focus{
+        outline:solid 1px rgb(117, 139, 168);
     }
+    #texarea::placeholder {
+        color:  #c2c2c2;
+    }
+
     #saveicon_2{
         display: none;
     }
-}
+/*}*/
