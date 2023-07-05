@@ -49,6 +49,16 @@
         transform-origin: 0% 0%; /*左上基準*/
         transform: scale(0.09);
     }
+    #logoicon:hover{
+        opacity:0.7;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #logoicon:active{
+        position: fixed;
+	    top: 11;
+    }
+
     #label{
         position: fixed;
         display: block;
@@ -70,7 +80,18 @@
         display: none;
     }
 
-    /*サイドバーの機能設定*/
+    /*サイドバーとボタンの機能設定*/
+
+    /*画像をドラッグさせない*/
+    .function_button{
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -moz-touch-callout:none;
+        -moz-user-select:none;
+        user-select:none;
+    }
+
+    /*保存ボタン*/
     #saveicon{
         position: fixed;
         display: block;
@@ -78,17 +99,44 @@
         left: 25;
         transform-origin: 0% ; 
         transform: scale(0.35);
+        cursor: pointer;
     }
     #saveicon:hover{
         opacity:0.5;
-        /* リンクをホバーしたときのカーソルに*/
         cursor: pointer;
     }
     #saveicon:active{
         position: fixed;
 	    top: 61;
     }
+    .wrap label {
+        display: block;
+        padding : 8px;
+        color: #fff;
+        font-weight: bold;
+        background: #999;
+        cursor: pointer;
+      }
+      
+      .wrap input[type="checkbox"] {
+        display: none;
+      }
+      
+      .wrap .content {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+      }
+      
+      .switch:checked + .content {
+        height: auto;
+        padding: 8px;
+        background: #f7f7f7;
+      }
 
+    /*退出ボタン*/
     #exiticon{
         position: fixed;
         display: block;
@@ -98,7 +146,7 @@
         transform: scale(0.35);
     }
     #exiticon:hover{
-        opacity:0.5;
+        opacity:0.7;
         /* リンクをホバーしたときのカーソルに*/
         cursor: pointer;
     }
@@ -138,7 +186,7 @@
         outline:solid 1px rgb(117, 139, 168);
     }
     .mojisu::placeholder {
-        color: #c2c2c2;
+        color: #7b7b7b;
     }
     /*目標時間*/
     .time-label,
@@ -167,7 +215,7 @@
         outline:solid 1px rgb(117, 139, 168);
     }
     .time::placeholder {
-        color: #c2c2c2;
+        color: #7b7b7b;
     }
 
     /*原稿タイトル*/
@@ -187,7 +235,7 @@
         outline:solid 1px rgb(117, 139, 168);
     }
     .genko_title::placeholder {
-        color: #c2c2c2;
+        color:#7b7b7b;
     }
 
     /*原稿本文*/
@@ -201,7 +249,7 @@
         height: 40%;
         padding: 8px 10px;
         border-radius: 3px;
-        font-size: 1em;
+        font-size: 0.9em;
         display: inline-block;
         border: 1px solid #ced3d8;
         border-radius: 3px;
@@ -214,7 +262,7 @@
         outline:solid 1px rgb(117, 139, 168);
     }
     #texarea::placeholder {
-        color:  #c2c2c2;
+        color:  #7b7b7b;
     }
 
     #saveicon_2{

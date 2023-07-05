@@ -24,12 +24,13 @@
     </div>
     
     <div class="function_button"><!--PCのみの機能ボタン-->
-        <img id="saveicon" src="./img/PC_save_icon.png">
-        <img id="exiticon" src="./img/PC_door_icon.png">
+        <label for="save"></label><img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false" >
+
+        <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
-        <img id="saveicon_2" src="./img/blue_hozon_Button.png" ontouchend="">
-        <img id="back_button" src="./img/blue_back_Button.png">
+        <img id="saveicon_2" src="./img/blue_hozon_Button.png"  ontouchstart=""  draggable="false" ontouchend="">
+        <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
         <img id="hmb" src="./img/blue_hmb.png">
     </div>
    
@@ -43,11 +44,16 @@
         <input type="text" class="genko_title" placeholder="タイトル"/>
         <br>
         <br>
-        <textarea id="textarea" name="main" placeholder="本文"></textarea>
+        <textarea id="textarea" name="main" placeholder="本文を入力"></textarea>
         <br>
     </div>
-
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <script>
+        $(function() {
+            $("#saveicon").click(function() {
+                $("view").slideToggle("#saveicon_clicked");
+            });
+        });
     </script>
 </body>
 </html>
