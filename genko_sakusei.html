@@ -24,8 +24,9 @@
     </div>
     
     <div class="function_button"><!--PCのみの機能ボタン-->
-        <label for="save"></label><img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false" >
-
+        <button type="button">
+            <img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false" >
+        </button>
         <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
@@ -44,16 +45,17 @@
         <input type="text" class="genko_title" placeholder="タイトル"/>
         <br>
         <br>
-        <textarea id="textarea" name="main" placeholder="本文を入力"></textarea>
+        <textarea id="textarea" name="main" placeholder="本文を入力" onkeyup="ShowLength(value);"></textarea>
+        <p id="inputlength">0</p>
+        <span class="gen_mojisu-label">文字</span>
         <br>
     </div>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script>
-        $(function() {
-            $("#saveicon").click(function() {
-                $("view").slideToggle("#saveicon_clicked");
-            });
-        });
+        /*文字数カウント*/
+        function ShowLength( str ) {
+            document.getElementById("inputlength").innerHTML = str.length;
+        }
     </script>
 </body>
 </html>
