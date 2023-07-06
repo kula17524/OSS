@@ -1,0 +1,262 @@
+@font-face {
+    font-family: "ＭＳゴシック";
+    src: url("../font/MS-Gothic-01.ttf");
+  }
+/*PC用のCSSを記入
+@media screen and(min-width: 2161px) {*/
+    /*背景設定*/
+    #back{
+        position: fixed;
+        display: block;
+        left: -6px;
+        margin: 0;
+        width: 105vw;
+        height: 105vh;
+        background-repeat: no-repeat;
+        background-position:center center;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    #sidebar{
+        position: fixed;
+        display: block;
+        top: -90;
+        left: -40;
+        width: 173px;
+        height: 951px;
+        transform: scale(0.7);
+    }
+    /*PC用ヘッダー*/
+    #topbar{
+        float: left;
+        display: block;
+        position: fixed;
+        top: -15px;
+        left: -25px;
+        width: 107vw;
+        height: 17%;
+    }
+    /*スマホ用ヘッダー*/
+    #topbar_sm{
+        display: none;
+    }
+    /*左上のロゴ*/
+    #logoicon{
+        position: fixed;
+        display: block;
+        top: 10;
+        left: 20;
+        transform-origin: 0% 0%; /*左上基準*/
+        transform: scale(0.09);
+    }
+    #logoicon:hover{
+        opacity:0.7;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #logoicon:active{
+        position: fixed;
+	    top: 11;
+    }
+
+    #label{
+        position: fixed;
+        display: block;
+        top: -47;
+        left: 93;
+        transform-origin: 0%; 
+        transform: scale(0.17);
+    }
+    /*「新規作成」*/
+    #labeltext{
+        position: fixed;
+        display: block;
+        top: 92;
+        left: 140;
+        transform-origin: 0%; 
+        transform: scale(0.3);
+    }
+    #labeltext_sm{
+        display: none;
+    }
+
+    /*サイドバーとボタンの機能設定*/
+
+    /*画像をドラッグさせない*/
+    .function_button{
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -moz-touch-callout:none;
+        -moz-user-select:none;
+        user-select:none;
+    }
+
+    /*保存ボタン*/
+    #saveicon{
+        position: fixed;
+        display: block;
+        top: 60;
+        left: 25;
+        transform-origin: 0% ; 
+        transform: scale(0.35);
+        cursor: pointer;
+    }
+    #saveicon:hover{
+        opacity:0.5;
+        cursor: pointer;
+    }
+    #saveicon:active{
+        position: fixed;
+	    top: 61;
+    }
+    
+
+    /*退出ボタン*/
+    #exiticon{
+        position: fixed;
+        display: block;
+        top: 160;
+        left: 30;
+        transform-origin: 0% ; 
+        transform: scale(0.35);
+    }
+    #exiticon:hover{
+        opacity:0.7;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #exiticon:active{
+        position: fixed;
+	    top: 161;
+    }
+
+
+    /*テキストボックス*/
+    /*目標文字数*/
+    .mojisu-label,
+    .mojisu {
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+    }
+
+    .mojisu-label {
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 187;
+        left: 26%;
+    }
+    .mojisu {
+        display: block;
+        top: 180;
+        left: 16%;
+        width: 9%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .mojisu:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .mojisu::placeholder {
+        color: #7b7b7b;
+    }
+    /*目標時間*/
+    .time-label,
+    .time {
+        font-family: inherit;
+        position: fixed;
+        color: #073b57;
+    }
+    .time-label {
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 187;
+        left: 46%;
+    }
+    .time {
+        top: 180;
+        left: 36%;
+        width: 9%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .time:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .time::placeholder {
+        color: #7b7b7b;
+    }
+
+    /*原稿タイトル*/
+    .genko_title {
+        font-family: inherit;
+        position: fixed;
+        top: 230;
+        left: 16%;
+        width: 70%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .genko_title:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .genko_title::placeholder {
+        color:#7b7b7b;
+    }
+
+    /*原稿本文*/
+    #textarea {
+        font-family: inherit;
+        position: fixed;
+        resize: none;
+        top: 280;
+        left: 16%;
+        width: 70%;
+        height: 40%;
+        padding: 8px 10px;
+        border-radius: 3px;
+        font-size: 0.9em;
+        display: inline-block;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        box-sizing: border-box;
+        margin: 0.5em 0;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    #textarea:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    #texarea::placeholder {
+        color:  #7b7b7b;
+    }
+
+    #inputlength{
+        position: fixed;
+        top: 170;
+        left: 60%;
+    }
+    .gen_mojisu-label {
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 187;
+        left: 64%;
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+    }    
+
+    #saveicon_2{
+        display: none;
+        
+    }
+/*}*/
