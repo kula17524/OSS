@@ -132,6 +132,13 @@
 
 
     /*テキストボックス*/
+    /*numberの矢印を消す*/
+    input[type="number"]::-webkit-outer-spin-button, 
+    input[type="number"]::-webkit-inner-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+    }
+    
     /*目標文字数*/
     .mojisu-label,
     .mojisu {
@@ -163,6 +170,13 @@
     .mojisu::placeholder {
         color: #7b7b7b;
     }
+    .nonumber{
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 187;
+        left: 15%;
+    }
+
     /*目標時間*/
     .time-label,
     .time {
@@ -239,21 +253,62 @@
     #texarea::placeholder {
         color:  #7b7b7b;
     }
-
+    /*文字数カウント*/
     #inputlength{
+        font-family: inherit;
         position: fixed;
-        top: 170;
+        top: 174;
         left: 60%;
     }
-    .gen_mojisu-label {
+    /*「文字」*/
+    .gen_mojisu_label {
         width: calc(100% - 2em);
         font-size: .9em;
-        top: 187;
+        top: 192;
         left: 64%;
         font-family: inherit;
         color: #073b57;
         position: fixed;
-    }    
+    }
+    /*「現在の文字数」*/
+    .explain_moji_label{
+        width: calc(100% - 2em);
+        font-size: .7em;
+        top: 165;
+        left: 61%;
+        font-family: inherit;
+        color: #676767;
+        position: fixed;
+    }
+
+    /*「読み上げ時間」*/
+    .exprain_yomi_label{
+        width: calc(100% - 2em);
+        font-size: .7em;
+        top: 165;
+        left: 75%;
+        font-family: inherit;
+        color: #676767;
+        position: fixed;
+    }
+
+    #inputtime{
+        font-family: inherit;
+        position: fixed;
+        top: 174;
+        left: 75%;
+    }
+
+    /*「分」*/
+    .gen_mojisu_time{
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 192;
+        left: 79.3%;
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+    }
 
     #saveicon_2{
         display: none;
