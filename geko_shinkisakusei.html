@@ -1,0 +1,112 @@
+<html lang="ja">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="css/css_genko_sakusei_PC.css">
+<link rel="stylesheet" media="screen and (max-width:960px)" href="css/css_genko_sakusei__Tab.css">
+<link rel="stylesheet" media="screen and (max-width:480px)" href="css/css_genko_sakusei_Sm.css">
+<link rel="icon" href="img/blue_icon(ico).ico">
+
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>ReO.com-原稿新規作成</title>
+</head>
+<body>
+    <div class="background">
+        <img id="back" src="./img/blue_background.png">
+        <img id="sidebar" src="./img/blue_PC_side.png">
+        <img id="topbar" src="./img/blue_PC_top.png">
+        <img id="topbar_sm" src="./img/blue_Sm_top.png">
+        <img id="logoicon" src="./img/blue_PC_titlelogo_2.png">
+        <img id="label" src="./img/blue_PC_label.png">
+        <img id="labeltext" src="./img/text_shinkisakusei.png">
+        <img id="labeltext_sm" src="./img/text_shinkisakusei_black.png">
+    </div>
+    
+    <div class="function_button"><!--PCのみの機能ボタン-->
+        <button type="button">
+            <img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false" >
+        </button>
+        <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
+    </div>
+    <div class="sm_function"><!--スマホの機能ボタン-->
+        <img id="saveicon_2" src="./img/blue_hozon_Button.png"  ontouchstart=""  draggable="false" ontouchend="">
+        <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
+        <img id="hmb" src="./img/blue_hmb.png">
+    </div>
+   
+        
+    <div class="textbox">
+        <span class="mojisu-label">文字</span>
+        <input type="number" inputmode="numeric" class="mojisu" placeholder="目標文字数" onkeyup="updateTime(value);"/>
+        <p id="nonumber"></p>
+        <span class="time-label">分</span>
+        <input type="number"  inputmode="numeric" class="time" placeholder="目標時間" onkeyup="updateMojisu(value);"/>
+        <br>
+        <input type="text" class="genko_title" placeholder="タイトル"/>
+        <br>
+        <br>
+        <textarea id="textarea" name="main" placeholder="本文を入力" onkeyup="Length(value);"></textarea>
+        <br>
+        <span class="explain_moji_label">現在の文字数</span>
+        <p id="inputlength">0</p>
+        <span class="gen_mojisu_label">文字</span>
+        <span class="exprain_yomi_label">読み上げ時間</span>
+        <p id="inputtime">0</p>
+        <span class="gen_mojisu_time">分</span>
+    </div>
+    
+    <script>
+        function isNaturalNumber(value) {
+        var parsedValue = parseInt(value, 10);
+        return !isNaN(parsedValue) && parsedValue > 0;
+            }
+
+        function updateTime(value) {
+            var mojisuInput = document.getElementsByClassName("mojisu")[0];
+            var timeInput = document.getElementsByClassName("time")[0];
+            
+            if (isNaturalNumber(value)) {
+                var mojisu = parseInt(value, 10);
+                var time = (mojisu * 0.2) / 60;
+                timeInput.value = time.toFixed(2);
+            } else {
+                timeInput.value = '';
+            }
+        }
+
+        function updateMojisu(value) {
+            var mojisuInput = document.getElementsByClassName("mojisu")[0];
+            var timeInput = document.getElementsByClassName("time")[0];
+
+            if (isNaturalNumber(value)) {
+                var time = parseFloat(value);
+                var mojisu = (time * 60) / 0.2;
+                mojisuInput.value = Math.round(mojisu);
+            } else {
+                mojisuInput.value = '';
+            }
+        }
+
+        function showLength(value) {
+            var inputLength = document.getElementById("inputlength");
+            var length = value.length;
+            inputLength.innerText = length;
+        }
+
+        /*文字数カウント*/
+        function Length( str ) {
+            document.getElementById("inputlength").innerHTML = str.length;
+            const n = (str.length * 0.2) / 60;
+            document.getElementById("inputtime").innerHTML = n.toFixed(2);
+        }
+        function moku_Length( number ) {
+            const textbox = document.getElementById("message")
+            const value = textbox.value
+            if (value < 0 && value == "e" && value == "+"){
+            }
+        }
+
+    </script>
+</body>
+</html>
