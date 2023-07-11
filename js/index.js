@@ -1,9 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
 import {
   getAuth,
-  setPersistence,
-  signInWithEmailAndPassword,
-  browserSessionPersistence,
+  signOut,
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -14,14 +13,35 @@ const firebaseConfig = {
   messagingSenderId: config.SENDID,
   appId: config.APPID,
 };
-
-// Initialize Firebase
 initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-firebaseApp.fireauth.onAuthStateChanged((user) => {
-  if (!user) {
-    window.location.replace("login.html");
+let logout = document.getElementById("logout");
+
+onAuthStateChanged(auth, (user) => {
+  //ログイン状態が変更された時の処理
+  let logout = document.getElementById("logout");
+
+  //-----------------------------------
+  // ログインチェック
+  //-----------------------------------
+  if (user) {
+    app;
+    const user = auth.currentUser;
+    const email = user.email;
+  } else {
+    location.href = "login.html";
   }
+
+  // ログアウトボタンを押下
+  logout.addEventListener("click", () => {
+    signOut(auth)
+      .then(() => {
+        location.href = "login.html";
+      })
+      .catch((error) => {
+        console.log(`ログアウト時にエラーが発生しました (${error})`);
+      });
+  });
 });

@@ -9,8 +9,8 @@ html {
 /* 画面設定と背景設定 */
 body {
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-image: url("../img/blue_PC_background.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -21,21 +21,30 @@ body {
 
 /* ロゴ */
 .logo {
+  margin: 0 auto;
   text-align: center;
-  width: auto;
+  width: 80%;
   height: 110px;
   min-height: 10vh;
-  max-width: 100%;
-  padding: 9vh 0 0 0;
+  max-width: 500px;
 }
 .logo-img {
-  width: auto;
-  height: 100%;
-  max-width: 80%;
+  width: 100%;
+  height: auto;
   text-align: center;
 }
+ul {
+  display: flex;
+  padding-left: 0;
+  align-items: center;
+  margin: 0;
+}
 
-button {
+li {
+  list-style: none;
+}
+
+.button_list {
   width: auto;
   padding: 0;
   background: none;
@@ -44,31 +53,94 @@ button {
   line-height: 0;
   overflow: visible;
   cursor: pointer;
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
   margin-left: 1em;
   margin-right: 1em;
 }
 
-ul {
-  padding-left: 0;
-}
-
-li {
-  list-style: none;
-  text-align: center;
-  margin-top: 3em;
-}
-
-button img {
+.button_list img {
   display: fixed;
   position: center;
-  margin-bottom: 2em;
   width: 100px;
 }
-button img:hover {
+
+.button_list img:hover {
   opacity: 0.6;
 }
-button img:active {
+.button_list img:active {
   position: relative;
   top: 3px;
+}
+@media screen and (min-height: 1000px) {
+  .button_list img {
+    width: 150px;
+  }
+}
+
+/* ユーザーアイコン */
+.user {
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 50px;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+}
+.user-img {
+  width: 60px;
+  height: 100%;
+  text-align: center;
+}
+.user-img:hover {
+  opacity: 0.6;
+}
+.user-img:active {
+  position: relative;
+  top: 3px;
+}
+
+@media screen and (orientation: landscape) {
+  /* 横向きの場合のスタイル */
+  li {
+    display: inline-block;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+}
+@media screen and (orientation: portrait) {
+  /* 縦向きの場合のスタイル */
+  ul {
+    display: inline;
+    text-align: center;
+  }
+  li {
+    margin-top: 6em;
+  }
+  .logo {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .user {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  li {
+    margin-top: 4em;
+  }
+  .logo {
+    margin-top: 50px;
+  }
+}
+
+#logout {
 }

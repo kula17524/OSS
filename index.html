@@ -9,31 +9,46 @@
     <link rel="shortcut icon" href="./icon/icon.ico" />
   </head>
   <body>
+    <!-- ログアウトボタン -->
+    <div class="user">
+      <button type="button" class="user">
+        <img class="user-img" src="img/blue_user_Button.png" alt="ユーザー" />
+      </button>
+    </div>
+
     <!-- タイトルロゴ -->
     <div class="logo">
-      <img
-        class="logo-img"
-        src="img/blue_PC_titlelogo_2.png"
-        alt="ReO.comのロゴ"
-      />
+      <img class="logo-img" src="img/blue_PC_titlelogo_2.png" alt="ロゴ" />
     </div>
-    <a href="">サインアウト</a>
+    <form>
+      <button type="button" id="logout">ログアウト</button>
+    </form>
 
     <!-- 選択ボタン -->
     <div class="choice_menu">
       <ul>
         <li>
-          <button type="button" id="create_menu">
+          <button
+            class="button_list"
+            type="button"
+            id="create_menu"
+            onclick="clickNew()"
+          >
             <img src="img/blue_genko_icon.png" />
           </button>
         </li>
-        <li>
-          <button type="button" id="practice_menu">
+        <li class="button_2">
+          <button class="button_list" type="button" id="practice_menu">
             <img src="img/blue_rensyu_Button.png" />
           </button>
         </li>
       </ul>
     </div>
+    <script>
+      function clickNew() {
+        location.href = "newlist.html";
+      }
+    </script>
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/index.js"></script>
   </body>
