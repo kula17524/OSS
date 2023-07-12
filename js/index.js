@@ -18,30 +18,47 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 let logout = document.getElementById("logout");
+let create = document.getElementById("create_menu");
+let practice = document.getElementById("practice_menu");
 
-onAuthStateChanged(auth, (user) => {
-  //ログイン状態が変更された時の処理
-  let logout = document.getElementById("logout");
-
-  //-----------------------------------
-  // ログインチェック
-  //-----------------------------------
-  if (user) {
-    app;
-    const user = auth.currentUser;
-    const email = user.email;
-  } else {
-    location.href = "login.html";
-  }
-
-  // ログアウトボタンを押下
-  logout.addEventListener("click", () => {
-    signOut(auth)
-      .then(() => {
-        location.href = "login.html";
-      })
-      .catch((error) => {
-        console.log(`ログアウト時にエラーが発生しました (${error})`);
-      });
-  });
+history.replaceState(null, null, null);
+history.pushState(null, null, null);
+window.addEventListener("popstate", function (e) {
+  history.pushState(null, null, null);
+  return;
 });
+window.onload = function () {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      app;
+      const user = auth.currentUser;
+      const email = user.email;
+      document.getElementById("user_mail").innerText = email;
+    } else {
+      location.href = "login.html";
+    }
+  });
+};
+
+// ログアウトボタンを押下
+logout.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      location.href = "login.html";
+    })
+    .catch((error) => {
+      console.log(`ログアウト時にエラーが発生しました (${error})`);
+    });
+});
+
+// 新規作成ボタンをクリック
+create.addEventListener("click", () => {
+  location.href = "newlist.html";
+});
+
+// 発表練習ボタンをクリック
+practice.addEventListener("click", () => {
+  location.href = "practicelist.html";
+});
+
+user_button.addEventListener("click", () => {});

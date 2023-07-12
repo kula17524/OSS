@@ -27,13 +27,14 @@ body {
   height: 110px;
   min-height: 10vh;
   max-width: 500px;
+  margin-bottom: 60px;
 }
 .logo-img {
   width: 100%;
   height: auto;
   text-align: center;
 }
-ul {
+.choice_menu > ul {
   display: flex;
   padding-left: 0;
   align-items: center;
@@ -53,7 +54,7 @@ li {
   line-height: 0;
   overflow: visible;
   cursor: pointer;
-  /*margin-bottom: 1em;*/
+  margin-bottom: 1em;
   margin-left: 1em;
   margin-right: 1em;
 }
@@ -78,10 +79,10 @@ li {
 }
 
 /* ユーザーアイコン */
-.user {
+.user_button {
   text-align: right;
   margin-right: 10px;
-  margin-top: 50px;
+  margin-top: 30px;
   background: none;
   border: 0;
   font-size: 0;
@@ -95,6 +96,11 @@ li {
   height: 100%;
   text-align: center;
 }
+.user {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
 .user-img:hover {
   opacity: 0.6;
 }
@@ -105,10 +111,10 @@ li {
 
 @media screen and (orientation: landscape) {
   /* 横向きの場合のスタイル */
-  li {
+  .choice_menu > li {
     display: inline-block;
   }
-  ul {
+  .choice_menu > ul {
     display: flex;
     justify-content: space-around;
     margin-top: 1em;
@@ -116,11 +122,11 @@ li {
 }
 @media screen and (orientation: portrait) {
   /* 縦向きの場合のスタイル */
-  ul {
+  .choice_menu > ul {
     display: inline;
     text-align: center;
   }
-  li {
+  .choice_menu > li {
     margin-top: 6em;
   }
   .logo {
@@ -134,7 +140,7 @@ li {
     margin-top: 20px;
     margin-right: 10px;
   }
-  li {
+  .choice_menu > li {
     margin-top: 4em;
   }
   .logo {
@@ -142,5 +148,89 @@ li {
   }
 }
 
-#logout {
+a {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #551a8b;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+a:focus {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* ユーザー情報表示タブ */
+#user-wrap {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  top: 1em;
+  right: -120%;
+  width: 200px;
+  height: 200px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+#user-list {
+  margin: 0;
+  padding: 0;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap.panelactive {
+  right: 0;
+}
+
+/*ナビゲーション*/
+#user-wrap ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.close {
+  margin-top: 2em;
+}
+.close p {
+  margin: 0.1em;
+  padding: 0.1em;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 600;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.close p:hover {
+  opacity: 70%;
+}
+.close p:focus {
+  opacity: 70%;
 }
