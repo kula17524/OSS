@@ -9,32 +9,51 @@
     <link rel="shortcut icon" href="./icon/icon.ico" />
   </head>
   <body>
+    <!-- ユーザーボタン -->
+    <div class="user">
+      <button type="button" class="user_button">
+        <img class="user-img" src="img/blue_user_Button.png" alt="ユーザー" />
+      </button>
+    </div>
+    <!-- ユーザー情報とログアウトリンク -->
+    <nav id="user-wrap">
+      <div id="user-list">
+        <ul>
+          <li><p>ログイン情報</p></li>
+          <li><p id="user_mail">Email</p></li>
+          <li><a id="logout">ログアウトする</a></li>
+          <li>
+            <div class="close"><p>×閉じる</p></div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <!-- タイトルロゴ -->
     <div class="logo">
-      <img
-        class="logo-img"
-        src="img/blue_PC_titlelogo_2.png"
-        alt="ReO.comのロゴ"
-      />
+      <img class="logo-img" src="img/blue_PC_titlelogo_2.png" alt="ロゴ" />
     </div>
-    <a href="">サインアウト</a>
 
     <!-- 選択ボタン -->
     <div class="choice_menu">
       <ul>
         <li>
-          <button type="button" id="create_menu">
+          <button class="button_list" type="button" id="create_menu">
             <img src="img/blue_genko_icon.png" />
           </button>
+          <div class="description3">原稿作成・編集</div>
         </li>
-        <li>
-          <button type="button" id="practice_menu">
+        <li class="button_2">
+          <button class="button_list" type="button" id="practice_menu">
             <img src="img/blue_rensyu_Button.png" />
           </button>
+          <div class="description3">発表練習</div>
         </li>
       </ul>
     </div>
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/index_jquery.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@ import {
   getAuth,
   setPersistence,
   signInWithEmailAndPassword,
-  browserSessionPersistence,
+  browserLocalPersistence,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -22,6 +22,38 @@ const auth = getAuth(app);
 let login_button = document.getElementById("login-button");
 let new_button = document.getElementById("new-button");
 document.getElementById("login-error-text").innerText = "　";
+setPersistence(auth, browserLocalPersistence);
+
+history.replaceState(null, null, null);
+history.pushState(null, null, null);
+window.addEventListener("popstate", function (e) {
+  history.pushState(null, null, null);
+  return;
+});
+
+window.onload = function () {
+  onAuthStateChanged(auth, (user) => {
+    //-----------------------------------
+    // ログインチェック
+    //-----------------------------------
+    if (user) {
+      location.href = "index.html";
+    }
+  });
+};
+
+window.onpageshow = function (event) {
+  if (event.persisted) {
+    onAuthStateChanged(auth, (user) => {
+      //-----------------------------------
+      // ログインチェック
+      //-----------------------------------
+      if (user) {
+        location.href = "index.html";
+      }
+    });
+  }
+};
 
 //ログイン処理
 document.addEventListener("DOMContentLoaded", function () {
