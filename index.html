@@ -1,8 +1,40 @@
 <!DOCTYPE html>
-<head>
+<html lang="ja">
+  <head>
+    <title>ReO.com</title>
 
-</head>
-<body>
-    <a>Hello, World!</a>
-</body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="shortcut icon" href="./icon/icon.ico" />
+  </head>
+  <body>
+    <!-- タイトルロゴ -->
+    <div class="logo">
+      <img
+        class="logo-img"
+        src="img/blue_PC_titlelogo_2.png"
+        alt="ReO.comのロゴ"
+      />
+    </div>
+    <a href="">サインアウト</a>
+
+    <!-- 選択ボタン -->
+    <div class="choice_menu">
+      <ul>
+        <li>
+          <button type="button" id="create_menu">
+            <img src="img/blue_genko_icon.png" />
+          </button>
+        </li>
+        <li>
+          <button type="button" id="practice_menu">
+            <img src="img/blue_rensyu_Button.png" />
+          </button>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="private.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </body>
 </html>

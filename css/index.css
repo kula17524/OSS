@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "MS";
+  src: url("../font/MS-Gothic-01.ttf");
+}
+html {
+  font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+/* 画面設定と背景設定 */
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/blue_PC_background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #c2e7ef;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* ロゴ */
+.logo {
+  text-align: center;
+  width: auto;
+  height: 110px;
+  min-height: 10vh;
+  max-width: 100%;
+  padding: 9vh 0 0 0;
+}
+.logo-img {
+  width: auto;
+  height: 100%;
+  max-width: 80%;
+  text-align: center;
+}
+
+button {
+  width: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+  text-align: center;
+  margin-top: 3em;
+}
+
+button img {
+  display: fixed;
+  position: center;
+  margin-bottom: 2em;
+  width: 100px;
+}
+button img:hover {
+  opacity: 0.6;
+}
+button img:active {
+  position: relative;
+  top: 3px;
+}
