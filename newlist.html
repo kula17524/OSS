@@ -5,12 +5,51 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/newlist.css" />
     <link rel="shortcut icon" href="./icon/icon.ico" />
   </head>
   <body>
-    <p>編集・新規作成用リスト画面</p>
+    <!-- PC用ヘッダー -->
+    <header class="pc">
+      <div class="bar_back pc">
+        <img src="./img/blue_PC_top.png" alt="横長画面用のヘッダー背景" />
+      </div>
+      <img class="logo pc" src="./img/blue_PC_titlelogo_2.png" alt="ロゴ" />
+
+      <!-- ユーザーボタン -->
+      <div class="user pc">
+        <button type="button" class="user_button pc">
+          <img
+            class="user-img pc"
+            src="img/blue_user_Button.png"
+            alt="ユーザー"
+          />
+        </button>
+      </div>
+      <!-- ユーザー情報とログアウトリンク -->
+      <nav id="user-wrap" class="pc">
+        <div id="user-list" class="pc">
+          <ul>
+            <li><p class="pc">ログイン情報</p></li>
+            <li><p id="user_mail" class="pc">Email</p></li>
+            <li><a id="logout" class="pc">ログアウトする</a></li>
+            <li>
+              <div class="close pc"><p>×閉じる</p></div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- スマホ用ヘッダー -->
+    <header class="sp">
+      <div class="bar_back sp">
+        <img src="./img/blue_Sm_top.png" alt="縦長画面用のヘッダー背景" />
+      </div>
+      <div class="logo sp"><p>原稿</p></div>
+    </header>
+
     <script type="text/javascript" src="private.js"></script>
-    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/newlist.js"></script>
   </body>
 </html>
