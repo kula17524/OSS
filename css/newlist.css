@@ -122,7 +122,7 @@ body {
       position: fixed;
       height: 70px;
       width: auto;
-      z-index: 200;
+      z-index: 5000;
     }
   }
 }
@@ -158,7 +158,7 @@ ul {
 .logo-txt {
   text-align: center;
   position: fixed;
-  z-index: 100;
+  z-index: 101;
 }
 
 /* ユーザーアイコン(PC) */
@@ -182,7 +182,7 @@ ul {
   overflow: visible;
   cursor: pointer;
   padding: 0;
-  z-index: 500;
+  z-index: 1000;
 }
 .user-img {
   width: 60px;
@@ -296,7 +296,7 @@ a:active {
 #user-wrap {
   /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
   position: fixed;
-  z-index: 999;
+  z-index: 6000;
   text-align: center;
   /*ナビのスタート位置と形状*/
   top: -0.5em;
@@ -327,7 +327,7 @@ a:active {
 #user-wrap ul {
   /*ナビゲーション天地中央揃え*/
   position: absolute;
-  z-index: 999;
+  z-index: 6000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -358,7 +358,7 @@ a:active {
 #user-wrap-sp {
   /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
   position: fixed;
-  z-index: 999;
+  z-index: 6000;
   text-align: center;
   /*ナビのスタート位置と形状*/
   top: 9em;
@@ -389,7 +389,7 @@ a:active {
 #user-wrap-sp ul {
   /*ナビゲーション天地中央揃え*/
   position: absolute;
-  z-index: 999;
+  z-index: 6000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
