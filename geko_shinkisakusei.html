@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <link rel="stylesheet" href="css/css_genko_sakusei_PC.css">
-    <!--link rel="stylesheet" media="screen and (max-width:960px)" href="css/css_genko_sakusei__Tab.css"-->
+    <link rel="stylesheet" media="screen and (max-width:960px)" href="css/css_genko_sakusei__Tab.css">
     <link rel="stylesheet" media="screen and (max-width:480px)" href="css/css_genko_sakusei_Sm.css">
     <link rel="icon" href="img/blue_icon(ico).ico">
 
@@ -24,13 +24,20 @@
     </div>
     
     <div class="function_button"><!--PCのみの機能ボタン-->
-        <button type="button">
-            <img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false">
-        </button>
+        <img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false">
+        <div id="mask" class="hidden"></div>
+        <section id="modal" class="hidden">
+        <p>保存しますか？</p>
+        </section>
+
         <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
         <img id="saveicon_2" src="./img/blue_hozon_Button.png" ontouchstart=""  draggable="false" ontouchend="">
+        <div id="mask" class="hidden"></div>
+        <section id="modal" class="hidden">
+        <p>保存しますか？</p>
+        </section>
         <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
         <img id="home" src="./img/blue_home_Button.png">
     </div>
@@ -60,7 +67,7 @@
     
     <script>
         /*目標時間・目標文字数計算*/
-
+        
         function isNaturalNumber(value) {
             var parsedValue = parseInt(value, 10);
             return !isNaN(parsedValue) && parsedValue > 0;
@@ -104,7 +111,36 @@
             const n = (str.length * 0.2) / 60;
             document.getElementById("inputtime").innerHTML = n.toFixed(2);
         }
-    
+        
+        /*保存ボタン*/
+        const savebtn = document.getElementById("saveicon");
+        const mask = document.getElementById("mask");
+        const modal = document.getElementById("modal");
+
+        savebtn.addEventListener('click', () => {
+            mask.classList.remove('hidden');
+            modal.classList.remove('hidden');
+        });
+
+        mask.addEventListener('click', () => {
+            mask.classList.add('hidden');
+            modal.classList.add('hidden');
+        });
+
+        const savebtn_sm = document.getElementById("saveicon_2");
+        const mask_sm = document.getElementById("mask_sm");
+        const modal_sm = document.getElementById("modal_sm");
+
+        savebtn_sm.addEventListener('click', () => {
+            mask_sm.classList.remove('hidden');
+            modal_sm.classList.remove('hidden');
+        });
+
+        mask_sm.addEventListener('click', () => {
+            mask_sm.classList.add('hidden');
+            modal_sm.classList.add('hidden');
+        });
+            
     </script>
 </body>
 </html>

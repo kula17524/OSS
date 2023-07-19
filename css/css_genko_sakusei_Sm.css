@@ -273,6 +273,32 @@
         position: fixed;
 	    top: 85.5%;
     }
+    #mask_sm {
+        background: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+    }
+    /*保存しますか？*/
+    #modal_sm {
+    background: #fff;
+    width: 40%;
+    height: 30%;
+    padding: 24px;
+    border-radius: 4px;
+    color: #073b57;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 0 auto;
+    z-index: 2;
+    }
+
     /*戻るボタン*/
     #back_button{
         position: absolute;
