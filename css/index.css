@@ -1,0 +1,265 @@
+@font-face {
+  font-family: "MS";
+  src: url("../font/MS-Gothic-01.ttf");
+}
+html {
+  font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+/* 画面設定と背景設定 */
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/blue_PC_background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #c2e7ef;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* ロゴ */
+.logo {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  height: 110px;
+  min-height: 10vh;
+  max-width: 500px;
+  margin-bottom: 60px;
+}
+.logo-img {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.choice_menu > ul {
+  display: flex;
+  padding-left: 0;
+  align-items: center;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.button_list {
+  width: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.button_list img {
+  display: fixed;
+  position: center;
+  width: 100px;
+}
+
+.button_list img:hover {
+  opacity: 0.6;
+}
+.button_list img:active {
+  position: relative;
+  top: 3px;
+}
+@media screen and (min-height: 1000px) {
+  .button_list img {
+    width: 150px;
+  }
+}
+
+/* ユーザーアイコン */
+.user_button {
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 30px;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+}
+.user-img {
+  width: 60px;
+  height: 100%;
+  text-align: center;
+}
+.user {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.user-img:hover {
+  opacity: 0.6;
+}
+.user-img:active {
+  position: relative;
+  top: 3px;
+}
+
+@media screen and (orientation: landscape) {
+  /* 横向きの場合のスタイル */
+  .choice_menu > li {
+    display: inline-block;
+  }
+  .choice_menu > ul {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+}
+@media screen and (orientation: portrait) {
+  /* 縦向きの場合のスタイル */
+  .choice_menu > ul {
+    display: inline;
+    text-align: center;
+  }
+  .choice_menu > li {
+    margin-top: 6em;
+  }
+  .logo {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .user {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  .choice_menu > li {
+    margin-top: 4em;
+  }
+  .logo {
+    margin-top: 50px;
+  }
+}
+
+a {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #551a8b;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+a:focus {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* ユーザー情報表示タブ */
+#user-wrap {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  top: 1em;
+  right: -120%;
+  width: 200px;
+  height: 200px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+#user-list {
+  margin: 0;
+  padding: 0;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap.panelactive {
+  right: 0;
+}
+
+/*ナビゲーション*/
+#user-wrap ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.close {
+  margin-top: 2em;
+}
+.close p {
+  margin: 0.1em;
+  padding: 0.1em;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 600;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.close p:hover {
+  opacity: 70%;
+}
+.close p:focus {
+  opacity: 70%;
+}
+
+/* 吹き出し */
+.description3 {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.6em;
+  color: #fff;
+  border-radius: 5px;
+  background: #000;
+  width: 100px;
+}
+.description3:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border: 15px solid transparent;
+  border-top: 15px solid #000;
+  margin-left: -15px;
+}
+.button_list:focus .description3 {
+  display: inline-block;
+  top: -75px;
+  left: -50px;
+}
