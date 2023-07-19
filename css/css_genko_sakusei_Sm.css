@@ -1,0 +1,311 @@
+@font-face {
+    font-family: "ＭＳゴシック";
+    src: url("../font/MS-Gothic-01.ttf");
+  }
+@media screen and (max-width: 480px) {
+/*スマホ用のCSSを記入*/
+    
+    .background{
+        text-align: center;
+    }
+
+    #back{
+        position: fixed;
+        display: block;
+        left: -9px;
+        top: 40px;
+        margin: 0;
+        width: 105vw;
+        height: 105vh;
+        background-repeat: no-repeat;
+        background-position:center center;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    #sidebar{
+        display: none;
+    }
+    /*pc用ヘッダー*/
+    #topbar{
+        display: none;
+    }
+    /*スマホ用ヘッダー*/
+    #topbar_sm{
+        display: block;
+        position: fixed;
+        top: -2px;
+        left: -17px;
+        width: 120%;
+        height: auto;
+    }
+    #logoicon{
+        display: none;
+    }
+    #label{
+        display: none;
+    }
+    /*「新規作成」*/
+    #labeltext{
+        display: none;
+    }
+    #labeltext_sm{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 13%;
+        left: 50%;
+        right: 50%;
+        margin-left: -16%;
+        width: 33%;
+        height: auto;
+    }
+
+    /*サイドバーの機能設定*/
+    #saveicon{
+        display: none;
+    }
+    #exiticon{
+        display: none;
+    }
+
+    /*テキストボックス*/
+    .textbox{
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+    }
+    /*目標文字数*/
+    .mojisu-label,
+    .mojisu {
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+    }
+
+    .mojisu-label {
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 225;
+        left: -1%;
+        display: block;
+    }
+    .mojisu {
+        display: block;
+        top: 220;
+        left: 15%;
+        width: 24%;
+        height: 5%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .mojisu:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .mojisu::placeholder {
+        color: #7b7b7b;
+    }
+    /*目標時間*/
+    .time-label,
+    .time {
+        font-family: inherit;
+        position: fixed;
+        color: #333;
+    }
+    .time-label {
+        width: calc(100% - 2em);
+        font-size: .9em;
+        top: 280;
+        left: -3%;
+    }
+    .time {
+        top: 274;
+        left: 15%;
+        width: 24%;
+        height: 5%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .time:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .time::placeholder {
+        color: #7b7b7b;
+    }
+
+    /*原稿タイトル*/
+    .genko_title {
+        font-family: inherit;
+        position: fixed;
+        top: 350;
+        width: 87%;
+        height: auto;
+        margin-left: -173px;
+        padding: 7px 10px;
+        font-size: 0.9em;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .genko_title:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .genko_title::placeholder {
+        color: #7b7b7b;
+    }
+    
+    /*原稿本文*/
+    #textarea {
+        font-family: inherit;
+        position: fixed;
+        resize: none;
+        top: 400;
+        left: 27;
+        width: 87%;
+        height: 20%;
+        margin-left: -180px;
+        margin-right: 20px;
+        padding: 8px 10px;
+        border-radius: 3px;
+        font-size: 0.9em;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        box-sizing: border-box;
+        margin: 0.5em 0;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    #textarea:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    #texarea::placeholder {
+        color: #7b7b7b;
+    }
+    /*文字数カウント*/
+    #inputlength{
+        font-family: inherit;
+        position: fixed;
+        top: 222;
+        left: 70%;
+    }
+    /*「文字」*/
+    .gen_mojisu_label {
+        font-family: inherit;
+        position: fixed;
+        font-size: .8em;
+        top: 240;
+        left: 40%;
+        z-index: 10000;
+        color: #073b57;
+    }
+    /*現在の文字数*/
+    .explain_moji_label {
+        font-family: inherit;
+        position: fixed;
+        font-size: .7em;
+        top: 220;
+        left: 35%;
+        z-index: 10000;
+        color: #073b57;
+    }
+    
+    /*「読み上げ時間」*/
+    .exprain_yomi_label{
+        font-size: .7em;
+        top: 270;
+        left: 35%;
+        font-family: inherit;
+        color: #676767;
+        position: fixed;
+    }
+
+    #inputtime{
+        font-family: inherit;
+        position: fixed;
+        top: 272;
+        left: 70%;
+    }
+
+    /*「分」*/
+    .gen_mojisu_time{
+        font-size: .9em;
+        top: 290;
+        left: 40%;
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+    }
+
+    /*スマホボタン設定*/
+
+    /*画像をドラッグさせない*/
+    .sm_function{
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -moz-touch-callout:none;
+        -moz-user-select:none;
+        user-select:none;
+    }
+
+    /**/
+    #saveicon_2{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        left: 50%;
+        margin-left: -71.515px;
+        top: 85%;
+        width: 35%;
+        height: auto;
+    }
+    #saveicon_2:hover{
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #saveicon_2:active{
+        position: fixed;
+	    top: 85.5%;
+    }
+    /*戻るボタン*/
+    #back_button{
+        position: absolute;
+        float: none;
+        margin: auto;
+        top: 10%;
+        left: 20px;
+        width: 20%;
+    }
+    #back_button:hover{
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #back_button:active{
+        position: fixed;
+	    top: 10.5%;
+    }
+
+    /*ハンバーガーボタン*/
+    #hmb{
+        position: absolute;
+        float: none;
+        margin: auto;
+        top: 10%;
+        right: 20px;
+        width: 20%;
+    }
+    #hmb:hover{
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+    }
+    #hmb:active{
+        position: fixed;
+	    top: 10.5%;
+    }
+
+}
