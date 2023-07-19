@@ -21,6 +21,16 @@ body {
 
 /* ヘッダー */
 /* 通常はPC用表示 */
+.pc {
+  display: block;
+  color: #4e4e4e;
+  top: 0;
+}
+.sp {
+  display: none;
+  color: #4e4e4e;
+  top: 0;
+}
 .bar_back {
   position: fixed;
   text-align: center;
@@ -39,25 +49,19 @@ body {
 .logo {
   position: fixed;
   height: 70px;
-  z-index: 1000;
-}
-.pc {
-  display: block !important;
-  color: #4e4e4e;
-}
-.sp {
-  display: none !important;
-  color: #4e4e4e;
+  width: auto;
+  z-index: 5000;
 }
 
 /* 縦長ならスマホ用画面になる */
 @media screen and (orientation: portrait) {
   .pc {
-    display: none !important;
+    display: none;
     color: #4e4e4e;
+    top: 0;
   }
   .sp {
-    display: block !important;
+    display: block;
     color: #4e4e4e;
   }
   .bar_back {
@@ -75,84 +79,114 @@ body {
     left: -30px;
     z-index: 100;
   }
-  .logo {
+  .logo-txt {
     width: 100%;
-    display: fixed;
+    display: block;
+    position: fixed;
     font-size: 45px;
     font-weight: normal;
-    top: 40px;
+    top: 35px;
     text-align: center;
-    z-index: 1000;
+    z-index: 100;
     margin: 0;
+    color: #4e4e4e;
   }
-  .logo h1 {
-    margin: 0;
+  /* 縦長でも縦の長さが短ければPC表示にする */
+  @media screen and (max-height: 600px) {
+    .pc {
+      display: block;
+      color: #4e4e4e;
+      top: 0;
+    }
+    .sp {
+      display: none;
+      color: #4e4e4e;
+      top: 0;
+    }
+    .bar_back {
+      position: fixed;
+      text-align: center;
+      width: 100%;
+      top: -20px;
+      left: -300px;
+      z-index: 100;
+    }
+    .bar_back img {
+      width: 5000px;
+      height: 100px;
+      top: -20px;
+      left: -30px;
+      z-index: 100;
+    }
+    .logo {
+      position: fixed;
+      height: 70px;
+      width: auto;
+      z-index: 200;
+    }
   }
+}
+
+/* ロゴのボタン化 */
+.top-wrap {
+  text-align: right;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logo:hover {
+  opacity: 0.6;
+}
+.logo:active {
+  position: relative;
+  top: 3px;
 }
 
 /* ユーザボタン PC用 */
 li {
   list-style: none;
 }
-
-.button_list {
-  width: auto;
+ul {
+  margin: 0;
   padding: 0;
-  background: none;
-  border: 0;
-  font-size: 0;
-  line-height: 0;
-  overflow: visible;
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
+}
+.logo-txt {
+  text-align: center;
+  position: fixed;
+  z-index: 100;
 }
 
-.button_list img {
-  display: fixed;
-  position: center;
-  width: 100px;
-}
-
-.button_list img:hover {
-  opacity: 0.6;
-}
-.button_list img:active {
-  position: relative;
-  top: 3px;
-}
-@media screen and (min-height: 1000px) {
-  .button_list img {
-    width: 150px;
-  }
-}
-
-/* ユーザーアイコン */
-.user_button {
+/* ユーザーアイコン(PC) */
+.user {
+  position: fixed;
   text-align: right;
-  margin-right: 10px;
-  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 60px;
+  z-index: 1100;
+}
+.user_button {
+  display: inline;
+  text-align: right;
   background: none;
   border: 0;
   font-size: 0;
   line-height: 0;
+  margin-right: 20px;
+  margin-top: 5px;
   overflow: visible;
   cursor: pointer;
   padding: 0;
-  z-index: 5000;
+  z-index: 500;
 }
 .user-img {
   width: 60px;
   height: 100%;
-}
-.user {
-  text-align: right;
-  margin-top: 20px;
-  margin-right: 10px;
-  z-index: 5000;
 }
 .user-img:hover {
   opacity: 0.6;
@@ -160,4 +194,292 @@ li {
 .user-img:active {
   position: relative;
   top: 3px;
+}
+
+/* ユーザーアイコン(スマホ) */
+.user-sp {
+  position: fixed;
+  text-align: right;
+  display: block;
+  width: 100%;
+  height: 90px;
+  z-index: 500;
+}
+.user_button-sp {
+  display: inline;
+  text-align: right;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  margin-right: 20px;
+  margin-top: 55px;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 500;
+}
+.user-img-sp {
+  width: 90px;
+  height: 100%;
+}
+.user-img-sp:hover {
+  opacity: 0.6;
+}
+.user-img-sp:active {
+  position: relative;
+  top: 3px;
+}
+
+/* ひとつ前に戻るボタン(スマホ) */
+.back-wrap {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 90px;
+  z-index: 500;
+}
+.back_button {
+  position: fixed;
+  display: block;
+  height: 90px;
+  z-index: 500;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  margin-left: 20px;
+  margin-top: 55px;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 500;
+}
+.back_img {
+  width: 90px;
+  height: 100%;
+}
+.back_img:hover {
+  opacity: 0.6;
+}
+.back_img:active {
+  position: relative;
+  top: 3px;
+}
+
+a {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #551a8b;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+a:focus {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* ユーザー情報表示タブ(PC) */
+#user-wrap {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  top: -0.5em;
+  right: -120%;
+  width: 200px;
+  height: 200px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+#user-list {
+  margin: 0;
+  padding: 0;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap.panelactive {
+  right: 0;
+}
+
+/*ナビゲーション*/
+#user-wrap ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.close {
+  margin-top: 2em;
+}
+.close p {
+  margin: 0.1em;
+  padding: 0.1em;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 600;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.close p:hover {
+  opacity: 70%;
+}
+.close p:focus {
+  opacity: 70%;
+}
+
+/* ユーザー情報表示タブ(スマホ) */
+#user-wrap-sp {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  top: 9em;
+  right: -120%;
+  width: 200px;
+  height: 200px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+#user-list-sp {
+  margin: 0;
+  padding: 0;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap-sp.panelactive {
+  right: 0;
+}
+
+/*ナビゲーション*/
+#user-wrap-sp ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.close-sp {
+  margin-top: 2em;
+}
+.close-sp p {
+  margin: 0.1em;
+  padding: 0.1em;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 600;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.close-sp p:hover {
+  opacity: 70%;
+}
+.close-sp p:focus {
+  opacity: 70%;
+}
+
+/* 横幅が狭ければボタンを小さくする */
+@media screen and (max-width: 300px) {
+  .logo-txt {
+    font-size: 35px;
+    top: 60px;
+  }
+  .back_button {
+    position: fixed;
+    display: block;
+    height: 70px;
+    z-index: 500;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 10px;
+    margin-top: 75px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+    z-index: 500;
+  }
+  .back_img {
+    width: 70px;
+    height: 100%;
+  }
+  .back_img:hover {
+    opacity: 0.6;
+  }
+  .back_img:active {
+    position: relative;
+    top: 3px;
+  }
+  .user-sp {
+    position: fixed;
+    text-align: right;
+    display: block;
+    width: 100%;
+    height: 70px;
+    z-index: 500;
+  }
+  .user_button-sp {
+    display: inline;
+    text-align: right;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-right: 10px;
+    margin-top: 75px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+    z-index: 500;
+  }
+  .user-img-sp {
+    width: 70px;
+    height: 100%;
+  }
+  .user-img-sp:hover {
+    opacity: 0.6;
+  }
+  .user-img-sp:active {
+    position: relative;
+    top: 3px;
+  }
 }

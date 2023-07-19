@@ -20,8 +20,8 @@ const auth = getAuth(app);
 
 // htmlと連携
 let logout = document.getElementById("logout");
-let create = document.getElementById("create_menu");
-let practice = document.getElementById("practice_menu");
+let top = document.getElementById("top");
+let back = document.getElementById("back");
 
 // 戻るボタンを実質的に無効化
 history.replaceState(null, null, null);
@@ -38,6 +38,7 @@ window.onload = function () {
       const user = auth.currentUser;
       const email = user.email;
       document.getElementById("user_mail").innerText = email;
+      document.getElementById("user_mail-sp").innerText = email;
     } else {
       location.href = "login.html";
     }
@@ -55,14 +56,12 @@ logout.addEventListener("click", () => {
     });
 });
 
-// 新規作成ボタンをクリック
-create.addEventListener("click", () => {
-  location.href = "newlist.html";
+// ロゴをクリックするとメニュー画面に移動
+top.addEventListener("click", () => {
+  location.href = "index.html";
 });
 
-// 発表練習ボタンをクリック
-practice.addEventListener("click", () => {
-  location.href = "practicelist.html";
+// ひとつ前に戻るボタンを押すとメニュー画面に移動
+back.addEventListener("click", () => {
+  location.href = "index.html";
 });
-
-user_button.addEventListener("click", () => {});
