@@ -253,6 +253,7 @@
     #texarea::placeholder {
         color:  #7b7b7b;
     }
+
     /*文字数カウント*/
     #inputlength{
         font-family: inherit;
@@ -291,7 +292,7 @@
         color: #676767;
         position: fixed;
     }
-
+    /*読み上げ時間計算結果*/
     #inputtime{
         font-family: inherit;
         position: fixed;
