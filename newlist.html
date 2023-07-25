@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>ReO.com-原稿選択</title>
+    <title>ReO.com-原稿選択(作成・編集)</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@
           <img
             class="user-img pc"
             src="img/blue_user_Button.png"
-            alt="ユーザー"
+            alt="ユーザー情報表示ボタン"
           />
         </button>
       </div>
@@ -44,7 +44,7 @@
     </header>
 
     <!-- スマホ用ヘッダー -->
-    <header class="sp">
+    <header class="sp" ontouchstart="">
       <div class="bar_back sp">
         <img src="./img/blue_Sm_top.png" alt="縦長画面用のヘッダー背景" />
       </div>
@@ -55,7 +55,7 @@
           <img
             class="user-img-sp sp"
             src="img/blue_user_Button.png"
-            alt="ユーザー"
+            alt="ユーザー情報表示ボタン"
           />
         </button>
       </div>
@@ -83,7 +83,33 @@
     </header>
 
     <!-- 原稿リスト -->
-    <div class="manuscript_list"></div>
+    <h3 class="list-title">過去の原稿</h3>
+    <table class="all-list">
+      <table class="list-wrap">
+        <tr class="title-wrap">
+          <td colspan="4" class="title">タイトル</td>
+          <td rowspan="2" class="date">更新日</td>
+          <td rowspan="2" class="point"></td>
+        </tr>
+        <tr class="data-wrap">
+          <td class="txt-img">文字数</td>
+          <td class="txt">〇〇字</td>
+          <td class="time-img"></td>
+          <td class="time">〇〇分</td>
+        </tr>
+      </table>
+    </table>
+
+    <!-- 新規作成ボタン -->
+    <div class="new">
+      <button type="button" class="new_button" id="new">
+        <img
+          class="new-img"
+          src="img/blue_+_Button.png"
+          alt="原稿新規作成ボタン"
+        />
+      </button>
+    </div>
 
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/newlist.js"></script>

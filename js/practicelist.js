@@ -29,7 +29,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // htmlと連携
-let new_button = document.getElementById("new");
 let logout = document.getElementById("logout");
 let top = document.getElementById("top");
 let back = document.getElementById("back");
@@ -78,9 +77,4 @@ top.addEventListener("click", () => {
 // ひとつ前に戻るボタンを押すとメニュー画面に移動
 back.addEventListener("click", () => {
   location.href = "index.html";
-});
-
-// 新規作成ボタンを押すと原稿新規作成画面に移動
-new_button.addEventListener("click", () => {
-  location.href = "genko_sakusei.html";
 });
