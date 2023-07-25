@@ -4,6 +4,15 @@ import {
   signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
 // 情報設定
 const firebaseConfig = {
@@ -17,33 +26,37 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 // htmlと連携
 let logout = document.getElementById("logout");
 let top = document.getElementById("top");
 let back = document.getElementById("back");
 
-// 戻るボタンを実質的に無効化
-history.replaceState(null, null, null);
-history.pushState(null, null, null);
-window.addEventListener("popstate", function (e) {
-  history.pushState(null, null, null);
-  return;
-});
 // ログイン状況を確認し、未ログインならログイン画面に遷移
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       app;
       const user = auth.currentUser;
       const email = user.email;
+      const user_id = user.uid;
       document.getElementById("user_mail").innerText = email;
       document.getElementById("user_mail-sp").innerText = email;
+
+      // Firebaseから原稿リストを取得
+      (async () => {
+        const q = query(collection(db, "data"), where("userId", "==", user_id));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data().title, doc.data().text, doc.data().time_ideal);
+        });
+      })();
     } else {
       location.href = "login.html";
     }
   });
-};
+});
 
 // ログアウトボタンを押下
 logout.addEventListener("click", () => {

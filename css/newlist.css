@@ -301,8 +301,8 @@ a:active {
   /*ナビのスタート位置と形状*/
   top: -0.5em;
   right: -120%;
-  width: 200px;
-  height: 200px; /*ナビの高さ*/
+  width: 250px;
+  height: 250px; /*ナビの高さ*/
   background-image: url("../img/blue_loginBack.png");
   background-position: center;
   background-size: contain;
@@ -335,12 +335,11 @@ a:active {
   padding: 0;
 }
 .close {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .close p {
-  margin: 0.1em;
+  margin-bottom: 0.2em;
   padding: 0.1em;
-  border-radius: 5px;
   background-color: white;
   font-weight: 600;
   overflow: visible;
