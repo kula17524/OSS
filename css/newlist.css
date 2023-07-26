@@ -619,11 +619,16 @@ ul {
 }
 
 /* 原稿リスト */
+.manu-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 80vh;
+  width: 100%;
+}
 .all-list {
   color: #4e4e4e;
   width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  height: 100%;
 }
 .list-wrap {
   table-layout: fixed;
