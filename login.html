@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>ReO.com</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="shortcut icon" href="./icon/icon.ico" />
+  </head>
+  <body>
+    <!-- ページタイトルロゴ -->
+    <div class="logo_l">
+      <img class="logo-login" src="img/blue_login.png" alt="ログインロゴ" />
+    </div>
+
+    <!-- 通常ログイン枠 -->
+    <div class="card">
+      <div class="login">
+        <input
+          type="email"
+          id="login-mail"
+          placeholder="メールアドレス"
+          required
+        />
+        <input
+          type="password"
+          id="login-pass"
+          placeholder="パスワード"
+          required
+        />
+        <div id="login-error-text"></div>
+        <div class="login-button-wrap" ontouchstart="">
+          <button type="button" id="login-button">
+            <img src="img/blue_login_Button.png" alt="ログインボタン" />
+          </button>
+        </div>
+      </div>
+      <div class="new">
+        <!-- 新規登録ボタン(新規登録ページに遷移) -->
+        <div class="new-button-wrap" ontouchstart="">
+          <button type="button" id="new-button">
+            <img
+              src="img/blue_shinki_Button.png"
+              alt="新規アカウント登録ボタン"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="private.js"></script>
+    <script type="module" src="js/login.js"></script>
+  </body>
+</html>
