@@ -6,8 +6,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 import {
   getFirestore,
-  doc,
-  getDoc,
   getDocs,
   collection,
   query,
@@ -50,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const q = query(collection(db, "data"), where("userId", "==", user_id));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
+          // ドキュメントIDを取得
+          const doc_id = doc.id;
+          console.log(doc_id);
           // 枠を作成
           const tbody = document.createElement("tbody");
           const list_wrap = document.createElement("table");
@@ -97,6 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
           const point = document.createElement("td");
           point.rowSpan = "2";
           point.className = "point";
+          const point_button = document.createElement("button");
+          point_button.className = "point-button";
+          point_button.classList.add("point_button", doc_id);
+          const point_img = document.createElement("img");
+          point_img.className = "point-img";
+          point_img.setAttribute("src", "../img/blue_point.png");
+          point_img.setAttribute("alt", "3点リーダー");
 
           // 現在の文字数
           const txt_img = document.createElement("td");
@@ -133,13 +141,27 @@ document.addEventListener("DOMContentLoaded", function () {
           title_wrap.appendChild(title);
           title_wrap.appendChild(date);
           title_wrap.appendChild(point);
+          point.appendChild(point_button);
+          point_button.appendChild(point_img);
           data_wrap.appendChild(txt_img);
           data_wrap.appendChild(txt);
           data_wrap.appendChild(time_img);
           data_wrap.appendChild(time);
-          console.log(doc.data().title, doc.data().text, doc.data().time_ideal);
+
+          /* ドキュメントIDを送りつつページ遷移 */
+          var buttons = document.getElementsByClassName("point-button");
+          var triggers = Array.from(buttons);
+
+          triggers.forEach(function (target) {
+            target.addEventListener("click", function () {
+              location.href =
+                "genko_edit.html?docid=" + target.className.split(" ")[2];
+            });
+          });
         });
       })();
+
+      // 原稿を選んでページ遷移
     } else {
       location.href = "login.html";
     }
@@ -171,3 +193,14 @@ back.addEventListener("click", () => {
 new_button.addEventListener("click", () => {
   location.href = "genko_shinkisakusei.html";
 });
+
+window.onload = (function () {
+  var buttons = document.getElementsByClassName("point-button");
+  var triggers = Array.from(buttons);
+
+  triggers.forEach(function (target) {
+    target.addEventListener("click", function () {
+      location.href = "genko_edit.html?docid=" + target.className.split(" ")[2];
+    });
+  });
+})();
