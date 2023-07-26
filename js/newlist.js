@@ -169,5 +169,5 @@ back.addEventListener("click", () => {
 
 // 新規作成ボタンを押すと原稿新規作成画面に移動
 new_button.addEventListener("click", () => {
-  location.href = "genko_sakusei.html";
+  location.href = "genko_shinkisakusei.html";
 });
