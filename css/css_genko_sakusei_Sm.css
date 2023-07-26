@@ -44,6 +44,9 @@
     #label{
         display: none;
     }
+    .user_button {
+        display: none;
+    }
     /*「新規作成」*/
     #labeltext{
         display: none;

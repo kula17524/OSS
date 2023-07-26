@@ -1,6 +1,10 @@
 @font-face {
-    font-family: "ＭＳゴシック";
-    src: url("../font/MS-Gothic-01.ttf");
+    font-family: "MS";
+  src: url("../font/MS-Gothic-01.ttf");
+}
+html {
+    font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
+      "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
   }
 /*PC用のCSSを記入
 @media screen and(min-width: 2161px) {*/
@@ -58,6 +62,127 @@
         position: fixed;
 	    top: 11;
     }
+    /* ユーザーアイコン */
+    .user_button {
+        position: fixed;
+        text-align: right;
+        right: 20px;
+        top: 10px;
+        background: none;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        overflow: visible;
+        cursor: pointer;
+        padding: 0;
+    }
+    .user-img {
+        width: 60px;
+        height: 100%;
+        text-align: center;
+    }
+    .user {
+        text-align: right;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .user-img:hover {
+        opacity: 0.7;
+    }
+    .user-img:active {
+        position: relative;
+        top: 1px;
+    }
+    /* ユーザー情報表示タブ */
+    #user-wrap {
+        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+        position: fixed;
+        z-index: 999;
+        text-align: center;
+        /*ナビのスタート位置と形状*/
+        top: 1em;
+        right: -120%;
+        width: 200px;
+        height: 200px; /*ナビの高さ*/
+        background-image: url("../img/blue_loginBack.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        /*動き*/
+        transition: all 0.6s;
+        margin: 0;
+        padding: 0;
+        border-radius: 3px;
+    }
+    #user-list {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /*アクティブクラスがついたら位置を0に*/
+    #user-wrap.panelactive {
+        right: 0;
+    }
+    
+    /*ナビゲーション*/
+    #user-wrap ul {
+        /*ナビゲーション天地中央揃え*/
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+    }
+    .close {
+        margin-top: 2em;
+    }
+    .close p {
+        margin: 0.1em;
+        padding: 0.1em;
+        border-radius: 5px;
+        background-color: white;
+        font-weight: 600;
+        overflow: visible;
+        cursor: pointer;
+    }
+    
+    .close p:hover {
+        opacity: 70%;
+    }
+    .close p:focus {
+        opacity: 70%;
+    }
+    
+    /* 吹き出し */
+    .description3 {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        font-size: 12px;
+        line-height: 1.6em;
+        color: #fff;
+        border-radius: 5px;
+        background: #000;
+        width: 100px;
+    }
+    .description3:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        border: 15px solid transparent;
+        border-top: 15px solid #000;
+        margin-left: -15px;
+    }
+    .button_list:focus .description3 {
+        display: inline-block;
+        top: -75px;
+        left: -50px;
+    }
+    
+
 
     #label{
         position: fixed;
@@ -189,7 +314,7 @@
     .mojisu-label {
         width: calc(100% - 2em);
         font-size: .9em;
-        top: 187;
+        top: 189;
         left: 26%;
     }
     .mojisu {
@@ -212,7 +337,7 @@
     .nonumber{
         width: calc(100% - 2em);
         font-size: .9em;
-        top: 187;
+        top: 189;
         left: 15%;
     }
 
