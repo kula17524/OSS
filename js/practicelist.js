@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
           triggers.forEach(function (target) {
             target.addEventListener("click", function () {
               location.href =
-                "genko_edit.html?docid=" + target.className.split(" ")[2];
+                "practice.html?docid=" + target.className.split(" ")[2];
             });
           });
         });
