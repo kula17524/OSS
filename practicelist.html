@@ -24,7 +24,7 @@
           <img
             class="user-img pc"
             src="img/blue_user_Button.png"
-            alt="ユーザー"
+            alt="ユーザー情報表示ボタン"
           />
         </button>
       </div>
@@ -44,7 +44,7 @@
     </header>
 
     <!-- スマホ用ヘッダー -->
-    <header class="sp">
+    <header class="sp" ontouchstart="">
       <div class="bar_back sp">
         <img src="./img/blue_Sm_top.png" alt="縦長画面用のヘッダー背景" />
       </div>
@@ -55,7 +55,7 @@
           <img
             class="user-img-sp sp"
             src="img/blue_user_Button.png"
-            alt="ユーザー"
+            alt="ユーザー情報表示ボタン"
           />
         </button>
       </div>
@@ -83,7 +83,10 @@
     </header>
 
     <!-- 原稿リスト -->
-    <div class="manuscript_list"></div>
+    <h3 class="list-title">過去の原稿</h3>
+    <div class="manu-list">
+      <table class="all-list" id="all-list"></table>
+    </div>
 
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/practicelist.js"></script>
