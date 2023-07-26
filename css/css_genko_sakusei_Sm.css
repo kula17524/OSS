@@ -2,7 +2,7 @@
     font-family: "ＭＳゴシック";
     src: url("../font/MS-Gothic-01.ttf");
   }
-@media screen and (max-width: 480px) {
+@media screen and (orientation: portrait) {
 /*スマホ用のCSSを記入*/
     
     .background{
@@ -256,7 +256,10 @@
         -moz-user-select:none;
         user-select:none;
     }
-
+    /* ユーザーアイコン */
+    .user_button {
+        display: none;
+    }
     /*保存ボタン*/
     #saveicon_2{
         position: fixed;
