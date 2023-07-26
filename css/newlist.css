@@ -610,26 +610,6 @@ h3 {
   position: fixed;
   top: 80px;
 }
-/* 縦長ならスマホ用画面になる */
-@media screen and (orientation: portrait) {
-  .list-title {
-    position: fixed;
-    margin: 1em;
-    top: 80px;
-    color: #4e4e4e;
-    z-index: 9000;
-  }
-  /* 縦長でも縦の長さが短ければPC表示にする */
-  @media screen and (max-height: 600px) {
-    .list-title {
-      position: fixed;
-      margin: 1em;
-      top: 80px;
-      color: #4e4e4e;
-      z-index: 9000;
-    }
-  }
-}
 
 /* 原稿リスト */
 .manu-list {
@@ -653,6 +633,43 @@ h3 {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
+}
+
+/* 縦長ならスマホ用画面になる */
+@media screen and (orientation: portrait) {
+  .list-title {
+    position: fixed;
+    margin: 1em;
+    top: 150px;
+    color: #4e4e4e;
+    z-index: 9000;
+  }
+  .manu-list {
+    position: fixed;
+    top: 190px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 55vh;
+    width: 97%;
+  }
+  /* 縦長でも縦の長さが短ければPC表示にする */
+  @media screen and (max-height: 600px) {
+    .list-title {
+      position: fixed;
+      margin: 1em;
+      top: 80px;
+      color: #4e4e4e;
+      z-index: 9000;
+    }
+    .manu-list {
+      position: fixed;
+      top: 120px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 55vh;
+      width: 97%;
+    }
+  }
 }
 .all-list {
   color: #4e4e4e;
@@ -687,15 +704,6 @@ td {
   width: 20%;
   border-left: solid 1.5px #c2e7ef;
   font-size: 0.9em;
-}
-.point {
-  color: #4e4e4e;
-  width: 10%;
-  border-left: solid 1.5px #c2e7ef;
-  background-image: url(../img/blue_point.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 50%;
 }
 .txt-img {
   text-align: left;
@@ -768,4 +776,36 @@ td {
 }
 .list-title {
   position: fixed;
+}
+/* 3点リーダー */
+.point {
+  color: #4e4e4e;
+  width: 10%;
+  border-left: solid 1.5px #c2e7ef;
+  text-align: center;
+  vertical-align: middle;
+}
+.point_button {
+  display: inline;
+  margin: auto;
+  background: none;
+  width: 100%;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  z-index: 8000;
+}
+.point-img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+.point-img:hover {
+  opacity: 0.6;
+}
+.point-img:active {
+  position: relative;
+  top: 3px;
 }
