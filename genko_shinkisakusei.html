@@ -9,7 +9,7 @@
     <link rel="icon" href="img/blue_icon(ico).ico">
 
     <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <title>ReO.com-原稿作成・新規</title>
+    <title>ReO.com-原稿・新規作成</title>
 </head>
 <body>
     <div class="background">
@@ -56,9 +56,8 @@
         <p>保存しますか？</p>
         </section>
         <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
-        <img id="home" src="./img/blue_home_Button.png">
+        <img id="home" src="./img/blue_home_Button.png" ontouchstart=""  draggable="false">
     </div>
-   
     <div class="textbox">
         <span class="mojisu-label">文字</span>
         <input type="number" inputmode="numeric" class="mojisu" placeholder="目標文字数" onkeyup="updateTime(value);" />
@@ -81,13 +80,13 @@
 
     <script type="text/javascript" src="private.js"></script>
     <script>
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        import {
+        /*import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        /*import {
             getAuth,
             signOut,
             onAuthStateChanged,
         } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-        import {
+        /*import {
             getFirestore,
             doc,
             getDoc,
@@ -97,7 +96,7 @@
             where,
         } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
         // 情報設定
-        const firebaseConfig = {
+        /*const firebaseConfig = {
             apiKey: config.APIKEY,
             authDomain: config.AUTH,
             projectId: config.PROJECTID,
@@ -148,8 +147,12 @@
         exiticon.addEventListener("click", () => {
             locaticon.href = "index.html";
         });
+        // homeボタンをクリックするとメニュー画面に移動
+        home.addEventListener("click", () => {
+            locaticon.href = "index.html";
+        });
         // ひとつ前に戻るボタンを押すとメニュー画面に移動
-        back.addEventListener("click", () => {
+        back_button.addEventListener("click", () => {
             location.href = "newlist.html";
         });
         // ログイン状況を確認し、未ログインならログイン画面に遷移
