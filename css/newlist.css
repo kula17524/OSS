@@ -137,13 +137,16 @@ body {
   overflow: visible;
   cursor: pointer;
   padding: 0;
+  z-index: 5000;
 }
 
 .logo:hover {
   opacity: 0.6;
+  z-index: 5000;
 }
 .logo:active {
   position: relative;
+  z-index: 5000;
   top: 3px;
 }
 
@@ -597,33 +600,58 @@ ul {
 
 /* 原稿リストタイトル */
 .list-title {
+  position: fixed;
   margin: 1em;
-  margin-top: 80px;
+  top: 80px;
   color: #4e4e4e;
+  z-index: 9000;
+}
+h3 {
+  position: fixed;
 }
 /* 縦長ならスマホ用画面になる */
 @media screen and (orientation: portrait) {
   .list-title {
+    position: fixed;
     margin: 1em;
     margin-top: 180px;
     color: #4e4e4e;
+    z-index: 9000;
   }
   /* 縦長でも縦の長さが短ければPC表示にする */
   @media screen and (max-height: 600px) {
     .list-title {
+      position: fixed;
       margin: 1em;
       margin-top: 80px;
       color: #4e4e4e;
+      z-index: 9000;
     }
   }
 }
 
 /* 原稿リスト */
 .manu-list {
+  position: fixed;
+  top: 120px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 80vh;
-  width: 100%;
+  height: 55vh;
+  width: 97%;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-image: url("../img/scroll_3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
 }
 .all-list {
   color: #4e4e4e;
@@ -736,4 +764,7 @@ td {
     border-left: solid 1.5px #c2e7ef;
     font-size: 0.7em;
   }
+}
+.list-title {
+  position: fixed;
 }

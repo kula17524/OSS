@@ -64,5 +64,3 @@ create.addEventListener("click", () => {
 practice.addEventListener("click", () => {
   location.href = "practicelist.html";
 });
-
-user_button.addEventListener("click", () => {});
