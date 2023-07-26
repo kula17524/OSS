@@ -621,10 +621,15 @@ ul {
 /* 原稿リスト */
 .all-list {
   color: #4e4e4e;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .list-wrap {
+  table-layout: fixed;
   text-align: center;
   margin: auto;
+  margin-top: 0.5em;
   width: 90%;
   border: solid 1.5px #c2e7ef;
   border-radius: 5px;
@@ -635,20 +640,23 @@ td {
 }
 .title {
   color: #4e4e4e;
-  width: 70%;
+  width: 65%;
   text-align: center;
   border-bottom: solid 1.5px #c2e7ef;
   font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .date {
   color: #4e4e4e;
-  width: 15%;
+  width: 20%;
   border-left: solid 1.5px #c2e7ef;
   font-size: 0.9em;
 }
 .point {
   color: #4e4e4e;
-  width: 15%;
+  width: 10%;
   border-left: solid 1.5px #c2e7ef;
   background-image: url(../img/blue_point.png);
   background-position: center;
@@ -679,6 +687,7 @@ td {
 }
 .time {
   color: #4e4e4e;
+  text-align: right;
   width: 25%;
   padding-right: 1em;
   font-size: 0.9em;
@@ -687,10 +696,13 @@ td {
 @media screen and (max-width: 400px) {
   .title {
     color: #4e4e4e;
-    width: 70%;
+    width: 60%;
     text-align: center;
     border-bottom: solid 1.5px #c2e7ef;
     font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .txt-img {
     text-align: left;
@@ -711,10 +723,11 @@ td {
     width: 25%;
     padding: 0;
     font-size: 0.7em;
+    text-align: right;
   }
   .date {
     color: #4e4e4e;
-    width: 15%;
+    width: 30%;
     border-left: solid 1.5px #c2e7ef;
     font-size: 0.7em;
   }
