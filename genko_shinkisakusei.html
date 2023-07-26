@@ -47,7 +47,6 @@
         <section id="modal" class="hidden">
         <p>保存しますか？</p>
         </section>
-
         <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
@@ -83,6 +82,14 @@
     <script>
         // ロゴをクリックするとメニュー画面に移動
         logoicon.addEventListener("click", () => {
+            location.href = "index.html";
+        });
+        // exitボタンをクリックするとメニュー画面に移動
+        exiticon.addEventListener("click", () => {
+            locaticon.href = "index.html";
+        });
+        // ひとつ前に戻るボタンを押すとメニュー画面に移動
+        back_button.addEventListener("click", () => {
             location.href = "index.html";
         });
         // ログイン状況を確認し、未ログインならログイン画面に遷移
