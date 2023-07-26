@@ -608,13 +608,14 @@ ul {
 }
 h3 {
   position: fixed;
+  top: 80px;
 }
 /* 縦長ならスマホ用画面になる */
 @media screen and (orientation: portrait) {
   .list-title {
     position: fixed;
     margin: 1em;
-    margin-top: 180px;
+    top: 80px;
     color: #4e4e4e;
     z-index: 9000;
   }
@@ -623,7 +624,7 @@ h3 {
     .list-title {
       position: fixed;
       margin: 1em;
-      margin-top: 80px;
+      top: 80px;
       color: #4e4e4e;
       z-index: 9000;
     }
