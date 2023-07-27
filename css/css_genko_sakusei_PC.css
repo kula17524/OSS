@@ -63,6 +63,19 @@ html {
 	    top: 11;
     }
     /* ユーザーアイコン */
+    li {
+        list-style: none;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    .logo-txt {
+        text-align: center;
+        position: fixed;
+        z-index: 101;
+    }
+  
     .user_button {
         position: fixed;
         text-align: right;
@@ -211,8 +224,21 @@ html {
     color: #ff0000;
     text-decoration: underline;
     }
-
-
+    /*スクロールバー*/
+    ::-webkit-scrollbar {
+        width: 15px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-image: url("../img/scroll_3.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+      }
     #label{
         position: fixed;
         display: block;
