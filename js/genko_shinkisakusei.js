@@ -33,6 +33,12 @@ let back = document.getElementById("back_button");
 let logout = document.getElementById("logout");
 let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
+let home = document.getElementById("home");
+let back_button = document.getElementById("back_button");
+let  mojisu = document.getElementById("mojisu");
+let inputlength = document.getElementById("inputlength");
+let time = document.getElementById("time");
+let inputtime = document.getElementById("inputtime");
 
 /* 保存ボタンがクリックされたときにデータをFirebaseに保存
 const yesicon = document.getElementById("yesicon");

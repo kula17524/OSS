@@ -12,15 +12,21 @@
     <title>ReO.com-原稿・新規作成</title>
 </head>
 <body>
+    <script type="text/javascript" src="private.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+    <script type="module" src="js/genko_shinkisakusei.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/shinki_jquery.js"></script>        
     <div class="background">
-        <img id="back" src="./img/blue_background.png">
-        <img id="sidebar" src="./img/blue_PC_side.png">
-        <img id="topbar" src="./img/blue_PC_top.png">
-        <img id="topbar_sm" src="./img/blue_Sm_top.png">
-        <img id="logoicon" src="./img/blue_PC_titlelogo_2.png">
-        <img id="label" src="./img/blue_PC_label.png">
-        <img id="labeltext" src="./img/text_shinkisakusei.png">
-        <img id="labeltext_sm" src="./img/text_shinkisakusei_black.png">
+        <img id="back" src="./img/blue_background.png" alt="背景">
+        <img id="sidebar" src="./img/blue_PC_side.png" alt="サイドバー">
+        <img id="topbar" src="./img/blue_PC_top.png" alt="PCヘッダー">
+        <img id="topbar_sm" src="./img/blue_Sm_top.png" alt="スマホヘッダー">
+        <img id="logoicon" src="./img/blue_PC_titlelogo_2.png" alt="ロゴ">
+        <img id="label" src="./img/blue_PC_label.png" alt="ラベル">
+        <img id="labeltext" src="./img/text_shinkisakusei.png" alt="PCラベルテキスト「新規作成」">
+        <img id="labeltext_sm" src="./img/text_shinkisakusei_black.png" alt="スマホラベルテキスト「新規作成」">
     </div>
     <!-- ユーザーボタン -->
     <div class="user">
@@ -42,15 +48,15 @@
         </div>
       </nav>
     <div class="function_button"><!--PCのみの機能ボタン-->
-        <img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false">
+        <img id="saveicon" src="./img/PC_save_icon.png" alt="PCセーブボタン" ontouchstart=""  draggable="false">
         
-        <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
+        <img id="exiticon" src="./img/PC_door_icon.png" alt="PC退出ボタン" ontouchstart=""  draggable="false">
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
-        <img id="saveicon_2" src="./img/blue_hozon_Button.png" ontouchstart=""  draggable="false" ontouchend="">
+        <img id="saveicon_2" src="./img/blue_hozon_Button.png" alt="スマホセーブボタン" ontouchstart=""  draggable="false" ontouchend="">
         
-        <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
-        <img id="home" src="./img/blue_home_Button.png" ontouchstart=""  draggable="false">
+        <img id="back_button" src="./img/blue_back_Button.png" alt="戻るボタン" ontouchstart=""  draggable="false">
+        <img id="home" src="./img/blue_home_Button.png" alt="ホームボタン" ontouchstart=""  draggable="false">
     </div>
     <!-- モーダルウィンドウ -->
     <div id="mask" class="hidden"></div>
@@ -73,7 +79,7 @@
             <input type="number" name="ideal_number" inputmode="numeric" class="mojisu" placeholder="目標文字数" onkeyup="updateTime(value);" />
         </form>
         <span class="time-label">分</span>
-        <input type="number" inputmode="numeric" class="time" placeholder="目標時間" onkeyup="updateMojisu(value);" />
+        <input type="number" inputmode="numeric" class="time" placeholder="目標時間" onkeyup="updateMojisu(any);" />
         <br>
         <input type="text" class="genko_title" placeholder="タイトル" />
         <br>
@@ -87,14 +93,5 @@
         <p id="inputtime">0</p>
         <span class="gen_mojisu_time">分</span>
     </div>
-
-    <script type="text/javascript" src="private.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
-    <script type="module" src="js/genko_shinkisakusei.js"></script>
-        
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/shinki_jquery.js"></script>        
 </body>
 </html>
