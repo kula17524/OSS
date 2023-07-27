@@ -7,6 +7,7 @@ import {
 import {
     getFirestore,
     doc,
+    setDoc,
     getDoc,
     getDocs,
     collection,
@@ -35,34 +36,12 @@ let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
 let home = document.getElementById("home");
 let back_button = document.getElementById("back_button");
-let  mojisu = document.getElementById("mojisu");
+//let  mojisu = document.getElementById("mojisu");
 let inputlength = document.getElementById("inputlength");
 let time = document.getElementById("time");
 let inputtime = document.getElementById("inputtime");
 
-/* 保存ボタンがクリックされたときにデータをFirebaseに保存
-const yesicon = document.getElementById("yesicon");
-yesicon.addEventListener('click', () => {
-    const idealNumber = document.querySelector('.ideal_number input').value;
-    const idealTime = document.querySelector('.ideal_time input').value;
-    const title = document.querySelector('.title input').value;
-    const honbun = document.querySelector('.honbun textarea').value;
 
-    // Firebase Firestoreに保存する（Firestoreをセットアップ済みと仮定しています）
-    const firestore = firebase.firestore();
-    firestore.collection("your_collection_name").add({
-        word_ideal: idealNumber,
-        time_ideal: idealTime,
-        title: title,
-        honbun: honbun
-    })
-    .then(() => {
-        alert("データが正常に保存されました！");
-    })
-    .catch((error) => {
-        alert("データの保存中にエラーが発生しました: " + error);
-    });
-});*/
 
 // ロゴをクリックするとメニュー画面に移動
 logoicon.addEventListener("click", () => {
@@ -107,106 +86,6 @@ signOut(auth)
 
 
 
-/* 全ブロックからis-viewクラスを削除する処理を関数化しておく
-const removeViewClass = () => {
-    question01?.classList.remove('is-view')
-    question02?.classList.remove('is-view')
-    question03?.classList.remove('is-view')
-    result?.classList.remove('is-view')
-}
-
-// ボタンのクリックイベントを関数化しておく(第一引数にボタンの変数,第二引数に先頭に表示するブロックの変数(必要な場合))
-const clickButtonEvent = (trigger) => {
-trigger?.addEventListener('click', () => {
-    removeViewClass()
-    if (view) {
-    view?.classList.add('is-view')
-    }
-})
-}
-
-
-// 各フォームのラジオボタンで選択された値を取得
-const resultidealnumber = ideal_number.hairLength.value
-/*const resultValue02 = form2.hairStatus.value
-const resultValue03 = form3.hairHabit.value*/
-
-/*const execute = async () => {
-    // 書き込み
-    const write = () => {
-        return new Promise((resolve, reject) => {
-            db.collection('目標文字数')// コレクション名,フィールド名(field1,..)は自由に変更してください。
-                .add({
-                    word_ideal: resultidealnumber,
-                    timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
-                })
-                alert(resultidealnumber)
-                .then(() => {
-                    resolve()
-                })
-                .catch((error) => {
-                    console.log('Error adding document: ', error)
-                    alert('保存に失敗しました')
-                    reject(error)
-                })
-        })
-    }
-    try {
-        await write();
-        console.log('データの保存が完了しました');
-        // 成功した場合の追加処理などを行う場合はここに記述します
-    } catch (error) {
-        console.log('データの保存中にエラーが発生しました:', error);
-        // エラー処理を行う場合はここに記述します
-    }
-};*/
-
-
-
-/*目標時間・目標文字数計算*/
-function isNaturalNumber(value) {
-    var parsedValue = parseInt(value, 10);
-    return !isNaN(parsedValue) && parsedValue > 0;
-}
-
-function updateTime(value) {
-    var mojisuInput = document.getElementsByClassName("mojisu")[0];
-    var timeInput = document.getElementsByClassName("time")[0];
-
-    if (isNaturalNumber(value)) {
-        var mojisu = parseInt(value, 10);
-        var time = (mojisu * 0.2) / 60;
-        timeInput.value = time.toFixed(2);
-    } else {
-        timeInput.value = '';
-    }
-}
-
-function updateMojisu(value) {
-    var mojisuInput = document.getElementsByClassName("mojisu")[0];
-    var timeInput = document.getElementsByClassName("time")[0];
-
-    if (isNaturalNumber(value)) {
-        var time = parseFloat(value);
-        var mojisu = (time * 60) / 0.2;
-        mojisuInput.value = Math.round(mojisu);
-    } else {
-        mojisuInput.value = '';
-    }
-}
-
-function showLength(value) {
-    var inputLength = document.getElementById("inputlength");
-    var length = value.length;
-    inputLength.innerText = length;
-}
-
-/*文字数カウント*/
-function Length(str) {
-    document.getElementById("inputlength").innerHTML = str.length;
-    const n = (str.length * 0.2) / 60;
-    document.getElementById("inputtime").innerHTML = n.toFixed(2);
-}
 
 // Firebase Firestoreに保存する
 const saveDataToFirebase = () => {
@@ -216,7 +95,7 @@ const saveDataToFirebase = () => {
     const honbun = document.getElementById("textarea").value;
 
     // Firebase Firestoreに保存する（Firestoreをセットアップ済みと仮定しています）
-    db.collection("kula-project1").doc("data").set({
+    setDoc(doc(collection(db, "kula-project1"), "data"), {
         word_ideal: idealNumber,
         time_ideal: idealTime,
         title: title,
