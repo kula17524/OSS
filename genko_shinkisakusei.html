@@ -43,25 +43,35 @@
       </nav>
     <div class="function_button"><!--PCのみの機能ボタン-->
         <img id="saveicon" src="./img/PC_save_icon.png" ontouchstart=""  draggable="false">
-        <div id="mask" class="hidden"></div>
-        <section id="modal" class="hidden">
-        <p>保存しますか？</p>
-        </section>
+        
         <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
         <img id="saveicon_2" src="./img/blue_hozon_Button.png" ontouchstart=""  draggable="false" ontouchend="">
-        <div id="mask" class="hidden"></div>
-        <section id="modal" class="hidden">
-        <p>保存しますか？</p>
-        </section>
+        
         <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
         <img id="home" src="./img/blue_home_Button.png" ontouchstart=""  draggable="false">
     </div>
+    <!-- モーダルウィンドウ -->
+    <div id="mask" class="hidden"></div>
+    <section id="modal" class="hidden">
+        <p>保存しますか？</p>
+        <button id="yesButton">はい</button>
+        <button id="noButton">いいえ</button>
+    </section>
+    <div id="mask_sm" class="hidden"></div>
+    <section id="modal_sm" class="hidden">
+        <p>保存しますか？</p>
+        <button id="yesButtonSm">はい</button>
+        <button id="noButtonSm">いいえ</button>
+    </section>
+
+
     <div class="textbox">
-        <span class="mojisu-label">文字</span>
-        <input type="number" inputmode="numeric" class="mojisu" placeholder="目標文字数" onkeyup="updateTime(value);" />
-        <p id="nonumber"></p>
+        <form class="input-area" id="ideal_number" onsubmit="return false">
+            <span class="mojisu-label">文字</span>
+            <input type="number" name="ideal_number" inputmode="numeric" class="mojisu" placeholder="目標文字数" onkeyup="updateTime(value);" />
+        </form>
         <span class="time-label">分</span>
         <input type="number" inputmode="numeric" class="time" placeholder="目標時間" onkeyup="updateMojisu(value);" />
         <br>
@@ -79,181 +89,11 @@
     </div>
 
     <script type="text/javascript" src="private.js"></script>
-    <script>
-        /*import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        /*import {
-            getAuth,
-            signOut,
-            onAuthStateChanged,
-        } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-        /*import {
-            getFirestore,
-            doc,
-            getDoc,
-            getDocs,
-            collection,
-            query,
-            where,
-        } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-        // 情報設定
-        /*const firebaseConfig = {
-            apiKey: config.APIKEY,
-            authDomain: config.AUTH,
-            projectId: config.PROJECTID,
-            storageBucket: config.BUCKET,
-            messagingSenderId: config.SENDID,
-            appId: config.APPID,
-        };
-        initializeApp(firebaseConfig);
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // htmlと連携
-        let back = document.getElementById("back_button");
-        let logout = document.getElementById("logout");
-        let logoicon = document.getElementById("logoicon");
-        let exiticon = document.getElementById("exiticon");
-
-        /* 保存ボタンがクリックされたときにデータをFirebaseに保存
-        const yesicon = document.getElementById("yesicon");
-        yesicon.addEventListener('click', () => {
-            const idealNumber = document.querySelector('.ideal_number input').value;
-            const idealTime = document.querySelector('.ideal_time input').value;
-            const title = document.querySelector('.title input').value;
-            const honbun = document.querySelector('.honbun textarea').value;
-
-            // Firebase Firestoreに保存する（Firestoreをセットアップ済みと仮定しています）
-            const firestore = firebase.firestore();
-            firestore.collection("your_collection_name").add({
-                word_ideal: idealNumber,
-                time_ideal: idealTime,
-                title: title,
-                honbun: honbun
-            })
-            .then(() => {
-                alert("データが正常に保存されました！");
-            })
-            .catch((error) => {
-                alert("データの保存中にエラーが発生しました: " + error);
-            });
-        });*/
-
-        // ロゴをクリックするとメニュー画面に移動
-        logoicon.addEventListener("click", () => {
-            location.href = "index.html";
-        });
-        // exitボタンをクリックするとメニュー画面に移動
-        exiticon.addEventListener("click", () => {
-            location.href = "newlist.html";
-        });
-        // homeボタンをクリックするとメニュー画面に移動
-        home.addEventListener("click", () => {
-            location.href = "index.html";
-        });
-        // ひとつ前に戻るボタンを押すとメニュー画面に移動
-        back_button.addEventListener("click", () => {
-            location.href = "newlist.html";
-        });
-        // ログイン状況を確認し、未ログインならログイン画面に遷移
-        window.onload = function () {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-            app;
-            const user = auth.currentUser;
-            const email = user.email;
-            document.getElementById("user_mail").innerText = email;
-            } else {
-            location.href = "login.html";
-            }
-        });
-        };
-
-        // ログアウトボタンを押下
-        logout.addEventListener("click", () => {
-        signOut(auth)
-            .then(() => {
-            location.href = "login.html";
-            })
-            .catch((error) => {
-            console.log(`ログアウト時にエラーが発生しました (${error})`);
-            });
-        });
-
-        /*目標時間・目標文字数計算*/
-        function isNaturalNumber(value) {
-            var parsedValue = parseInt(value, 10);
-            return !isNaN(parsedValue) && parsedValue > 0;
-        }
-
-        function updateTime(value) {
-            var mojisuInput = document.getElementsByClassName("mojisu")[0];
-            var timeInput = document.getElementsByClassName("time")[0];
-
-            if (isNaturalNumber(value)) {
-                var mojisu = parseInt(value, 10);
-                var time = (mojisu * 0.2) / 60;
-                timeInput.value = time.toFixed(2);
-            } else {
-                timeInput.value = '';
-            }
-        }
-
-        function updateMojisu(value) {
-            var mojisuInput = document.getElementsByClassName("mojisu")[0];
-            var timeInput = document.getElementsByClassName("time")[0];
-
-            if (isNaturalNumber(value)) {
-                var time = parseFloat(value);
-                var mojisu = (time * 60) / 0.2;
-                mojisuInput.value = Math.round(mojisu);
-            } else {
-                mojisuInput.value = '';
-            }
-        }
-
-        function showLength(value) {
-            var inputLength = document.getElementById("inputlength");
-            var length = value.length;
-            inputLength.innerText = length;
-        }
-
-        /*文字数カウント*/
-        function Length(str) {
-            document.getElementById("inputlength").innerHTML = str.length;
-            const n = (str.length * 0.2) / 60;
-            document.getElementById("inputtime").innerHTML = n.toFixed(2);
-        }
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"></script>
+    <script type="module" src="js/genko_shinkisakusei.js"></script>
         
-        /*保存ボタン*/
-        const savebtn = document.getElementById("saveicon");
-        const mask = document.getElementById("mask");
-        const modal = document.getElementById("modal");
 
-        savebtn.addEventListener('click', () => {
-            mask.classList.remove('hidden');
-            modal.classList.remove('hidden');
-        });
-
-        mask.addEventListener('click', () => {
-            mask.classList.add('hidden');
-            modal.classList.add('hidden');
-        });
-
-        const savebtn_sm = document.getElementById("saveicon_2");
-        const mask_sm = document.getElementById("mask_sm");
-        const modal_sm = document.getElementById("modal_sm");
-
-        savebtn_sm.addEventListener('click', () => {
-            mask_sm.classList.remove('hidden');
-            modal_sm.classList.remove('hidden');
-        });
-
-        mask_sm.addEventListener('click', () => {
-            mask_sm.classList.add('hidden');
-            modal_sm.classList.add('hidden');
-        });
-    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/shinki_jquery.js"></script>        
 </body>
