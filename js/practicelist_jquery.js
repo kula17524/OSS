@@ -21,3 +21,8 @@ $("#user-wrap-sp p").click(function () {
   $(".openbtn1").removeClass("active"); //ボタンの activeクラスを除去し
   $("#user-wrap-sp").removeClass("panelactive"); //ナビゲーションのpanelactiveクラスも除去
 });
+
+// 3点リーダーが押されたらタブの表示変更
+$(document).on("click", ".point_button", function () {
+  $(this).next().toggleClass("hidden");
+});
