@@ -5,6 +5,9 @@
 /*PC用のCSSを記入
 @media screen and(min-width: 2161px) {*/
     /*背景設定*/
+    .h2{
+        display: none;
+    }
     #back{
         position: fixed;
         display: block;

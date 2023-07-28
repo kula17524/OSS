@@ -44,75 +44,59 @@ let back_button = document.getElementById("back_button");
 // ログイン状況を確認し、未ログインならログイン画面に遷移
 document.addEventListener("DOMContentLoaded", async function () {
     onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        app;
-        const user = auth.currentUser;
-        const email = user.email;
-        const user_id = user.uid;
-        document.getElementById("user_mail").innerText = email;
-        document.getElementById("user_mail-sp").innerText = email;
+        if (user) {
+            // ログイン済みの場合の処理
+            const email = user.email;
+            const user_id = user.uid;
+            //alert("ユーザーID: " + user_id);
+            document.getElementById("user_mail").innerText = email;
 
-        // 前のページからドキュメントIDを取得
-        const urlParams = new URLSearchParams(window.location.search);
-        const doc_id = urlParams.get("docid");
-
-        // ドキュメントIDからデータを取得
-        try {
-          const docRef = doc(db, "kula-project1", doc_id);
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists()) {
-            const data = docSnap.data();
-            document.getElementById("textarea").value = data.text || ""; // textフィールドを表示
-            document.querySelector('.genko_title').value = data.title || ""; // titleフィールドを表示
-            document.querySelector('.time').value = data.time_ideal || ""; // time_idealフィールドを表示
-            document.querySelector('.mojisu').value = data.word_ideal || ""; // word_idealフィールドを表示
-            document.getElementById("inputtime").innerText = data.time_input || ""; // time_inputフィールドを表示
-            document.querySelector('.inputlength').value = data.word_input || ""; // word_inputフィールドを表示
-          } else {
-            console.log("No such document!");
-          }
-        } catch (error) {
-          console.log("Error getting document:", error);
-        }
-
-        // Firebaseから原稿リストを取得
-        (async () => {
-          const q = query(collection(db, "data"), where("userId", "==", user_id));
-          const querySnapshot = await getDocs(q);
-          querySnapshot.forEach((doc) => {
             // ドキュメントIDを取得
-            const doc_id = doc.id;
-            console.log(doc_id);
-            // 枠を作成
-            // ...
+            const urlParams = new URLSearchParams(window.location.search);
+            const doc_id = urlParams.get("docid");
+            alert("ドキュメントID: " + doc_id);
 
-            /* ドキュメントIDを送りつつページ遷移 */
-            var buttons = document.getElementsByClassName("point-button");
-            var triggers = Array.from(buttons);
-
-            triggers.forEach(function (target) {
-              target.addEventListener("click", function () {
-                location.href =
-                  "genko_edit.html?docid=" + target.className.split(" ")[2];
-              });
-            });
-          });
-        })();
-      };
+            // ドキュメントIDからデータを取得
+            try {
+            const docRef = doc(db, "kura-project1", doc_id);
+            const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    document.getElementById("textarea").value = data.text || ""; // textフィールドを表示
+                    document.querySelector('.genko_title').value = data.title || ""; // titleフィールドを表示
+                    document.querySelector('.time').value = data.time_ideal || ""; // time_idealフィールドを表示
+                    document.querySelector('.mojisu').value = data.word_ideal || ""; // word_idealフィールドを表示
+                    document.getElementById("inputtime").innerText = data.time_input || ""; // time_inputフィールドを表示
+                    document.querySelector('.inputlength').value = data.word_input || ""; // word_inputフィールドを表示
+                } else {
+                    console.log("No such document!");
+                }
+            } 
+            
+            catch (error) {
+                console.log("Error getting document:", error);
+            }
+            
+        } 
+        else {
+            // 未ログインの場合の処理（ログイン画面に遷移）
+            location.href = "login.html";
+        }
     });
-})
-  
-  
-  // ログアウトボタンを押下
-  logout.addEventListener("click", () => {
-    signOut(auth)
-      .then(() => {
-        location.href = "login.html";
-      })
-      .catch((error) => {
-        console.log(`ログアウト時にエラーが発生しました (${error})`);
-      });
-  });
+});
+
+    
+    
+    // ログアウトボタンを押下
+    logout.addEventListener("click", () => {
+        signOut(auth)
+        .then(() => {
+            location.href = "login.html";
+        })
+        .catch((error) => {
+            console.log(`ログアウト時にエラーが発生しました (${error})`);
+        });
+    });
 
 /*保存ボタン*/
 const savebtn = document.getElementById("saveicon");
