@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
         querySnapshot.forEach((doc) => {
           // ドキュメントIDを取得
           const doc_id = doc.id;
-          console.log(doc_id);
           // 枠を作成
           const tbody = document.createElement("tbody");
           const list_wrap = document.createElement("table");
@@ -99,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
           point.rowSpan = "2";
           point.className = "point";
           const point_button = document.createElement("button");
-          point_button.className = "point-button";
-          point_button.classList.add("point_button", doc_id);
+          point_button.className = "point_button";
           const point_img = document.createElement("img");
           point_img.className = "point-img";
           point_img.setAttribute("src", "../img/blue_point.png");
@@ -133,6 +131,21 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             time.innerHTML = doc.data().time_input + "分";
           }
+          // 3点リーダークリック時の枠
+          const reader_wrap = document.createElement("div");
+          reader_wrap.classList.add("reader-wrap", "hidden");
+          const reader_ul = document.createElement("ul");
+          const reader_edit_wrap = document.createElement("li");
+          reader_edit_wrap.className = "reader-edit-wrap";
+          const reader_edit = document.createElement("a");
+          reader_edit.classList.add("reader-edit", doc_id);
+          reader_edit.innerHTML = "編集する";
+          const reader_delete_wrap = document.createElement("li");
+          reader_delete_wrap.className = "reader-delete-wrap";
+          const reader_delete = document.createElement("a");
+          reader_delete.className = "reader-delete";
+          reader_delete.innerHTML = "削除する";
+
           // HTMLに反映
           document.getElementById("all-list").appendChild(tbody);
           tbody.appendChild(list_wrap);
@@ -147,15 +160,24 @@ document.addEventListener("DOMContentLoaded", function () {
           data_wrap.appendChild(txt);
           data_wrap.appendChild(time_img);
           data_wrap.appendChild(time);
+          // タブも追加
+          point.appendChild(reader_wrap);
+          reader_wrap.appendChild(reader_ul);
+          reader_ul.appendChild(reader_edit_wrap);
+          reader_ul.appendChild(reader_delete_wrap);
+          reader_edit_wrap.appendChild(reader_edit);
+          reader_delete_wrap.appendChild(reader_delete);
 
           /* ドキュメントIDを送りつつページ遷移 */
-          var buttons = document.getElementsByClassName("point-button");
-          var triggers = Array.from(buttons);
+          var delete_button = document.getElementsByClassName("reader-delete");
+          var edit_button = document.getElementsByClassName("reader-edit");
+          var eds = Array.from(edit_button);
+          var dels = Array.from(delete_button);
 
-          triggers.forEach(function (target) {
-            target.addEventListener("click", function () {
+          eds.forEach(function (ed) {
+            ed.addEventListener("click", function () {
               location.href =
-                "genko_edit.html?docid=" + target.className.split(" ")[2];
+                "practice.html?docid=" + ed.className.split(" ")[1];
             });
           });
         });
@@ -188,14 +210,3 @@ top.addEventListener("click", () => {
 back.addEventListener("click", () => {
   location.href = "index.html";
 });
-
-window.onload = (function () {
-  var buttons = document.getElementsByClassName("point-button");
-  var triggers = Array.from(buttons);
-
-  triggers.forEach(function (target) {
-    target.addEventListener("click", function () {
-      location.href = "genko_edit.html?docid=" + target.className.split(" ")[2];
-    });
-  });
-})();

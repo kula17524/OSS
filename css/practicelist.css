@@ -508,103 +508,13 @@ ul {
   text-decoration: underline;
 }
 
-/* 新規作成ボタン */
-.new {
-  position: fixed;
-  text-align: right;
-  display: block;
-  width: 100%;
-  height: 90px;
-  bottom: 0;
-  z-index: 8000;
-}
-.new_button {
-  display: inline;
-  text-align: right;
-  vertical-align: bottom;
-  background: none;
-  border: 0;
-  font-size: 0;
-  line-height: 0;
-  margin-right: 20px;
-  margin-bottom: 55px;
-  overflow: visible;
-  cursor: pointer;
-  padding: 0;
-  z-index: 8000;
-}
-.new-img {
-  width: 70px;
-  height: 100%;
-}
-.new-img:hover {
-  opacity: 0.6;
-}
-.new-img:active {
-  position: relative;
-  top: 3px;
-}
-
-@media screen and (min-width: 400px) {
-  .new {
-    position: fixed;
-    text-align: right;
-    display: block;
-    width: 100%;
-    height: 120px;
-    bottom: 0;
-    z-index: 8000;
-  }
-  .new-img {
-    width: 90px;
-    height: 100%;
-  }
-}
-@media screen and (min-width: 800px) {
-  .new {
-    position: fixed;
-    text-align: right;
-    display: block;
-    width: 100%;
-    height: 130px;
-    bottom: 0;
-    z-index: 8000;
-  }
-  .new_button {
-    display: inline;
-    text-align: right;
-    vertical-align: bottom;
-    background: none;
-    border: 0;
-    font-size: 0;
-    line-height: 0;
-    margin-right: 20px;
-    margin-bottom: 70px;
-    overflow: visible;
-    cursor: pointer;
-    padding: 0;
-    z-index: 8000;
-  }
-  .new-img {
-    width: 120px;
-    height: 100%;
-  }
-  .new-img:hover {
-    opacity: 0.6;
-  }
-  .new-img:active {
-    position: relative;
-    top: 3px;
-  }
-}
-
 /* 原稿リストタイトル */
 .list-title {
   position: fixed;
   margin: 1em;
   top: 80px;
   color: #4e4e4e;
-  z-index: 9000;
+  z-index: 8000;
 }
 h3 {
   position: fixed;
@@ -620,14 +530,14 @@ h3 {
   height: 75vh;
   width: 97%;
 }
-::-webkit-scrollbar {
+.manu-list::-webkit-scrollbar {
   width: 15px;
 }
-::-webkit-scrollbar-track {
+.manu-list::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0);
   border-radius: 5px;
 }
-::-webkit-scrollbar-thumb {
+.manu-list::-webkit-scrollbar-thumb {
   background-image: url("../img/scroll_3.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -642,7 +552,7 @@ h3 {
     margin: 1em;
     top: 150px;
     color: #4e4e4e;
-    z-index: 9000;
+    z-index: 8000;
   }
   .manu-list {
     position: fixed;
@@ -659,7 +569,7 @@ h3 {
       margin: 1em;
       top: 80px;
       color: #4e4e4e;
-      z-index: 9000;
+      z-index: 8000;
     }
     .manu-list {
       position: fixed;
@@ -717,6 +627,8 @@ td {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-origin: padding-box;
+  padding-left: 1em;
   width: 10%;
   border-left: solid 1.5px #c2e7ef;
 }
@@ -779,6 +691,7 @@ td {
 }
 /* 3点リーダー */
 .point {
+  position: relative;
   color: #4e4e4e;
   width: 10%;
   border-left: solid 1.5px #c2e7ef;
@@ -808,4 +721,69 @@ td {
 .point-img:active {
   position: relative;
   top: 3px;
+}
+
+/* 3点リーダーの情報枠 */
+.reader-wrap {
+  color: #4e4e4e;
+  font-size: 1em;
+  position: absolute;
+  z-index: 9000;
+  text-align: center;
+  /*ナビのスvscode-file://vscode-app/c:/Users/ohkura%20china/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlタート位置と形状*/
+  width: 100px;
+  height: 100px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+.reader-wrap ul {
+  width: 70%;
+  height: auto;
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.reader-edit-wrap {
+  padding-bottom: 0.7em;
+  border-bottom: solid 1.5px #c2e7ef;
+}
+.reader-delete-wrap {
+  padding-top: 0.7em;
+}
+/* 幅が狭い場合に対応 */
+@media screen and (max-width: 800px) {
+  .reader-wrap {
+    color: #4e4e4e;
+    font-size: 0.8em;
+    position: absolute;
+    right: -15px;
+    z-index: 9000;
+    text-align: center;
+    /*ナビのスvscode-file://vscode-app/c:/Users/ohkura%20china/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlタート位置と形状*/
+    width: 80px;
+    height: 80px; /*ナビの高さ*/
+    background-image: url("../img/blue_loginBack.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*動き*/
+    transition: all 0.6s;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+  }
+}
+.hidden {
+  display: none;
 }
