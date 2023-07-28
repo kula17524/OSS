@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
           eds.forEach(function (ed) {
             ed.addEventListener("click", function () {
               location.href =
-                "practice.html?docid=" + ed.className.split(" ")[1];
+                "genko_edit.html?docid=" + target.className.split(" ")[2];
             });
           });
         });
