@@ -877,3 +877,28 @@ td {
     top: 3px;
   }
 }
+
+/* タブ内のボタン文字の表示 */
+.reader-edit,
+.reader-delete {
+  cursor: pointer;
+  color: #4e4e4e;
+}
+
+.reader-edit:hover,
+.reader-delete:hover {
+  color: #747171;
+  opacity: 0.6;
+}
+.reader-edit:focus,
+.reader-delete:focus {
+  color: #747171;
+  opacity: 0.6;
+}
+
+.reader-edit:active,
+.reader-delete:active {
+  color: #747171;
+  position: relative;
+  top: 3px;
+}
