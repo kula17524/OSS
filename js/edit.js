@@ -31,7 +31,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 //htmlと連携
-let back = document.getElementById("back_button");
 let logout = document.getElementById("logout");
 let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
