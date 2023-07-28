@@ -508,6 +508,286 @@ ul {
   text-decoration: underline;
 }
 
+/* 原稿リストタイトル */
+.list-title {
+  position: fixed;
+  margin: 1em;
+  top: 80px;
+  color: #4e4e4e;
+  z-index: 8000;
+}
+h3 {
+  position: fixed;
+  top: 80px;
+}
+
+/* 原稿リスト */
+.manu-list {
+  position: fixed;
+  top: 120px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 75vh;
+  width: 97%;
+}
+.manu-list::-webkit-scrollbar {
+  width: 15px;
+}
+.manu-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+}
+.manu-list::-webkit-scrollbar-thumb {
+  background-image: url("../img/scroll_3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+/* 縦長ならスマホ用画面になる */
+@media screen and (orientation: portrait) {
+  .list-title {
+    position: fixed;
+    margin: 1em;
+    top: 150px;
+    color: #4e4e4e;
+    z-index: 8000;
+  }
+  .manu-list {
+    position: fixed;
+    top: 190px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 70vh;
+    width: 97%;
+  }
+  /* 縦長でも縦の長さが短ければPC表示にする */
+  @media screen and (max-height: 600px) {
+    .list-title {
+      position: fixed;
+      margin: 1em;
+      top: 80px;
+      color: #4e4e4e;
+      z-index: 8000;
+    }
+    .manu-list {
+      position: fixed;
+      top: 120px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 55vh;
+      width: 97%;
+    }
+  }
+}
+.all-list {
+  color: #4e4e4e;
+  width: 100%;
+  height: 100%;
+}
+.list-wrap {
+  table-layout: fixed;
+  text-align: center;
+  margin: auto;
+  margin-top: 0.5em;
+  width: 90%;
+  border: solid 1.5px #c2e7ef;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+td {
+  padding: 0.3em;
+}
+.title {
+  color: #4e4e4e;
+  width: 65%;
+  text-align: center;
+  border-bottom: solid 1.5px #c2e7ef;
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.date {
+  color: #4e4e4e;
+  width: 20%;
+  border-left: solid 1.5px #c2e7ef;
+  font-size: 0.9em;
+}
+.txt-img {
+  text-align: left;
+  padding-left: 1em;
+  width: 15%;
+  color: #4e4e4e;
+  font-size: 0.9em;
+}
+.time-img {
+  background-image: url(../img/blue_timer.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: padding-box;
+  padding-left: 1em;
+  width: 10%;
+  border-left: solid 1.5px #c2e7ef;
+}
+.txt {
+  color: #4e4e4e;
+  width: 20%;
+  text-align: right;
+  padding-right: 1em;
+  font-size: 0.9em;
+}
+.time {
+  color: #4e4e4e;
+  text-align: right;
+  width: 25%;
+  padding-right: 1em;
+  font-size: 0.9em;
+}
+/* 幅が狭い場合に対応 */
+@media screen and (max-width: 400px) {
+  .title {
+    color: #4e4e4e;
+    width: 60%;
+    text-align: center;
+    border-bottom: solid 1.5px #c2e7ef;
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .txt-img {
+    text-align: left;
+    padding: 0;
+    width: 15%;
+    color: #4e4e4e;
+    font-size: 0.7em;
+  }
+  .txt {
+    color: #4e4e4e;
+    width: 20%;
+    text-align: right;
+    padding: 0;
+    font-size: 0.7em;
+  }
+  .time {
+    color: #4e4e4e;
+    width: 25%;
+    padding: 0;
+    font-size: 0.7em;
+    text-align: right;
+  }
+  .date {
+    color: #4e4e4e;
+    width: 30%;
+    border-left: solid 1.5px #c2e7ef;
+    font-size: 0.7em;
+  }
+}
+.list-title {
+  position: fixed;
+}
+/* 3点リーダー */
+.point {
+  position: relative;
+  color: #4e4e4e;
+  width: 10%;
+  border-left: solid 1.5px #c2e7ef;
+  text-align: center;
+  vertical-align: middle;
+}
+.point-button {
+  display: inline;
+  margin: auto;
+  background: none;
+  width: 100%;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  z-index: 8000;
+}
+.point-img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+.point-img:hover {
+  opacity: 0.6;
+}
+.point-img:active {
+  position: relative;
+  top: 3px;
+}
+
+/* 3点リーダーの情報枠 */
+.reader-wrap {
+  color: #4e4e4e;
+  font-size: 1em;
+  position: absolute;
+  z-index: 9000;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  width: 100px;
+  height: 100px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+.reader-wrap ul {
+  width: 70%;
+  height: auto;
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.reader-edit-wrap {
+  padding-bottom: 0.7em;
+  border-bottom: solid 1.5px #c2e7ef;
+}
+.reader-delete-wrap {
+  padding-top: 0.7em;
+}
+/* 幅が狭い場合に対応 */
+@media screen and (max-width: 800px) {
+  .reader-wrap {
+    color: #4e4e4e;
+    font-size: 0.8em;
+    position: absolute;
+    right: -15px;
+    z-index: 9000;
+    text-align: center;
+    /*ナビのスタート位置と形状*/
+    width: 80px;
+    height: 80px; /*ナビの高さ*/
+    background-image: url("../img/blue_loginBack.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*動き*/
+    transition: all 0.6s;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+  }
+}
+.hidden {
+  display: none;
+}
+
 /* 新規作成ボタン */
 .new {
   position: fixed;
@@ -596,216 +876,4 @@ ul {
     position: relative;
     top: 3px;
   }
-}
-
-/* 原稿リストタイトル */
-.list-title {
-  position: fixed;
-  margin: 1em;
-  top: 80px;
-  color: #4e4e4e;
-  z-index: 9000;
-}
-h3 {
-  position: fixed;
-  top: 80px;
-}
-
-/* 原稿リスト */
-.manu-list {
-  position: fixed;
-  top: 120px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 55vh;
-  width: 97%;
-}
-::-webkit-scrollbar {
-  width: 15px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0);
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb {
-  background-image: url("../img/scroll_3.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 5px;
-}
-
-/* 縦長ならスマホ用画面になる */
-@media screen and (orientation: portrait) {
-  .list-title {
-    position: fixed;
-    margin: 1em;
-    top: 150px;
-    color: #4e4e4e;
-    z-index: 9000;
-  }
-  .manu-list {
-    position: fixed;
-    top: 190px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 55vh;
-    width: 97%;
-  }
-  /* 縦長でも縦の長さが短ければPC表示にする */
-  @media screen and (max-height: 600px) {
-    .list-title {
-      position: fixed;
-      margin: 1em;
-      top: 80px;
-      color: #4e4e4e;
-      z-index: 9000;
-    }
-    .manu-list {
-      position: fixed;
-      top: 120px;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      height: 55vh;
-      width: 97%;
-    }
-  }
-}
-.all-list {
-  color: #4e4e4e;
-  width: 100%;
-  height: 100%;
-}
-.list-wrap {
-  table-layout: fixed;
-  text-align: center;
-  margin: auto;
-  margin-top: 0.5em;
-  width: 90%;
-  border: solid 1.5px #c2e7ef;
-  border-radius: 5px;
-  background-color: #ffffff;
-}
-td {
-  padding: 0.3em;
-}
-.title {
-  color: #4e4e4e;
-  width: 65%;
-  text-align: center;
-  border-bottom: solid 1.5px #c2e7ef;
-  font-size: 1.2em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.date {
-  color: #4e4e4e;
-  width: 20%;
-  border-left: solid 1.5px #c2e7ef;
-  font-size: 0.9em;
-}
-.txt-img {
-  text-align: left;
-  padding-left: 1em;
-  width: 15%;
-  color: #4e4e4e;
-  font-size: 0.9em;
-}
-.time-img {
-  background-image: url(../img/blue_timer.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 10%;
-  border-left: solid 1.5px #c2e7ef;
-}
-.txt {
-  color: #4e4e4e;
-  width: 20%;
-  text-align: right;
-  padding-right: 1em;
-  font-size: 0.9em;
-}
-.time {
-  color: #4e4e4e;
-  text-align: right;
-  width: 25%;
-  padding-right: 1em;
-  font-size: 0.9em;
-}
-/* 幅が狭い場合に対応 */
-@media screen and (max-width: 400px) {
-  .title {
-    color: #4e4e4e;
-    width: 60%;
-    text-align: center;
-    border-bottom: solid 1.5px #c2e7ef;
-    font-size: 1em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .txt-img {
-    text-align: left;
-    padding: 0;
-    width: 15%;
-    color: #4e4e4e;
-    font-size: 0.7em;
-  }
-  .txt {
-    color: #4e4e4e;
-    width: 20%;
-    text-align: right;
-    padding: 0;
-    font-size: 0.7em;
-  }
-  .time {
-    color: #4e4e4e;
-    width: 25%;
-    padding: 0;
-    font-size: 0.7em;
-    text-align: right;
-  }
-  .date {
-    color: #4e4e4e;
-    width: 30%;
-    border-left: solid 1.5px #c2e7ef;
-    font-size: 0.7em;
-  }
-}
-.list-title {
-  position: fixed;
-}
-/* 3点リーダー */
-.point {
-  color: #4e4e4e;
-  width: 10%;
-  border-left: solid 1.5px #c2e7ef;
-  text-align: center;
-  vertical-align: middle;
-}
-.point_button {
-  display: inline;
-  margin: auto;
-  background: none;
-  width: 100%;
-  border: 0;
-  font-size: 0;
-  line-height: 0;
-  overflow: visible;
-  cursor: pointer;
-  z-index: 8000;
-}
-.point-img {
-  display: block;
-  margin: auto;
-  width: 100%;
-}
-.point-img:hover {
-  opacity: 0.6;
-}
-.point-img:active {
-  position: relative;
-  top: 3px;
 }

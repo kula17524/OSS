@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
           var eds = Array.from(edit_button);
           var dels = Array.from(delete_button);
 
+          /* 「編集する」ボタンで遷移 */
           eds.forEach(function (ed) {
             ed.addEventListener("click", function () {
               location.href =
