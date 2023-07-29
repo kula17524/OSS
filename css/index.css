@@ -43,6 +43,7 @@ body {
 
 li {
   list-style: none;
+  margin-bottom: 3em;
 }
 
 .button_list {
