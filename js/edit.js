@@ -7,10 +7,12 @@ import {
 import {
     getFirestore,
     doc,
+    updateDoc,
     setDoc,
     getDoc,
-
+    serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
 
 //情報設定
 const firebaseConfig = {
@@ -126,31 +128,31 @@ document.addEventListener("DOMContentLoaded", async function () {
         alert("ログインしてください。")
         location.href = "login.html";
       }
-      
+
       // Firebase Firestoreにデータを更新して保存する
         const updateDataToFirebase = () => { 
             const idealNumber = document.querySelector('.mojisu').value;
             const idealTime = document.querySelector('.time').value;
             const title = document.querySelector('.genko_title').value;
             const honbun = document.getElementById("textarea").value;
-            const editTime = new Date().toLocaleString();
+            const editTime = serverTimestamp();
             const wordInput = document.getElementById("inputlength").innerText;
             const timeInput = document.getElementById("inputtime").innerText;
             console.log("idealNumber:"+idealNumber,"idealTime:"+idealTime,"title:"+title,"honbun:"+honbun,"editTime:"+editTime,"wordInput:"+wordInput,"timeInput:"+timeInput);
             
             // Firebase Firestoreに保存する
-            setDoc(doc(db, "data", doc_id), {
+            updateDoc(doc(db, "data", doc_id), {
                 word_ideal: idealNumber,
                 time_ideal: idealTime,
                 title: title,
                 text: honbun,
-                edit_time: editTime,
+                edit_date: editTime,
                 word_input: wordInput,
                 time_input: timeInput,
             })
             
             .then((docRef) => {
-                alert("データが正常に保存されました！ドキュメントID: " + docRef.id);
+                alert("データが正常に保存されました！");
             })
             .catch((error) => {
                 alert("データの保存中にエラーが発生しました: " + error);
