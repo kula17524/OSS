@@ -527,7 +527,7 @@ h3 {
   top: 120px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 75vh;
+  height: 55vh;
   width: 97%;
 }
 .manu-list::-webkit-scrollbar {
@@ -544,8 +544,6 @@ h3 {
   background-size: cover;
   border-radius: 5px;
 }
-
-/* 縦長ならスマホ用画面になる */
 @media screen and (orientation: portrait) {
   .list-title {
     position: fixed;
@@ -559,8 +557,15 @@ h3 {
     top: 190px;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 70vh;
+    height: 65vh;
     width: 97%;
+  }
+}
+
+/* 縦長ならスマホ用画面になる */
+@media screen and (max-height: 800px) {
+  .manu-list {
+    height: 55vh;
   }
   /* 縦長でも縦の長さが短ければPC表示にする */
   @media screen and (max-height: 600px) {

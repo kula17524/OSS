@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
           reader_edit_wrap.className = "reader-edit-wrap";
           const reader_edit = document.createElement("a");
           reader_edit.classList.add("reader-edit", doc_id);
-          reader_edit.innerHTML = "編集する";
+          reader_edit.innerHTML = "練習する";
           const reader_delete_wrap = document.createElement("li");
           reader_delete_wrap.className = "reader-delete-wrap";
           const reader_delete = document.createElement("a");
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "practice.html?docid=" + ed.className.split(" ")[1];
             });
           });
-          /* 「削除する」ボタンで遷移 */
+          /* 「削除する」ボタンでドキュメント削除 */
           dels.forEach(function (del) {
             del.addEventListener("click", async function () {
               let title_get = del.className.split(" ")[1];
@@ -209,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
               }).then(async (result) => {
                 if (result.value) {
                   const docRef = doc(db, "data", id_get);
-                  console.log(docRef);
                   await deleteDoc(docRef);
                   Swal.fire({
                     title: "削除完了",
@@ -243,7 +242,7 @@ logout.addEventListener("click", () => {
       location.href = "login.html";
     })
     .catch((error) => {
-      console.log(`ログアウト時にエラーが発生しました (${error})`);
+      console.log(`ログアウトに失敗しました (${error})`);
     });
 });
 
