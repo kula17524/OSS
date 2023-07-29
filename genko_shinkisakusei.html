@@ -51,14 +51,14 @@
         <div id="mask" class="hidden"></div>
         <section id="modal" class="hidden">
             <p>保存しますか？</p>
-            <p>タイトルに空白文字が含まれている場合、データ損失の可能性があります。</p>
+            <p>タイトルに空欄や空白文字が含まれている場合、データ損失の可能性があります。</p>
             <button id="yesButton">はい</button>
             <button id="noButton">戻る</button>
         </section>
         <div id="mask_sm" class="hidden"></div>
         <section id="modal_sm" class="hidden">
             <p>保存しますか？</p>
-            <p>タイトルに空白文字が含まれている場合データ損失の可能性があります。　　　</p>
+            <p>タイトルに空欄や空白文字が含まれている場合データ損失の可能性があります。　　　</p>
             <button id="yesButtonSm">はい</button>
             <button id="noButtonSm">戻る</button>
         </section>
@@ -79,7 +79,7 @@
         <span class="time-label">分</span>
         <input type="number" inputmode="numeric" class="time" placeholder="目標時間" onkeyup="updateMojisu(value);" />
         <br>
-        <input type="text" class="genko_title" placeholder="タイトル（空白文字は無効）" />
+        <input type="text" class="genko_title" placeholder="タイトル（未入力・空白文字は無効）" />
         <br>
         <br>
         <textarea id="textarea" name="main" placeholder="本文" onkeyup="Length(value);"></textarea>
@@ -143,52 +143,71 @@
             const n = (cleanedStr.length * 0.2) / 60;
             document.getElementById("inputtime").innerHTML = n.toFixed(2);
         }
-        //タイトルで空白禁止
+        // タイトルで空白禁止
         // テキストボックスの要素を取得
         const genkoTitleInput = document.querySelector('.genko_title');
 
         // テキストボックスの値が変更されるたびにチェックを行うイベントリスナーを追加
         genkoTitleInput.addEventListener('input', function() {
-        const inputValue = genkoTitleInput.value;
+            const inputValue = genkoTitleInput.value;
+            // 入力された文字列が空文字列（未入力）または空白文字（半角と全角）を含んでいるかチェック
+            if (inputValue.trim() === '') {
+                // アラートを表示
+                alert('タイトルを入力してください。');
+            } else if (/\s/.test(inputValue)) {
+                // アラートを表示
+                alert('空白文字は無効です。保存時にデータが失われる可能性があります。');
 
-        // 入力された文字列に空白文字（半角と全角）が含まれているかチェック
-        if (/\s/.test(inputValue)) {
-            // アラートを表示
-            alert('空白文字は無効です。保存時にデータが失われる可能性があります。');
-
-            // 空白文字を削除して入力欄をクリアする場合は以下のようにする
-            // genkoTitleInput.value = inputValue.replace(/\s+/g, '');
-        }
+                // 空白文字を削除して入力欄をクリアする場合は以下のようにする
+                // genkoTitleInput.value = inputValue.replace(/\s+/g, '');
+            }
         });
-        
-        /*保存ボタン*/
+
         const savebtn = document.getElementById("saveicon");
-        const mask = document.getElementById("mask");
-        const modal = document.getElementById("modal");
-
+        // 保存ボタンがクリックされたときのイベントリスナーを追加
         savebtn.addEventListener('click', () => {
-            mask.classList.remove('hidden');
-            modal.classList.remove('hidden');
-        });
+            const genkoTitleInput = document.querySelector('.genko_title');
+            const title = genkoTitleInput.value;
 
-        mask.addEventListener('click', () => {
+            // タイトルが空文字列（未入力）の場合にアラートを表示
+            if (title.trim() === '') {
+                alert('タイトルを入力してください。');
+                return; // 以降の処理を中止
+            }
+            // Firebaseにデータを保存
+            saveDataToFirebase();
+
+            // モーダルを閉じる
             mask.classList.add('hidden');
             modal.classList.add('hidden');
         });
 
         const savebtn_sm = document.getElementById("saveicon_2");
-        const mask_sm = document.getElementById("mask_sm");
-        const modal_sm = document.getElementById("modal_sm");
-
+        // 保存ボタンがクリックされたときのイベントリスナーを追加
         savebtn_sm.addEventListener('click', () => {
-            mask_sm.classList.remove('hidden');
-            modal_sm.classList.remove('hidden');
-        });
+            const genkoTitleInput = document.querySelector('.genko_title');
+            const title = genkoTitleInput.value;
 
-        mask_sm.addEventListener('click', () => {
+            // タイトルが空文字列（未入力）の場合にアラートを表示
+            if (title.trim() === '') {
+                alert('タイトルを入力してください。');
+                return; // 以降の処理を中止
+            }
+            // Firebaseにデータを保存
+            saveDataToFirebase();
+
+            // モーダルを閉じる
             mask_sm.classList.add('hidden');
             modal_sm.classList.add('hidden');
         });
+
+
+
+
+
+
+
+
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/shinki_jquery.js"></script> 
