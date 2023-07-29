@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Content-Style-Type" content="text/css">
-    <link rel="stylesheet" href="css/css_genko_sakusei_PC.css">
+    <link rel="stylesheet" href="css/css_genko_edit_PC.css">
     <link rel="stylesheet" media="screen and (max-width:960px)" href="css/css_genko_sakusei__Tab.css">
     <link rel="stylesheet" media="screen and (max-width:480px)" href="css/css_genko_edit_Sm.css">
     <link rel="icon" href="img/blue_icon(ico).ico">
@@ -51,14 +51,16 @@
         <div id="mask" class="hidden"></div>
         <section id="modal" class="hidden">
             <p>保存しますか？</p>
+            <p>タイトルに空白文字が含まれている場合、データ損失の可能性があります。</p>
             <button id="yesButton">はい</button>
-            <button id="noButton">いいえ</button>
+            <button id="noButton">戻る</button>
         </section>
         <div id="mask_sm" class="hidden"></div>
         <section id="modal_sm" class="hidden">
             <p>保存しますか？</p>
+            <p>タイトルに空白文字が含まれている場合データ損失の可能性があります。　　　</p>
             <button id="yesButtonSm">はい</button>
-            <button id="noButtonSm">いいえ</button>
+            <button id="noButtonSm">戻る</button>
         </section>
 
         <img id="exiticon" src="./img/PC_door_icon.png" alt="PC画面用戻るボタン" ontouchstart=""  draggable="false">
@@ -77,7 +79,7 @@
         <span class="time-label">分</span>
         <input type="number" inputmode="numeric" class="time" placeholder="目標時間" onkeyup="updateMojisu(value);" />
         <br>
-        <input type="text" class="genko_title" placeholder="タイトル" />
+        <input type="text" class="genko_title" placeholder="タイトル（空白文字は無効）" oninput="validateInput(this)"/>
         <br>
         <br>
         <textarea id="textarea" name="main" placeholder="本文" onkeyup="Length(value);"></textarea>
@@ -126,17 +128,38 @@
         }
 
         function showLength(value) {
+            // 改行文字と空白文字を取り除く
+            var cleanedValue = value.replace(/\s+/g, '').replace(/\n+/g, '');
             var inputLength = document.getElementById("inputlength");
-            var length = value.length;
+            var length = cleanedValue.length;
             inputLength.innerText = length;
         }
 
         /*文字数カウント*/
         function Length(str) {
-            document.getElementById("inputlength").innerHTML = str.length;
-            const n = (str.length * 0.2) / 60;
+            // 改行文字と空白文字を取り除く
+            var cleanedStr = str.replace(/\s+/g, '').replace(/\n+/g, '');
+            document.getElementById("inputlength").innerHTML = cleanedStr.length;
+            const n = (cleanedStr.length * 0.2) / 60;
             document.getElementById("inputtime").innerHTML = n.toFixed(2);
         }
+        //タイトルで空白禁止
+        // テキストボックスの要素を取得
+        const genkoTitleInput = document.querySelector('.genko_title');
+
+        // テキストボックスの値が変更されるたびにチェックを行うイベントリスナーを追加
+        genkoTitleInput.addEventListener('input', function() {
+        const inputValue = genkoTitleInput.value;
+
+        // 入力された文字列に空白文字（半角と全角）が含まれているかチェック
+        if (/\s/.test(inputValue)) {
+            // アラートを表示
+            alert('空白文字は無効です。保存時にデータが失われる可能性があります。');
+
+            // 空白文字を削除して入力欄をクリアする場合は以下のようにする
+            // genkoTitleInput.value = inputValue.replace(/\s+/g, '');
+        }
+        });
         
         /*保存ボタン*/
         const savebtn = document.getElementById("saveicon");

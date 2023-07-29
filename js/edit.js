@@ -114,6 +114,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                   mask.classList.add('hidden');
                   modal.classList.add('hidden');
               });
+              // スマホ用「はい」をクリックしたときにデータをFirebaseに保存
+              const yesButtonSm = document.getElementById("yesButtonSm");
+              yesButtonSm.addEventListener('click', () => {
+                  updateDataToFirebase();
+                  mask_sm.classList.add('hidden');
+                  modal_sm.classList.add('hidden');
+              });
+
             } else {
               alert("ユーザーの UIDが一致していません。ログアウトしてやり直してください。")
             }
@@ -170,13 +178,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         modal.classList.add('hidden');
     });
 
-    // スマホ用「はい」をクリックしたときにデータをFirebaseに保存
-    const yesButtonSm = document.getElementById("yesButtonSm");
-    yesButtonSm.addEventListener('click', () => {
-        saveDataToFirebase();
-        mask_sm.classList.add('hidden');
-        modal_sm.classList.add('hidden');
-    });
+    
 
     // スマホ用「いいえ」をクリックしたときにモーダルを閉じる
     const noButtonSm = document.getElementById("noButtonSm");
