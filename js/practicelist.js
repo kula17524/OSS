@@ -6,7 +6,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 import {
   getFirestore,
+  doc,
   getDocs,
+  deleteDoc,
   collection,
   query,
   where,
@@ -47,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
       (async () => {
         const q = query(collection(db, "data"), where("userId", "==", user_id));
         const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc_get) => {
           // ドキュメントIDを取得
-          const doc_id = doc.id;
+          const doc_id = doc_get.id;
           // 枠を作成
           const tbody = document.createElement("tbody");
           const list_wrap = document.createElement("table");
@@ -64,20 +66,23 @@ document.addEventListener("DOMContentLoaded", function () {
           const title = document.createElement("td");
           title.className = "title";
           title.colSpan = "4";
-          if (doc.data().title == undefined || doc.data().title == null) {
+          if (
+            doc_get.data().title == undefined ||
+            doc_get.data().title == null
+          ) {
             title.innerHTML = "無題";
           } else {
-            title.innerHTML = doc.data().title;
+            title.innerHTML = doc_get.data().title;
           }
           // 最終更新日
           const date = document.createElement("td");
           if (
-            doc.data().edit_date == undefined ||
-            doc.data().edit_date == null
+            doc_get.data().edit_date == undefined ||
+            doc_get.data().edit_date == null
           ) {
             date.innerHTML = "更新日不明";
           } else {
-            const day = doc.data().edit_date.toDate();
+            const day = doc_get.data().edit_date.toDate();
             date.innerHTML =
               day.getFullYear() +
               "/" +
@@ -110,13 +115,14 @@ document.addEventListener("DOMContentLoaded", function () {
           txt_img.innerHTML = "文字数";
           const txt = document.createElement("td");
           txt.className = "txt";
+          const title_get = doc_get.data().title;
           if (
-            doc.data().word_input == undefined ||
-            doc.data().word_input == null
+            doc_get.data().word_input == undefined ||
+            doc_get.data().word_input == null
           ) {
             txt.innerHTML = "不明";
           } else {
-            txt.innerHTML = doc.data().word_input + "字";
+            txt.innerHTML = doc_get.data().word_input + "字";
           }
           // 現在の発表目安時間
           const time_img = document.createElement("td");
@@ -124,12 +130,12 @@ document.addEventListener("DOMContentLoaded", function () {
           const time = document.createElement("td");
           time.className = "time";
           if (
-            doc.data().time_input == undefined ||
-            doc.data().time_input == null
+            doc_get.data().time_input == undefined ||
+            doc_get.data().time_input == null
           ) {
             time.innerHTML = "不明";
           } else {
-            time.innerHTML = doc.data().time_input + "分";
+            time.innerHTML = doc_get.data().time_input + "分";
           }
           // 3点リーダークリック時の枠
           const reader_wrap = document.createElement("div");
@@ -143,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const reader_delete_wrap = document.createElement("li");
           reader_delete_wrap.className = "reader-delete-wrap";
           const reader_delete = document.createElement("a");
-          reader_delete.className = "reader-delete";
+          reader_delete.classList.add("reader-delete", title_get, doc_id);
           reader_delete.innerHTML = "削除する";
 
           // HTMLに反映
@@ -179,6 +185,45 @@ document.addEventListener("DOMContentLoaded", function () {
             ed.addEventListener("click", function () {
               location.href =
                 "practice.html?docid=" + ed.className.split(" ")[1];
+            });
+          });
+          /* 「削除する」ボタンで遷移 */
+          dels.forEach(function (del) {
+            del.addEventListener("click", async function () {
+              let title_get = del.className.split(" ")[1];
+              let id_get = del.className.split(" ")[2];
+              if (title_get == "null" || title_get == "undefined") {
+                title_get = "無題";
+              }
+              Swal.fire({
+                title: "削除前の確認",
+                html:
+                  "本当に以下の原稿を削除しますか？<br>この操作は取り消せません！<br><br>削除対象：" +
+                  title_get,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#1AA7C5",
+                confirmButtonText: "削除する",
+                cancelButtonText: "やめる",
+              }).then(async (result) => {
+                if (result.value) {
+                  const docRef = doc(db, "data", id_get);
+                  console.log(docRef);
+                  await deleteDoc(docRef);
+                  Swal.fire({
+                    title: "削除完了",
+                    html: "削除が完了しました",
+                    showConfirmButton: true,
+                    confirmButtonText: "ＯＫ",
+                    confirmButtonColor: "#1AA7C5",
+                  }).then((result) => {
+                    if (result.value) {
+                      location.reload();
+                    }
+                  });
+                }
+              });
             });
           });
         });
