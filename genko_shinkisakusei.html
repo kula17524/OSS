@@ -62,11 +62,15 @@
             <button id="yesButtonSm">はい</button>
             <button id="noButtonSm">戻る</button>
         </section>
-
         <img id="exiticon" src="./img/PC_door_icon.png" alt="PC画面用戻るボタン" ontouchstart=""  draggable="false">
+        <img id="emphasisButton"  src="./img/kyotyo.png" alt="「強調する」ボタン" ontouchstart=""  draggable="false">
+        <img id="maButton" src="./img/ma.png" alt="「間をおく」ボタン" ontouchstart=""  draggable="false">
+        <img id="miwaButton" src="./img/miwa.png" alt="「見わたす」ボタン" ontouchstart=""  draggable="false">
+        <img id="kyukeiButton" src="./img/kyukei.png" alt="「休憩する」ボタン" ontouchstart=""  draggable="false">
+
     </div>
     <div class="sm_function"><!--スマホの機能ボタン-->
-        <img id="saveicon_2" src="./img/blue_hozon_Button.png" alt="スマホ画面用セーブボタン" ontouchstart=""  draggable="false" ontouchend="">
+        <img id="saveicon_2" src="./img/white_hozon_Button.png" alt="スマホ画面用セーブボタン" ontouchstart=""  draggable="false" ontouchend="">
         
         <img id="back_button" src="./img/blue_back_Button.png" alt="スマホ画面用戻るボタン" ontouchstart=""  draggable="false">
         <img id="home" src="./img/blue_home_Button.png" alt="スマホ画面用ホームに戻るボタン">
@@ -95,6 +99,39 @@
     <script type="text/javascript" src="private.js"></script>
     <script src="js/genko_shinkisakusei.js" type="module"></script>
     <script>
+        // 強調するボタンをクリックしたときの処理
+        const emphasisButton = document.getElementById("emphasisButton");
+        emphasisButton.addEventListener('click', () => {
+            // テキストエリアに挿入
+            const textarea = document.getElementById("textarea");
+            const currentValue = textarea.value;
+            textarea.value = currentValue + "<< 強調 >>";
+        });
+        //  間をおくボタンをクリックしたときの処理
+        const maButton = document.getElementById("maButton");
+        maButton.addEventListener('click', () => {
+            // テキストエリアに挿入
+            const textarea = document.getElementById("textarea");
+            const currentValue = textarea.value;
+            textarea.value = currentValue + "<< 間をおく >>";
+        });
+        //  見わたすボタンをクリックしたときの処理
+        const miwaButton = document.getElementById("miwaButton");
+        miwaButton.addEventListener('click', () => {
+            // テキストエリアに挿入
+            const textarea = document.getElementById("textarea");
+            const currentValue = textarea.value;
+            textarea.value = currentValue + "<< 見わたす >>";
+        });
+        //  休憩するボタンをクリックしたときの処理
+        const kyukeiButton = document.getElementById("kyukeiButton");
+        kyukeiButton.addEventListener('click', () => {
+            // テキストエリアに挿入
+            const textarea = document.getElementById("textarea");
+            const currentValue = textarea.value;
+            textarea.value = currentValue + "<< 休憩する >>";
+        });
+
         /*目標時間・目標文字数計算*/
         function isNaturalNumber(value) {
             var parsedValue = parseInt(value, 10);
