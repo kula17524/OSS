@@ -39,22 +39,7 @@ let home = document.getElementById("home");
 let back_button = document.getElementById("back_button");
 
 
-// ロゴをクリックするとメニュー画面に移動
-logoicon.addEventListener("click", () => {
-    location.href = "index.html";
-});
-// exitボタンをクリックするとメニュー画面に移動
-exiticon.addEventListener("click", () => {
-    location.href = "newlist.html";
-});
-// homeボタンをクリックするとメニュー画面に移動
-home.addEventListener("click", () => {
-    location.href = "index.html";
-});
-// ひとつ前に戻るボタンを押すとメニュー画面に移動
-back_button.addEventListener("click", () => {
-    location.href = "newlist.html";
-});
+
 
 
 // ユーザーの認証情報
@@ -195,7 +180,22 @@ savebtn.addEventListener('click', () => {
     modal.classList.remove('hidden');
 });
 
-
+// ロゴをクリックするとメニュー画面に移動
+logoicon.addEventListener("click", () => {
+    location.href = "index.html";
+});
+// exitボタンをクリックするとメニュー画面に移動
+exiticon.addEventListener("click", () => {
+    location.href = "newlist.html";
+});
+// homeボタンをクリックするとメニュー画面に移動
+home.addEventListener("click", () => {
+    location.href = "index.html";
+});
+// ひとつ前に戻るボタンを押すとメニュー画面に移動
+back_button.addEventListener("click", () => {
+    location.href = "newlist.html";
+});
 
 
 
