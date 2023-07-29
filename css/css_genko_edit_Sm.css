@@ -74,7 +74,7 @@
         background-color: rgb(26, 167, 197);
         border: none;
         border-radius: 5px;
-        top: 10%;
+        top: 8%;
     }
     #yesButtonSm:hover{
         /* リンクをホバーしたときのカーソルに*/
@@ -82,7 +82,7 @@
         cursor: pointer;
     }
     #yesButtonSm:active{
-	    top: 11%;
+	    top: 9%;
     }
     /*保存→「いいえ」ボタン*/
     #noButtonSm {
@@ -96,7 +96,7 @@
         border: none;
         border-radius: 5px;
         text-align: center;
-        top: 20%;
+        top: 18%;
     }
     #noButtonSm:hover{
         /* リンクをホバーしたときのカーソルに*/
@@ -104,7 +104,7 @@
         cursor: pointer;
     }
     #noButtonSm:active{
-	    top: 21%;
+	    top: 19%;
     }
 
 
@@ -337,12 +337,12 @@
     #modal_sm {
     background: #fff;
     width: 40%;
-    height: 30%;
+    height: 35%;
     padding: 24px;
     border-radius: 4px;
     color: #073b57;
     position: fixed;
-    top: 50%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
