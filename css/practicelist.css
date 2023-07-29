@@ -730,7 +730,7 @@ td {
   position: absolute;
   z-index: 9000;
   text-align: center;
-  /*ナビのスvscode-file://vscode-app/c:/Users/ohkura%20china/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlタート位置と形状*/
+  /*ナビのスタート位置と形状*/
   width: 100px;
   height: 100px; /*ナビの高さ*/
   background-image: url("../img/blue_loginBack.png");
@@ -770,7 +770,7 @@ td {
     right: -15px;
     z-index: 9000;
     text-align: center;
-    /*ナビのスvscode-file://vscode-app/c:/Users/ohkura%20china/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlタート位置と形状*/
+    /*ナビのスタート位置と形状*/
     width: 80px;
     height: 80px; /*ナビの高さ*/
     background-image: url("../img/blue_loginBack.png");
@@ -786,4 +786,28 @@ td {
 }
 .hidden {
   display: none;
+}
+/* タブ内のボタン文字の表示 */
+.reader-edit,
+.reader-delete {
+  cursor: pointer;
+  color: #4e4e4e;
+}
+
+.reader-edit:hover,
+.reader-delete:hover {
+  color: #747171;
+  opacity: 0.6;
+}
+.reader-edit:focus,
+.reader-delete:focus {
+  color: #747171;
+  opacity: 0.6;
+}
+
+.reader-edit:active,
+.reader-delete:active {
+  color: #747171;
+  position: relative;
+  top: 3px;
 }
