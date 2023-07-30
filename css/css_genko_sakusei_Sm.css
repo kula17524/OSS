@@ -301,6 +301,13 @@
         -moz-user-select:none;
         user-select:none;
     }
+    .background{
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -moz-touch-callout:none;
+        -moz-user-select:none;
+        user-select:none;
+    }
     /* ユーザーアイコン */
     .user_button {
         display: none;
@@ -313,7 +320,7 @@
         width: 30%;
         height: auto;
         margin-left: -16%;
-        top: 85%;
+        top: 90%;
         height: auto;
     }
     #saveicon_2:hover{
