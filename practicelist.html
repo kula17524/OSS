@@ -19,7 +19,7 @@
       </button>
 
       <!-- ユーザーボタン -->
-      <div class="user pc">
+      <div class="user pc" ontouchstart="">
         <button type="button" class="user_button pc">
           <img
             class="user-img pc"
@@ -30,9 +30,9 @@
       </div>
       <!-- ユーザー情報とログアウトリンク -->
       <nav id="user-wrap" class="pc">
-        <div id="user-list" class="pc">
+        <div id="user-list" class="pc" ontouchstart="">
           <ul>
-            <li><p class="pc">ログイン情報</p></li>
+            <li><p class="pc user-title">ログイン情報</p></li>
             <li><p id="user_mail" class="pc">Email</p></li>
             <li><a id="logout" class="pc">ログアウトする</a></li>
             <li>
@@ -44,13 +44,13 @@
     </header>
 
     <!-- スマホ用ヘッダー -->
-    <header class="sp" ontouchstart="">
+    <header class="sp">
       <div class="bar_back sp">
         <img src="./img/blue_Sm_top.png" alt="縦長画面用のヘッダー背景" />
       </div>
       <div class="logo-txt sp"><p>原稿</p></div>
       <!-- ユーザーボタン -->
-      <div class="user-sp sp">
+      <div class="user-sp sp" ontouchstart="">
         <button type="button" class="user_button-sp sp">
           <img
             class="user-img-sp sp"
@@ -60,7 +60,7 @@
         </button>
       </div>
       <!-- ひとつ前に戻るボタン -->
-      <button id="back" class="back_button sp">
+      <button id="back" class="back_button sp" ontouchstart="">
         <img
           class="back_img"
           src="./img/blue_back_Button.png"
@@ -69,9 +69,9 @@
       </button>
       <!-- ユーザー情報とログアウトリンク -->
       <nav id="user-wrap-sp" class="sp">
-        <div id="user-list-sp" class="sp">
+        <div id="user-list-sp" class="sp" ontouchstart="">
           <ul>
-            <li><p class="sp">ログイン情報</p></li>
+            <li><p class="sp user-title">ログイン情報</p></li>
             <li><p id="user_mail-sp" class="sp">Email</p></li>
             <li><a id="logout-sp" class="sp">ログアウトする</a></li>
             <li>
