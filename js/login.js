@@ -4,6 +4,10 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
   browserLocalPersistence,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  fetchSignInMethodsForEmail,
+  EmailAuthProvider,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -22,6 +26,7 @@ const auth = getAuth(app);
 let login_button = document.getElementById("login-button");
 let new_button = document.getElementById("new-button");
 document.getElementById("login-error-text").innerText = "　";
+document.getElementById("new-error-text").innerText = "　";
 setPersistence(auth, browserLocalPersistence);
 
 history.replaceState(null, null, null);
@@ -55,8 +60,8 @@ window.onpageshow = function (event) {
   }
 };
 
-//ログイン処理
 document.addEventListener("DOMContentLoaded", function () {
+  // ログイン
   login_button.addEventListener(
     "click",
     function () {
@@ -79,6 +84,73 @@ document.addEventListener("DOMContentLoaded", function () {
               "入力に誤りがあります。";
           }
         });
+    },
+    false
+  );
+  new_button.addEventListener(
+    "click",
+    async function () {
+      try {
+        var mailAddressNew = document.getElementById("new-mail").value;
+        var passwordNew = document.getElementById("new-pass").value;
+        document.getElementById("new-error-text").innerText = "　";
+
+        const providers = await fetchSignInMethodsForEmail(
+          auth,
+          mailAddressNew
+        );
+        if (
+          providers.includes(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)
+        ) {
+          document.getElementById("new-error-text").innerText =
+            "登録済みのアドレスです";
+          return;
+        }
+        if (mailAddressNew == "" || passwordNew == "") {
+          document.getElementById("new-error-text").innerText =
+            "空欄の項目があります。";
+          throw "wrong input";
+        }
+        Swal.fire({
+          title: "登録確認",
+          html:
+            "以下のアカウントを作成してよろしいですか？<br>メールアドレス：" +
+            mailAddressNew +
+            "<br>パスワード：***(安全のため非表示)",
+          type: "question",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#1AA7C5",
+          confirmButtonText: "作成する",
+          cancelButtonText: "やめる",
+        }).then((result) => {
+          if (result.value) {
+            createUserWithEmailAndPassword(auth, mailAddressNew, passwordNew)
+              .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                this.location.href = "index.html";
+              })
+              .catch((error) => {
+                if (mailAddressNew == "" || passwordNew == "") {
+                  document.getElementById("new-error-text").innerText =
+                    "空欄の項目があります。";
+                } else {
+                  document.getElementById("new-error-text").innerText =
+                    "入力に誤りがあります。";
+                }
+              });
+          }
+        });
+      } catch (e) {
+        if (mailAddressNew == "" || passwordNew == "") {
+          document.getElementById("new-error-text").innerText =
+            "空欄の項目があります。";
+        } else {
+          document.getElementById("new-error-text").innerText =
+            "入力に誤りがあります。";
+        }
+      }
     },
     false
   );
