@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var mailAddress = document.getElementById("login-mail").value;
       var password = document.getElementById("login-pass").value;
       document.getElementById("login-error-text").innerText = "　";
+      document.getElementById("new-error-text").innerText = "　";
 
       signInWithEmailAndPassword(auth, mailAddress, password)
         .then((userCredential) => {

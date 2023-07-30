@@ -15,40 +15,70 @@
     </div>
 
     <!-- 通常ログイン枠 -->
-    <div class="card">
-      <div class="login">
-        <input
-          type="email"
-          id="login-mail"
-          placeholder="メールアドレス"
-          required
-        />
-        <input
-          type="password"
-          id="login-pass"
-          placeholder="パスワード"
-          required
-        />
-        <div id="login-error-text"></div>
-        <div class="login-button-wrap" ontouchstart="">
-          <button type="button" id="login-button">
-            <img src="img/blue_login_Button.png" alt="ログインボタン" />
-          </button>
+    <div class="container">
+      <div class="flip-card">
+        <div class="card">
+          <!-- ログイン -->
+          <div class="login">
+            <input
+              type="email"
+              id="login-mail"
+              placeholder="メールアドレス"
+              required
+            />
+            <input
+              type="password"
+              id="login-pass"
+              placeholder="パスワード"
+              required
+            />
+            <div id="login-error-text">　</div>
+            <div class="login-button-wrap" ontouchstart="">
+              <button type="button" id="login-button">
+                <img src="img/blue_login_Button.png" alt="ログインボタン" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- アカウント新規登録 -->
+        <div class="flip-card">
+          <div class="card">
+            <div class="new">
+              <input
+                type="email"
+                id="new-mail"
+                placeholder="メールアドレス"
+                required
+              />
+              <input
+                type="password"
+                id="new-pass"
+                placeholder="パスワード"
+                required
+              />
+              <div id="new-error-text">　</div>
+              <div class="new-button-wrap" ontouchstart="">
+                <button type="button" id="new-button">
+                  <img
+                    src="img/blue_shinki_Button.png"
+                    alt="新規アカウント登録ボタン"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="new">
-        <!-- 新規登録ボタン(新規登録ページに遷移) -->
-        <div class="new-button-wrap" ontouchstart="">
-          <button type="button" id="new-button">
-            <img
-              src="img/blue_shinki_Button.png"
-              alt="新規アカウント登録ボタン"
-            />
-          </button>
-        </div>
+      <div id="flipCard">
+        <ul>
+          <li class="log-change">ログイン</li>
+          <li class="new-change">新規登録</li>
+        </ul>
       </div>
     </div>
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/login_jquery.js"></script>
   </body>
 </html>
