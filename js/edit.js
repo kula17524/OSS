@@ -203,7 +203,15 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 
 
+  // 保存ボタン（PC）
+  const savebtn = document.getElementById("saveicon");
+  const mask = document.getElementById("mask");
+  const modal = document.getElementById("modal");
 
+  savebtn.addEventListener('click', () => {
+      mask.classList.remove('hidden');
+      modal.classList.remove('hidden');
+  });
   //保存ボタン
   const savebtn_sm = document.getElementById("saveicon_2");
   const mask_sm = document.getElementById("mask_sm");
