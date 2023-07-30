@@ -708,7 +708,7 @@ td {
   font-size: 0.9em;
 }
 /* 幅が狭い場合に対応 */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .title {
     color: #4e4e4e;
     width: 60%;
