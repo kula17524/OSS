@@ -181,14 +181,15 @@ a:active {
   text-decoration: underline;
 }
 
-/* ユーザー情報表示タブ */
+/* ユーザー情報表示タブ(PC) */
 #user-wrap {
+  color: #4e4e4e;
   /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
   position: fixed;
-  z-index: 999;
+  z-index: 6000;
   text-align: center;
   /*ナビのスタート位置と形状*/
-  top: 1em;
+  top: -0.5em;
   right: -120%;
   width: 200px;
   height: 200px; /*ナビの高さ*/
@@ -216,24 +217,49 @@ a:active {
 #user-wrap ul {
   /*ナビゲーション天地中央揃え*/
   position: absolute;
-  z-index: 999;
+  z-index: 6000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 200px;
+  padding: 0;
+}
+#user-wrap li {
   margin: 0;
   padding: 0;
 }
 .close {
-  margin-top: 2em;
+  margin-top: 1.5em;
+  left: 50%;
+  width: 100%;
 }
 .close p {
-  margin: 0.1em;
+  text-align: center;
+  margin-bottom: 0.2em;
   padding: 0.1em;
-  border-radius: 5px;
   background-color: white;
   font-weight: 600;
   overflow: visible;
   cursor: pointer;
+}
+.user-title {
+  top: 0.3em;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.close p:hover {
+  opacity: 70%;
+}
+.close p:focus {
+  opacity: 70%;
+}
+
+/* メールの文字数制限 */
+#user_mail {
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .close p:hover {
