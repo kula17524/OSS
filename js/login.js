@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ) {
           document.getElementById("new-error-text").innerText =
             "登録済みのアドレスです";
-          return;
+          throw "wrong input";
         }
         if (mailAddressNew == "" || passwordNew == "") {
           document.getElementById("new-error-text").innerText =
@@ -132,9 +132,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.location.href = "index.html";
               })
               .catch((error) => {
-                if (mailAddressNew == "" || passwordNew == "") {
+                if ((error = "invalid-email")) {
                   document.getElementById("new-error-text").innerText =
-                    "空欄の項目があります。";
+                    "不正なメールアドレスです。";
+                } else if (error == "email-already-in-use") {
+                  document.getElementById("new-error-text").innerText =
+                    "登録済みのアドレスです。";
                 } else {
                   document.getElementById("new-error-text").innerText =
                     "入力に誤りがあります。";
@@ -143,13 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       } catch (e) {
-        if (mailAddressNew == "" || passwordNew == "") {
-          document.getElementById("new-error-text").innerText =
-            "空欄の項目があります。";
-        } else {
-          document.getElementById("new-error-text").innerText =
-            "入力に誤りがあります。";
-        }
+        console.log(e);
       }
     },
     false
