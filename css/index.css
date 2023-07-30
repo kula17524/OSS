@@ -43,9 +43,14 @@ body {
 
 li {
   list-style: none;
-  margin-bottom: 3em;
+  margin-bottom: 5vh;
 }
-
+@media screen and (min-height: 600px) {
+  li {
+    list-style: none;
+    margin-bottom: 10vh;
+  }
+}
 .button_list {
   width: auto;
   padding: 0;
