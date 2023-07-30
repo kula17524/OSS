@@ -230,8 +230,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         if (count == 0) {
           const notGetTr = document.createElement("tr");
+          notGetTr.className = "center-align";
           const notGetTd = document.createElement("td");
           notGetTd.innerHTML = "過去の原稿はありません";
+          notGetTd.className = "center-align";
           document.getElementById("all-list").appendChild(notGetTr);
           notGetTr.appendChild(notGetTd);
         }

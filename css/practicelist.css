@@ -822,3 +822,7 @@ td {
   position: relative;
   top: 3px;
 }
+.center-align {
+  text-align: center;
+  vertical-align: middle;
+}
