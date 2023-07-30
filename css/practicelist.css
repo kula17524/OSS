@@ -312,8 +312,19 @@ ul {
   margin: 0;
   padding: 0;
 }
+#user-wrap li {
+  margin: 0;
+  padding: 0;
+}
+.user-title {
+  font-weight: bolder;
+  font-size: 18px;
+}
+p {
+  margin: 0.6em;
+}
 .close {
-  margin-top: 1em;
+  margin-top: 2em;
 }
 .close p {
   margin-bottom: 0.2em;
@@ -647,7 +658,7 @@ td {
   font-size: 0.9em;
 }
 /* 幅が狭い場合に対応 */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .title {
     color: #4e4e4e;
     width: 60%;

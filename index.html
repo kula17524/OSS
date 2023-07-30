@@ -10,16 +10,16 @@
   </head>
   <body>
     <!-- ユーザーボタン -->
-    <div class="user">
+    <div class="user" ontouchstart="">
       <button type="button" class="user_button">
         <img class="user-img" src="img/blue_user_Button.png" alt="ユーザー" />
       </button>
     </div>
     <!-- ユーザー情報とログアウトリンク -->
     <nav id="user-wrap">
-      <div id="user-list">
+      <div id="user-list" ontouchstart="">
         <ul>
-          <li><p>ログイン情報</p></li>
+          <li><p class="user-title">ログイン情報</p></li>
           <li><p id="user_mail">Email</p></li>
           <li><a id="logout">ログアウトする</a></li>
           <li>
@@ -35,19 +35,19 @@
     </div>
 
     <!-- 選択ボタン -->
-    <div class="choice_menu">
+    <div class="choice_menu" ontouchstart="">
       <ul>
-        <li>
+        <li class="button_1">
           <button class="button_list" type="button" id="create_menu">
-            <img src="img/blue_genko_icon.png" />
+            <img src="img/blue_genko_icon.png" class="new_img" />
+            <div class="des_new">原稿作成・編集</div>
           </button>
-          <div class="description3">原稿作成・編集</div>
         </li>
         <li class="button_2">
           <button class="button_list" type="button" id="practice_menu">
-            <img src="img/blue_rensyu_Button.png" />
+            <img src="img/blue_rensyu_Button.png" class="pra_img" />
+            <div class="des_pra">発表練習</div>
           </button>
-          <div class="description3">発表練習</div>
         </li>
       </ul>
     </div>
