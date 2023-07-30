@@ -47,13 +47,13 @@
     .user_button {
         display: none;
     }
-    /*「新規作成」*/
+    /*「編集」*/
     #labeltext{
         display: none;
     }
     #labeltext_sm{
-        position: absolute;
-        display: flex;
+        position: fixed;
+        display: block;
         justify-content: center;
         top: 13%;
         left: 50%;
@@ -62,6 +62,51 @@
         width: 17%;
         height: auto;
     }
+
+    /*保存→「はい」ボタン*/
+    #yesButtonSm {
+        padding:0.5em 0.5em;
+        padding-left: 4.5em;
+        padding-right: 4.5em;
+        display: inline-block;
+        position: relative;
+        color: #fff;
+        background-color: rgb(26, 167, 197);
+        border: none;
+        border-radius: 5px;
+        top: 8%;
+    }
+    #yesButtonSm:hover{
+        /* リンクをホバーしたときのカーソルに*/
+        opacity:0.5;
+        cursor: pointer;
+    }
+    #yesButtonSm:active{
+	    top: 9%;
+    }
+    /*保存→「いいえ」ボタン*/
+    #noButtonSm {
+        padding:0.5em 0.5em;
+        padding-left: 4.5em;
+        padding-right: 4.5em;
+        display: inline-block;
+        position: relative;
+        color: #fff;
+        background-color: rgb(221, 51, 51);
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        top: 18%;
+    }
+    #noButtonSm:hover{
+        /* リンクをホバーしたときのカーソルに*/
+        opacity:0.5;
+        cursor: pointer;
+    }
+    #noButtonSm:active{
+	    top: 19%;
+    }
+
 
     /*サイドバーの機能設定*/
     #saveicon{
@@ -73,6 +118,7 @@
 
     /*テキストボックス*/
     .textbox{
+        position: fixed;
         margin: auto;
         text-align: center;
         justify-content: center;
@@ -169,7 +215,7 @@
         font-family: inherit;
         position: fixed;
         resize: none;
-        top: 400;
+        top: 425;
         left: 7%;
         width: 87%;
         height: 20%;
@@ -215,8 +261,7 @@
         font-size: .7em;
         top: 220;
         left: 35%;
-        z-index: 10000;
-        color: #073b57;
+        color: #676767;
     }
     
     /*「読み上げ時間」*/
@@ -240,7 +285,7 @@
     .gen_mojisu_time{
         font-size: .9em;
         top: 290;
-        left: 40%;
+        left: 41%;
         font-family: inherit;
         color: #073b57;
         position: fixed;
@@ -265,10 +310,10 @@
         position: fixed;
         display: flex;
         justify-content: center;
-        left: 50%;
-        margin-left: -17%;
+        width: 30%;
+        height: auto;
+        margin-left: -16%;
         top: 85%;
-        width: 35%;
         height: auto;
     }
     #saveicon_2:hover{
@@ -292,22 +337,23 @@
     #modal_sm {
     background: #fff;
     width: 40%;
-    height: 30%;
+    height: 35%;
     padding: 24px;
     border-radius: 4px;
     color: #073b57;
     position: fixed;
-    top: 50%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     margin: 0 auto;
-    z-index: 2;
+    z-index: 10000;
+    border-radius: 5px;
     }
 
     /*戻るボタン*/
     #back_button{
-        position: absolute;
+        position: fixed;
         float: none;
         margin: auto;
         top: 10%;
@@ -325,10 +371,10 @@
 
     /*ホームボタン*/
     #home{
-        position: absolute;
+        position: fixed;
         float: none;
         margin: auto;
-        top: 10%;
+        top: 10.5%;
         right: 20px;
         width: 19%;
     }
@@ -339,6 +385,73 @@
     #home:active{
         position: fixed;
 	    top: 10.5%;
+    }
+    #emphasisButton{
+        position: fixed;
+        display: block;
+        float: none;
+        top: 377;
+        left: 9%;
+        transform-origin: 0% ; 
+        cursor: pointer;
+        transform: scale(0.7);
+    }
+    #emphasisButton:hover{
+        cursor: pointer;
+    }
+    #emphasisButton:active{
+        position: fixed;
+	    top: 378;
+    }
+    #maButton{
+        position: fixed;
+        display: block;
+        float: none;
+        top: 377;
+        left: 29%;
+        transform-origin: 0% ; 
+        cursor: pointer;
+        transform: scale(0.7);
+    }
+    #maButton:hover{
+        cursor: pointer;
+    }
+    #maButton:active{
+        position: fixed;
+	    top: 378;
+    }
+    #miwaButton{
+        position: fixed;
+        display: block;
+        float: none;
+        top: 377;
+        left: 49%;
+        transform-origin: 0% ; 
+        cursor: pointer;
+        transform: scale(0.7);
+    }
+    #miwaButton:hover{
+        cursor: pointer;
+    }
+    #miwaButton:active{
+        position: fixed;
+	    top: 378;
+    }
+    #kyukeiButton{
+        position: fixed;
+        display: block;
+        top: 377;
+        left: 69%;
+        transform-origin: 0% ; 
+        cursor: pointer;
+        transform: scale(0.7);
+    }
+    #kyukeiButton:hover{
+        cursor: pointer;
+    }
+    #kyukeiButton:active{
+        position: fixed;
+	    top: 378;
     }
 
 }
