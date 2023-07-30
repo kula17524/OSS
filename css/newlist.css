@@ -577,11 +577,7 @@ h3 {
       height: 40vh;
     }
   }
-  @media screen and (max-height: 650px) {
-    .manu-list {
-      height: 35vh;
-    }
-  }
+
   /* 縦長でも縦の長さが短ければPC表示にする */
   @media screen and (max-height: 600px) {
     .list-title {
@@ -597,6 +593,40 @@ h3 {
       overflow-y: scroll;
       overflow-x: hidden;
       height: 55vh;
+      width: 97%;
+    }
+  }
+  @media screen and (max-height: 550px) {
+    .list-title {
+      position: fixed;
+      margin: 1em;
+      top: 80px;
+      color: #4e4e4e;
+      z-index: 8000;
+    }
+    .manu-list {
+      position: fixed;
+      top: 120px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 50vh;
+      width: 97%;
+    }
+  }
+  @media screen and (max-height: 500px) {
+    .list-title {
+      position: fixed;
+      margin: 1em;
+      top: 80px;
+      color: #4e4e4e;
+      z-index: 8000;
+    }
+    .manu-list {
+      position: fixed;
+      top: 120px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 40vh;
       width: 97%;
     }
   }
@@ -816,7 +846,7 @@ td {
   width: 100%;
   height: 90px;
   bottom: 0;
-  z-index: 8000;
+  z-index: 100;
 }
 .new_button {
   display: inline;
@@ -845,7 +875,21 @@ td {
   top: 3px;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-height: 0px) {
+  .new {
+    position: fixed;
+    text-align: right;
+    display: block;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+  }
+  .new-img {
+    width: 70px;
+    height: 100%;
+  }
+}
+@media screen and (min-height: 400px) {
   .new {
     position: fixed;
     text-align: right;
@@ -853,14 +897,13 @@ td {
     width: 100%;
     height: 120px;
     bottom: 0;
-    z-index: 8000;
   }
   .new-img {
     width: 90px;
     height: 100%;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-height: 500px) {
   .new {
     position: fixed;
     text-align: right;
@@ -868,7 +911,6 @@ td {
     width: 100%;
     height: 130px;
     bottom: 0;
-    z-index: 8000;
   }
   .new_button {
     display: inline;
@@ -886,7 +928,7 @@ td {
     z-index: 8000;
   }
   .new-img {
-    width: 120px;
+    width: 100px;
     height: 100%;
   }
   .new-img:hover {
