@@ -56,7 +56,6 @@ li {
   padding: 0;
   background: none;
   border: 0;
-  font-size: 0;
   line-height: 0;
   overflow: visible;
   cursor: pointer;
@@ -270,28 +269,62 @@ a:active {
 }
 
 /* 吹き出し */
-.description3 {
-  display: none;
+.des_pra,
+.des_new {
+  font-size: large;
+  width: 130px;
+  top: -45px;
+  left: -25px;
   position: absolute;
-  padding: 10px;
-  font-size: 12px;
-  line-height: 1.6em;
-  color: #fff;
+  padding: 20px;
   border-radius: 5px;
-  background: #000;
-  width: 100px;
+  text-align: center;
+  background: linear-gradient(
+    45deg,
+    rgba(127, 131, 190, 0.7),
+    rgba(126, 167, 197, 0.7)
+  );
+  color: #fff;
+  opacity: 0;
 }
-.description3:before {
-  content: "";
+.des_new::after,
+.des_pra::after {
   position: absolute;
-  top: 100%;
-  left: 50%;
-  border: 15px solid transparent;
-  border-top: 15px solid #000;
-  margin-left: -15px;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 40px;
+  bottom: -19.7px;
+  margin-left: 40%;
+  border: 16px solid transparent;
+  border-color: rgba(51, 204, 153, 0);
+  border-top-color: rgba(132, 145, 181, 0.7);
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+  transition: 0.5s;
 }
-.button_list:focus .description3 {
-  display: inline-block;
-  top: -75px;
-  left: -50px;
+.new_img:hover + .des_new {
+  opacity: 1;
+  transition: 0.5s;
+}
+.pra_img:hover + .des_pra {
+  opacity: 1;
+  transition: 0.5s;
+}
+.new_img:active + .des_new {
+  opacity: 1;
+  transition: 0.5s;
+}
+.pra_img:active + .des_pra {
+  opacity: 1;
+  transition: 0.5s;
+}
+.new_img:focus + .des_new {
+  opacity: 1;
+  transition: 0.5s;
+}
+.pra_img:focus + .des_pra {
+  opacity: 1;
+  transition: 0.5s;
 }
