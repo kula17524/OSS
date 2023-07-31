@@ -36,7 +36,11 @@ html {
 	transform: scale(0.7);
 }
 
+<<<<<<< Updated upstream
 /* PC用ヘッダー */
+=======
+/*PC用ヘッダー*/
+>>>>>>> Stashed changes
 #topbar {
 	float: left;
 	display: block;
@@ -47,11 +51,16 @@ html {
 	height: 17%;
 }
 
+<<<<<<< Updated upstream
 /* スマホ用ヘッダー */
+=======
+/*スマホ用ヘッダー*/
+>>>>>>> Stashed changes
 #topbar_sm {
 	display: none;
 }
 
+<<<<<<< Updated upstream
 /* PC用ラベル（未完成） */
 #label　{
 	position: fixed;
@@ -80,6 +89,11 @@ html {
 
 /*----- 機能ボタン -----*/
 /* 左上のロゴ */
+=======
+
+/*----- 機能ボタン -----*/
+/*左上のロゴ*/
+>>>>>>> Stashed changes
 #logoicon{
 	position: fixed;
 	display: block;
@@ -90,6 +104,10 @@ html {
 }
 #logoicon:hover{
 	opacity:0.7;
+<<<<<<< Updated upstream
+=======
+    /* リンクをホバーしたときのカーソルに*/
+>>>>>>> Stashed changes
 	cursor: pointer;
 }
 #logoicon:active{
@@ -98,11 +116,19 @@ html {
 }
 
 /* ユーザーアイコン */
+<<<<<<< Updated upstream
 .user_button {
 	position: fixed;
 	text-align: right;
 	right: 20px;
 	top: 20px;
+=======
+ .user_button {
+    position: fixed;
+	text-align: right;
+	right: 20px;
+	top: 10px;
+>>>>>>> Stashed changes
 	background: none;
 	border: 0;
 	font-size: 0;
@@ -129,6 +155,7 @@ html {
 	top: 1px;
 }
 
+<<<<<<< Updated upstream
 /* 戻るボタン */
 #back_button {
 	display: none;
@@ -303,6 +330,72 @@ html {
 }
     
 /* 吹き出し */
+=======
+
+    /* ユーザー情報表示タブ */
+    #user-wrap {
+        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+        position: fixed;
+        z-index: 999;
+        text-align: center;
+        /*ナビのスタート位置と形状*/
+        top: 1em;
+        right: -120%;
+        width: 200px;
+        height: 200px; /*ナビの高さ*/
+        background-image: url("../img/blue_loginBack.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        /*動き*/
+        transition: all 0.6s;
+        margin: 0;
+        padding: 0;
+        border-radius: 3px;
+    }
+    #user-list {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /*アクティブクラスがついたら位置を0に*/
+    #user-wrap.panelactive {
+        right: 0;
+    }
+    
+    /*ナビゲーション*/
+    #user-wrap ul {
+        /*ナビゲーション天地中央揃え*/
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+    }
+    .close {
+        margin-top: 2em;
+    }
+    .close p {
+        margin: 0.1em;
+        padding: 0.1em;
+        border-radius: 5px;
+        background-color: white;
+        font-weight: 600;
+        overflow: visible;
+        cursor: pointer;
+    }
+    
+    .close p:hover {
+        opacity: 70%;
+    }
+    .close p:focus {
+        opacity: 70%;
+    }
+    
+    /* 吹き出し */
+>>>>>>> Stashed changes
     .description3 {
         display: none;
         position: absolute;
@@ -329,6 +422,31 @@ html {
         left: -50px;
     }
 	
+<<<<<<< Updated upstream
+=======
+	#label{
+        position: fixed;
+        display: block;
+        top: -1%;
+        left: 6%;
+        transform-origin: 0%; 
+        transform: scale(0.17);
+    }
+
+    #labeltext{
+        position: fixed;
+        display: block;
+        top: 16%;
+        left: 10%;
+        transform-origin: 0%; 
+        transform: scale(0.3);
+    }
+	
+    #labeltext_sm{
+        display: none;
+    }
+	
+>>>>>>> Stashed changes
 	
 	/*原稿本文*/
     #textarea {
@@ -412,4 +530,73 @@ html {
         position: fixed;
     }
 	
+<<<<<<< Updated upstream
 	
+=======
+	/*録音-再生*/
+	#MicOn {
+		position: fixed;
+        text-align: right;
+        right: 43.5%;
+        top: 96%;
+        /*background: none;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        overflow: visible;
+        cursor: pointer;
+        padding: 0;*/
+	}
+	#blue_mike_Button {
+		position: fixed;
+        text-align: right;
+        right: 680px;
+        top: 670px;
+        background: none;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        overflow: visible;
+        cursor: pointer;
+        padding: 0;
+	}
+	
+	#rokuonkanryo_Button {
+		position: fixed;
+        text-align: right;
+        right: 450px;
+        top: 705px;
+        background: none;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        overflow: visible;
+        cursor: pointer;
+        padding: 0;
+	}
+	
+	#yarinaosu_Button {
+		position: fixed;
+        text-align: right;
+        right: 890px;
+        top: 705px;
+        background: none;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        overflow: visible;
+        cursor: pointer;
+        padding: 0;
+	}
+	
+	/*タイマー*/
+	#timerLabel {
+	  position: fixed;
+      text-align: right;
+      right: 100px;
+      top: 100px;
+      color: black;
+      font-size: 3em;
+      line-height: 0.1em;
+    }
+>>>>>>> Stashed changes
