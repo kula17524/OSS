@@ -232,24 +232,36 @@ html {
         color:  #7b7b7b;
     }
 	
-	/*「文字」*/
-    /*.moji_label_2 {
+	/*「タイトル」*/
+    .taitoru{
         width: calc(100% - 2em);
         font-size: .10em;
-        top: 30%;
-        left: 64%;
+        top: 28%;
+        left: 16%;
         font-family: inherit;
-        color: #073b57;
+        color: #676767;
         position: fixed;
-    }*/
+    }
+	
     /*「文字数」*/
     .moji_label_1{
         width: calc(100% - 2em);
         font-size: .10em;
         top: 20%;
-        left: 61%;
+        left: 60%;
         font-family: inherit;
         color: #676767;
+        position: fixed;
+    }
+	
+	/*「文字」*/
+    .moji_label_2 {
+        width: calc(100% - 2em);
+        font-size: .10em;
+        top: 25%;
+        left: 65%;
+        font-family: inherit;
+        color: #073b57;
         position: fixed;
     }
 
@@ -264,21 +276,31 @@ html {
         position: fixed;
     }
 	
+	/*「分」*/
+    .moji_time{
+        width: calc(100% - 2em);
+        font-size: .10em;
+        top: 25%;
+        left: 80%;
+        font-family: inherit;
+        color: #676767;
+        position: fixed;
+    }
+	
 	/*録音-再生*/
 	#MicOn {
 		position: fixed;
         text-align: right;
-        right: 620px;
-        top: 760px;
-        background: none;
+        right: 43.5%;
+        top: 96%;
+        /*background: none;
         border: 0;
         font-size: 0;
         line-height: 0;
         overflow: visible;
         cursor: pointer;
-        padding: 0;
+        padding: 0;*/
 	}
-	
 	#blue_mike_Button {
 		position: fixed;
         text-align: right;
@@ -320,3 +342,10 @@ html {
         cursor: pointer;
         padding: 0;
 	}
+	
+	/*#Control {
+		position: fixed;
+        text-align: right;
+        right: 43.5%;
+        top: 50%;
+	}*/
