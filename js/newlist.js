@@ -49,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
       (async () => {
         const q = query(collection(db, "data"), where("userId", "==", user_id));
         const querySnapshot = await getDocs(q);
+        var count = 0;
         querySnapshot.forEach((doc_get) => {
+          if (doc_get != null) count = 1;
           // ドキュメントIDを取得
           const doc_id = doc_get.id;
           // 枠を作成
@@ -226,6 +228,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           });
         });
+        if (count == 0) {
+          const notGetTr = document.createElement("tr");
+          notGetTr.className = "center-align";
+          const notGetTd = document.createElement("td");
+          notGetTd.innerHTML = "過去の原稿はありません";
+          notGetTd.className = "center-align";
+          document.getElementById("all-list").appendChild(notGetTr);
+          notGetTr.appendChild(notGetTd);
+        }
       })();
 
       // 原稿を選んでページ遷移
