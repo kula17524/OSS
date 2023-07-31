@@ -593,7 +593,7 @@ html {
     #inputlength{
         font-family: inherit;
         position: fixed;
-        top: 174;
+        top: 181;
         left: 60%;
     }
     /*「文字」*/
@@ -631,7 +631,7 @@ html {
     #inputtime{
         font-family: inherit;
         position: fixed;
-        top: 174;
+        top: 182;
         left: 75%;
     }
 
