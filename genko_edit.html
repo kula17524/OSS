@@ -104,7 +104,7 @@
             // テキストエリアに挿入
             const textarea = document.getElementById("textarea");
             const currentValue = textarea.value;
-            textarea.value = currentValue + "<< 強調 >>";
+            textarea.value = currentValue + "<< 強調する >>";
         });
         //  間をおくボタンをクリックしたときの処理
         const maButton = document.getElementById("maButton");
@@ -163,22 +163,18 @@
             }
         }
 
-        function showLength(value) {
-            // 改行文字と空白文字を取り除く
-            var cleanedValue = value.replace(/\s+/g, '').replace(/\n+/g, '');
-            var inputLength = document.getElementById("inputlength");
-            var length = cleanedValue.length;
-            inputLength.innerText = length;
-        }
+        
+        
 
         /*文字数カウント*/
         function Length(str) {
             // 改行文字と空白文字を取り除く
-            var cleanedStr = str.replace(/\s+/g, '').replace(/\n+/g, '');
+            var cleanedStr = str.replace(/\s+/g, '').replace(/\n+/g, '').replace(/<<\s*強調する\s*>>/g,'').replace(/<<\s*間をおく\s*>>/g,'').replace(/<<\s*見わたす\s*>>/g,'').replace(/<<\s*休憩する\s*>>/g,'');
             document.getElementById("inputlength").innerHTML = cleanedStr.length;
             const n = (cleanedStr.length * 0.2) / 60;
             document.getElementById("inputtime").innerHTML = n.toFixed(2);
         }
+        
         //タイトルで空白禁止
         // テキストボックスの要素を取得
         const genkoTitleInput = document.querySelector('.genko_title');
