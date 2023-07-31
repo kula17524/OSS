@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
           eds.forEach(function (ed) {
             ed.addEventListener("click", function () {
               location.href =
-                "practice.html?docid=" + ed.className.split(" ")[1];
+                "practice-screen.html?docid=" + ed.className.split(" ")[1];
             });
           });
           /* 「削除する」ボタンでドキュメント削除 */
