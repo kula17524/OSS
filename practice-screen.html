@@ -11,11 +11,7 @@
   -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=4,user-scalable=yes">
   <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/practice-screen.css"/>
-<<<<<<< Updated upstream
   <link rel="stylesheet" media="screen and (max-width:800px)" href="css/practice-screen_Sm.css">
-=======
-  <link rel="stylesheet" media="screen and (max-width:480px)" href="css/practice-screen_Sm.css">
->>>>>>> Stashed changes
   <link rel="icon" href="img/blue_icon(ico).ico">
    <!--
   <script id="applicationScript" type="text/javascript" src="practice.js"></script>
@@ -71,11 +67,8 @@
   <!--文字表示-->
   <div class="textbox">
     <br>
-    <input type="text" class="genko_title" placeholder="タイトル" />
-    <br>
-    <br>
     <textarea id="textarea" name="main" onkeyup="Length(value);"></textarea>
-        <br>
+    <br>
 		<span class="taitoru">タイトル</span>
         <span class="moji_label_1">文字数</span>
         <p id="inputlength">0</p>
@@ -91,30 +84,17 @@
 	<p id="timerLabel">00:00</p>
 	<!--録音開始-->
 	<button type="button" id="startBtn" onclick="this.recStartBtn.addEventListener();start()">
-<<<<<<< Updated upstream
 	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png">
-=======
-	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png" width="120">
->>>>>>> Stashed changes
-	</button>
 	</button>
 	<!--録音終了-->
 	<button type="button" id="RecStop" onclick="this.recStopBtn.addEventListener();stop()" disabled>
-<<<<<<< Updated upstream
 	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png">
 	</button>
     <div id="RecMime"></div>
 	<button type="button" id="Reset" onclick="reset()">
 	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png">
-=======
-	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png" width="150">
 	</button>
     <div id="RecMime"></div>
-	<button type="button" id="Reset" onclick="reset()">
-	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png" width="150">
->>>>>>> Stashed changes
-	</button>
-  </div>
   </div>
   
   <script>
