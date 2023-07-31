@@ -106,14 +106,14 @@ html {
         position: relative;
         top: 1px;
     }
-    /* ユーザー情報表示タブ */
+    /* ユーザー情報表示タブ(PC) */
     #user-wrap {
         /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
         position: fixed;
-        z-index: 999;
+        z-index: 6000;
         text-align: center;
         /*ナビのスタート位置と形状*/
-        top: 1em;
+        top: -0.5em;
         right: -120%;
         width: 200px;
         height: 200px; /*ナビの高さ*/
@@ -131,69 +131,70 @@ html {
         margin: 0;
         padding: 0;
     }
+
+    /* メールの文字数制限 */
+    #user_mail-sp {
+        width: 170px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* メールの文字数制限 */
+    #user_mail {
+        width: 170px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     
     /*アクティブクラスがついたら位置を0に*/
-    #user-wrap.panelactive {
-        right: 0;
-    }
+  #user-wrap.panelactive {
+    right: 0;
+  }
+  
+  /*ナビゲーション*/
+  #user-wrap ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 6000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+  }
+  #user-wrap li {
+    margin: 0;
+    padding: 0;
+  }
+  .user-title {
+    font-weight: bolder;
+    font-size: 18px;
+  }
+  p {
+    margin: 0.6em;
+  }
+  .close {
+    margin-top: 2em;
+  }
+  .close p {
+    margin-bottom: 0.2em;
+    padding: 0.1em;
+    background-color: white;
+    font-weight: 600;
+    overflow: visible;
+    cursor: pointer;
+  }
+  
+  .close p:hover {
+    opacity: 70%;
+  }
+  .close p:focus {
+    opacity: 70%;
+  }
     
-    /*ナビゲーション*/
-    #user-wrap ul {
-        /*ナビゲーション天地中央揃え*/
-        position: absolute;
-        z-index: 999;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        padding: 0;
-    }
-    .close {
-        margin-top: 2em;
-    }
-    .close p {
-        margin: 0.1em;
-        padding: 0.1em;
-        border-radius: 5px;
-        background-color: white;
-        font-weight: 600;
-        overflow: visible;
-        cursor: pointer;
-    }
     
-    .close p:hover {
-        opacity: 70%;
-    }
-    .close p:focus {
-        opacity: 70%;
-    }
-    
-    /* 吹き出し */
-    .description3 {
-        display: none;
-        position: absolute;
-        padding: 10px;
-        font-size: 12px;
-        line-height: 1.6em;
-        color: #fff;
-        border-radius: 5px;
-        background: #000;
-        width: 100px;
-    }
-    .description3:before {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        border: 15px solid transparent;
-        border-top: 15px solid #000;
-        margin-left: -15px;
-    }
-    .button_list:focus .description3 {
-        display: inline-block;
-        top: -75px;
-        left: -50px;
-    }
     /* リンクの文字色 */
     #logout,
     #logout-sp {
