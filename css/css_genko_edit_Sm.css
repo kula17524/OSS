@@ -313,7 +313,7 @@
         width: 30%;
         height: auto;
         margin-left: -16%;
-        top: 85%;
+        top: 90%;
         height: auto;
     }
     #saveicon_2:hover{
@@ -322,7 +322,7 @@
     }
     #saveicon_2:active{
         position: fixed;
-	    top: 85.5%;
+	    top: 90.5%;
     }
     #mask_sm {
         background: rgba(0, 0, 0, 0.7);
