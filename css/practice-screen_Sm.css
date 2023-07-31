@@ -48,6 +48,7 @@
 	height: 15%;
 }
 
+/* PC用ラベル */
 #label　{
 	display: none;
 }
@@ -57,11 +58,11 @@
 	display: none;
 }
 
-/* スマホ用ラベルテキスト */
+/* スマホ用ラベルテキスト（未完成） */
 #labeltext_sm{
 	position: fixed;
 	display: block;
-	top: -50px;
+	top: -100px;
 	left: 10px;
 	transform-origin: 0%; 
 	transform: scale(0.8);
@@ -70,17 +71,135 @@
 
 /*----- 機能ボタン -----*/
 /* 左上のロゴ */
-#logoicon{
+#logoicon {
 	display: none;
 }
 
-#label{
-	display: none;
-}
+/* ユーザーアイコン */
 .user_button {
 	display: none;
 }
 
+/* 戻るボタン（未完成） */
+#back_button {
+	position: fixed;
+	float: none;
+	margin: auto;
+	top: 10%;
+	left: 70%;
+	width: 40px;
+}
+#back_button:hover {
+	cursor: pointer;
+}
+#back_button:active {
+	position: fixed;
+    top: 10.5%;
+}
+
+/* ホームボタン（未完成） */
+#home {
+	position: fixed;
+	float: none;
+	margin: auto;
+	right: 10%;
+	top: 70%;
+	width: 40px;
+}
+#home:hover{
+	cursor: pointer;
+}
+#home:active{
+	position: fixed;
+	top: 10.5%;
+}
+
+
+/*----- サイドバーの機能設定（PC用） -----*/
+/* 退出ボタン */
+#exiticon {
+	display: none;
+}
+
+
+/*----- 録音-再生（手つかず） -----*/
+/* マイク確認ボタン */
+#MicOn {
+	position: fixed;
+	text-align: right;
+	right: 37%;
+	top: 96%;
+	/*background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;*/
+}
+
+/* 録音開始ボタン */
+#blue_mike_Button {
+	position: fixed;
+	text-align: right;
+	right: 210px;
+	top: 650px;
+	width: 90px;
+	background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+
+/* 録音完了ボタン */
+#rokuonkanryo_Button {
+	position: fixed;
+	text-align: right;
+	right: 80px;
+	top: 680px;
+	width: 100px;
+	background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+
+/* やり直しボタン */	
+#yarinaosu_Button {
+	position: fixed;
+	text-align: right;
+	right: 330px;
+	top: 680px;
+	width: 100px;
+	background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+	
+/*　タイマー（未完成）　*/
+#timerLabel {
+	position: fixed;
+	text-align: right;
+	right: 100px;
+	top: 100px;
+	color: black;
+	font-size: 3em;
+	line-height: 0.1em;
+}
+
+
+
+/*----- これより以下は手つかず -----*/
 /*「原稿作成」*/
     #labeltext{
         display: none;
@@ -97,13 +216,6 @@
         height: auto;
     }
 
-    /*サイドバーの機能設定*/
-    #saveicon{
-        display: none;
-    }
-    #exiticon{
-        display: none;
-    }
 
     /*テキストボックス*/
     .textbox{
@@ -322,41 +434,4 @@
     margin: 0 auto;
     z-index: 2;
     }*/
-
-    /*----- 戻るボタン -----*/
-    #back_button{
-        position: absolute;
-        float: none;
-        margin: auto;
-        top: 10%;
-        left: 20px;
-        width: 20%;
-    }
-	/* リンクをホバーしたときのカーソルに*/
-    #back_button:hover{
-        cursor: pointer;
-    }
-    #back_button:active{
-        position: fixed;
-	    top: 10.5%;
-    }
-
-    /*----- ホームボタン -----*/
-    #home{
-        position: absolute;
-        float: none;
-        margin: auto;
-        top: 10%;
-        right: 20px;
-        width: 19%;
-    }
-	/* リンクをホバーしたときのカーソルに*/
-    #home:hover{
-        cursor: pointer;
-    }
-    #home:active{
-        position: fixed;
-	    top: 10.5%;
-    }
-
 }

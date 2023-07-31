@@ -52,16 +52,17 @@ html {
 	display: none;
 }
 
+/* PC用ラベル（未完成） */
 #label　{
 	position: fixed;
 	display: block;
-	top: 100px;
-	left: 100px;
+	top: 0%;
+	left: 0%;
 	transform-origin: 0%; 
 	transform: scale(0.17);
 }
 
-/* PC用ラベルテキスト */
+/* PC用ラベルテキスト（未完成） */
 #labeltext　{
 	position: fixed;
 	display: block;
@@ -78,7 +79,7 @@ html {
 
 
 /*----- 機能ボタン -----*/
-/*左上のロゴ*/
+/* 左上のロゴ */
 #logoicon{
 	position: fixed;
 	display: block;
@@ -89,7 +90,6 @@ html {
 }
 #logoicon:hover{
 	opacity:0.7;
-    /* リンクをホバーしたときのカーソルに*/
 	cursor: pointer;
 }
 #logoicon:active{
@@ -98,11 +98,11 @@ html {
 }
 
 /* ユーザーアイコン */
- .user_button {
-    position: fixed;
+.user_button {
+	position: fixed;
 	text-align: right;
 	right: 20px;
-	top: 10px;
+	top: 20px;
 	background: none;
 	border: 0;
 	font-size: 0;
@@ -129,6 +129,115 @@ html {
 	top: 1px;
 }
 
+/* 戻るボタン */
+#back_button {
+	display: none;
+}
+
+/* ホームボタン */
+#home {
+	display: none;
+}
+
+
+/*----- サイドバーの機能設定（PC用） -----*/
+/*　退出ボタン　*/
+#exiticon{
+	position: fixed;
+	display: block;
+	top: 70px;
+	left: 30px;
+	transform-origin: 0% ; 
+	transform: scale(0.35);
+}
+#exiticon:hover{
+	opacity:0.7;
+	cursor: pointer;
+}
+#exiticon:active{
+	position: fixed;
+	top: 161;
+}
+
+
+/*----- 録音-再生 -----*/
+/* マイク確認ボタン */
+#MicOn {
+	position: fixed;
+	text-align: right;
+	right: 43.5%;
+	top: 96%;
+	/*background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;*/
+}
+
+/* 録音開始ボタン */
+#blue_mike_Button {
+	position: fixed;
+	text-align: right;
+	right: 680px;
+	top: 670px;
+	width: 120px;
+	background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+
+/* 録音完了ボタン */
+#rokuonkanryo_Button {
+	position: fixed;
+	text-align: right;
+	right: 450px;
+	top: 705px;
+	width: 150px;
+	background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+
+/* やり直しボタン */	
+#yarinaosu_Button {
+	position: fixed;
+	text-align: right;
+	right: 890px;
+	top: 705px;
+	width: 150px;
+	background: none;
+	border: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+	
+/*タイマー（未完成）*/
+#timerLabel {
+	position: fixed;
+	text-align: right;
+	right: 100px;
+	top: 100px;
+	color: black;
+	font-size: 3em;
+	line-height: 0.1em;
+}
+
+
+
+/*----- これより以下は手つかず -----*/
 
     /* ユーザー情報表示タブ */
     #user-wrap {
@@ -302,69 +411,4 @@ html {
         position: fixed;
     }
 	
-	/*録音-再生*/
-	#MicOn {
-		position: fixed;
-        text-align: right;
-        right: 43.5%;
-        top: 96%;
-        /*background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;*/
-	}
-	#blue_mike_Button {
-		position: fixed;
-        text-align: right;
-        right: 680px;
-        top: 670px;
-        background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;
-	}
 	
-	#rokuonkanryo_Button {
-		position: fixed;
-        text-align: right;
-        right: 450px;
-        top: 705px;
-        background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;
-	}
-	
-	#yarinaosu_Button {
-		position: fixed;
-        text-align: right;
-        right: 890px;
-        top: 705px;
-        background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;
-	}
-	
-	/*タイマー*/
-	#timerLabel {
-	  position: fixed;
-      text-align: right;
-      right: 100px;
-      top: 100px;
-      color: black;
-      font-size: 3em;
-      line-height: 0.1em;
-    }
