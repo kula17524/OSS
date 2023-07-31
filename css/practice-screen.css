@@ -36,7 +36,7 @@ html {
 	transform: scale(0.7);
 }
 
-/*PC用ヘッダー*/
+/* PC用ヘッダー */
 #topbar {
 	float: left;
 	display: block;
@@ -47,8 +47,32 @@ html {
 	height: 17%;
 }
 
-/*スマホ用ヘッダー*/
+/* スマホ用ヘッダー */
 #topbar_sm {
+	display: none;
+}
+
+#label　{
+	position: fixed;
+	display: block;
+	top: 100px;
+	left: 100px;
+	transform-origin: 0%; 
+	transform: scale(0.17);
+}
+
+/* PC用ラベルテキスト */
+#labeltext　{
+	position: fixed;
+	display: block;
+	top: 16%;
+	left: 10%;
+	transform-origin: 0%; 
+	transform: scale(0.3);
+}
+
+/* スマホ用ラベルテキスト */
+#labeltext_sm{
 	display: none;
 }
 
@@ -193,28 +217,6 @@ html {
         display: inline-block;
         top: -75px;
         left: -50px;
-    }
-	
-	#label{
-        position: fixed;
-        display: block;
-        top: -1%;
-        left: 6%;
-        transform-origin: 0%; 
-        transform: scale(0.17);
-    }
-
-    #labeltext{
-        position: fixed;
-        display: block;
-        top: 16%;
-        left: 10%;
-        transform-origin: 0%; 
-        transform: scale(0.3);
-    }
-	
-    #labeltext_sm{
-        display: none;
     }
 	
 	

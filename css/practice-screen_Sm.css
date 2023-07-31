@@ -29,6 +29,7 @@
 }
 
 #sidebar {
+	/*visibility: visible;*/
 	display: none;
 }
 
@@ -44,7 +45,26 @@
 	top: -2px;
 	left: -17px;
 	width: 120%;
-	height: auto;
+	height: 15%;
+}
+
+#label　{
+	display: none;
+}
+
+/* PC用ラベルテキスト */
+#labeltext　{
+	display: none;
+}
+
+/* スマホ用ラベルテキスト */
+#labeltext_sm{
+	position: fixed;
+	display: block;
+	top: -50px;
+	left: 10px;
+	transform-origin: 0%; 
+	transform: scale(0.8);
 }
 
 
@@ -53,6 +73,7 @@
 #logoicon{
 	display: none;
 }
+
 #label{
 	display: none;
 }
