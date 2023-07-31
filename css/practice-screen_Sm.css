@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "ＭＳゴシック";
+    src: url("../font/MS-Gothic-01.ttf");
+  }
+@media screen and (orientation: portrait) {
+/*スマホ用のCSS*/
+    
+    .background{
+        text-align: center;
+    }
+
+    #back{
+        position: fixed;
+        display: block;
+        left: -9px;
+        top: 40px;
+        margin: 0;
+        width: 105vw;
+        height: 105vh;
+        background-repeat: no-repeat;
+        background-position:center center;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    #sidebar{
+        display: none;
+    }
+    /*pc用ヘッダー*/
+    #topbar{
+        display: none;
+    }
+    /*スマホ用ヘッダー*/
+    #topbar_sm{
+        display: block;
+        position: fixed;
+        top: -2px;
+        left: -17px;
+        width: 120%;
+        height: auto;
+    }
+    #logoicon{
+        display: none;
+    }
+    #label{
+        display: none;
+    }
