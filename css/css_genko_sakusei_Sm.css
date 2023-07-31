@@ -135,13 +135,13 @@
         width: calc(100% - 2em);
         font-size: .9em;
         top: 230;
-        left: -1%;
+        left: -9%;
         display: block;
     }
     .mojisu {
         display: block;
         top: 220;
-        left: 15%;
+        left: 7%;
         width: 24%;
         height: 5%;
         padding: 8px 10px;
@@ -167,11 +167,11 @@
         width: calc(100% - 2em);
         font-size: .9em;
         top: 285;
-        left: -3%;
+        left: -11%;
     }
     .time {
         top: 274;
-        left: 15%;
+        left: 7%;
         width: 24%;
         height: 5%;
         padding: 8px 10px;
@@ -191,7 +191,7 @@
     .genko_title {
         font-family: inherit;
         position: fixed;
-        top: 350;
+        top: 345;
         width: 87%;
         left: 50%;
         height: auto;
@@ -241,7 +241,7 @@
     #inputlength{
         font-family: inherit;
         position: fixed;
-        top: 222;
+        top: 230;
         left: 70%;
     }
     /*「文字」*/
@@ -277,7 +277,7 @@
     #inputtime{
         font-family: inherit;
         position: fixed;
-        top: 272;
+        top: 281;
         left: 70%;
     }
 
@@ -329,7 +329,7 @@
     }
     #saveicon_2:active{
         position: fixed;
-	    top: 85.5%;
+	    top: 90.5%;
     }
     #mask_sm {
         background: rgba(0, 0, 0, 0.7);
