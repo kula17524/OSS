@@ -343,9 +343,13 @@ html {
         padding: 0;
 	}
 	
-	/*#Control {
-		position: fixed;
-        text-align: right;
-        right: 43.5%;
-        top: 50%;
-	}*/
+	/*タイマー*/
+	#timerLabel {
+	  position: fixed;
+      text-align: right;
+      right: 100px;
+      top: 100px;
+      color: black;
+      font-size: 3em;
+      line-height: 0.1em;
+    }

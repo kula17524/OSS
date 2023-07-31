@@ -70,19 +70,23 @@
         <span class="moji_time">分</span>
   </div>
   
-  <!--録音-再生-->
+  <!--録音-再生--><!--タイマー-->
   <div id="Control">
     <button id="MicOn">マイクの使用を開始</button>
+	<p id="timerLabel">00:00</p>
 	<!--録音開始-->
-	<button type="button" id="RecStart">
+	<button type="button" id="startBtn" onclick="this.recStartBtn.addEventListener();start()">
 	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png" width="120">
 	</button>
+	</button>
 	<!--録音終了-->
-	<button type="button" id="RecStop" disabled>
+	<button type="button" id="RecStop" onclick="this.recStopBtn.addEventListener();stop()" disabled>
 	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png" width="150">
 	</button>
     <div id="RecMime"></div>
-	<img id="yarinaosu_Button" src="./img/yarinaosu_Button.png" width="150">
+	<button type="button" id="Reset" onclick="reset()">
+	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png" width="150">
+	</button>
   </div>
   </div>
   
@@ -123,33 +127,7 @@
           let blob=new Blob(this.chunks,{"type":this.type});
           this.chunks=[];
 
-          /*
-          //ファイルのダウンロードを行う場合
-          let aTag=document.createElement("a");
-          aTag.href=URL.createObjectURL(blob);
-          aTag.download="a.mp4";
-          aTag.click();
-          */
-
-          /*
-          //DataURI変換して<input type="hidden">のvalueに入れてPOSTでサーバーに送る場合
-          let fileReaderPost=new FileReader();
-          fileReaderPost.addEventListener("load",function(event){
-            let formTag=document.createElement('form');
-            formTag.method="get";
-            formTag.action="post.php";//POST先URL
-            let inputTag=document.createElement('input');
-            inputTag.type="hidden";
-            inputTag.name="record";//POST時の名前
-            inputTag.value=event.target.result;//POST時の値
-            formTag.appendChild(inputTag);
-            this.control.appendChild(formTag);
-            formTag.submit();//POST実行する
-          }.bind(this));
-          fileReaderPost.readAsDataURL(blob);
-          */
-
-          //録音したblobをDataURIスキームに変換して<audio>タグでそのまま再生する場合
+          //録音したblobをDataURIスキームに変換して<audio>タグでそのまま再生する
           let fileReaderAudio=new FileReader();
           fileReaderAudio.addEventListener("load",function(event){
             let audio_play=document.body.querySelector("#audio_play");
@@ -194,11 +172,83 @@
     mamMicRec=new TMamMicRec(
       document.getElementById("Control"),
       document.getElementById("MicOn"),
-      document.getElementById("RecStart"),
+      document.getElementById("startBtn"),
       document.getElementById("RecStop"),
       document.getElementById("RecMime")
     );
   });
+  
+  <!--タイマー-->
+  var status = 0; // 0:停止中 1:動作中
+        var time = 0;
+        var startBtn = document.getElementById("startBtn");
+        var timerLabel = document.getElementById('timerLabel');
+
+        // STARTボタン
+        function start(){
+            // 動作中にする
+            status = 1;
+            // スタートボタンを押せないようにする
+            startBtn.disabled = true;
+
+            timer();
+        }
+
+        // STOPボタン
+        function stop(){
+            // 停止中にする
+            status = 0;
+            // スタートボタンを押せるようにする
+            startBtn.disabled = false;
+        }
+
+        // RESETボタン
+        function reset(){
+            // 停止中にする
+            status = 0;
+            // タイムを0に戻す
+            time = 0;
+            // タイマーラベルをリセット
+            timerLabel.innerHTML = '00:00';
+            // スタートボタンを押せるようにする
+            startBtn.disabled = false;
+        }
+
+        function timer(){
+            // ステータスが動作中の場合のみ実行
+            if (status == 1) {
+                setTimeout(function() {
+                    time++;
+
+                    // 分・秒・ミリ秒を計算
+                    var min = Math.floor(time/100/60);
+                    var sec = Math.floor(time/100);
+                    var mSec = time % 100;
+
+                    if (min < 10) min = "0" + min;
+                    if (sec >= 60) sec = sec % 60;
+                    if (sec < 10) sec = "0" + sec;
+
+                    // タイマーラベルを更新
+                    timerLabel.innerHTML = min + ":" + sec ;
+
+                    // 再びtimer()を呼び出す
+                    timer();
+                }, 10);
+            }
+        }
+
+        document.onkeydown = function(event) {
+            if (event) {
+                if (event.keyCode == 32 || event.which == 32) {
+                    if(status == 1) {
+                        stop();
+                    } else if (status == 0) {
+                        start();
+                    }
+                }
+            }
+        };
   </script>
 
 </head>
