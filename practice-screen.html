@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+　　<meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <!--
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=4,user-scalable=yes">
+  <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/practice-screen.css"/>
+<<<<<<< Updated upstream
+  <link rel="stylesheet" media="screen and (max-width:800px)" href="css/practice-screen_Sm.css">
+=======
+  <link rel="stylesheet" media="screen and (max-width:480px)" href="css/practice-screen_Sm.css">
+>>>>>>> Stashed changes
+  <link rel="icon" href="img/blue_icon(ico).ico">
+   <!--
+  <script id="applicationScript" type="text/javascript" src="practice.js"></script>
+  -->
+	
+  <title>ReO.com-練習画面</title>
+  
+  <div>
+  <!--背景-->
+  <div class="background">
+    <img id="back" src="./img/blue_background.png">
+    <img id="sidebar" src="./img/blue_PC_side.png">
+    <img id="topbar" src="./img/blue_PC_top.png">
+    <img id="topbar_sm" src="./img/blue_Sm_top.png">
+    <img id="logoicon" src="./img/blue_PC_titlelogo_2.png">
+    <img id="label" src="./img/blue_PC_label.png">
+    <img id="labeltext" src="./img/text_happyorenshu.png">
+    <img id="labeltext_sm" src="./img/text_happyorenshu.png">
+  </div>
+  
+  <!-- ユーザーボタン -->
+  <div class="user">
+	<button type="button" class="user_button">
+	　　<img class="user-img" src="img/blue_user_Button.png" alt="ユーザー" />
+    </button>
+  </div>
+  
+  <!-- ユーザー情報とログアウトリンク -->
+  <nav id="user-wrap">
+    <div id="user-list">
+      <ul>
+        <li><p>ログイン情報</p></li>
+        <li><p id="user_mail">Email</p></li>
+        <li><a id="logout">ログアウトする</a></li>
+        <li>
+          <div class="close"><p>×閉じる</p></div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!--PCのみの機能ボタン-->
+  <div class="function_button">
+    <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
+  </div>
+  
+  <!--スマホのみの機能ボタン-->
+  <div class="sm_function">
+    <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
+    <img id="home" src="./img/blue_home_Button.png">
+  </div>
+  
+  <!--文字表示-->
+  <div class="textbox">
+    <br>
+    <input type="text" class="genko_title" placeholder="タイトル" />
+    <br>
+    <br>
+    <textarea id="textarea" name="main" onkeyup="Length(value);"></textarea>
+        <br>
+		<span class="taitoru">タイトル</span>
+        <span class="moji_label_1">文字数</span>
+        <p id="inputlength">0</p>
+        <span class="moji_label_2">文字</span>
+        <span class="yomi_label_1">読み上げ時間</span>
+        <p id="inputtime">0</p>
+        <span class="moji_time">分</span>
+  </div>
+  
+  <!--録音-再生--><!--タイマー-->
+  <div id="Control">
+    <button id="MicOn">マイクの使用を開始</button>
+	<p id="timerLabel">00:00</p>
+	<!--録音開始-->
+	<button type="button" id="startBtn" onclick="this.recStartBtn.addEventListener();start()">
+<<<<<<< Updated upstream
+	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png">
+=======
+	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png" width="120">
+>>>>>>> Stashed changes
+	</button>
+	</button>
+	<!--録音終了-->
+	<button type="button" id="RecStop" onclick="this.recStopBtn.addEventListener();stop()" disabled>
+<<<<<<< Updated upstream
+	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png">
+	</button>
+    <div id="RecMime"></div>
+	<button type="button" id="Reset" onclick="reset()">
+	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png">
+=======
+	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png" width="150">
+	</button>
+    <div id="RecMime"></div>
+	<button type="button" id="Reset" onclick="reset()">
+	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png" width="150">
+>>>>>>> Stashed changes
+	</button>
+  </div>
+  </div>
+  
+  <script>
+  <!--録音-再生-->
+  var TMamMicRec=function(control,micOnBtn,recStartBtn,recStopBtn,recMime){
+    this.control=control;
+    this.micOnBtn   =micOnBtn;
+    this.recStartBtn=recStartBtn;
+    this.recStopBtn =recStopBtn;
+    this.recMime = recMime;
+    
+    this.stream=null;
+    this.mediaRecorder=null;
+    this.chunks=[];
+    this.recStartBtn.setAttribute("disabled",true);
+    this.recStopBtn.setAttribute("disabled",true);
+    this.type=null;
+    
+    this.micOnBtn.addEventListener("click",function(){
+      if(navigator.mediaDevices==undefined){
+        alert('未対応ブラウザ 又は HTTPS接続していません');
+        return;
+      }
+      navigator.mediaDevices.getUserMedia({audio:true})
+      .then(function(stream){
+        this.stream=stream;
+        
+        this.mediaRecorder=new MediaRecorder(this.stream);
+        this.mediaRecorder.addEventListener("dataavailable",function(event){
+          this.chunks.push(event.data);
+          console.log(event.data);
+        }.bind(this));
+        this.mediaRecorder.addEventListener("stop",function(e){
+          // audio/webm;codecs=opus audio/ogg; codecs=opus
+          this.type=this.chunks[0].type;
+          this.recMime.innerHTML=this.type;
+          let blob=new Blob(this.chunks,{"type":this.type});
+          this.chunks=[];
+
+          //録音したblobをDataURIスキームに変換して<audio>タグでそのまま再生する
+          let fileReaderAudio=new FileReader();
+          fileReaderAudio.addEventListener("load",function(event){
+            let audio_play=document.body.querySelector("#audio_play");
+            if(audio_play==null){
+              audio_play=document.createElement("audio");
+              audio_play.setAttribute("controls","true");
+              audio_play.setAttribute("id","audio_play");
+              audio_play.setAttribute("playsinline","");
+              this.control.appendChild(audio_play);
+              //document.getElementById("Control").appendChild(audio_play);
+            }else{
+              audio_play.pause();
+              audio_play.currentTime=0;
+            }
+            audio_play.setAttribute("src",event.target.result);
+            //audio_play.src=this.result;
+            audio_play.load();
+            audio_play.play();
+          }.bind(this));
+          fileReaderAudio.readAsDataURL(blob);
+
+          this.recStartBtn.removeAttribute("disabled");
+          this.recStopBtn.setAttribute("disabled",true);
+        }.bind(this));
+        this.recStartBtn.removeAttribute("disabled");
+        this.micOnBtn.setAttribute("disabled",true);
+      }.bind(this)).catch(function(e){
+        console.log(e);
+        document.getElementById("alert").innerHTML=e;
+      }.bind(this));
+    }.bind(this));
+    this.recStartBtn.addEventListener("click",function(){
+      this.recStartBtn.setAttribute("disabled", true);
+      this.recStopBtn.removeAttribute("disabled");
+      this.mediaRecorder.start();
+    }.bind(this));
+    this.recStopBtn.addEventListener("click",function(){
+      this.mediaRecorder.stop();
+    }.bind(this));
+  }
+  window.addEventListener("DOMContentLoaded",function(){
+    mamMicRec=new TMamMicRec(
+      document.getElementById("Control"),
+      document.getElementById("MicOn"),
+      document.getElementById("startBtn"),
+      document.getElementById("RecStop"),
+      document.getElementById("RecMime")
+    );
+  });
+  
+  <!--タイマー-->
+  var status = 0; // 0:停止中 1:動作中
+        var time = 0;
+        var startBtn = document.getElementById("startBtn");
+        var timerLabel = document.getElementById('timerLabel');
+
+        // STARTボタン
+        function start(){
+            // 動作中にする
+            status = 1;
+            // スタートボタンを押せないようにする
+            startBtn.disabled = true;
+
+            timer();
+        }
+
+        // STOPボタン
+        function stop(){
+            // 停止中にする
+            status = 0;
+            // スタートボタンを押せるようにする
+            startBtn.disabled = false;
+        }
+
+        // RESETボタン
+        function reset(){
+            // 停止中にする
+            status = 0;
+            // タイムを0に戻す
+            time = 0;
+            // タイマーラベルをリセット
+            timerLabel.innerHTML = '00:00';
+            // スタートボタンを押せるようにする
+            startBtn.disabled = false;
+        }
+
+        function timer(){
+            // ステータスが動作中の場合のみ実行
+            if (status == 1) {
+                setTimeout(function() {
+                    time++;
+
+                    // 分・秒・ミリ秒を計算
+                    var min = Math.floor(time/100/60);
+                    var sec = Math.floor(time/100);
+                    var mSec = time % 100;
+
+                    if (min < 10) min = "0" + min;
+                    if (sec >= 60) sec = sec % 60;
+                    if (sec < 10) sec = "0" + sec;
+
+                    // タイマーラベルを更新
+                    timerLabel.innerHTML = min + ":" + sec ;
+
+                    // 再びtimer()を呼び出す
+                    timer();
+                }, 10);
+            }
+        }
+
+        document.onkeydown = function(event) {
+            if (event) {
+                if (event.keyCode == 32 || event.which == 32) {
+                    if(status == 1) {
+                        stop();
+                    } else if (status == 0) {
+                        start();
+                    }
+                }
+            }
+        };
+  </script>
+
+</head>
+</html>
