@@ -200,95 +200,94 @@
 
 
 /*----- これより以下は手つかず -----*/
-/*「原稿作成」*/
-    #labeltext{
-        display: none;
-    }
-    #labeltext_sm{
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        top: 13%;
-        left: 50%;
-        right: 50%;
-        margin-left: -16%;
-        width: 33%;
-        height: auto;
-    }
+/* 練習用原稿表示エリア */
+#labeltext　{/* PC用 */
+	display: none;
+}
 
+#labeltext_sm　{/* スマホ用 */
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	top: 13%;
+	left: 50%;
+	right: 50%;
+	margin-left: -16%;
+	width: 33%;
+	height: auto;
+}
 
-    /*テキストボックス*/
-    .textbox{
-        margin: auto;
-        text-align: center;
-        justify-content: center;
-    }
-    /*目標文字数*/
-    .mojisu-label,
-    .mojisu {
-        font-family: inherit;
-        color: #073b57;
-        position: fixed;
-    }
+/*テキストボックス*/
+.textbox{
+	margin: auto;
+	text-align: center;
+	justify-content: center;
+}
+/*目標文字数*/
+.mojisu-label,
+.mojisu {
+    font-family: inherit;
+    color: #073b57;
+    position: fixed;
+}
+.mojisu-label {
+	width: calc(100% - 2em);
+	font-size: .9em;
+	top: 230;
+	left: -1%;
+	display: block;
+}
+.mojisu {
+	display: block;
+	top: 220;
+	left: 15%;
+	width: 24%;
+	height: 5%;
+	padding: 8px 10px;
+	border: 1px solid #ced3d8;
+	border-radius: 3px;
+	line-height: 1.5;
+	box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+}
+.mojisu:focus{
+	outline:solid 1px rgb(117, 139, 168);
+}
+.mojisu::placeholder {
+	color: #7b7b7b;
+}
+/*目標時間*/
+.time-label,
+.time {
+	font-family: inherit;
+	position: fixed;
+	color: #333;
+}
+.time-label {
+	width: calc(100% - 2em);
+	font-size: .9em;
+	top: 285;
+	left: -3%;
+}
+.time {
+	top: 274;
+	left: 15%;
+	width: 24%;
+	height: 5%;
+	padding: 8px 10px;
+	border: 1px solid #ced3d8;
+	border-radius: 3px;
+	line-height: 1.5;
+	box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+}
+.time:focus{
+	outline:solid 1px rgb(117, 139, 168);
+}
+.time::placeholder {
+	color: #7b7b7b;
+}
 
-    .mojisu-label {
-        width: calc(100% - 2em);
-        font-size: .9em;
-        top: 230;
-        left: -1%;
-        display: block;
-    }
-    .mojisu {
-        display: block;
-        top: 220;
-        left: 15%;
-        width: 24%;
-        height: 5%;
-        padding: 8px 10px;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    .mojisu:focus{
-        outline:solid 1px rgb(117, 139, 168);
-    }
-    .mojisu::placeholder {
-        color: #7b7b7b;
-    }
-    /*目標時間*/
-    .time-label,
-    .time {
-        font-family: inherit;
-        position: fixed;
-        color: #333;
-    }
-    .time-label {
-        width: calc(100% - 2em);
-        font-size: .9em;
-        top: 285;
-        left: -3%;
-    }
-    .time {
-        top: 274;
-        left: 15%;
-        width: 24%;
-        height: 5%;
-        padding: 8px 10px;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    .time:focus{
-        outline:solid 1px rgb(117, 139, 168);
-    }
-    .time::placeholder {
-        color: #7b7b7b;
-    }
-
-    /*原稿タイトル*/
-    .genko_title {
+/*原稿タイトル*/
+.genko_title {
         font-family: inherit;
         position: fixed;
         top: 350;

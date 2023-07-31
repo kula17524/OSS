@@ -239,69 +239,70 @@ html {
 
 /*----- これより以下は手つかず -----*/
 
-    /* ユーザー情報表示タブ */
-    #user-wrap {
-        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
-        position: fixed;
-        z-index: 999;
-        text-align: center;
-        /*ナビのスタート位置と形状*/
-        top: 1em;
-        right: -120%;
-        width: 200px;
-        height: 200px; /*ナビの高さ*/
-        background-image: url("../img/blue_loginBack.png");
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        /*動き*/
-        transition: all 0.6s;
-        margin: 0;
-        padding: 0;
-        border-radius: 3px;
-    }
-    #user-list {
-        margin: 0;
-        padding: 0;
-    }
+/* ユーザー情報表示タブ */
+#user-wrap {
+	/*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	/*ナビのスタート位置と形状*/
+	top: 1em;
+	right: -120%;
+	width: 200px;
+	height: 200px; /*ナビの高さ*/
+	background-image: url("../img/blue_loginBack.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	/*動き*/
+	transition: all 0.6s;
+	margin: 0;
+	padding: 0;
+	border-radius: 3px;
+}
+
+#user-list {
+	margin: 0;
+	padding: 0;
+}
     
-    /*アクティブクラスがついたら位置を0に*/
-    #user-wrap.panelactive {
-        right: 0;
-    }
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap.panelactive {
+	right: 0;
+}
+   
+/*ナビゲーション*/
+#user-wrap ul {
+	/*ナビゲーション天地中央揃え*/
+	position: absolute;
+	z-index: 999;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	padding: 0;
+}
+
+.close {
+	margin-top: 2em;
+}
+
+.close p {
+	margin: 0.1em;
+	padding: 0.1em;
+	background-color: white;
+	font-weight: 600;
+	overflow: visible;
+	cursor: pointer;
+}
+.close p:hover {
+	opacity: 70%;
+}
+.close p:focus {
+	opacity: 70%;
+}
     
-    /*ナビゲーション*/
-    #user-wrap ul {
-        /*ナビゲーション天地中央揃え*/
-        position: absolute;
-        z-index: 999;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        padding: 0;
-    }
-    .close {
-        margin-top: 2em;
-    }
-    .close p {
-        margin: 0.1em;
-        padding: 0.1em;
-        border-radius: 5px;
-        background-color: white;
-        font-weight: 600;
-        overflow: visible;
-        cursor: pointer;
-    }
-    
-    .close p:hover {
-        opacity: 70%;
-    }
-    .close p:focus {
-        opacity: 70%;
-    }
-    
-    /* 吹き出し */
+/* 吹き出し */
     .description3 {
         display: none;
         position: absolute;
