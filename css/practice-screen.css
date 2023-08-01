@@ -273,13 +273,16 @@ html {
   overflow: visible;
   cursor: pointer;
   padding: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* 録音完了ボタン */
 #RecStop {
   position: fixed;
   background: none;
-  right: 15%;
+  left: 50%;
+  transform: translateX(90%);
   top: 85%;
   border: none;
 }
@@ -299,7 +302,8 @@ html {
 #Reset {
   position: fixed;
   background: none;
-  left: 32%;
+  left: 50%;
+  transform: translateX(-190%);
   top: 85%;
   border: none;
 }

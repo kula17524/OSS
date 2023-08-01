@@ -284,7 +284,7 @@
     font-family: inherit;
     position: fixed;
     top: 180px;
-    left: 14%;
+    left: 10%;
   }
 
   /* 「文字」 */
@@ -348,15 +348,10 @@
     text-align: right;
     top: 96%;
   }
-
-  .start-button {
-    text-align: center;
-  }
   /* 録音開始ボタン */
   #blue_mike_Button {
     position: fixed;
-    text-align: center;
-    top: 81%;
+    top: 82%;
     width: 100px;
     background: none;
     border: 0;
@@ -365,18 +360,15 @@
     overflow: visible;
     cursor: pointer;
     padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   /* 録音完了ボタン */
-  #RecStop {
-    position: fixed;
-    background: none;
-    right: 15%;
-    top: 85%;
-    border: none;
-  }
   #rokuonkanryo_Button {
-    bottom: 10px;
+    left: 50%;
+    transform: translateX(60%);
+    top: 85%;
     width: 100px;
     background: none;
     border: 0;
@@ -388,16 +380,11 @@
   }
 
   /* やり直しボタン */
-  #Reset {
-    position: fixed;
-    background: none;
-    left: 32%;
-    top: 85%;
-    border: none;
-  }
+
   #yarinaosu_Button {
-    right: 890px;
-    bottom: 10px;
+    left: 50%;
+    transform: translateX(-160%);
+    top: 85%;
     width: 100px;
     background: none;
     border: 0;
@@ -406,5 +393,19 @@
     overflow: visible;
     cursor: pointer;
     padding: 0;
+  }
+  @media screen and (max-width: 350px) {
+    #blue_mike_Button {
+      width: 80px;
+      top: 83%;
+    }
+    #rokuonkanryo_Button {
+      top: 100%;
+      width: 80px;
+    }
+    #yarinaosu_Button {
+      top: 100%;
+      width: 80px;
+    }
   }
 }
