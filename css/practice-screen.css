@@ -61,8 +61,8 @@ html {
 #label {
   position: fixed;
   display: block;
-  top: 0%;
-  left: 0%;
+  top: -50px;
+  left: 90px;
   transform-origin: 0%;
   transform: scale(0.17);
 }
@@ -71,8 +71,8 @@ html {
 #labeltext {
   position: fixed;
   display: block;
-  top: 16%;
-  left: 10%;
+  top: 90px;
+  left: 130px;
   transform-origin: 0%;
   transform: scale(0.3);
 }
@@ -226,7 +226,7 @@ html {
 #exiticon {
   position: fixed;
   display: block;
-  top: 70px;
+  top: 130px;
   left: 30px;
   transform-origin: 0%;
   transform: scale(0.35);
