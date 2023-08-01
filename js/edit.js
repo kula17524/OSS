@@ -136,6 +136,19 @@ document.addEventListener("DOMContentLoaded", async function () {
         alert("ログインしてください。")
         location.href = "login.html";
       }
+	  // データの表示
+          // 原稿タイトル
+          const title = document.createElement("td");
+          title.className = "title";
+          title.colSpan = "4";
+          if (
+            doc_get.data().title == undefined ||
+            doc_get.data().title == null
+          ) {
+            title.innerHTML = "無題";
+          } else {
+            title.innerHTML = doc_get.data().title;
+          }
 
       // Firebase Firestoreにデータを更新して保存する
         const updateDataToFirebase = () => { 
@@ -242,3 +255,4 @@ document.addEventListener("DOMContentLoaded", async function () {
     location.href = "newlist.html";
   });
  });
+ textarea
