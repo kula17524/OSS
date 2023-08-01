@@ -243,14 +243,14 @@ html {
 #exiticon:active {
   opacity: 0.7;
   position: fixed;
-  top: 73px;
+  top: 133px;
 }
 
 /*----- 録音-再生 -----*/
 /* マイク確認ボタン */
 #MicOn {
   position: fixed;
-  text-align: right;
+  text-align: center;
   top: 95%;
 }
 
@@ -948,4 +948,15 @@ p {
 #logout-sp:active {
   color: #ff0000;
   text-decoration: underline;
+}
+#RecMime {
+  position: fixed;
+  top: -5000px;
+  right: -5000px;
+}
+#audio_play {
+  position: fixed;
+  z-index: 9999;
+  bottom: 5%;
+  right: 50px;
 }

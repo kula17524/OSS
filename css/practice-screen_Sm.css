@@ -408,4 +408,10 @@
       width: 80px;
     }
   }
+  #audio_play {
+    position: fixed;
+    z-index: 9999;
+    top: 10px;
+    right: 50px;
+  }
 }
