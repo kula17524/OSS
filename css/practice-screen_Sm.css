@@ -218,9 +218,14 @@
     line-height: 1.5;
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
   }
-  @media screen and (max-height: 730px) {
+  @media screen and (max-height: 750px) {
     #textarea {
       top: 300px;
+    }
+  }
+  @media screen and (max-height: 670px) {
+    #textarea {
+      top: 280px;
     }
   }
   #textarea:focus {
@@ -336,5 +341,70 @@
   #timerLabel {
     top: 185px;
     left: 70%;
+  }
+
+  #MicOn {
+    position: fixed;
+    text-align: right;
+    top: 96%;
+  }
+
+  .start-button {
+    text-align: center;
+  }
+  /* 録音開始ボタン */
+  #blue_mike_Button {
+    position: fixed;
+    text-align: center;
+    top: 81%;
+    width: 100px;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  /* 録音完了ボタン */
+  #RecStop {
+    position: fixed;
+    background: none;
+    right: 15%;
+    top: 85%;
+    border: none;
+  }
+  #rokuonkanryo_Button {
+    bottom: 10px;
+    width: 100px;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  /* やり直しボタン */
+  #Reset {
+    position: fixed;
+    background: none;
+    left: 32%;
+    top: 85%;
+    border: none;
+  }
+  #yarinaosu_Button {
+    right: 890px;
+    bottom: 10px;
+    width: 100px;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
   }
 }
