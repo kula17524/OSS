@@ -319,8 +319,8 @@ html {
 #timerLabel {
   position: fixed;
   text-align: right;
-  right: 6%;
-  top: 22.5%;
+  left: 85%;
+  top: 125px;
   color: black;
   font-size: 1.2em;
 }
@@ -390,7 +390,7 @@ html {
 .moji_label_1 {
   width: calc(100% - 2em);
   font-size: 0.1em;
-  top: 20%;
+  top: 120px;
   left: 60%;
   font-family: inherit;
   color: #676767;
@@ -401,15 +401,15 @@ html {
 #inputlength {
   font-family: inherit;
   position: fixed;
-  top: 22.5%;
-  left: 61%;
+  top: 130px;
+  left: 60%;
 }
 
 /* 「文字」 */
 .moji_label_2 {
   width: calc(100% - 2em);
   font-size: 0.1em;
-  top: 25%;
+  top: 150px;
   left: 65%;
   font-family: inherit;
   color: #073b57;
@@ -420,7 +420,7 @@ html {
 .yomi_label_1 {
   width: calc(100% - 2em);
   font-size: 0.1em;
-  top: 20%;
+  top: 120px;
   left: 75%;
   font-family: inherit;
   color: #676767;
@@ -431,15 +431,15 @@ html {
 #inputtime {
   font-family: inherit;
   position: fixed;
-  top: 22.5%;
-  left: 76.5%;
+  top: 130px;
+  left: 73%;
 }
 
 /* 「分」 */
 .moji_time {
   width: calc(100% - 2em);
   font-size: 0.1em;
-  top: 25%;
+  top: 150px;
   left: 80%;
   font-family: inherit;
   color: #676767;
@@ -450,7 +450,7 @@ html {
 .yomi_label_2 {
   width: calc(100% - 2em);
   font-size: 0.1em;
-  top: 20%;
+  top: 120px;
   left: 88%;
   font-family: inherit;
   color: #676767;

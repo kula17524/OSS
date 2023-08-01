@@ -267,7 +267,7 @@
   .moji_label_1 {
     width: calc(100% - 2em);
     font-size: 0.1em;
-    top: 20%;
+    top: 170px;
     left: 10%;
     font-family: inherit;
     color: #676767;
@@ -278,7 +278,7 @@
   #inputlength {
     font-family: inherit;
     position: fixed;
-    top: 22.5%;
+    top: 180px;
     left: 14%;
   }
 
@@ -286,7 +286,7 @@
   .moji_label_2 {
     width: calc(100% - 2em);
     font-size: 0.1em;
-    top: 25%;
+    top: 200px;
     left: 23%;
     font-family: inherit;
     color: #073b57;
@@ -297,7 +297,7 @@
   .yomi_label_1 {
     width: calc(100% - 2em);
     font-size: 0.1em;
-    top: 20%;
+    top: 170px;
     left: 40%;
     font-family: inherit;
     color: #676767;
@@ -308,15 +308,15 @@
   #inputtime {
     font-family: inherit;
     position: fixed;
-    top: 22.5%;
-    left: 45%;
+    top: 180px;
+    left: 40%;
   }
 
   /* 「分」 */
   .moji_time {
     width: calc(100% - 2em);
     font-size: 0.1em;
-    top: 25%;
+    top: 200px;
     left: 55%;
     font-family: inherit;
     color: #676767;
@@ -327,10 +327,14 @@
   .yomi_label_2 {
     width: calc(100% - 2em);
     font-size: 0.1em;
-    top: 20%;
+    top: 170px;
     left: 73%;
     font-family: inherit;
     color: #676767;
     position: fixed;
+  }
+  #timerLabel {
+    top: 185px;
+    left: 70%;
   }
 }
