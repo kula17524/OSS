@@ -331,8 +331,8 @@ html {
   font-family: inherit;
   position: fixed;
   resize: none;
-  top: 40%;
-  left: 18%;
+  top: 235px;
+  left: 135px;
   width: 70%;
   height: 40%;
   padding: 8px 10px;
@@ -358,9 +358,9 @@ html {
 .genko_title {
   font-family: inherit;
   position: fixed;
-  top: 30%;
-  left: 18%;
-  width: 40%;
+  top: 190px;
+  left: 135px;
+  width: 60%;
   padding: 8px 10px;
   border: 1px solid #ced3d8;
   border-radius: 3px;
@@ -378,8 +378,8 @@ html {
 .taitoru {
   width: calc(100% - 2em);
   font-size: 0.1em;
-  top: 28%;
-  left: 18%;
+  top: 170px;
+  left: 135px;
   font-family: inherit;
   color: #676767;
   position: fixed;
