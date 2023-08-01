@@ -320,9 +320,9 @@ html {
 	position: fixed;
 	text-align: right;
 	right: 100px;
-	top: 170px;
+	top: 22%;
 	color: black;
-	font-size: 2em;
+	font-size: 1.5em;
 	line-height: 0.1em;
 }
 
@@ -357,6 +357,26 @@ html {
 
 
 /*----- 印字内容 -----*/
+/*原稿タイトル*/
+    .genko_title {
+        font-family: inherit;
+        position: fixed;
+        top: 30%;
+        left: 18%;
+        width: 40%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .genko_title:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .genko_title::placeholder {
+        color:#7b7b7b;
+    }
+	
 /* 「タイトル」 */
 .taitoru{
 	width: calc(100% - 2em);
@@ -377,6 +397,14 @@ html {
 	font-family: inherit;
 	color: #676767;
 	position: fixed;
+}
+
+/*文字数*/
+#inputlength {
+	font-family: inherit;
+	position: fixed;
+	top: 22.5%;
+	left: 61%;
 }
 	
 /* 「文字」 */
@@ -399,6 +427,14 @@ html {
 	font-family: inherit;
 	color: #676767;
 	position: fixed;
+}
+
+/*読み上げ時間*/
+#inputtime{
+	font-family: inherit;
+	position: fixed;
+	top: 22.5%;
+	left: 76.5%;
 }
 	
 /* 「分」 */

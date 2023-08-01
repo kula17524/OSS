@@ -65,6 +65,9 @@
     <textarea id="textarea" name="main" onkeyup="Length(value);"></textarea>
     <br>
 		<span class="taitoru">タイトル</span>
+		<br>
+		<input type="text" class="genko_title"  oninput="validateInput(this)"/>
+		<br>
         <span class="moji_label_1">文字数</span>
         <p id="inputlength">0</p>
         <span class="moji_label_2">文字</span>
@@ -252,6 +255,7 @@
             }
         };
   </script>
+  <script type="text/javascript" src="private.js"></script>
   <script src="js/practice-screen.js"></script>   
   <script src="js/practice-screen_jquery.js"></script>   
 

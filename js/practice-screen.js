@@ -5,12 +5,16 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 import {
-    getFirestore,
-    doc,
-    updateDoc,
-    setDoc,
-    getDoc,
-    serverTimestamp,
+  getFirestore,
+  doc,
+  updateDoc,
+  setDoc,
+  getDoc,
+  serverTimestamp,
+  deleteDoc,
+  collection,
+  query,
+  where,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
 
@@ -69,10 +73,10 @@ document.addEventListener("DOMContentLoaded", async function () {
               console.log("data.userId:"+data.userId, "userId:"+ userId);
               // HTMLから取得
               const textarea = document.getElementById("textarea");
-              const word = document.getElementById("inputlength");
-              const time = document.getElementById("inputtime");
-              const word_i = document.getElementsByClassName("mojisu")[0];
-              const time_i = document.getElementsByClassName("time")[0];
+              const word = document.getElementById("inputlength"); //原稿文字数
+              const time = document.getElementById("inputtime");  //読み上げ時間
+              //const word_i = document.getElementsByClassName("mojisu")[0];  //目標文字数
+              //const time_i = document.getElementsByClassName("time")[0];  /目標読み上げ時間
               const title = document.getElementsByClassName("genko_title")[0];
               // 反映
               if (data.title == undefined || data.title == null) {
@@ -136,6 +140,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         alert("ログインしてください。")
         location.href = "login.html";
       }
+	  
+	  // データの表示
+          // 原稿タイトル
+          const title = document.createElement("td");
+          title.className = "title";
+          title.colSpan = "4";
+          if (
+            doc_get.data().title == undefined ||
+            doc_get.data().title == null
+          ) {
+            title.innerHTML = "無題";
+          } else {
+            title.innerHTML = doc_get.data().title;
+          }
 
       // Firebase Firestoreにデータを更新して保存する
         const updateDataToFirebase = () => { 
@@ -231,7 +249,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
   // exitボタンをクリックするとメニュー画面に移動
   exiticon.addEventListener("click", () => {
-    location.href = "newlist.html";
+    location.href = "practicelist.html.html";
   });
   // homeボタンをクリックするとメニュー画面に移動
   home.addEventListener("click", () => {
@@ -239,6 +257,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
   // ひとつ前に戻るボタンを押すとメニュー画面に移動
   back_button.addEventListener("click", () => {
-    location.href = "newlist.html";
+    location.href = "practicelist.html";
   });
  });
+ 
+ textarea
