@@ -256,15 +256,8 @@ html {
 #MicOn {
 	position: fixed;
 	text-align: right;
-	right: 43.5%;
+	right: 45%;
 	top: 96%;
-	/*background: none;
-	border: 0;
-	font-size: 0;
-	line-height: 0;
-	overflow: visible;
-	cursor: pointer;
-	padding: 0;*/
 }
 
 /* 録音開始ボタン */
@@ -315,12 +308,12 @@ html {
 	padding: 0;
 }
 	
-/*タイマー（未完成）*/
+/*タイマー*/
 #timerLabel {
 	position: fixed;
 	text-align: right;
-	right: 100px;
-	top: 22%;
+	right: 8%;
+	top: 22.5%;
 	color: black;
 	font-size: 1.5em;
 	line-height: 0.1em;
@@ -382,7 +375,7 @@ html {
 	width: calc(100% - 2em);
 	font-size: .10em;
 	top: 28%;
-	left: 16%;
+	left: 18%;
 	font-family: inherit;
 	color: #676767;
 	position: fixed;
@@ -418,7 +411,7 @@ html {
 	position: fixed;
 }
 
-/* 「読み上げ時間」 */
+/* 「読み上げ目安時間」 */
 .yomi_label_1{
 	width: calc(100% - 2em);
 	font-size: .10em;
@@ -429,7 +422,7 @@ html {
 	position: fixed;
 }
 
-/*読み上げ時間*/
+/*読み上げ目安時間*/
 #inputtime{
 	font-family: inherit;
 	position: fixed;
@@ -448,31 +441,13 @@ html {
 	position: fixed;
 }
 
-/*----- これより以下は手つかず -----*/  
-    
-    /* 吹き出し */
-    /*.description3 {
-        display: none;
-        position: absolute;
-        padding: 10px;
-        font-size: 12px;
-        line-height: 1.6em;
-        color: #fff;
-        border-radius: 5px;
-        background: #000;
-        width: 100px;
-    }
-    .description3:before {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        border: 15px solid transparent;
-        border-top: 15px solid #000;
-        margin-left: -15px;
-    }
-    .button_list:focus .description3 {
-        display: inline-block;
-        top: -75px;
-        left: -50px;
-    }*/
+/* 「経過時間」 */
+.yomi_label_2{
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 20%;
+	left: 88%;
+	font-family: inherit;
+	color: #676767;
+	position: fixed;
+}

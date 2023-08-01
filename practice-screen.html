@@ -18,7 +18,7 @@
   <!--背景-->
   <div class="background">
     <img id="back" src="./img/blue_background.png">
-    <img id="sidebar" src="./img/blue_PC_side.png">
+	<img id="sidebar" src="./img/blue_PC_side.png">
     <img id="topbar" src="./img/blue_PC_top.png">
     <img id="topbar_sm" src="./img/blue_Sm_top.png">
     <img id="logoicon" src="./img/blue_PC_titlelogo_2.png">
@@ -71,9 +71,10 @@
         <span class="moji_label_1">文字数</span>
         <p id="inputlength">0</p>
         <span class="moji_label_2">文字</span>
-        <span class="yomi_label_1">読み上げ時間</span>
+        <span class="yomi_label_1">読み上げ目安時間</span>
         <p id="inputtime">0</p>
         <span class="moji_time">分</span>
+		<span class="yomi_label_2">経過時間</span>
   </div>
   
   <!--録音-再生--><!--タイマー-->
@@ -81,11 +82,11 @@
     <button id="MicOn">マイクの使用を開始</button>
 	<p id="timerLabel">00:00</p>
 	<!--録音開始-->
-	<button type="button" id="startBtn" onclick="start()"><!--this.recStartBtn.addEventListener(),-->
+	<button type="button" id="startBtn" onclick="start()">
 	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png">
 	</button>
 	<!--録音終了-->
-	<button type="button" id="RecStop" onclick="stop()" disabled><!--this.recStopBtn.addEventListener(),-->
+	<button type="button" id="RecStop" onclick="stop()" disabled>
 	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png">
 	</button>
     <div id="RecMime"></div>

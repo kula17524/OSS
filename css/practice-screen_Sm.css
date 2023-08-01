@@ -83,7 +83,7 @@
 
 /* 戻るボタン(スマホ用)（未完成） */
 #back_button{
-	position: fixed;
+	position: absolute;
 	text-align: right;
 	right: 36%;
 	top: 80%;
@@ -99,7 +99,8 @@
 
 /* ホームボタン(スマホ用)（未完成） */
 #home{
-	position: fixed;
+	z-index: 5;
+	position: absolute;
 	text-align: right;
 	right: 202px;
 	top: 100px;
@@ -188,12 +189,12 @@
 	padding: 0;
 }
 	
-/*タイマー（未完成）*/
+/*タイマー*/
 #timerLabel {
 	position: fixed;
 	text-align: right;
-	left: 70%;
-	top: 20%;
+	left: 74%;
+	top: 22.5%;
 	color: black;
 	font-size: 1.3em;
 	line-height: 0.1em;
@@ -232,11 +233,31 @@
 
 
 /*----- 印字内容 -----*/
+/*原稿タイトル*/
+    .genko_title {
+        font-family: inherit;
+        position: fixed;
+        top: 36%;
+        left: 7%;
+        width: 40%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+    }
+    .genko_title:focus{
+        outline:solid 1px rgb(117, 139, 168);
+    }
+    .genko_title::placeholder {
+        color:#7b7b7b;
+    }
+	
 /* 「タイトル」 */
 .taitoru{
 	width: calc(100% - 2em);
 	font-size: .10em;
-	top: 35%;
+	top: 33%;
 	left: 8%;
 	font-family: inherit;
 	color: #676767;
@@ -303,154 +324,16 @@
 	position: fixed;
 }
 
-
+/* 「経過時間」 */
+.yomi_label_2{
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 20%;
+	left: 73%;
+	font-family: inherit;
+	color: #676767;
+	position: fixed;
 }
 
 
-/*----- これより以下は手つかず -----*/
-    /*目標文字数*/
-	/*
-    .mojisu-label,
-    .mojisu {
-        font-family: inherit;
-        color: #073b57;
-        position: fixed;
-    }
-
-    .mojisu-label {
-        width: calc(100% - 2em);
-        font-size: .9em;
-        top: 230;
-        left: -1%;
-        display: block;
-    }
-    .mojisu {
-        display: block;
-        top: 220;
-        left: 15%;
-        width: 24%;
-        height: 5%;
-        padding: 8px 10px;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    .mojisu:focus{
-        outline:solid 1px rgb(117, 139, 168);
-    }
-    .mojisu::placeholder {
-        color: #7b7b7b;
-    }
-    /*目標時間*/
-	/*
-    .time-label,
-    .time {
-        font-family: inherit;
-        position: fixed;
-        color: #333;
-    }
-    .time-label {
-        width: calc(100% - 2em);
-        font-size: .9em;
-        top: 285;
-        left: -3%;
-    }
-    .time {
-        top: 274;
-        left: 15%;
-        width: 24%;
-        height: 5%;
-        padding: 8px 10px;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    .time:focus{
-        outline:solid 1px rgb(117, 139, 168);
-    }
-    .time::placeholder {
-        color: #7b7b7b;
-    }
-
-    /*原稿タイトル*/
-	/*
-    .genko_title {
-        font-family: inherit;
-        position: fixed;
-        top: 350;
-        width: 87%;
-        left: 50%;
-        height: auto;
-        margin-left: -43%;
-        padding: 7px 10px;
-        font-size: 0.9em;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    .genko_title:focus{
-        outline:solid 1px rgb(117, 139, 168);
-    }
-    .genko_title::placeholder {
-        color: #7b7b7b;
-    }
-    
-    /*文字数カウント*/
-	/*
-    #inputlength{
-        font-family: inherit;
-        position: fixed;
-        top: 222;
-        left: 70%;
-	}
-
-    #inputtime{
-        font-family: inherit;
-        position: fixed;
-        top: 272;
-        left: 70%;
-    }
-
-
- /*---------- スマホボタン設定 ----------*/
-
-    /*画像をドラッグさせない*/
-	/*
-    .sm_function{
-        -webkit-touch-callout:none;
-        -webkit-user-select:none;
-        -moz-touch-callout:none;
-        -moz-user-select:none;
-        user-select:none;
-    }
-
-    /*隠す用*/
-	/*#mask_sm {
-        background: rgba(0, 0, 0, 0.7);
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        z-index: 1;
-    }*/
-	
-    /*隠す用？*/
-    /*#modal_sm {
-    background: #fff;
-    width: 40%;
-    height: 30%;
-    padding: 24px;
-    border-radius: 4px;
-    color: #073b57;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    margin: 0 auto;
-    z-index: 2;
-    }*/
+}
