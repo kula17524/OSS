@@ -273,17 +273,20 @@ html {
 #MicOn {
   position: fixed;
   text-align: right;
-  right: 45%;
   top: 96%;
 }
 
 /* 録音開始ボタン */
+#Control {
+  text-align: center;
+  z-index: -1;
+  height: 100vh;
+}
 #blue_mike_Button {
   position: fixed;
-  text-align: right;
-  right: 680px;
-  bottom: 2em;
-  width: 5em;
+  text-align: center;
+  top: 80%;
+  width: 100px;
   background: none;
   border: 0;
   font-size: 0;
@@ -294,12 +297,16 @@ html {
 }
 
 /* 録音完了ボタン */
-#rokuonkanryo_Button {
+#RecStop {
   position: fixed;
-  text-align: right;
-  right: 450px;
-  top: 705px;
-  width: 150px;
+  background: none;
+  right: 15%;
+  top: 85%;
+  border: none;
+}
+#rokuonkanryo_Button {
+  bottom: 10px;
+  width: 100px;
   background: none;
   border: 0;
   font-size: 0;
@@ -310,12 +317,17 @@ html {
 }
 
 /* やり直しボタン */
-#yarinaosu_Button {
+#Reset {
   position: fixed;
-  text-align: right;
+  background: none;
+  left: 32%;
+  top: 85%;
+  border: none;
+}
+#yarinaosu_Button {
   right: 890px;
-  top: 705px;
-  width: 150px;
+  bottom: 10px;
+  width: 100px;
   background: none;
   border: 0;
   font-size: 0;
