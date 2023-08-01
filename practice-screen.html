@@ -6,20 +6,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
   <meta http-equiv="Content-Script-Type" content="text/javascript">
-  <!--
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=4,user-scalable=yes">
   <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/practice-screen.css"/>
-<<<<<<< Updated upstream
-  <link rel="stylesheet" media="screen and (max-width:800px)" href="css/practice-screen_Sm.css">
-=======
-  <link rel="stylesheet" media="screen and (max-width:480px)" href="css/practice-screen_Sm.css">
->>>>>>> Stashed changes
+  <link rel="stylesheet" media="screen and (max-width:600px)" href="css/practice-screen_Sm.css">
   <link rel="icon" href="img/blue_icon(ico).ico">
-   <!--
-  <script id="applicationScript" type="text/javascript" src="practice.js"></script>
-  -->
+
 	
   <title>ReO.com-練習画面</title>
   
@@ -39,43 +30,40 @@
   <!-- ユーザーボタン -->
   <div class="user">
 	<button type="button" class="user_button">
-	　　<img class="user-img" src="img/blue_user_Button.png" alt="ユーザー" />
+	　　<img class="user-img" src="img/blue_user_Button.png" alt="ユーザー表示ボタン" />
     </button>
   </div>
   
   <!-- ユーザー情報とログアウトリンク -->
-  <nav id="user-wrap">
-    <div id="user-list">
-      <ul>
-        <li><p>ログイン情報</p></li>
-        <li><p id="user_mail">Email</p></li>
-        <li><a id="logout">ログアウトする</a></li>
-        <li>
-          <div class="close"><p>×閉じる</p></div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <nav id="user-wrap" class="pc">
+        <div id="user-list" class="pc">
+          <ul>
+            <li><p class="pc">ログイン情報</p></li>
+            <li><p id="user_mail" class="pc">Email</p></li>
+            <li><a id="logout" class="pc">ログアウトする</a></li>
+            <li>
+              <div class="close pc"><p>×閉じる</p></div>
+            </li>
+          </ul>
+        </div>
+      </nav>
   
   <!--PCのみの機能ボタン-->
   <div class="function_button">
-    <img id="exiticon" src="./img/PC_door_icon.png" ontouchstart=""  draggable="false">
+    <img id="exiticon" src="./img/PC_door_icon.png" alt="PC画面用戻るボタン"　ontouchstart=""  draggable="false">
   </div>
   
   <!--スマホのみの機能ボタン-->
   <div class="sm_function">
-    <img id="back_button" src="./img/blue_back_Button.png" ontouchstart=""  draggable="false">
-    <img id="home" src="./img/blue_home_Button.png">
+	<img id="back_button" src="./img/blue_back_Button.png" alt="スマホ画面用戻るボタン" ontouchstart=""  draggable="false">
+    <img id="home" src="./img/blue_home_Button.png" alt="スマホ画面用ホームに戻るボタン">
   </div>
   
   <!--文字表示-->
   <div class="textbox">
     <br>
-    <input type="text" class="genko_title" placeholder="タイトル" />
-    <br>
-    <br>
     <textarea id="textarea" name="main" onkeyup="Length(value);"></textarea>
-        <br>
+    <br>
 		<span class="taitoru">タイトル</span>
         <span class="moji_label_1">文字数</span>
         <p id="inputlength">0</p>
@@ -90,31 +78,18 @@
     <button id="MicOn">マイクの使用を開始</button>
 	<p id="timerLabel">00:00</p>
 	<!--録音開始-->
-	<button type="button" id="startBtn" onclick="this.recStartBtn.addEventListener();start()">
-<<<<<<< Updated upstream
+	<button type="button" id="startBtn" onclick="start()"><!--this.recStartBtn.addEventListener(),-->
 	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png">
-=======
-	  <img id="blue_mike_Button" src="./img/blue_mike_Button.png" width="120">
->>>>>>> Stashed changes
-	</button>
 	</button>
 	<!--録音終了-->
-	<button type="button" id="RecStop" onclick="this.recStopBtn.addEventListener();stop()" disabled>
-<<<<<<< Updated upstream
+	<button type="button" id="RecStop" onclick="stop()" disabled><!--this.recStopBtn.addEventListener(),-->
 	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png">
 	</button>
     <div id="RecMime"></div>
 	<button type="button" id="Reset" onclick="reset()">
 	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png">
-=======
-	  <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png" width="150">
 	</button>
     <div id="RecMime"></div>
-	<button type="button" id="Reset" onclick="reset()">
-	  <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png" width="150">
->>>>>>> Stashed changes
-	</button>
-  </div>
   </div>
   
   <script>
@@ -277,6 +252,8 @@
             }
         };
   </script>
+  <script src="js/practice-screen.js"></script>   
+  <script src="js/practice-screen_jquery.js"></script>   
 
 </head>
 </html>

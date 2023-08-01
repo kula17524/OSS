@@ -26,6 +26,7 @@ html {
 	background-size: 100% 100%;
 }
 
+/* サイドバー(PC用) */
 #sidebar {
 	position: fixed;
     display: block;
@@ -36,11 +37,8 @@ html {
 	transform: scale(0.7);
 }
 
-<<<<<<< Updated upstream
-/* PC用ヘッダー */
-=======
-/*PC用ヘッダー*/
->>>>>>> Stashed changes
+
+/* ヘッダー(PC用) */
 #topbar {
 	float: left;
 	display: block;
@@ -51,17 +49,12 @@ html {
 	height: 17%;
 }
 
-<<<<<<< Updated upstream
-/* スマホ用ヘッダー */
-=======
-/*スマホ用ヘッダー*/
->>>>>>> Stashed changes
+/* ヘッダー(スマホ用) */
 #topbar_sm {
 	display: none;
 }
 
-<<<<<<< Updated upstream
-/* PC用ラベル（未完成） */
+/* ラベル(PC用)（未完成） */
 #label　{
 	position: fixed;
 	display: block;
@@ -71,7 +64,7 @@ html {
 	transform: scale(0.17);
 }
 
-/* PC用ラベルテキスト（未完成） */
+/* ラベルテキスト(PC用)（未完成） */
 #labeltext　{
 	position: fixed;
 	display: block;
@@ -81,19 +74,103 @@ html {
 	transform: scale(0.3);
 }
 
-/* スマホ用ラベルテキスト */
+/* ラベルテキスト(スマホ用) */
 #labeltext_sm{
 	display: none;
 }
 
 
-/*----- 機能ボタン -----*/
-/* 左上のロゴ */
-=======
+/*----- ユーザー情報表示タブ -----*/
+#user-wrap {
+	/*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+	position: fixed;
+	z-index: 999;
+	text-align: center;
+	/*ナビのスタート位置と形状*/
+	top: 1em;
+	right: -120%;
+	width: 200px;
+	height: 200px; /*ナビの高さ*/
+	background-image: url("../img/blue_loginBack.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	/*動き*/
+	transition: all 0.6s;
+	margin: 0;
+	padding: 0;
+	border-radius: 3px;
+}    
+#user-wrap.panelactive {/*アクティブクラスがついたら位置を0に*/
+	right: 0;
+}
+/*ナビゲーション*/
+#user-wrap ul {
+	/*ナビゲーション天地中央揃え*/
+	position: absolute;
+	z-index: 999;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	padding: 0;
+}
+
+#user-list {
+	margin: 0;
+	padding: 0;
+}
+
+.close {
+	margin-top: 2em;
+}
+
+.close p {
+	margin: 0.1em;
+	padding: 0.1em;
+	background-color: white;
+	font-weight: 600;
+	overflow: visible;
+	cursor: pointer;
+}
+.close p:hover {
+	opacity: 70%;
+}
+.close p:focus {
+	opacity: 70%;
+}
+
+/* リンクの文字色 */
+#logout,
+#logout-sp {
+    color: #0000ee;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#logout:visited,
+#logout-sp:visited {
+    color: #551a8b;
+    text-decoration: underline;
+}
+#logout:hover,
+#logout-sp:hover {
+    color: #10bbeb;
+    text-decoration: underline;
+}
+#logout:focus,
+#logout-sp:focus {
+    color: #10bbeb;
+    text-decoration: underline;
+}
+#logout:active,
+#logout-sp:active {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
 
 /*----- 機能ボタン -----*/
-/*左上のロゴ*/
->>>>>>> Stashed changes
+/*　左上のロゴ(PC用)　*/
 #logoicon{
 	position: fixed;
 	display: block;
@@ -104,10 +181,6 @@ html {
 }
 #logoicon:hover{
 	opacity:0.7;
-<<<<<<< Updated upstream
-=======
-    /* リンクをホバーしたときのカーソルに*/
->>>>>>> Stashed changes
 	cursor: pointer;
 }
 #logoicon:active{
@@ -115,20 +188,12 @@ html {
 	top: 11;
 }
 
-/* ユーザーアイコン */
-<<<<<<< Updated upstream
+/* ユーザーアイコン(PC用) */
 .user_button {
 	position: fixed;
 	text-align: right;
 	right: 20px;
 	top: 20px;
-=======
- .user_button {
-    position: fixed;
-	text-align: right;
-	right: 20px;
-	top: 10px;
->>>>>>> Stashed changes
 	background: none;
 	border: 0;
 	font-size: 0;
@@ -155,20 +220,19 @@ html {
 	top: 1px;
 }
 
-<<<<<<< Updated upstream
-/* 戻るボタン */
+/* 戻るボタン(スマホ用) */
 #back_button {
 	display: none;
 }
 
-/* ホームボタン */
+/* ホームボタン(スマホ用) */
 #home {
 	display: none;
 }
 
 
-/*----- サイドバーの機能設定（PC用） -----*/
-/*　退出ボタン　*/
+/*----- サイドバーの機能設定 -----*/
+/*　退出ボタン(PC用)　*/
 #exiticon{
 	position: fixed;
 	display: block;
@@ -256,147 +320,102 @@ html {
 	position: fixed;
 	text-align: right;
 	right: 100px;
-	top: 100px;
+	top: 170px;
 	color: black;
-	font-size: 3em;
+	font-size: 2em;
 	line-height: 0.1em;
 }
 
 
-
-/*----- これより以下は手つかず -----*/
-
-/* ユーザー情報表示タブ */
-#user-wrap {
-	/*position:fixed;にし、z-indexの数値を大きくして前面へ*/
-	position: fixed;
-	z-index: 999;
-	text-align: center;
-	/*ナビのスタート位置と形状*/
-	top: 1em;
-	right: -120%;
-	width: 200px;
-	height: 200px; /*ナビの高さ*/
-	background-image: url("../img/blue_loginBack.png");
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	/*動き*/
-	transition: all 0.6s;
-	margin: 0;
-	padding: 0;
-	border-radius: 3px;
-}
-
-#user-list {
-	margin: 0;
-	padding: 0;
-}
-    
-/*アクティブクラスがついたら位置を0に*/
-#user-wrap.panelactive {
-	right: 0;
-}
-   
-/*ナビゲーション*/
-#user-wrap ul {
-	/*ナビゲーション天地中央揃え*/
-	position: absolute;
-	z-index: 999;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	margin: 0;
-	padding: 0;
-}
-
-.close {
-	margin-top: 2em;
-}
-
-.close p {
-	margin: 0.1em;
-	padding: 0.1em;
-	background-color: white;
-	font-weight: 600;
-	overflow: visible;
-	cursor: pointer;
-}
-.close p:hover {
-	opacity: 70%;
-}
-.close p:focus {
-	opacity: 70%;
-}
-    
-/* 吹き出し */
-=======
-
-    /* ユーザー情報表示タブ */
-    #user-wrap {
-        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+/*----- 原稿内容 -----*/
+/* 原稿 */
+#textarea {
+        font-family: inherit;
         position: fixed;
-        z-index: 999;
-        text-align: center;
-        /*ナビのスタート位置と形状*/
-        top: 1em;
-        right: -120%;
-        width: 200px;
-        height: 200px; /*ナビの高さ*/
-        background-image: url("../img/blue_loginBack.png");
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        /*動き*/
-        transition: all 0.6s;
-        margin: 0;
-        padding: 0;
+        resize: none;
+        top: 40%;
+        left: 18%;
+        width: 70%;
+        height: 40%;
+        padding: 8px 10px;
         border-radius: 3px;
-    }
-    #user-list {
-        margin: 0;
-        padding: 0;
-    }
-    
-    /*アクティブクラスがついたら位置を0に*/
-    #user-wrap.panelactive {
-        right: 0;
-    }
-    
-    /*ナビゲーション*/
-    #user-wrap ul {
-        /*ナビゲーション天地中央揃え*/
-        position: absolute;
-        z-index: 999;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        padding: 0;
-    }
-    .close {
-        margin-top: 2em;
-    }
-    .close p {
-        margin: 0.1em;
-        padding: 0.1em;
-        border-radius: 5px;
-        background-color: white;
-        font-weight: 600;
-        overflow: visible;
-        cursor: pointer;
-    }
-    
-    .close p:hover {
-        opacity: 70%;
-    }
-    .close p:focus {
-        opacity: 70%;
-    }
+        font-size: 0.9em;
+        display: inline-block;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        box-sizing: border-box;
+        margin: 0.5em 0;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
+}
+#textarea:focus{
+	outline:solid 1px rgb(117, 139, 168);
+}
+#texarea::placeholder {
+	color:  #7b7b7b;
+}
+
+
+/*----- 印字内容 -----*/
+/* 「タイトル」 */
+.taitoru{
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 28%;
+	left: 16%;
+	font-family: inherit;
+	color: #676767;
+	position: fixed;
+}
+	
+/* 「文字数」 */
+.moji_label_1{
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 20%;
+	left: 60%;
+	font-family: inherit;
+	color: #676767;
+	position: fixed;
+}
+	
+/* 「文字」 */
+.moji_label_2 {
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 25%;
+	left: 65%;
+	font-family: inherit;
+	color: #073b57;
+	position: fixed;
+}
+
+/* 「読み上げ時間」 */
+.yomi_label_1{
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 20%;
+	left: 75%;
+	font-family: inherit;
+	color: #676767;
+	position: fixed;
+}
+	
+/* 「分」 */
+.moji_time{
+	width: calc(100% - 2em);
+	font-size: .10em;
+	top: 25%;
+	left: 80%;
+	font-family: inherit;
+	color: #676767;
+	position: fixed;
+}
+
+/*----- これより以下は手つかず -----*/  
     
     /* 吹き出し */
->>>>>>> Stashed changes
-    .description3 {
+    /*.description3 {
         display: none;
         position: absolute;
         padding: 10px;
@@ -420,183 +439,4 @@ html {
         display: inline-block;
         top: -75px;
         left: -50px;
-    }
-	
-<<<<<<< Updated upstream
-=======
-	#label{
-        position: fixed;
-        display: block;
-        top: -1%;
-        left: 6%;
-        transform-origin: 0%; 
-        transform: scale(0.17);
-    }
-
-    #labeltext{
-        position: fixed;
-        display: block;
-        top: 16%;
-        left: 10%;
-        transform-origin: 0%; 
-        transform: scale(0.3);
-    }
-	
-    #labeltext_sm{
-        display: none;
-    }
-	
->>>>>>> Stashed changes
-	
-	/*原稿本文*/
-    #textarea {
-        font-family: inherit;
-        position: fixed;
-        resize: none;
-        top: 40%;
-        left: 18%;
-        width: 70%;
-        height: 40%;
-        padding: 8px 10px;
-        border-radius: 3px;
-        font-size: 0.9em;
-        display: inline-block;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        box-sizing: border-box;
-        margin: 0.5em 0;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    #textarea:focus{
-        outline:solid 1px rgb(117, 139, 168);
-    }
-    #texarea::placeholder {
-        color:  #7b7b7b;
-    }
-	
-	/*「タイトル」*/
-    .taitoru{
-        width: calc(100% - 2em);
-        font-size: .10em;
-        top: 28%;
-        left: 16%;
-        font-family: inherit;
-        color: #676767;
-        position: fixed;
-    }
-	
-    /*「文字数」*/
-    .moji_label_1{
-        width: calc(100% - 2em);
-        font-size: .10em;
-        top: 20%;
-        left: 60%;
-        font-family: inherit;
-        color: #676767;
-        position: fixed;
-    }
-	
-	/*「文字」*/
-    .moji_label_2 {
-        width: calc(100% - 2em);
-        font-size: .10em;
-        top: 25%;
-        left: 65%;
-        font-family: inherit;
-        color: #073b57;
-        position: fixed;
-    }
-
-    /*「読み上げ時間」*/
-    .yomi_label_1{
-        width: calc(100% - 2em);
-        font-size: .10em;
-        top: 20%;
-        left: 75%;
-        font-family: inherit;
-        color: #676767;
-        position: fixed;
-    }
-	
-	/*「分」*/
-    .moji_time{
-        width: calc(100% - 2em);
-        font-size: .10em;
-        top: 25%;
-        left: 80%;
-        font-family: inherit;
-        color: #676767;
-        position: fixed;
-    }
-	
-<<<<<<< Updated upstream
-	
-=======
-	/*録音-再生*/
-	#MicOn {
-		position: fixed;
-        text-align: right;
-        right: 43.5%;
-        top: 96%;
-        /*background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;*/
-	}
-	#blue_mike_Button {
-		position: fixed;
-        text-align: right;
-        right: 680px;
-        top: 670px;
-        background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;
-	}
-	
-	#rokuonkanryo_Button {
-		position: fixed;
-        text-align: right;
-        right: 450px;
-        top: 705px;
-        background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;
-	}
-	
-	#yarinaosu_Button {
-		position: fixed;
-        text-align: right;
-        right: 890px;
-        top: 705px;
-        background: none;
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        overflow: visible;
-        cursor: pointer;
-        padding: 0;
-	}
-	
-	/*タイマー*/
-	#timerLabel {
-	  position: fixed;
-      text-align: right;
-      right: 100px;
-      top: 100px;
-      color: black;
-      font-size: 3em;
-      line-height: 0.1em;
-    }
->>>>>>> Stashed changes
+    }*/
