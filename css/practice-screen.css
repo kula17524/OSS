@@ -335,6 +335,7 @@ html {
   left: 135px;
   width: 70%;
   height: 40%;
+  max-height: 300px;
   padding: 8px 10px;
   border-radius: 3px;
   font-size: 0.9em;
