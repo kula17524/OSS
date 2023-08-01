@@ -140,6 +140,34 @@ html {
 	opacity: 70%;
 }
 
+/* リンクの文字色 */
+#logout,
+#logout-sp {
+    color: #0000ee;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#logout:visited,
+#logout-sp:visited {
+    color: #551a8b;
+    text-decoration: underline;
+}
+#logout:hover,
+#logout-sp:hover {
+    color: #10bbeb;
+    text-decoration: underline;
+}
+#logout:focus,
+#logout-sp:focus {
+    color: #10bbeb;
+    text-decoration: underline;
+}
+#logout:active,
+#logout-sp:active {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
 
 /*----- 機能ボタン -----*/
 /*　左上のロゴ(PC用)　*/
