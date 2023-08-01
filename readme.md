@@ -30,8 +30,9 @@ ReO.com は、発表の時間配分に着目し、ユーザーの発表練習と
 - 推奨ブラウザ
   - Google Chrome  
     ※他ブラウザでも動作しますが、レイアウトが崩れる可能性があります。
-- 対応 OS
-  - 全機種(開発環境：Windows11、Windows10、iPhone11(iOS16.5.1)、iPhone14Pro(iOS16.5.1))
+- 推奨OS
+  - Windows10以降、iPhone11(iOS16)以降、Android
+  - (開発環境：Windows11、Windows10、iPhone11(iOS16.5.1)、iPhone14Pro(iOS16.5.1))
 
 ## 使用方法
 
