@@ -41,14 +41,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     const url = new URL(window.location.href);
     const param = url.searchParams;
     const doc_id = param.get("docid");
-    const userId = user.uid;
+    
 
     if (user) {
-      const user = auth.currentUser;
-      const email = user.email;
+      const userId = user.uid;
+      const currentUser = auth.currentUser;
+      const email = currentUser.email;
       document.getElementById("user_mail").innerText = email;
-      //document.getElementById("user_mail-sp").innerText = email;
-      // ↑ HTMLを見るにPC版のみになっているから「user_mail-sp」がHTML内にない
 
       // ドキュメントIDからデータを取得
       try {
@@ -112,6 +111,44 @@ document.addEventListener("DOMContentLoaded", async function () {
               mask_sm.classList.add("hidden");
               modal_sm.classList.add("hidden");
             });
+            // Firebase Firestoreにデータを更新して保存する
+            const updateDataToFirebase = () => {
+              const idealNumber = document.querySelector(".mojisu").value;
+              const idealTime = document.querySelector(".time").value;
+              const title = document.querySelector(".genko_title").value;
+              const honbun = document.getElementById("textarea").value;
+              const editTime = serverTimestamp();
+              const wordInput = document.getElementById("inputlength").innerText;
+              const timeInput = document.getElementById("inputtime").innerText;
+              console.log(
+                "idealNumber:" + idealNumber,
+                "idealTime:" + idealTime,
+                "title:" + title,
+                "honbun:" + honbun,
+                "editTime:" + editTime,
+                "wordInput:" + wordInput,
+                "timeInput:" + timeInput
+              );
+
+              // Firebase Firestoreに保存する
+              updateDoc(doc(db, "data", doc_id), {
+                word_ideal: idealNumber,
+                time_ideal: idealTime,
+                title: title,
+                text: honbun,
+                edit_date: editTime,
+                word_input: wordInput,
+                time_input: timeInput,
+              })
+                .then((docRef) => {
+                  alert("データが正常に保存されました！");
+                })
+                .catch((error) => {
+                  alert("データの保存中にエラーが発生しました: " + error);
+                });
+              };
+
+
           } else {
             alert(
               "ユーザーの UIDが一致していません。ログアウトしてやり直してください。"
@@ -123,63 +160,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       } catch (error) {
         console.log("Error getting document:", error);
       }
-    } else {
+    } 
+    else {
       // ログインしていない場合の処理
-      alert("ログインしてください。");
       location.href = "login.html";
     }
-
-    // Firebase Firestoreにデータを更新して保存する
-    const updateDataToFirebase = () => {
-      const idealNumber = document.querySelector(".mojisu").value;
-      const idealTime = document.querySelector(".time").value;
-      const title = document.querySelector(".genko_title").value;
-      const honbun = document.getElementById("textarea").value;
-      const editTime = serverTimestamp();
-      const wordInput = document.getElementById("inputlength").innerText;
-      const timeInput = document.getElementById("inputtime").innerText;
-      console.log(
-        "idealNumber:" + idealNumber,
-        "idealTime:" + idealTime,
-        "title:" + title,
-        "honbun:" + honbun,
-        "editTime:" + editTime,
-        "wordInput:" + wordInput,
-        "timeInput:" + timeInput
-      );
-
-      // Firebase Firestoreに保存する
-      updateDoc(doc(db, "data", doc_id), {
-        word_ideal: idealNumber,
-        time_ideal: idealTime,
-        title: title,
-        text: honbun,
-        edit_date: editTime,
-        word_input: wordInput,
-        time_input: timeInput,
-      })
-        .then((docRef) => {
-          alert("データが正常に保存されました！");
-        })
-        .catch((error) => {
-          alert("データの保存中にエラーが発生しました: " + error);
-        });
-    };
-
-    // 「いいえ」をクリックしたときにモーダルを閉じる
-    const noButton = document.getElementById("noButton");
-    noButton.addEventListener("click", () => {
-      mask.classList.add("hidden");
-      modal.classList.add("hidden");
-    });
-
-    // スマホ用「いいえ」をクリックしたときにモーダルを閉じる
-    const noButtonSm = document.getElementById("noButtonSm");
-    noButtonSm.addEventListener("click", () => {
-      mask_sm.classList.add("hidden");
-      modal_sm.classList.add("hidden");
-    });
   });
+})
 
   // ログアウトボタンを押下
   logout.addEventListener("click", () => {
@@ -227,4 +214,16 @@ document.addEventListener("DOMContentLoaded", async function () {
   back_button.addEventListener("click", () => {
     location.href = "newlist.html";
   });
-});
+  // 「いいえ」をクリックしたときにモーダルを閉じる
+  const noButton = document.getElementById("noButton");
+  noButton.addEventListener("click", () => {
+    mask.classList.add("hidden");
+    modal.classList.add("hidden");
+  });
+
+  // スマホ用「いいえ」をクリックしたときにモーダルを閉じる
+  const noButtonSm = document.getElementById("noButtonSm");
+  noButtonSm.addEventListener("click", () => {
+    mask_sm.classList.add("hidden");
+    modal_sm.classList.add("hidden");
+  });
