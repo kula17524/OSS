@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const url = new URL(window.location.href);
     const param = url.searchParams;
     const doc_id = param.get("docid");
-    const userId = user.uid;
 
     if (user) {
-      const user = auth.currentUser;
+      const userId = user.uid;
+      const currentUser = auth.currentUser;
       const email = user.email;
       document.getElementById("user_mail").innerText = email;
       //document.getElementById("user_mail-sp").innerText = email;
@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (docSnap.exists) {
           const data = docSnap.data();
           if (data.userId === userId) {
-            console.log("data.userId:" + data.userId, "userId:" + userId);
             // HTMLから取得
             const textarea = document.getElementById("textarea");
             const word = document.getElementById("inputlength");
@@ -97,25 +96,24 @@ document.addEventListener("DOMContentLoaded", async function () {
               time.innerText = data.time_input;
             }
             //「はい」をクリックしたときにデータをFirebaseに更新して保存
-            const yesButton = document.getElementById("yesButton");
-            yesButton.addEventListener("click", () => {
-              // Firebaseにデータを保存
-              updateDataToFirebase();
-              // モーダルを閉じる
-              mask.classList.add("hidden");
-              modal.classList.add("hidden");
+            const saveButton = document.getElementById("saveicon");
+            saveButton.addEventListener("click", () => {
+              checkTitle();
             });
             // スマホ用「はい」をクリックしたときにデータをFirebaseに保存
-            const yesButtonSm = document.getElementById("yesButtonSm");
-            yesButtonSm.addEventListener("click", () => {
-              updateDataToFirebase();
-              mask_sm.classList.add("hidden");
-              modal_sm.classList.add("hidden");
+            const saveButtonSm = document.getElementById("saveicon_2");
+            saveButtonSm.addEventListener("click", () => {
+              checkTitle();
             });
           } else {
-            alert(
-              "ユーザーの UIDが一致していません。ログアウトしてやり直してください。"
-            );
+            Swal.fire({
+              type: "error",
+              title: "ユーザーエラー",
+              html: "ユーザーの UIDが一致していません。<br>ログアウトしてやり直してください。",
+              showConfirmButton: true,
+              confirmButtonText: "ＯＫ",
+              confirmButtonColor: "#d33",
+            });
           }
         } else {
           console.log("No such document!");
@@ -125,9 +123,54 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     } else {
       // ログインしていない場合の処理
-      alert("ログインしてください。");
       location.href = "login.html";
     }
+
+    // タイトルの状態を確認し、保存してよいか尋ねる
+    const checkTitle = () => {
+      const title_new = document.querySelector(".genko_title").value;
+      // タイトルの確認
+      if (
+        title_new == "null" ||
+        title_new == "undefined" ||
+        title_new == "" ||
+        title_new.includes(" ") ||
+        title_new.includes("　")
+      ) {
+        Swal.fire({
+          type: "warning",
+          title: "タイトルが不正です",
+          html: "必ずタイトルを入力し、<br>空白文字は含まないようにしてください！",
+          showConfirmButton: true,
+          confirmButtonText: "ＯＫ",
+          confirmButtonColor: "#d33",
+        });
+      } else {
+        // 保存確認
+        Swal.fire({
+          title: "保存前の確認",
+          html: "原稿を保存しますか？",
+          type: "question",
+          showCancelButton: true,
+          confirmButtonColor: "#1AA7C5",
+          confirmButtonText: "はい",
+          cancelButtonText: "いいえ",
+        }).then(async (result) => {
+          if (result.value) {
+            // Firebaseにデータを保存
+            updateDataToFirebase();
+            Swal.fire({
+              type: "success",
+              title: "保存完了",
+              html: "保存が完了しました",
+              showConfirmButton: true,
+              confirmButtonText: "ＯＫ",
+              confirmButtonColor: "#1AA7C5",
+            });
+          }
+        });
+      }
+    };
 
     // Firebase Firestoreにデータを更新して保存する
     const updateDataToFirebase = () => {
@@ -138,15 +181,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       const editTime = serverTimestamp();
       const wordInput = document.getElementById("inputlength").innerText;
       const timeInput = document.getElementById("inputtime").innerText;
-      console.log(
-        "idealNumber:" + idealNumber,
-        "idealTime:" + idealTime,
-        "title:" + title,
-        "honbun:" + honbun,
-        "editTime:" + editTime,
-        "wordInput:" + wordInput,
-        "timeInput:" + timeInput
-      );
 
       // Firebase Firestoreに保存する
       updateDoc(doc(db, "data", doc_id), {
@@ -157,28 +191,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         edit_date: editTime,
         word_input: wordInput,
         time_input: timeInput,
-      })
-        .then((docRef) => {
-          alert("データが正常に保存されました！");
-        })
-        .catch((error) => {
-          alert("データの保存中にエラーが発生しました: " + error);
-        });
+      }).catch((error) => {
+        console.log("データの保存中にエラーが発生しました: " + error);
+      });
     };
-
-    // 「いいえ」をクリックしたときにモーダルを閉じる
-    const noButton = document.getElementById("noButton");
-    noButton.addEventListener("click", () => {
-      mask.classList.add("hidden");
-      modal.classList.add("hidden");
-    });
-
-    // スマホ用「いいえ」をクリックしたときにモーダルを閉じる
-    const noButtonSm = document.getElementById("noButtonSm");
-    noButtonSm.addEventListener("click", () => {
-      mask_sm.classList.add("hidden");
-      modal_sm.classList.add("hidden");
-    });
   });
 
   // ログアウトボタンを押下
@@ -190,25 +206,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       .catch((error) => {
         console.log(`ログアウト時にエラーが発生しました (${error})`);
       });
-  });
-
-  // 保存ボタン（PC）
-  const savebtn = document.getElementById("saveicon");
-  const mask = document.getElementById("mask");
-  const modal = document.getElementById("modal");
-
-  savebtn.addEventListener("click", () => {
-    mask.classList.remove("hidden");
-    modal.classList.remove("hidden");
-  });
-  //保存ボタン
-  const savebtn_sm = document.getElementById("saveicon_2");
-  const mask_sm = document.getElementById("mask_sm");
-  const modal_sm = document.getElementById("modal_sm");
-
-  savebtn_sm.addEventListener("click", () => {
-    mask_sm.classList.remove("hidden");
-    modal_sm.classList.remove("hidden");
   });
 
   // ロゴをクリックするとメニュー画面に移動
