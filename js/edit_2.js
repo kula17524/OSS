@@ -60,8 +60,8 @@ downloadButton_PC.addEventListener("click", () => {
       const inputWords = document.getElementById("inputlength").innerText;
       const inputTime = document.getElementById("inputtime").innerText;
 
-      const combinedContent = `入力された文字数：${inputWords} 目標文字数：${idealWords}
-発表時間の目安：${inputTime}  目標発表時間：${idealTime}
+      const combinedContent = `入力された文字数：${inputWords}文字 目標文字数：${idealWords}文字
+発表時間の目安：${inputTime}分  目標発表時間：${idealTime}分
 
 <本文>
 ${text}
@@ -99,8 +99,8 @@ downloadButton_SM.addEventListener("click", () => {
       const inputWords = document.getElementById("inputlength").innerText;
       const inputTime = document.getElementById("inputtime").innerText;
 
-      const combinedContent = `入力された文字数：${inputWords} 目標文字数：${idealWords}
-発表時間の目安：${inputTime}  目標発表時間：${idealTime}
+      const combinedContent = `入力された文字数：${inputWords}文字 目標文字数：${idealWords}文字
+発表時間の目安：${inputTime}分  目標発表時間：${idealTime}分
 
 <本文>
 ${text}
