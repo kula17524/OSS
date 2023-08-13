@@ -216,13 +216,45 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // ログアウトボタンを押下
 logout.addEventListener("click", () => {
-  signOut(auth)
-    .then(() => {
-      location.href = "login.html";
-    })
-    .catch((error) => {
-      console.log(`ログアウト時にエラーが発生しました (${error})`);
+  const now_word = document.querySelector(".mojisu").value;
+  const now_time = document.querySelector(".time").value;
+  const now_title = document.querySelector(".genko_title").value;
+  const now_text = document.getElementById("textarea").value;
+  if (
+    now_text != pre_text ||
+    now_time != pre_time ||
+    now_title != pre_title ||
+    now_word != pre_input
+  ) {
+    Swal.fire({
+      title: "保存していません",
+      html: "最新の変更を保存していません。<br>このままページを移動しますか？<br>※このままページ移動すると、保存前の変更は保存されません！",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#1AA7C5",
+      confirmButtonText: "移動する",
+      cancelButtonText: "もどる",
+    }).then(async (result) => {
+      if (result.value) {
+        signOut(auth)
+          .then(() => {
+            location.href = "login.html";
+          })
+          .catch((error) => {
+            console.log(`ログアウト時にエラーが発生しました (${error})`);
+          });
+      }
     });
+  } else {
+    signOut(auth)
+      .then(() => {
+        location.href = "login.html";
+      })
+      .catch((error) => {
+        console.log(`ログアウト時にエラーが発生しました (${error})`);
+      });
+  }
 });
 
 // ロゴをクリックするとメニュー画面に移動
