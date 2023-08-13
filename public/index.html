@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>ReO.com</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="shortcut icon" href="./icon/icon.ico" />
+  </head>
+  <body>
+    <!-- ユーザーボタン -->
+    <div class="user" ontouchstart="">
+      <button type="button" class="user_button">
+        <img class="user-img" src="img/blue_user_Button.png" alt="ユーザー" />
+      </button>
+    </div>
+    <!-- ユーザー情報とログアウトリンク -->
+    <nav id="user-wrap">
+      <div id="user-list" ontouchstart="">
+        <ul>
+          <li><p class="user-title">ログイン情報</p></li>
+          <li><p id="user_mail">Email</p></li>
+          <li><a id="logout">ログアウトする</a></li>
+          <li>
+            <div class="close"><p>×閉じる</p></div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- タイトルロゴ -->
+    <div class="logo">
+      <img class="logo-img" src="img/blue_PC_titlelogo_2.png" alt="ロゴ" />
+    </div>
+
+    <!-- 選択ボタン -->
+    <div class="choice_menu" ontouchstart="">
+      <ul>
+        <li class="button_1">
+          <button class="button_list" type="button" id="create_menu">
+            <img src="img/blue_genko_icon.png" class="new_img" />
+            <div class="des_new">原稿作成・編集</div>
+          </button>
+        </li>
+        <li class="button_2">
+          <button class="button_list" type="button" id="practice_menu">
+            <img src="img/blue_rensyu_Button.png" class="pra_img" />
+            <div class="des_pra">発表練習</div>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="private.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/index_jquery.js"></script>
+  </body>
+</html>

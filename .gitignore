@@ -1,3 +1,4 @@
 .env.private
 .env
 private.js
+./public/private.js
