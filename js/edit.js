@@ -27,6 +27,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// 変更があったか確認するためのデータ格納用変数
+let pre_title = "";
+let pre_text = "";
+let pre_time = "";
+let pre_input = "";
+
 //htmlと連携
 let logout = document.getElementById("logout");
 let logoicon = document.getElementById("logoicon");
@@ -55,7 +61,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (docSnap.exists) {
           const data = docSnap.data();
           if (data.userId === userId) {
-            console.log("data.userId:" + data.userId, "userId:" + userId);
             // HTMLから取得
             const textarea = document.getElementById("textarea");
             const word = document.getElementById("inputlength");
@@ -66,18 +71,24 @@ document.addEventListener("DOMContentLoaded", async function () {
             // 反映
             if (data.title == undefined || data.title == null) {
               title.value = "無題";
+              pre_title = "無題";
             } else {
               title.value = data.title;
+              pre_title = data.title;
             }
             if (data.text == undefined || data.text == null) {
               textarea.innerHTML = "本文";
+              pre_text = "本文";
             } else {
               textarea.innerHTML = data.text;
+              pre_text = data.text;
             }
             if (data.word_ideal == undefined || data.word_ideal == null) {
               word_i.value = "0";
+              pre_input = "0";
             } else {
               word_i.value = data.word_ideal;
+              pre_input = data.word_ideal;
             }
             if (data.word_input == undefined || data.word_input == null) {
               word.innerText = "0";
@@ -86,8 +97,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
             if (data.time_ideal == undefined || data.time_ideal == null) {
               time_i.value = "0";
+              pre_time = "0";
             } else {
               time_i.value = data.time_ideal;
+              pre_time = data.time_ideal;
             }
             if (data.time_input == undefined || data.time_input == null) {
               time.innerText = "0";
@@ -173,6 +186,10 @@ document.addEventListener("DOMContentLoaded", async function () {
               }).catch((error) => {
                 console.log("データの保存中にエラーが発生しました: " + error);
               });
+              pre_title = title;
+              pre_time = idealTime;
+              pre_input = idealNumber;
+              pre_text = honbun;
             };
           } else {
             Swal.fire({
@@ -210,17 +227,52 @@ logout.addEventListener("click", () => {
 
 // ロゴをクリックするとメニュー画面に移動
 logoicon.addEventListener("click", () => {
-  location.href = "index.html";
+  const loc = "index.html";
+  checkChange(loc);
 });
 // exitボタンをクリックするとメニュー画面に移動
 exiticon.addEventListener("click", () => {
-  location.href = "newlist.html";
+  const loc = "newlist.html";
+  checkChange(loc);
 });
 // homeボタンをクリックするとメニュー画面に移動
 home.addEventListener("click", () => {
-  location.href = "index.html";
+  const loc = "index.html";
+  checkChange(loc);
 });
 // ひとつ前に戻るボタンを押すとメニュー画面に移動
 back_button.addEventListener("click", () => {
-  location.href = "newlist.html";
+  const loc = "newlist.html";
+  checkChange(loc);
 });
+
+// ページ遷移前の確認
+const checkChange = (loc) => {
+  const now_word = document.querySelector(".mojisu").value;
+  const now_time = document.querySelector(".time").value;
+  const now_title = document.querySelector(".genko_title").value;
+  const now_text = document.getElementById("textarea").value;
+  if (
+    now_text != pre_text ||
+    now_time != pre_time ||
+    now_title != pre_title ||
+    now_word != pre_input
+  ) {
+    Swal.fire({
+      title: "保存していません",
+      html: "最新の変更を保存していません。<br>このままページを移動しますか？<br>※このままページ移動すると、保存前の変更は保存されません！",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#1AA7C5",
+      confirmButtonText: "移動する",
+      cancelButtonText: "もどる",
+    }).then(async (result) => {
+      if (result.value) {
+        location.href = loc;
+      }
+    });
+  } else {
+    location.href = loc;
+  }
+};
