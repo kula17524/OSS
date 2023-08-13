@@ -39,6 +39,47 @@ kyukeiButton.addEventListener("click", () => {
     textarea.value.substr(textarea.selectionStart);
 });
 
+// ダウンロードボタンが押されたとき
+const downloadButton = document.getElementById("download");
+downloadButton.addEventListener("click", () => {
+  Swal.fire({
+    title: "ファイルダウンロード",
+    html: "現在の原稿をテキストファイルとして保存しますか？<br>※データが保存されるわけではありません",
+    type: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#1AA7C5",
+    confirmButtonText: "保存する",
+    cancelButtonText: "やめる",
+  }).then(async (result) => {
+    if (result.value) {
+      const idealWords = document.querySelector(".mojisu").value;
+      const idealTime = document.querySelector(".time").value;
+      const title = document.querySelector(".genko_title").value;
+      const text = document.getElementById("textarea").value;
+      const inputWords = document.getElementById("inputlength").innerText;
+      const inputTime = document.getElementById("inputtime").innerText;
+
+      const combinedContent = `入力された文字数：${inputWords} 目標文字数：${idealWords}
+発表時間の目安：${inputTime}  目標発表時間：${idealTime}
+
+<本文>
+${text}
+  `;
+
+      const fileName = title + ".txt"; // ダウンロードするファイルの名前
+
+      const blob = new Blob([combinedContent], { type: "text/plain" }); // Blobオブジェクトを作成
+
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = fileName;
+      link.click();
+
+      URL.revokeObjectURL(link.href); // URLを解放
+    }
+  });
+});
+
 /*目標時間・目標文字数計算*/
 function isNaturalNumber(value) {
   var parsedValue = parseInt(value, 10);
