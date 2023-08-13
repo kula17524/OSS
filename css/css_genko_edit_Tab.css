@@ -2,7 +2,7 @@
     font-family: "ＭＳゴシック";
     src: url("../font/MS-Gothic-01.ttf");
   }
-@media screen and (max-width: 960px) {
+@media screen and (orientation: portrait) {
 /*タブレット用(横向き)のCSSを記入*/
     #back{
         position: fixed;
@@ -168,5 +168,5 @@
     #texarea::placeholder {
         color: #999;
     }
-
+    
 }
