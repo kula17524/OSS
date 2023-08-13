@@ -3,32 +3,40 @@ const emphasisButton = document.getElementById("emphasisButton");
 emphasisButton.addEventListener("click", () => {
   // テキストエリアに挿入
   const textarea = document.getElementById("textarea");
-  const currentValue = textarea.value;
-  textarea.value = currentValue + "<< 強調する >>";
+  textarea.value =
+    textarea.value.substr(0, textarea.selectionStart) +
+    "<< 強調する >>" +
+    textarea.value.substr(textarea.selectionStart);
 });
 //  間をおくボタンをクリックしたときの処理
 const maButton = document.getElementById("maButton");
 maButton.addEventListener("click", () => {
   // テキストエリアに挿入
   const textarea = document.getElementById("textarea");
-  const currentValue = textarea.value;
-  textarea.value = currentValue + "<< 間をおく >>";
+  textarea.value =
+    textarea.value.substr(0, textarea.selectionStart) +
+    "<< 間をおく >>" +
+    textarea.value.substr(textarea.selectionStart);
 });
 //  見わたすボタンをクリックしたときの処理
 const miwaButton = document.getElementById("miwaButton");
 miwaButton.addEventListener("click", () => {
   // テキストエリアに挿入
   const textarea = document.getElementById("textarea");
-  const currentValue = textarea.value;
-  textarea.value = currentValue + "<< 見わたす >>";
+  textarea.value =
+    textarea.value.substr(0, textarea.selectionStart) +
+    "<< 見わたす >>" +
+    textarea.value.substr(textarea.selectionStart);
 });
 //  休憩するボタンをクリックしたときの処理
 const kyukeiButton = document.getElementById("kyukeiButton");
 kyukeiButton.addEventListener("click", () => {
   // テキストエリアに挿入
   const textarea = document.getElementById("textarea");
-  const currentValue = textarea.value;
-  textarea.value = currentValue + "<< 休憩する >>";
+  textarea.value =
+    textarea.value.substr(0, textarea.selectionStart) +
+    "<< 休憩する >>" +
+    textarea.value.substr(textarea.selectionStart);
 });
 
 /*目標時間・目標文字数計算*/
