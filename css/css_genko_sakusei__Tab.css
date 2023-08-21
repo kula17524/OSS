@@ -777,7 +777,7 @@
       #logoicon {
         position: fixed;
         display: block;
-        z-index: 500;
+        z-index: 9999;
         top: 10;
         left: 20;
         transform-origin: 0% 0%; /*左上基準*/
