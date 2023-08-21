@@ -83,6 +83,7 @@
 
 /* 戻るボタン(スマホ用)（未完成） */
 #back_button{
+	z-index: 100;
 	position: absolute;
 	text-align: right;
 	right: 36%;
@@ -99,7 +100,7 @@
 
 /* ホームボタン(スマホ用)（未完成） */
 #home{
-	z-index: 5;
+	z-index: 100;
 	position: absolute;
 	text-align: right;
 	right: 202px;
