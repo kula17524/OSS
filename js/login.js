@@ -19,26 +19,6 @@ const firebaseConfig = {
   appId: config.APPID,
 };
 
-// エラー取得用
-class WrongError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "WrongError";
-  }
-}
-class AlreadyError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "AlreadyError";
-  }
-}
-class PassError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "PassError";
-  }
-}
-
 // Initialize Firebase
 initializeApp(firebaseConfig);
 const app = initializeApp(firebaseConfig);
@@ -107,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     false
   );
-  /* 新規登録 */
   new_button.addEventListener(
     "click",
     async function () {
@@ -116,25 +95,21 @@ document.addEventListener("DOMContentLoaded", function () {
         var passwordNew = document.getElementById("new-pass").value;
         document.getElementById("new-error-text").innerText = "　";
 
-        if (mailAddressNew == "" || passwordNew == "") {
-          document.getElementById("new-error-text").innerText =
-            "空欄の項目があります。";
-          throw new WrongError("wrong-input");
-        } else if (passwordNew.length < 6) {
-          throw new PassError("weak-password");
-        }
-
         const providers = await fetchSignInMethodsForEmail(
           auth,
           mailAddressNew
         );
-        console.log({ mailAddressNew, passwordNew });
         if (
           providers.includes(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)
         ) {
           document.getElementById("new-error-text").innerText =
             "登録済みのアドレスです";
-          throw new AlreadyError("email-already-in-use");
+          throw "wrong input";
+        }
+        if (mailAddressNew == "" || passwordNew == "") {
+          document.getElementById("new-error-text").innerText =
+            "空欄の項目があります。";
+          throw "wrong input";
         }
         Swal.fire({
           title: "登録確認",
@@ -154,22 +129,15 @@ document.addEventListener("DOMContentLoaded", function () {
               .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                //this.location.href = "index.html";
+                this.location.href = "index.html";
               })
               .catch((error) => {
-                console.log(error);
-                if (error == "weak-password" || error instanceof PassError) {
+                if ((error = "invalid-email")) {
                   document.getElementById("new-error-text").innerText =
-                    "パスワードは6文字以上にしてください。";
+                    "不正なメールアドレスです。";
                 } else if (error == "email-already-in-use") {
                   document.getElementById("new-error-text").innerText =
                     "登録済みのアドレスです。";
-                } else if (error instanceof WrongError) {
-                  document.getElementById("new-error-text").innerText =
-                    "空欄の項目があります。";
-                } else if (error == "invalid-email") {
-                  document.getElementById("new-error-text").innerText =
-                    "メールアドレスの形式ではありません。";
                 } else {
                   document.getElementById("new-error-text").innerText =
                     "入力に誤りがあります。";
@@ -177,28 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
               });
           }
         });
-      } catch (error) {
-        if (error instanceof WrongError) {
-          document.getElementById("new-error-text").innerText =
-            "空欄の項目があります。";
-          console.log(error);
-        } else if (
-          error == "email-already-in-use" ||
-          error instanceof AlreadyError
-        ) {
-          document.getElementById("new-error-text").innerText =
-            "登録済みのアドレスです。";
-          console.log(error);
-        } else if (error == "invalid-email") {
-          document.getElementById("new-error-text").innerText =
-            "メールアドレスの形式ではありません。";
-        } else if (error == "weak-password" || error instanceof PassError) {
-          document.getElementById("new-error-text").innerText =
-            "パスワードは6文字以上にしてください。";
-        } else {
-          document.getElementById("new-error-text").innerText =
-            "入力に誤りがあります。";
-        }
+      } catch (e) {
+        console.log(e);
       }
     },
     false

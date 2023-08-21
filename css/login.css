@@ -173,20 +173,16 @@ button {
 .log-change:hover,
 .log-change:focus {
   opacity: 0.6;
-  cursor: pointer;
 }
 .log-change:active {
   position: relative;
   top: 3px;
-  cursor: pointer;
 }
 .new-change:hover,
 .new-change:focus {
   opacity: 0.6;
-  cursor: pointer;
 }
 .new-change:active {
   position: relative;
   top: 3px;
-  cursor: pointer;
 }
