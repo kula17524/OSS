@@ -1,172 +1,1407 @@
 @font-face {
-    font-family: "ＭＳゴシック";
+    font-family: "MS";
     src: url("../font/MS-Gothic-01.ttf");
   }
-@media screen and (max-width: 960px) {
-/*タブレット用(横向き)のCSSを記入*/
-    #back{
+  html {
+    font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
+      "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+  }
+  #home {
+    float: none;
+    margin: auto;
+    top: 10.5%;
+    right: 20px;
+    width: 19%;
+  }
+  #home:hover{
+    /* リンクをホバーしたときのカーソルに*/
+    cursor: pointer;
+    }
+    #home:active{
         position: fixed;
-        left: -6px;
+        top: 10.5%;
+    }
+  /*戻るボタン*/
+  #back_button{
+    float: none;
+    margin: auto;
+    top: 10%;
+    left: 20px;
+    width: 20%;
+}
+#back_button:hover{
+    /* リンクをホバーしたときのカーソルに*/
+    cursor: pointer;
+}
+#back_button:active{
+    position: fixed;
+    top: 10.5%;
+}
+  /*PC用のCSSを記入
+  @media screen and(min-width: 2161px) {*/
+  /*背景設定*/
+  #back {
+    position: fixed;
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  #sidebar {
+    position: fixed;
+    display: block;
+    top: -1000px;
+    left: -40;
+    width: 173px;
+    height: 5000px;
+    transform: scale(0.7);
+  }
+  /*PC用ヘッダー*/
+  #topbar {
+    position: fixed;
+    display: block;
+    z-index: 100;
+    top: -17px;
+    left: -70px;
+    width: 5000px;
+    height: 100px;
+  }
+  /*スマホ用ヘッダー*/
+  #topbar_sm {
+    display: none;
+  }
+  /*左上のロゴ*/
+  #logoicon {
+    position: fixed;
+    display: block;
+    z-index: 9999;
+    top: 10;
+    left: 20;
+    transform-origin: 0% 0%; /*左上基準*/
+    transform: scale(0.09);
+  }
+  #logoicon:hover {
+    opacity: 0.7;
+    /* リンクをホバーしたときのカーソルに*/
+    cursor: pointer;
+  }
+  #logoicon:active {
+    position: fixed;
+    top: 11;
+  }
+  
+  /* ユーザーアイコン(PC) */
+  li {
+    list-style: none;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  .logo-txt {
+    text-align: center;
+    position: fixed;
+    z-index: 101;
+  }
+  
+  /* ユーザーアイコン(PC) */
+  .user {
+    position: fixed;
+    text-align: right;
+    display: block;
+    width: 100%;
+    height: 60px;
+    z-index: 1100;
+  }
+  .user_button {
+    display: inline;
+    text-align: right;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-right: 20px;
+    margin-top: 5px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+  }
+  .user-img {
+    width: 60px;
+    height: 100%;
+  }
+  .user-img:hover {
+    opacity: 0.6;
+  }
+  .user-img:active {
+    position: relative;
+    top: 3px;
+  }
+  
+  /* ユーザー情報表示タブ(PC) */
+  #user-wrap {
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position: fixed;
+    z-index: 6000;
+    text-align: center;
+    /*ナビのスタート位置と形状*/
+    top: -0.5em;
+    right: -120%;
+    width: 200px;
+    height: 200px; /*ナビの高さ*/
+    background-image: url("../img/blue_loginBack.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*動き*/
+    transition: all 0.6s;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+  }
+  #user-list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* メールの文字数制限 */
+  #user_mail-sp {
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* メールの文字数制限 */
+  #user_mail {
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /*アクティブクラスがついたら位置を0に*/
+  #user-wrap.panelactive {
+    right: 0;
+  }
+  
+  /*ナビゲーション*/
+  #user-wrap ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 6000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+  }
+  #user-wrap li {
+    margin: 0;
+    padding: 0;
+  }
+  .user-title {
+    font-weight: bolder;
+    font-size: 18px;
+  }
+  p {
+    margin: 0.6em;
+  }
+  .close {
+    margin-top: 2em;
+  }
+  .close p {
+    margin-bottom: 0.2em;
+    padding: 0.1em;
+    background-color: white;
+    font-weight: 600;
+    overflow: visible;
+    cursor: pointer;
+  }
+  
+  .close p:hover {
+    opacity: 70%;
+  }
+  .close p:focus {
+    opacity: 70%;
+  }
+  
+  /* リンクの文字色 */
+  #logout,
+  #logout-sp {
+    color: #0000ee;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  #logout:visited,
+  #logout-sp:visited {
+    color: #551a8b;
+    text-decoration: underline;
+  }
+  
+  #logout:hover,
+  #logout-sp:hover {
+    color: #10bbeb;
+    text-decoration: underline;
+  }
+  #logout:focus,
+  #logout-sp:focus {
+    color: #10bbeb;
+    text-decoration: underline;
+  }
+  
+  #logout:active,
+  #logout-sp:active {
+    color: #ff0000;
+    text-decoration: underline;
+  }
+  /*スクロールバー*/
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-image: url("../img/scroll_3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+  }
+  #label {
+    position: fixed;
+    display: block;
+    top: -47;
+    left: 93;
+    transform-origin: 0%;
+    transform: scale(0.17);
+    
+  }
+  /*「新規作成」*/
+  #labeltext {
+    position: fixed;
+    display: block;
+    top: 92;
+    left: 140;
+    transform-origin: 0%;
+    transform: scale(0.3);
+  
+  }
+  #labeltext_sm {
+    display: none;
+  }
+  
+  /*サイドバーとボタンの機能設定*/
+  
+  /*画像をドラッグさせない*/
+  .function_button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-touch-callout: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  /*保存ボタン*/
+  #saveicon {
+    position: fixed;
+    display: block;
+    top: 160;
+    left: 25;
+    transform-origin: 0%;
+    transform: scale(0.35);
+    cursor: pointer;
+  }
+  #saveicon:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  #saveicon:active {
+    position: fixed;
+    top: 161;
+  }
+  
+  #emphasisButton {
+    position: fixed;
+    display: block;
+    top: 88%;
+    left: 32%;
+    transform-origin: 0%;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+  #emphasisButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  #emphasisButton:active {
+    position: fixed;
+    top: 88.5%;
+  }
+  #maButton {
+    position: fixed;
+    display: block;
+    top: 88%;
+    left: 42%;
+    transform-origin: 0%;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+  #maButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  #maButton:active {
+    position: fixed;
+    top: 88.5%;
+  }
+  #miwaButton {
+    position: fixed;
+    display: block;
+    top: 88%;
+    left: 52%;
+    transform-origin: 0%;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+  #miwaButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  #miwaButton:active {
+    position: fixed;
+    top: 88.5%;
+  }
+  #kyukeiButton {
+    position: fixed;
+    display: block;
+    top: 88%;
+    left: 62%;
+    transform-origin: 0%;
+    cursor: pointer;
+    transform: scale(0.7);
+  }
+  #kyukeiButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  #kyukeiButton:active {
+    position: fixed;
+    top: 88.5%;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #mask {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+  /*保存しますか？*/
+  #modal {
+    background: #fff;
+    width: 43%;
+    height: 30%;
+    padding: 24px;
+    border-radius: 4px;
+    color: #073b57;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  
+  /*保存→「はい」ボタン*/
+  #yesButton {
+    padding: 0.5em 0.5em;
+    padding-left: 3.5em;
+    padding-right: 3.5em;
+    margin: 1em 1em;
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    background-color: rgb(26, 167, 197);
+    border: none;
+    border-radius: 5px;
+    top: 20%;
+  }
+  #yesButton:hover {
+    /* リンクをホバーしたときのカーソルに*/
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  #yesButton:active {
+    top: 21%;
+  }
+  /*保存→「戻る」ボタン*/
+  #noButton {
+    padding: 0.5em 0.5em;
+    padding-left: 3.5em;
+    padding-right: 3.5em;
+    margin: 1em 1em;
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    background-color: rgb(221, 51, 51);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    top: 20%;
+  }
+  #noButton:hover {
+    /* リンクをホバーしたときのカーソルに*/
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  #noButton:active {
+    top: 21%;
+  }
+  
+  /*退出ボタン*/
+  #exiticon {
+    position: fixed;
+    display: block;
+    top: 55;
+    left: 30;
+    transform-origin: 0%;
+    transform: scale(0.35);
+  }
+  #exiticon:hover {
+    opacity: 0.7;
+    /* リンクをホバーしたときのカーソルに*/
+    cursor: pointer;
+  }
+  #exiticon:active {
+    position: fixed;
+    top: 56;
+  }
+  
+  /*アイコンつけるボタン*/
+  .icon_button {
+    position: fixed;
+    display: block;
+    top: 160;
+    left: 60;
+    cursor: pointer;
+  }
+  
+  /*テキストボックス*/
+  .textbox{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .textbox::-webkit-scrollbar {
+    width: 15px;
+  }
+  .textbox::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+  }
+  .textbox::-webkit-scrollbar-thumb {
+    background-image: url("../img/scroll_3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+  }
+  
+  /*numberの矢印を消す*/
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /*目標文字数*/
+  .mojisu-label,
+  .mojisu {
+    font-family: inherit;
+    color: #073b57;
+    position: fixed;
+  }
+  
+  .mojisu-label {
+    width: calc(100% - 2em);
+    font-size: 0.9em;
+    top: 189;
+    left: 26%;
+    margin-left: 50px;
+  }
+  .mojisu {
+    display: block;
+    top: 180;
+    left: 16%;
+    width: 9%;
+    margin-left: 50px;
+    padding: 8px 10px;
+    border: 1px solid #ced3d8;
+    border-radius: 3px;
+    line-height: 1.5;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+  }
+  .mojisu:focus {
+    outline: solid 1px rgb(117, 139, 168);
+  }
+  .mojisu::placeholder {
+    color: #7b7b7b;
+  }
+  .nonumber {
+    width: calc(100% - 2em);
+    font-size: 0.9em;
+    top: 189;
+    left: 15%;
+  }
+  
+  /*目標時間*/
+  .time-label,
+  .time {
+    font-family: inherit;
+    position: fixed;
+    color: #073b57;
+  }
+  .time-label {
+    width: calc(100% - 2em);
+    font-size: 0.9em;
+    top: 187;
+    left: 46%;
+    margin-left: 50px;
+  }
+  .time {
+    top: 180;
+    left: 36%;
+    width: 9%;
+    padding: 8px 10px;
+    margin-left: 50px;
+    border: 1px solid #ced3d8;
+    border-radius: 3px;
+    line-height: 1.5;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+  }
+  .time:focus {
+    outline: solid 1px rgb(117, 139, 168);
+  }
+  .time::placeholder {
+    color: #7b7b7b;
+  }
+  
+  /*原稿タイトル*/
+  .genko_title {
+    font-family: inherit;
+    position: fixed;
+    top: 230;
+    left: 16%;
+    width: 70%;
+    padding: 8px 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: 1px solid #ced3d8;
+    border-radius: 3px;
+    line-height: 1.5;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+  }
+  .genko_title:focus {
+    outline: solid 1px rgb(117, 139, 168);
+  }
+  .genko_title::placeholder {
+    color: #7b7b7b;
+  }
+  
+  /*原稿本文*/
+  #textarea {
+    font-family: inherit;
+    position: fixed;
+    resize: none;
+    top: 280;
+    left: 16%;
+    width: 70%;
+    height: 40%;
+    padding: 8px 10px;
+    font-size: 0.9em;
+    display: inline-block;
+    border: 1px solid #ced3d8;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin: 0.5em 0;
+    margin-left: 50px;
+    line-height: 1.5;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+  }
+  #textarea:focus {
+    outline: solid 1px rgb(117, 139, 168);
+  }
+  #texarea::placeholder {
+    color: #7b7b7b;
+  }
+  
+  /*文字数カウント*/
+  #inputlength {
+    font-family: inherit;
+    position: fixed;
+    top: 181;
+    left: 60%;
+    margin-left: 50px;
+  }
+  /*「文字」*/
+  .gen_mojisu_label {
+    width: calc(100% - 2em);
+    font-size: 0.9em;
+    top: 192;
+    left: 64%;
+    margin-left: 65px;
+    font-family: inherit;
+    color: #073b57;
+    position: fixed;
+  }
+  /*「現在の文字数」*/
+  .explain_moji_label {
+    width: calc(100% - 2em);
+    font-size: 0.7em;
+    top: 165;
+    left: 61%;
+    font-family: inherit;
+    color: #676767;
+    position: fixed;
+    margin-left: 40px;
+  }
+  
+  /*「読み上げ時間」*/
+  .exprain_yomi_label {
+    width: calc(100% - 2em);
+    font-size: 0.7em;
+    top: 165;
+    left: 75%;
+    font-family: inherit;
+    color: #676767;
+    position: fixed;
+    margin-left: 50px;
+  }
+  /*読み上げ時間計算結果*/
+  #inputtime {
+    font-family: inherit;
+    position: fixed;
+    top: 182;
+    left: 75%;
+    margin-left: 50px;
+  }
+  
+  /*「分」*/
+  .gen_mojisu_time {
+    width: calc(100% - 2em);
+    font-size: 0.9em;
+    top: 192;
+    left: 79.3%;
+    font-family: inherit;
+    color: #073b57;
+    position: fixed;
+    margin-left: 65px;
+  }
+  
+  #saveicon_2 {
+    display: none;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* 縦長でも縦の長さが短ければPC表示にする */
+  @media screen and (max-height: 600px) {
+    #back {
+        display: block;
         margin: 0;
-        width: 105vw;
-        height: 105vh;
+        width: 100%;
+        height: 100%;
         background-repeat: no-repeat;
-        background-position:center center;
+        background-position: center center;
         background-attachment: fixed;
         background-size: 100% 100%;
-    }
-    #sidebar{
+      }
+      #sidebar {
         position: fixed;
         display: block;
-        top: -90;
+        top: -1000px;
         left: -40;
         width: 173px;
-        height: 951px;
+        height: 5000px;
         transform: scale(0.7);
-    }
-    #topbar{
-        float: left;
-        display: block;
+      }
+      /*PC用ヘッダー*/
+      #topbar {
         position: fixed;
-        top: -15px;
-        left: -25px;
-        width: 107vw;
-        height: 17%;
-    }
-    #topbar_sm{
+        display: block;
+        z-index: 100;
+        top: -17px;
+        left: -70px;
+        width: 5000px;
+        height: 100px;
+      }
+      /*スマホ用ヘッダー*/
+      #topbar_sm {
         display: none;
-    }
-    #logoicon{
+      }
+      /*左上のロゴ*/
+      #logoicon {
         position: fixed;
         display: block;
+        z-index: 500;
         top: 10;
         left: 20;
         transform-origin: 0% 0%; /*左上基準*/
         transform: scale(0.09);
-    }
-    #label{
+      }
+      #logoicon:hover {
+        opacity: 0.7;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+      }
+      #logoicon:active {
+        position: fixed;
+        top: 11;
+      }
+      /* ユーザーアイコン */
+      li {
+        list-style: none;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      .logo-txt {
+        text-align: center;
+        position: fixed;
+        z-index: 101;
+      }
+      
+      .user_button {
+        position: fixed;
+        text-align: right;
+        right: 5px;
+        top: 5px;
+        background: none;
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        overflow: visible;
+        cursor: pointer;
+        padding: 0;
+      }
+      .user-img {
+        width: 60px;
+        height: 100%;
+        text-align: center;
+      }
+      .user {
+        text-align: right;
+        margin-top: 20px;
+        margin-right: 10px;
+      }
+      .user-img:hover {
+        opacity: 0.7;
+      }
+      .user-img:active {
+        position: relative;
+        top: 1px;
+      }
+      /* ユーザー情報表示タブ(PC) */
+      #user-wrap {
+        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+        position: fixed;
+        z-index: 6000;
+        text-align: center;
+        /*ナビのスタート位置と形状*/
+        top: -0.5em;
+        right: -120%;
+        width: 200px;
+        height: 200px; /*ナビの高さ*/
+        background-image: url("../img/blue_loginBack.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        /*動き*/
+        transition: all 0.6s;
+        margin: 0;
+        padding: 0;
+        border-radius: 3px;
+      }
+      #user-list {
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* メールの文字数制限 */
+      #user_mail-sp {
+        width: 170px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      /* メールの文字数制限 */
+      #user_mail {
+        width: 170px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      /*アクティブクラスがついたら位置を0に*/
+      #user-wrap.panelactive {
+        right: 0;
+      }
+      
+      /*ナビゲーション*/
+      #user-wrap ul {
+        /*ナビゲーション天地中央揃え*/
+        position: absolute;
+        z-index: 6000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+      }
+      #user-wrap li {
+        margin: 0;
+        padding: 0;
+      }
+      .user-title {
+        font-weight: bolder;
+        font-size: 18px;
+      }
+      p {
+        margin: 0.6em;
+      }
+      .close {
+        margin-top: 2em;
+      }
+      .close p {
+        margin-bottom: 0.2em;
+        padding: 0.1em;
+        background-color: white;
+        font-weight: 600;
+        overflow: visible;
+        cursor: pointer;
+      }
+      
+      .close p:hover {
+        opacity: 70%;
+      }
+      .close p:focus {
+        opacity: 70%;
+      }
+      
+      /* リンクの文字色 */
+      #logout,
+      #logout-sp {
+        color: #0000ee;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      
+      #logout:visited,
+      #logout-sp:visited {
+        color: #551a8b;
+        text-decoration: underline;
+      }
+      
+      #logout:hover,
+      #logout-sp:hover {
+        color: #10bbeb;
+        text-decoration: underline;
+      }
+      #logout:focus,
+      #logout-sp:focus {
+        color: #10bbeb;
+        text-decoration: underline;
+      }
+      
+      #logout:active,
+      #logout-sp:active {
+        color: #ff0000;
+        text-decoration: underline;
+      }
+      /*スクロールバー*/
+      ::-webkit-scrollbar {
+        width: 15px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-image: url("../img/scroll_3.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+      }
+      #label {
         position: fixed;
         display: block;
-        top: -47;
+        top: -50;
         left: 93;
-        transform-origin: 0%; 
-        transform: scale(0.17);
-    }
-    #labeltext{
+        transform-origin: 0%;
+        transform: scale(0.13);
+      }
+      /*「新規作成」*/
+      #labeltext {
         position: fixed;
         display: block;
-        top: 92;
+        top: 87;
         left: 140;
-        transform-origin: 0%; 
-        transform: scale(0.3);
-    }
-
-    /*サイドバーの機能設定*/
-    #saveicon{
-        position: fixed;
-        display: block;
-        top: 60;
-        left: 25;
-        transform-origin: 0% ; 
-        transform: scale(0.35);
-    }
-    #exiticon{
+        transform-origin: 0%;
+        transform: scale(0.27);
+      }
+      #labeltext_sm {
+        display: none;
+      }
+      
+      /*サイドバーとボタンの機能設定*/
+      
+      /*画像をドラッグさせない*/
+      .function_button {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-touch-callout: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      
+      /*保存ボタン*/
+      #saveicon {
         position: fixed;
         display: block;
         top: 160;
-        left: 30;
-        transform-origin: 0% ; 
+        left: 25;
+        transform-origin: 0%;
         transform: scale(0.35);
-    }
-
-    /*テキストボックス*/
-    .mojisu-label,
-    .mojisu {
-        color: #073b57;
-    }
-
-    .mojisu-label {
-        display: inline-block;
-        width: calc(100% - 2em);
-        font-size: .9em;
-    }
-    .mojisu {
+        cursor: pointer;
+      }
+      #saveicon:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+      #saveicon:active {
+        position: fixed;
+        top: 161;
+      }
+      
+      #emphasisButton {
         position: fixed;
         display: block;
-        top: 180;
-        left: 200;
-        width: 6%;
-        padding: 8px 10px;
-        border: 1px solid #ced3d8;
-        border-radius: 3px;
-        line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-    .mojisu:focus{
-        outline:solid 2px rgb(205, 246, 255);
-    }
-    .mojisu::placeholder {
-        color: #999;
-    }
-    .time-label,
-    .time {
-        color: #333;
-    }
-    .time-label {
+        margin-left: 20px;
+        margin-right: 20px;
+        top: 90%;
+        left: 32%;
+        transform-origin: 0%;
+        cursor: pointer;
+        transform: scale(0.5);
+      }
+      #emphasisButton:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      #emphasisButton:active {
+        position: fixed;
+        top: 90.5%;
+      }
+      #maButton {
+        position: fixed;
+        display: block;
+        margin-left: 20px;
+        margin-right: 20px;
+        top: 90%;
+        left: 42%;
+        transform-origin: 0%;
+        cursor: pointer;
+        transform: scale(0.5);
+      }
+      #maButton:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      #maButton:active {
+        position: fixed;
+        top: 90.5%;
+      }
+      #miwaButton {
+        position: fixed;
+        display: block;
+        margin-left: 20px;
+        margin-right: 20px;
+        top: 90%;
+        left: 52%;
+        transform-origin: 0%;
+        cursor: pointer;
+        transform: scale(0.5);
+      }
+      #miwaButton:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      #miwaButton:active {
+        position: fixed;
+        top: 90.5%;
+      }
+      #kyukeiButton {
+        position: fixed;
+        display: block;
+        margin-left: 20px;
+        margin-right: 20px;
+        top: 90%;
+        left: 62%;
+        transform-origin: 0%;
+        cursor: pointer;
+        transform: scale(0.5);
+      }
+      #kyukeiButton:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      #kyukeiButton:active {
+        position: fixed;
+        top: 90.5%;
+      }
+      
+      .hidden {
+        display: none;
+      }
+      
+      #mask {
+        background: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+      }
+      /*保存しますか？*/
+      #modal {
+        background: #fff;
+        width: 43%;
+        height: 30%;
+        padding: 24px;
+        border-radius: 4px;
+        color: #073b57;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        margin: 0 auto;
+        z-index: 2;
+      }
+      
+      /*保存→「はい」ボタン*/
+      #yesButton {
+        padding: 0.5em 0.5em;
+        padding-left: 3.5em;
+        padding-right: 3.5em;
+        margin: 1em 1em;
         display: inline-block;
-        margin-bottom: 5px;
-        font-size: .9em;
-    }
-    .time {
+        position: relative;
+        color: #fff;
+        background-color: rgb(26, 167, 197);
+        border: none;
+        border-radius: 5px;
+        top: 20%;
+      }
+      #yesButton:hover {
+        /* リンクをホバーしたときのカーソルに*/
+        opacity: 0.5;
+        cursor: pointer;
+      }
+      #yesButton:active {
+        top: 21%;
+      }
+      /*保存→「戻る」ボタン*/
+      #noButton {
+        padding: 0.5em 0.5em;
+        padding-left: 3.5em;
+        padding-right: 3.5em;
+        margin: 1em 1em;
+        display: inline-block;
+        position: relative;
+        color: #fff;
+        background-color: rgb(221, 51, 51);
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        top: 20%;
+      }
+      #noButton:hover {
+        /* リンクをホバーしたときのカーソルに*/
+        opacity: 0.5;
+        cursor: pointer;
+      }
+      #noButton:active {
+        top: 21%;
+      }
+      
+      /*退出ボタン*/
+      #exiticon {
         position: fixed;
-        top: 180;
-        left: 400;
-        width: 6%;
+        display: block;
+        top: 55;
+        left: 30;
+        transform-origin: 0%;
+        transform: scale(0.35);
+      }
+      #exiticon:hover {
+        opacity: 0.7;
+        /* リンクをホバーしたときのカーソルに*/
+        cursor: pointer;
+      }
+      #exiticon:active {
+        position: fixed;
+        top: 56;
+      }
+      
+      /*アイコンつけるボタン*/
+      .icon_button {
+        position: fixed;
+        display: block;
+        top: 160;
+        left: 60;
+        cursor: pointer;
+      }
+      
+      /*テキストボックス*/
+      /*numberの矢印を消す*/
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      
+      /*目標文字数*/
+      .mojisu-label,
+      .mojisu {
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+        margin-top: 20px;
+      }
+      
+      .mojisu-label {
+        width: calc(100% - 2em);
+        font-size: 0.9em;
+        top: 32%;
+        left: 26%;
+      }
+      .mojisu {
+        display: block;
+        top: 29%;
+        left: 16%;
+        width: 9%;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
         border-radius: 3px;
         line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-
-    .time::placeholder {
-        color: #999;
-    }
-    .genko_title {
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+      }
+      .mojisu:focus {
+        outline: solid 1px rgb(117, 139, 168);
+      }
+      .mojisu::placeholder {
+        color: #7b7b7b;
+      }
+      .nonumber {
+        width: calc(100% - 2em);
+        font-size: 0.9em;
+        top: 189;
+        left: 15%;
+      }
+      
+      /*目標時間*/
+      .time-label,
+      .time {
+        font-family: inherit;
         position: fixed;
-        top: 230;
-        left: 200;
+        color: #073b57;
+        margin-top: 20px;
+      }
+      .time-label {
+        width: calc(100% - 2em);
+        font-size: 0.9em;
+        top: 32%;
+        left: 46%;
+      }
+      .time {
+        top: 29%;
+        left: 36%;
+        width: 9%;
+        padding: 8px 10px;
+        border: 1px solid #ced3d8;
+        border-radius: 3px;
+        line-height: 1.5;
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+      }
+      .time:focus {
+        outline: solid 1px rgb(117, 139, 168);
+      }
+      .time::placeholder {
+        color: #7b7b7b;
+      }
+      
+      /*原稿タイトル*/
+      .genko_title {
+        font-family: inherit;
+        position: fixed;
+        top: 40%;
+        left: 16%;
         width: 70%;
+        margin-top: 14px;
         padding: 8px 10px;
         border: 1px solid #ced3d8;
         border-radius: 3px;
         line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-
-    .genko_title::placeholder {
-        color: #999;
-    }
-    #textarea {
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+      }
+      .genko_title:focus {
+        outline: solid 1px rgb(117, 139, 168);
+      }
+      .genko_title::placeholder {
+        color: #7b7b7b;
+      }
+      
+      /*原稿本文*/
+      #textarea {
+        font-family: inherit;
         position: fixed;
-        top: 280;
-        left: 200;
+        resize: none;
+        top: 52%;
+        left: 16%;
         width: 70%;
         height: 40%;
         padding: 8px 10px;
         border-radius: 3px;
-        font-size: 1em;
+        font-size: 0.9em;
         display: inline-block;
         border: 1px solid #ced3d8;
         border-radius: 3px;
         box-sizing: border-box;
         margin: 0.5em 0;
+        margin-left: 50px;
+        margin-top: 5px;
         line-height: 1.5;
-        box-shadow: inset 0 2px 2px rgba(0,0,0,.075);
-    }
-
-    #texarea::placeholder {
-        color: #999;
-    }
-
-}
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+      }
+      #textarea:focus {
+        outline: solid 1px rgb(117, 139, 168);
+      }
+      #texarea::placeholder {
+        color: #7b7b7b;
+      }
+      
+      /*文字数カウント*/
+      #inputlength {
+        margin-top: 20px;
+        font-family: inherit;
+        position: fixed;
+        top: 32%;
+        left: 60%;
+      }
+      /*「文字」*/
+      .gen_mojisu_label {
+        margin-top: 20px;
+        width: calc(100% - 2em);
+        font-size: 0.8em;
+        top: 32%;
+        left: 64%;
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+      }
+      /*「現在の文字数」*/
+      .explain_moji_label {
+        margin-top: 20px;
+        width: calc(100% - 2em);
+        font-size: 0.7em;
+        top: 28%;
+        left: 61%;
+        font-family: inherit;
+        color: #676767;
+        position: fixed;
+      }
+      
+      /*「読み上げ時間」*/
+      .exprain_yomi_label {
+        margin-top: 20px;
+        width: calc(100% - 2em);
+        font-size: 0.7em;
+        top: 28%;
+        left: 75%;
+        font-family: inherit;
+        color: #676767;
+        position: fixed;
+      }
+      /*読み上げ時間計算結果*/
+      #inputtime {
+        margin-top: 20px;
+        font-family: inherit;
+        position: fixed;
+        top: 32%;
+        left: 75%;
+      }
+      
+      /*「分」*/
+      .gen_mojisu_time {
+        margin-top: 20px;
+        width: calc(100% - 2em);
+        font-size: 0.9em;
+        top: 32%;
+        left: 79.3%;
+        font-family: inherit;
+        color: #073b57;
+        position: fixed;
+      }
+      
+      #saveicon_2 {
+        display: none;
+      }
+      #download_pc{
+        z-index: 9999;
+          position: fixed;
+          width: 45px;
+          top: 300px;
+          left: 20px;
+          opacity: 0.8;
+          cursor: pointer;
+      }
+  }
