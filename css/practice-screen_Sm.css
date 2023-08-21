@@ -80,6 +80,7 @@
   /* 戻るボタン(スマホ用)（未完成） */
   /*
 #back_button{
+	z-index: 100;
 	position: absolute;
 	text-align: right;
 	right: 36%;
@@ -94,6 +95,27 @@
 	top: 10.5%;
 }*/
 
+<<<<<<< HEAD
+/* ホームボタン(スマホ用)（未完成） */
+#home{
+	z-index: 100;
+	position: absolute;
+	text-align: right;
+	right: 202px;
+	top: 100px;
+	width: 500px;
+	background: none;
+	overflow: visible;
+	cursor: pointer;
+}
+#home:hover{
+	cursor: pointer;
+}
+#home:active{
+	position: fixed;
+	top: 10.5%;
+}
+=======
   /* ホームボタン(スマホ用)（未完成） */
   /*
   #home {
@@ -120,6 +142,7 @@
   #exiticon {
     display: none;
   }
+>>>>>>> develop
 
   /*----- 録音-再生 -----*/
   /* マイク確認ボタン */
