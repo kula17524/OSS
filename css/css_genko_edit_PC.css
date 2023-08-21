@@ -6,11 +6,9 @@ html {
   font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
     "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
 }
-#home {
-  display: none;
-}
+
 #back_button{
-  display: none;
+  width: 19%;
 }
 /*PC用のCSSを記入
 @media screen and(min-width: 2161px) {*/
@@ -693,7 +691,37 @@ input[type="number"]::-webkit-inner-spin-button {
 #saveicon_2 {
   display: none;
 }
-
+#home {
+  float: none;
+  margin: auto;
+  top: 10.5%;
+  right: 20px;
+  width: 19%;
+}
+#home:hover{
+  /* リンクをホバーしたときのカーソルに*/
+  cursor: pointer;
+}
+#home:active{
+  position: fixed;
+top: 10.5%;
+}
+/*戻るボタン*/
+#back_button{
+  float: none;
+  margin: auto;
+  top: 10%;
+  left: 20px;
+  width: 20%;
+}
+#back_button:hover{
+  /* リンクをホバーしたときのカーソルに*/
+  cursor: pointer;
+}
+#back_button:active{
+  position: fixed;
+top: 10.5%;
+}
 
 
 
@@ -1368,6 +1396,9 @@ input[type="number"]::-webkit-inner-spin-button {
     }
     
     #saveicon_2 {
+      display: none;
+    }
+    #download_sm{
       display: none;
     }
 }

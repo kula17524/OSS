@@ -135,13 +135,13 @@
         width: calc(100% - 2em);
         font-size: .9em;
         top: 230;
-        left: -9%;
+        left: -21%;
         display: block;
     }
     .mojisu {
         display: block;
         top: 220;
-        left: 7%;
+        left: -6%;
         width: 24%;
         height: 5%;
         padding: 8px 10px;
@@ -167,11 +167,11 @@
         width: calc(100% - 2em);
         font-size: .9em;
         top: 285;
-        left: -11%;
+        left: -23%;
     }
     .time {
         top: 274;
-        left: 7%;
+        left: -6%;
         width: 24%;
         height: 5%;
         padding: 8px 10px;
@@ -242,7 +242,7 @@
         font-family: inherit;
         position: fixed;
         top: 230;
-        left: 70%;
+        left: 57%;
     }
     /*「文字」*/
     .gen_mojisu_label {
@@ -250,7 +250,7 @@
         position: fixed;
         font-size: .8em;
         top: 240;
-        left: 40%;
+        left: 26%;
         z-index: 10000;
         color: #073b57;
     }
@@ -260,7 +260,7 @@
         position: fixed;
         font-size: .7em;
         top: 220;
-        left: 35%;
+        left: 27%;
         color: #676767;
     }
     
@@ -268,7 +268,7 @@
     .exprain_yomi_label{
         font-size: .7em;
         top: 270;
-        left: 35%;
+        left: 24%;
         font-family: inherit;
         color: #676767;
         position: fixed;
@@ -278,14 +278,14 @@
         font-family: inherit;
         position: fixed;
         top: 280;
-        left: 70%;
+        left: 57%;
     }
 
     /*「分」*/
     .gen_mojisu_time{
         font-size: .9em;
         top: 290;
-        left: 41%;
+        left: 27%;
         font-family: inherit;
         color: #073b57;
         position: fixed;
@@ -322,6 +322,7 @@
         height: auto;
         margin-left: -16%;
         top: 90%;
+        left: 50%;
         height: auto;
     }
     #saveicon_2:hover{
@@ -394,6 +395,7 @@
         position: fixed;
 	    top: 10.5%;
     }
+
     #emphasisButton{
         position: fixed;
         display: block;
@@ -461,6 +463,16 @@
         position: fixed;
 	    top: 378;
     }
-    
+    #download_sm{
+        z-index: 9999;
+        position: fixed;
+        width: 45px;
+        top: 90%;
+        left: 70%;
+        opacity: 0.8;
+        transform: scale(0.7);
+        cursor: pointer;
+    }
 
 }
+
