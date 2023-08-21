@@ -11,13 +11,5 @@ $("#user-wrap p").click(function () {
 });
 
 $(".user-img-sp").click(function () {
-  //ボタンがクリックされたら
-  $(this).toggleClass("active"); //ボタン自身に activeクラスを付与し
-  $("#user-wrap-sp").toggleClass("panelactive"); //ナビゲーションにpanelactiveクラスを付与
-});
-
-$("#user-wrap-sp p").click(function () {
-  //ナビゲーションのリンクがクリックされたら
-  $(".openbtn1").removeClass("active"); //ボタンの activeクラスを除去し
-  $("#user-wrap-sp").removeClass("panelactive"); //ナビゲーションのpanelactiveクラスも除去
+  window.location.href = "./index.html";
 });
