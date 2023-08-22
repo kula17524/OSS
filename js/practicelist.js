@@ -31,6 +31,7 @@ const db = getFirestore(app);
 // htmlと連携
 let new_button = document.getElementById("new");
 let logout = document.getElementById("logout");
+let logout_sp = document.getElementById("logout-sp");
 let top = document.getElementById("top");
 let back = document.getElementById("back");
 
@@ -38,7 +39,6 @@ let back = document.getElementById("back");
 document.addEventListener("DOMContentLoaded", function () {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      app;
       const user = auth.currentUser;
       const email = user.email;
       const user_id = user.uid;
@@ -248,6 +248,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ログアウトボタンを押下
 logout.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      location.href = "login.html";
+    })
+    .catch((error) => {
+      console.log(`ログアウトに失敗しました (${error})`);
+    });
+});
+logout_sp.addEventListener("click", () => {
   signOut(auth)
     .then(() => {
       location.href = "login.html";

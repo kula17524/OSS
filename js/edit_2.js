@@ -53,15 +53,26 @@ downloadButton_PC.addEventListener("click", () => {
     cancelButtonText: "やめる",
   }).then(async (result) => {
     if (result.value) {
-      const idealWords = document.querySelector(".mojisu").value;
-      const idealTime = document.querySelector(".time").value;
+      let idealWords = document.querySelector(".mojisu").value;
+      if (idealWords == null || idealWords == undefined || idealWords == "") {
+        idealWords = 0;
+      }
+      let idealTime = document.querySelector(".time").value;
+      if (idealTime == null || idealTime == undefined || idealTime == "") {
+        idealTime = 0;
+      }
+      let idealSec = document.querySelector(".time_second").value;
+      if (idealSec == null || idealSec == undefined || idealSec == "") {
+        idealSec = 0;
+      }
       const title = document.querySelector(".genko_title").value;
       const text = document.getElementById("textarea").value;
       const inputWords = document.getElementById("inputlength").innerText;
       const inputTime = document.getElementById("inputtime").innerText;
+      const inputSec = document.getElementById("inputsec").innerText;
 
       const combinedContent = `入力された文字数：${inputWords}文字 目標文字数：${idealWords}文字
-発表時間の目安：${inputTime}分  目標発表時間：${idealTime}分
+発表時間の目安：${inputTime}分${inputSec}秒  目標発表時間：${idealTime}分${idealSec}秒
 
 <本文>
 ${text}
@@ -92,15 +103,26 @@ downloadButton_SM.addEventListener("click", () => {
     cancelButtonText: "やめる",
   }).then(async (result) => {
     if (result.value) {
-      const idealWords = document.querySelector(".mojisu").value;
-      const idealTime = document.querySelector(".time").value;
+      let idealWords = document.querySelector(".mojisu").value;
+      if (idealWords == null || idealWords == undefined || idealWords == "") {
+        idealWords = 0;
+      }
+      let idealTime = document.querySelector(".time").value;
+      if (idealTime == null || idealTime == undefined || idealTime == "") {
+        idealTime = 0;
+      }
+      let idealSec = document.querySelector(".time_second").value;
+      if (idealSec == null || idealSec == undefined || idealSec == "") {
+        idealSec = 0;
+      }
       const title = document.querySelector(".genko_title").value;
       const text = document.getElementById("textarea").value;
       const inputWords = document.getElementById("inputlength").innerText;
       const inputTime = document.getElementById("inputtime").innerText;
+      const inputSec = document.getElementById("inputsec").innerText;
 
       const combinedContent = `入力された文字数：${inputWords}文字 目標文字数：${idealWords}文字
-発表時間の目安：${inputTime}分  目標発表時間：${idealTime}分
+発表時間の目安：${inputTime}分${inputSec}秒  目標発表時間：${idealTime}分${idealSec}秒
 
 <本文>
 ${text}
@@ -127,25 +149,56 @@ function isNaturalNumber(value) {
 }
 
 function updateTime(value) {
-  var mojisuInput = document.getElementsByClassName("mojisu")[0];
-  var timeInput = document.getElementsByClassName("time")[0];
+  var minInput = document.getElementsByClassName("time")[0];
+  var secInput = document.getElementsByClassName("time_second")[0];
 
   if (isNaturalNumber(value)) {
     var mojisu = parseInt(value, 10);
     var time = (mojisu * 0.2) / 60;
-    timeInput.value = time.toFixed(2);
+    var decimal = parseFloat("0." + ("" + time).split(".")[1]);
+    var sec = decimal * 60;
+    minInput.value = Math.floor(time);
+    secInput.value = Math.floor(sec);
   } else {
     timeInput.value = "";
   }
 }
 
-function updateMojisu(value) {
+function updateMojisuWithMin(value) {
   var mojisuInput = document.getElementsByClassName("mojisu")[0];
-  var timeInput = document.getElementsByClassName("time")[0];
+  var secInput = document.getElementsByClassName("time_second")[0].value;
+  var sec = 0;
 
   if (isNaturalNumber(value)) {
     var time = parseFloat(value);
-    var mojisu = (time * 60) / 0.2;
+    if (isNaturalNumber(secInput)) {
+      sec = parseFloat(secInput);
+    }
+    var mojisu = (time * 60) / 0.2 + sec / 0.2;
+    mojisuInput.value = Math.round(mojisu);
+  } else if (isNaturalNumber(secInput)) {
+    sec = parseFloat(secInput);
+    var mojisu = sec / 0.2;
+    mojisuInput.value = Math.round(mojisu);
+  } else {
+    mojisuInput.value = "";
+  }
+}
+function updateMojisuWithSec(value) {
+  var mojisuInput = document.getElementsByClassName("mojisu")[0];
+  var minInput = document.getElementsByClassName("time")[0].value;
+  var min = 0;
+
+  if (isNaturalNumber(value)) {
+    var time = parseFloat(value);
+    if (isNaturalNumber(minInput)) {
+      min = parseFloat(minInput);
+    }
+    var mojisu = time / 0.2 + (min * 60) / 0.2;
+    mojisuInput.value = Math.round(mojisu);
+  } else if (isNaturalNumber(minInput)) {
+    min = parseFloat(minInput);
+    var mojisu = (min * 60) / 0.2;
     mojisuInput.value = Math.round(mojisu);
   } else {
     mojisuInput.value = "";
@@ -163,6 +216,9 @@ function Length(str) {
     .replace(/<<\s*見わたす\s*>>/g, "")
     .replace(/<<\s*休憩する\s*>>/g, "");
   document.getElementById("inputlength").innerHTML = cleanedStr.length;
-  const n = (cleanedStr.length * 0.2) / 60;
-  document.getElementById("inputtime").innerHTML = n.toFixed(2);
+  var time = (cleanedStr.length * 0.2) / 60;
+  var decimal = parseFloat("0." + ("" + time).split(".")[1]);
+  var sec = decimal * 60;
+  document.getElementById("inputtime").innerHTML = Math.floor(time);
+  document.getElementById("inputsec").innerHTML = Math.floor(sec);
 }
