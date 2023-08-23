@@ -31,13 +31,14 @@ const db = getFirestore(app);
 let pre_title = "";
 let pre_text = "";
 let pre_time = "";
+let pre_sec = "";
 let pre_input = "";
 
 // htmlと連携
 let logout = document.getElementById("logout");
+let logout_sp = document.getElementById("logout-sp");
 let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
-let home = document.getElementById("home");
 let back_button = document.getElementById("back_button");
 
 // ログイン状況を確認し、未ログインならログイン画面に遷移
@@ -47,17 +48,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const currentUser = auth.currentUser;
       const email = currentUser.email;
       document.getElementById("user_mail").innerText = email;
-
-      //「はい」をクリックしたときにデータをFirebaseに更新して保存
-      const saveButton = document.getElementById("saveicon");
-      saveButton.addEventListener("click", () => {
-        checkTitle();
-      });
-      // スマホ用「はい」をクリックしたときにデータをFirebaseに保存
-      const saveButtonSm = document.getElementById("saveicon_2");
-      saveButtonSm.addEventListener("click", () => {
-        checkTitle();
-      });
+      document.getElementById("user_mail-sp").innerText = email;
 
       // タイトルの状態を確認し、保存してよいか尋ねる
       const checkTitle = () => {
@@ -111,20 +102,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         const userId = user.uid;
         const idealNumber = document.querySelector(".mojisu").value;
         const idealTime = document.querySelector(".time").value;
+        const idealSec = document.querySelector(".time_second").value;
         const title = document.querySelector(".genko_title").value;
         const honbun = document.getElementById("textarea").value;
         const editTime = serverTimestamp();
         const wordInput = document.getElementById("inputlength").innerText;
         const timeInput = document.getElementById("inputtime").innerText;
-        console.log(
-          "idealNumber:" + idealNumber,
-          "idealTime:" + idealTime,
-          "title:" + title,
-          "honbun:" + honbun,
-          "editTime:" + editTime,
-          "wordInput:" + wordInput,
-          "timeInput:" + timeInput
-        );
+        const secInput = document.getElementById("inputsec").innerText;
 
         try {
           // Firestoreに新しいデータを保存
@@ -137,6 +121,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             edit_date: editTime,
             word_input: wordInput,
             time_input: timeInput,
+            sec_input: secInput,
           });
         } catch (error) {
           console.log("データの保存中にエラーが発生しました: " + error);
@@ -145,7 +130,19 @@ document.addEventListener("DOMContentLoaded", async function () {
         pre_time = idealTime;
         pre_input = idealNumber;
         pre_text = honbun;
+        pre_sec = idealSec;
       };
+
+      //「はい」をクリックしたときにデータをFirebaseに更新して保存
+      const saveButton = document.getElementById("saveicon");
+      saveButton.addEventListener("click", () => {
+        checkTitle();
+      });
+      // スマホ用「はい」をクリックしたときにデータをFirebaseに保存
+      const saveButtonSm = document.getElementById("saveicon_2");
+      saveButtonSm.addEventListener("click", () => {
+        checkTitle();
+      });
     } else {
       // ログインしていない場合の処理
       location.href = "login.html";
@@ -156,13 +153,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 logout.addEventListener("click", () => {
   const now_word = document.querySelector(".mojisu").value;
   const now_time = document.querySelector(".time").value;
+  const now_sec = document.querySelector(".time_second").value;
   const now_title = document.querySelector(".genko_title").value;
   const now_text = document.getElementById("textarea").value;
   if (
     now_text != pre_text ||
     now_time != pre_time ||
     now_title != pre_title ||
-    now_word != pre_input
+    now_word != pre_input ||
+    now_sec != pre_sec
   ) {
     Swal.fire({
       title: "保存していません",
@@ -195,38 +194,63 @@ logout.addEventListener("click", () => {
   }
 });
 
-// ロゴをクリックするとメニュー画面に移動
-logoicon.addEventListener("click", () => {
-  const loc = "index.html";
-  checkChange(loc);
-});
-// exitボタンをクリックするとメニュー画面に移動
-exiticon.addEventListener("click", () => {
-  const loc = "newlist.html";
-  checkChange(loc);
-});
-// homeボタンをクリックするとメニュー画面に移動
-home.addEventListener("click", () => {
-  const loc = "index.html";
-  checkChange(loc);
-});
-// ひとつ前に戻るボタンを押すとメニュー画面に移動
-back_button.addEventListener("click", () => {
-  const loc = "newlist.html";
-  checkChange(loc);
-});
-
-// ページ遷移前の確認
-const checkChange = (loc) => {
+logout_sp.addEventListener("click", () => {
   const now_word = document.querySelector(".mojisu").value;
   const now_time = document.querySelector(".time").value;
+  const now_sec = document.querySelector(".time_second").value;
   const now_title = document.querySelector(".genko_title").value;
   const now_text = document.getElementById("textarea").value;
   if (
     now_text != pre_text ||
     now_time != pre_time ||
     now_title != pre_title ||
-    now_word != pre_input
+    now_word != pre_input ||
+    now_sec != pre_sec
+  ) {
+    Swal.fire({
+      title: "保存していません",
+      html: "最新の変更を保存していません。<br>このままページを移動しますか？<br>※このままページ移動すると、保存前の変更は保存されません！",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#1AA7C5",
+      confirmButtonText: "移動する",
+      cancelButtonText: "もどる",
+    }).then(async (result) => {
+      if (result.value) {
+        signOut(auth)
+          .then(() => {
+            location.href = "login.html";
+          })
+          .catch((error) => {
+            console.log(`ログアウト時にエラーが発生しました (${error})`);
+          });
+      }
+    });
+  } else {
+    signOut(auth)
+      .then(() => {
+        location.href = "login.html";
+      })
+      .catch((error) => {
+        console.log(`ログアウト時にエラーが発生しました (${error})`);
+      });
+  }
+});
+
+// ページ遷移前の確認
+const checkChange = (loc) => {
+  const now_word = document.querySelector(".mojisu").value;
+  const now_time = document.querySelector(".time").value;
+  const now_sec = document.querySelector(".time_second").value;
+  const now_title = document.querySelector(".genko_title").value;
+  const now_text = document.getElementById("textarea").value;
+  if (
+    now_text != pre_text ||
+    now_time != pre_time ||
+    now_title != pre_title ||
+    now_word != pre_input ||
+    now_sec != pre_sec
   ) {
     Swal.fire({
       title: "保存していません",
@@ -246,3 +270,19 @@ const checkChange = (loc) => {
     location.href = loc;
   }
 };
+
+// ロゴをクリックするとメニュー画面に移動
+logoicon.addEventListener("click", () => {
+  const loc = "index.html";
+  checkChange(loc);
+});
+// exitボタンをクリックするとメニュー画面に移動
+exiticon.addEventListener("click", () => {
+  const loc = "newlist.html";
+  checkChange(loc);
+});
+// ひとつ前に戻るボタンを押すとメニュー画面に移動
+back_button.addEventListener("click", () => {
+  const loc = "newlist.html";
+  checkChange(loc);
+});

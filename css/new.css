@@ -91,6 +91,13 @@ body {
     margin: 0;
     color: #4e4e4e;
   }
+  @media screen and (max-width: 400px) {
+    .logo-txt {
+      font-size: 35px;
+      top: 65px;
+    }
+  }
+
   /* 縦長でも縦の長さが短ければPC表示にする */
   @media screen and (max-height: 600px) {
     .pc {
@@ -417,8 +424,8 @@ p {
 /* 横幅が狭ければボタンを小さくする(小さいスマホ) */
 @media screen and (max-width: 300px) {
   .logo-txt {
-    font-size: 35px;
-    top: 70px;
+    font-size: 30px;
+    top: 77px;
   }
   .back_button {
     position: fixed;

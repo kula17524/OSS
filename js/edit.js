@@ -39,7 +39,6 @@ let logout = document.getElementById("logout");
 let logout_sp = document.getElementById("logout-sp");
 let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
-//let home = document.getElementById("home");
 let back_button = document.getElementById("back_button");
 
 // ログイン状況を確認し、未ログインならログイン画面に遷移
@@ -49,6 +48,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     const url = new URL(window.location.href);
     const param = url.searchParams;
     const doc_id = param.get("docid");
+
+    // ドキュメントがなければリストへ戻る
+    if (doc_id == "" || doc_id == null || doc_id == undefined) {
+      location.href = "newlist.html";
+    }
 
     if (user) {
       const userId = user.uid;
@@ -326,30 +330,6 @@ logout_sp.addEventListener("click", () => {
   }
 });
 
-// ロゴをクリックするとメニュー画面に移動
-logoicon.addEventListener("click", () => {
-  const loc = "index.html";
-  checkChange(loc);
-});
-// exitボタンをクリックするとメニュー画面に移動
-exiticon.addEventListener("click", () => {
-  const loc = "newlist.html";
-  checkChange(loc);
-});
-/*
-// homeボタンをクリックするとメニュー画面に移動
-home.addEventListener("click", () => {
-  const loc = "index.html";
-  checkChange(loc);
-});
-*/
-
-// ひとつ前に戻るボタンを押すとメニュー画面に移動
-back_button.addEventListener("click", () => {
-  const loc = "newlist.html";
-  checkChange(loc);
-});
-
 // ページ遷移前の確認
 const checkChange = (loc) => {
   const now_word = document.querySelector(".mojisu").value;
@@ -382,3 +362,19 @@ const checkChange = (loc) => {
     location.href = loc;
   }
 };
+
+// ロゴをクリックするとメニュー画面に移動
+logoicon.addEventListener("click", () => {
+  const loc = "index.html";
+  checkChange(loc);
+});
+// exitボタンをクリックするとメニュー画面に移動
+exiticon.addEventListener("click", () => {
+  const loc = "newlist.html";
+  checkChange(loc);
+});
+// ひとつ前に戻るボタンを押すとメニュー画面に移動
+back_button.addEventListener("click", () => {
+  const loc = "newlist.html";
+  checkChange(loc);
+});
