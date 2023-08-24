@@ -977,6 +977,10 @@ p {
     left: 20%;
     transform: translateX(100%);
   }
+  .message-wrap {
+    left: 20%;
+    transform: translateX(-13%);
+  }
 }
 @media screen and (max-width: 600px) {
   #audio_play {
@@ -987,6 +991,10 @@ p {
     left: 10%;
     transform: translateX(100%);
   }
+  .message-wrap {
+    left: 4%;
+    transform: translateX(0%);
+  }
 }
 /* スマホ表示の時 */
 @media screen and (orientation: portrait) {
@@ -996,6 +1004,10 @@ p {
     top: calc(350px + 40%);
   }
   #startBtn {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .message-wrap {
     left: 50%;
     transform: translateX(-50%);
   }
@@ -1012,6 +1024,11 @@ p {
       transform: translateX(-50%);
       top: calc(270px + 40%);
     }
+    .message-wrap {
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(80px + 40%);
+    }
     @media screen and (min-height: 700px) {
       #audio_play {
         left: 50%;
@@ -1023,6 +1040,11 @@ p {
         left: 50%;
         transform: translateX(-50%);
         top: calc(290px + 40%);
+      }
+      .message-wrap {
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(90px + 40%);
       }
     }
   }
@@ -1037,6 +1059,11 @@ p {
       left: 50%;
       transform: translateX(-50%);
       top: calc(270px + 40%);
+    }
+    .message-wrap {
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(80px + 40%);
     }
   }
 
@@ -1062,6 +1089,16 @@ p {
       border: none;
       cursor: pointer;
     }
+    .message-wrap {
+      display: none;
+      position: fixed;
+      top: calc(90px + 40%);
+      width: 250px;
+      height: 250px;
+      z-index: 9999;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     @media screen and (max-width: 720px) {
       #audio_play {
         left: 50%;
@@ -1070,6 +1107,10 @@ p {
       #startBtn {
         left: 20%;
         transform: translateX(100%);
+      }
+      .message-wrap {
+        left: 20%;
+        transform: translateX(-13%);
       }
     }
     @media screen and (max-width: 600px) {
@@ -1080,6 +1121,10 @@ p {
       #startBtn {
         left: 10%;
         transform: translateX(100%);
+      }
+      .message-wrap {
+        left: 4%;
+        transform: translateX(0%);
       }
     }
   }
@@ -1096,6 +1141,9 @@ p {
   #startBtn {
     top: calc(230px + 40%);
   }
+  .message-wrap {
+    top: calc(40px + 40%);
+  }
 }
 @media screen and (max-height: 450px) {
   #textarea {
@@ -1107,6 +1155,9 @@ p {
   #startBtn {
     top: calc(190px + 40%);
   }
+  .message-wrap {
+    top: calc(0px + 40%);
+  }
 }
 @media screen and (max-height: 400px) {
   #textarea {
@@ -1117,5 +1168,8 @@ p {
   }
   #startBtn {
     top: calc(160px + 40%);
+  }
+  .message-wrap {
+    top: calc(-30px + 40%);
   }
 }
