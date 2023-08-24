@@ -31,6 +31,35 @@ let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
 let back_button = document.getElementById("back_button");
 
+// 改行挿入
+function insertNewlines(text) {
+  const baseText = text.replace(/([。、])/g, "$1\n");
+  let result = "";
+  let currentLine = "";
+
+  for (let i = 0; i < baseText.length; i++) {
+    const char = baseText[i];
+
+    if (char === "\n") {
+      result += currentLine + "\n";
+      currentLine = "";
+    } else {
+      currentLine += char;
+
+      if (currentLine.length === 20) {
+        result += currentLine + "\n";
+        currentLine = "";
+      }
+    }
+  }
+
+  if (currentLine.length > 0) {
+    result += currentLine;
+  }
+
+  return result;
+}
+
 // ログイン状況を確認し、未ログインならログイン画面に遷移
 document.addEventListener("DOMContentLoaded", async function () {
   onAuthStateChanged(auth, async (user) => {
@@ -74,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             if (data.text == undefined || data.text == null) {
               textarea.innerHTML = "本文";
             } else {
-              textarea.innerHTML = data.text;
+              textarea.innerHTML = insertNewlines(data.text) + "\n\n\n";
             }
             if (data.word_input == undefined || data.word_input == null) {
               word.innerHTML = "0";
