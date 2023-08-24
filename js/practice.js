@@ -227,7 +227,11 @@ var TMamMicRec = function (control, start_button, microphone) {
           //if (e.name != "word") return;
           texts.focus();
           texts.setSelectionRange(e.charIndex, e.charIndex + e.charLength);
-          console.log(e.charIndex);
+          // 自動スクロール
+          var startLine = texts.value.substr(0, e.charIndex).split("\n").length;
+          const lineHeight = parseInt(getComputedStyle(texts).lineHeight);
+          const scrollTop = lineHeight * (startLine - 3);
+          texts.scrollTop = scrollTop;
         });
         u.addEventListener("end", () => texts.setSelectionRange(0, 0));
         speechSynthesis.speak(u);
