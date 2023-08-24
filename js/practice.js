@@ -2,14 +2,109 @@
 var control = document.getElementById("Control");
 var start_button = document.getElementById("MicOn");
 var microphone = document.getElementById("startBtn");
+var message = document.querySelector(".message-wrap");
 var microphone_pic = document.getElementById("blue_mike_Button");
 var timerMin = document.getElementById("timer_min");
 var timerSec = document.getElementById("timer_sec");
+var full_pc = document.getElementById("fullicon");
+var full_sp = document.getElementById("fullicon-sp");
+var fullback_pc = document.getElementById("fullback");
+var full_target = document.querySelector(".full");
+var texts = document.getElementById("textarea");
+var lists = document.querySelector(".base_list");
+var list_child1 = lists.children[0].children[0].children;
+var list_child2 = lists.children[0].children[1].children;
 //タイマー
 var timer_flag = 0; // 0:停止中 1:動作中
 var time = 0;
 // マイクのクリック回数
 var count = 0;
+
+// フルスクリーン切り替え
+// フルスクリーン表示しているか確認
+function checkFullScreen() {
+  let fullscreen_flag = false;
+
+  if (
+    document.fullscreenElement ||
+    document.mozFullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.msFullscreenElement
+  ) {
+    fullscreen_flag = true;
+  } else {
+    fullscreen_flag = false;
+  }
+
+  return fullscreen_flag;
+}
+
+// 表示を切り替える
+function switchFullScreen(event) {
+  if (event.type === "click") {
+    // フルスクリーン表示なら解除する
+    if (checkFullScreen()) {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+
+      // 通常表示ならフルスクリーン表示にする
+    } else {
+      if (full_target.requestFullscreen) {
+        full_target.requestFullscreen();
+      } else if (full_target.mozRequestFullScreen) {
+        full_target.mozRequestFullScreen();
+      } else if (full_target.webkitRequestFullscreen) {
+        full_target.webkitRequestFullscreen();
+      } else if (full_target.msRequestFullscreen) {
+        full_target.msRequestFullscreen();
+      }
+    }
+  }
+}
+function fullscreenchanged(event) {
+  if (document.fullscreenElement) {
+    texts.classList.add("infull_t");
+    texts.classList.remove("textarea_normal");
+    lists.classList.add("infull_list");
+    for (var i = 0, len = list_child1.length; i < len; i++) {
+      list_child1[i].classList.add("infull_child");
+    }
+    for (var i = 0, len = list_child2.length; i < len; i++) {
+      list_child2[i].classList.add("infull_child");
+    }
+    message.classList.add("infull_message");
+    microphone.classList.add("infull_mic");
+    fullback_pc.style.display = "block";
+  } else {
+    texts.classList.remove("infull_t");
+    texts.classList.add("textarea_normal");
+    lists.classList.remove("infull_list");
+    for (var i = 0, len = list_child1.length; i < len; i++) {
+      list_child1[i].classList.remove("infull_child");
+    }
+    for (var i = 0, len = list_child2.length; i < len; i++) {
+      list_child2[i].classList.remove("infull_child");
+    }
+    message.classList.remove("infull_message");
+    microphone.classList.remove("infull_mic");
+    fullback_pc.style.display = "none";
+  }
+}
+document.addEventListener("fullscreenchange", fullscreenchanged);
+
+window.addEventListener("load", function () {
+  // ボタンクリックによる受付
+  full_pc.addEventListener("click", switchFullScreen);
+  full_sp.addEventListener("click", switchFullScreen);
+  fullback_pc.addEventListener("click", switchFullScreen);
+});
 
 // マイクの画像をクリック回数に応じて切り替え
 microphone.addEventListener("click", function () {
