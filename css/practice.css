@@ -612,6 +612,26 @@ p {
   position: fixed;
   top: 58px;
 }
+/* フルスクリーンボタン */
+#fullicon {
+  position: fixed;
+  display: block;
+  top: 205px;
+  left: 20px;
+  width: 50px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+#fullicon:hover {
+  opacity: 0.7;
+}
+#fullicon:focus {
+  opacity: 0.7;
+}
+#fullicon:active {
+  position: fixed;
+  top: 208px;
+}
 
 /*原稿タイトル*/
 :disabled {
@@ -652,7 +672,7 @@ p {
 }
 
 /*原稿本文*/
-#textarea {
+.textarea_normal {
   font-family: inherit;
   position: fixed;
   resize: none;
@@ -670,11 +690,12 @@ p {
   margin-right: 50px;
   line-height: 1.5;
   box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
+  background-color: #fff;
 }
-#textarea:focus {
+.textarea_normal:focus {
   outline: solid 1px rgb(117, 139, 168);
 }
-#texarea::placeholder {
+.textarea_normal::placeholder {
   color: #7b7b7b;
 }
 
@@ -682,14 +703,14 @@ p {
 @media screen and (orientation: portrait) {
   .title_label,
   .genko_title,
-  #textarea {
+  .textarea_normal {
     left: 50%;
     margin-left: -45%;
   }
   .genko_title {
     width: 82.5%;
   }
-  #textarea {
+  .textarea_normal {
     width: 89%;
   }
 
@@ -730,7 +751,7 @@ p {
     }
 
     /*原稿本文*/
-    #textarea {
+    .textarea_normal {
       font-family: inherit;
       position: fixed;
       resize: none;
@@ -749,7 +770,7 @@ p {
       line-height: 1.5;
       box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075);
     }
-    #textarea:focus {
+    .textarea_normal:focus {
       outline: solid 1px rgb(117, 139, 168);
     }
     #texarea::placeholder {
@@ -1132,7 +1153,7 @@ p {
 
 /* 縦の調整 */
 @media screen and (max-height: 530px) {
-  #textarea {
+  .textarea_normal {
     height: 30%;
   }
   #audio_play {
@@ -1146,7 +1167,7 @@ p {
   }
 }
 @media screen and (max-height: 450px) {
-  #textarea {
+  .textarea_normal {
     height: 20%;
   }
   #audio_play {
@@ -1160,7 +1181,7 @@ p {
   }
 }
 @media screen and (max-height: 400px) {
-  #textarea {
+  .textarea_normal {
     height: 10%;
   }
   #audio_play {
@@ -1171,5 +1192,70 @@ p {
   }
   .message-wrap {
     top: calc(-30px + 40%);
+  }
+}
+
+/* フルスクリーンの時のデザイン */
+.infull_t {
+  position: fixed;
+  width: 95%;
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  color: #fff;
+  box-shadow: none;
+  font-size: 50px;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 70%;
+  line-height: 2em;
+}
+.infull_list {
+  color: #fff;
+  top: 0;
+  left: 0;
+  position: fixed;
+  margin: 0;
+  transform: none;
+}
+.infull_child {
+  color: #fff;
+}
+.infull_message {
+  top: auto !important;
+  bottom: 30px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+.infull_mic {
+  top: auto !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+#fullback {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  cursor: pointer;
+}
+#fullback:hover {
+  opacity: 0.6;
+}
+#fullback:focus {
+  opacity: 0.6;
+}
+#fullback:active {
+  opacity: 0.6;
+  top: 8px;
+}
+@media screen and (orientation: portrait) and (max-width: 300px) and (min-height: 600px) {
+  .infull_list {
+    top: 50px;
+  }
+  #fullback {
+    width: 30px;
   }
 }

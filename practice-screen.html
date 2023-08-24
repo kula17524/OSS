@@ -118,67 +118,95 @@
     <div class="function_button">
       <img
         id="exiticon"
+        class="pc"
         src="./img/PC_door_icon.png"
         alt="PC画面用戻るボタン"
         ontouchstart=""
         draggable="false"
       />
+      <img
+        id="fullicon"
+        class="pc"
+        src="./img/full_button.png"
+        alt="フルスクリーン移行ボタン"
+        ontouchstart=""
+        draggable="false"
+      />
 
-      <div id="Control">
-        <!--マイク使用許可-->
-        <div class="message-wrap">
-          <img
-            id="message"
-            class="message"
-            src="img/blue_message.png"
-            alt="使用方法説明"
-          />
-          <button id="MicOn">
-            <img id="rec_start" src="img/start.png" alt="マイク使用許可" />
-          </button>
-        </div>
-        <!--録音-->
-        <div class="start-button">
-          <button type="button" id="startBtn">
+      <!--目安表示-->
+      <div class="full">
+        <img
+          id="fullback"
+          src="./img/fullback_button.png"
+          alt="フルスクリーン表示終了ボタン"
+          ontouchstart=""
+          draggable="false"
+        />
+
+        <div id="Control">
+          <!--マイク使用許可-->
+          <div class="message-wrap">
             <img
-              id="blue_mike_Button"
-              src="./img/microphone_start.png"
-              alt="録音ボタン"
+              id="message"
+              class="message"
+              src="img/blue_message.png"
+              alt="使用方法説明"
             />
-          </button>
+            <button id="MicOn">
+              <img id="rec_start" src="img/start.png" alt="マイク使用許可" />
+            </button>
+          </div>
+          <!--録音-->
+          <div class="start-button">
+            <button type="button" id="startBtn">
+              <img
+                id="blue_mike_Button"
+                src="./img/microphone_start.png"
+                alt="録音ボタン"
+              />
+            </button>
+          </div>
         </div>
+
+        <table class="base_list">
+          <tr>
+            <td colspan="2" class="sub-title">
+              <span class="moji_label">文字数</span>
+            </td>
+            <td colspan="4" class="sub-title">
+              <span class="sample_time_label">目安時間</span>
+            </td>
+            <td colspan="4" class="sub-title">
+              <span class="real_time_label">経過時間</span>
+            </td>
+          </tr>
+          <tr>
+            <!-- 文字数 -->
+            <td class="text-content"><p id="inputlength"></p></td>
+            <td class="p-content"><span class="mojisu_label">文字</span></td>
+            <!-- 目安時間 -->
+            <td class="time-content"><p id="inputtime"></p></td>
+            <td class="t-content"><span class="min_label">分</span></td>
+            <td class="time-content"><p id="inputsec"></p></td>
+            <td class="t-content"><span class="sec_label">秒</span></td>
+            <!-- タイマー時間 -->
+            <td class="time-content"><p id="timer_min">0</p></td>
+            <td class="t-content"><span class="real_min_label">分</span></td>
+            <td class="time-content"><p id="timer_sec">0</p></td>
+            <td class="t-content"><span class="real_sec_label">秒</span></td>
+          </tr>
+        </table>
+
+        <!-- 本文 -->
+        <textarea
+          id="textarea"
+          name="main"
+          class="textbox textarea_normal"
+          placeholder="本文"
+          disabled
+        ></textarea>
       </div>
     </div>
-
-    <!--目安表示-->
-    <table class="base_list">
-      <tr>
-        <td colspan="2" class="sub-title">
-          <span class="moji_label">文字数</span>
-        </td>
-        <td colspan="4" class="sub-title">
-          <span class="sample_time_label">目安時間</span>
-        </td>
-        <td colspan="4" class="sub-title">
-          <span class="real_time_label">経過時間</span>
-        </td>
-      </tr>
-      <tr>
-        <!-- 文字数 -->
-        <td class="text-content"><p id="inputlength"></p></td>
-        <td class="p-content"><span class="mojisu_label">文字</span></td>
-        <!-- 目安時間 -->
-        <td class="time-content"><p id="inputtime"></p></td>
-        <td class="t-content"><span class="min_label">分</span></td>
-        <td class="time-content"><p id="inputsec"></p></td>
-        <td class="t-content"><span class="sec_label">秒</span></td>
-        <!-- タイマー時間 -->
-        <td class="time-content"><p id="timer_min">0</p></td>
-        <td class="t-content"><span class="real_min_label">分</span></td>
-        <td class="time-content"><p id="timer_sec">0</p></td>
-        <td class="t-content"><span class="real_sec_label">秒</span></td>
-      </tr>
-    </table>
 
     <!-- 原稿タイトル -->
     <span class="title_label">タイトル</span>
@@ -189,15 +217,6 @@
       placeholder="タイトル"
       disabled
     />
-
-    <!-- 本文 -->
-    <textarea
-      id="textarea"
-      name="main"
-      class="textbox"
-      placeholder="本文"
-      disabled
-    ></textarea>
 
     <script type="text/javascript" src="private.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
