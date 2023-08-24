@@ -7,6 +7,7 @@ var microphone_pic = document.getElementById("blue_mike_Button");
 var timerMin = document.getElementById("timer_min");
 var timerSec = document.getElementById("timer_sec");
 var full_pc = document.getElementById("fullicon");
+var full_sp = document.getElementById("fullicon-sp");
 var fullback_pc = document.getElementById("fullback");
 var full_target = document.querySelector(".full");
 var texts = document.getElementById("textarea");
@@ -101,6 +102,7 @@ document.addEventListener("fullscreenchange", fullscreenchanged);
 window.addEventListener("load", function () {
   // ボタンクリックによる受付
   full_pc.addEventListener("click", switchFullScreen);
+  full_sp.addEventListener("click", switchFullScreen);
   fullback_pc.addEventListener("click", switchFullScreen);
 });
 

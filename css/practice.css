@@ -615,7 +615,6 @@ p {
 /* フルスクリーンボタン */
 #fullicon {
   position: fixed;
-  display: block;
   top: 205px;
   left: 20px;
   width: 50px;
@@ -632,7 +631,24 @@ p {
   position: fixed;
   top: 208px;
 }
-
+#fullicon-sp {
+  position: fixed;
+  width: 40px;
+  z-index: 1000;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+#fullicon-sp:hover {
+  opacity: 0.7;
+}
+#fullicon-sp:focus {
+  opacity: 0.7;
+}
+#fullicon-sp:active {
+  position: fixed;
+  top: 8px;
+}
 /*原稿タイトル*/
 :disabled {
   color: #000;
