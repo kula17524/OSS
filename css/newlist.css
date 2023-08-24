@@ -85,7 +85,7 @@ body {
     position: fixed;
     font-size: 45px;
     font-weight: normal;
-    top: 35px;
+    top: 50px;
     text-align: center;
     z-index: 100;
     margin: 0;
@@ -408,7 +408,7 @@ p {
 @media screen and (max-width: 300px) {
   .logo-txt {
     font-size: 35px;
-    top: 60px;
+    top: 70px;
   }
   .back_button {
     position: fixed;

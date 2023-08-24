@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta charset="UTF-8" />
+    <!--
     <link rel="stylesheet" href="css/css_genko_edit_PC.css" />
     <link
       rel="stylesheet"
@@ -13,62 +14,110 @@
       rel="stylesheet"
       media="screen and (max-width:480px)"
       href="css/css_genko_edit_Sm.css"
-    />
-    <link rel="icon" href="img/blue_icon(ico).ico" />
-
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    />-->
+    <link rel="stylesheet" type="text/css" href="css/edit.css" />
+    <link rel="icon" href="icon/icon.ico" />
     <title>ReO.com-原稿・編集</title>
   </head>
   <body>
-    <div class="background">
-      <img id="back" src="./img/blue_PC_background.png" alt="背景" />
-      <img id="sidebar" src="./img/blue_PC_side.png" alt="サイドバー" />
-      <img id="topbar" src="./img/blue_PC_top.png" alt="PCヘッダー" />
-      <img id="topbar_sm" src="./img/blue_Sm_top.png" alt="スマホヘッダー" />
-      <img
-        id="logoicon"
-        src="./img/blue_PC_titlelogo_2.png"
-        alt="ロゴアイコン"
-      />
-      <img id="label" src="./img/blue_PC_label.png" alt="ラベル" />
-      <img
-        id="labeltext"
-        src="./img/text_hensyu.png"
-        alt="PCラベルテキスト「編集」"
-      />
-      <img
-        id="labeltext_sm"
-        src="./img/text_sm_hensyu.png"
-        alt="スマホラベルテキスト「編集」"
-      />
-    </div>
-    <!-- ユーザーボタン -->
-    <div class="user">
-      <button type="button" class="user_button">
+    <!-- PC用ヘッダー -->
+    <header class="pc">
+      <div class="bar_back pc" ontouchstart="">
+        <img src="./img/blue_PC_top.png" alt="横長画面用のヘッダー背景" />
+      </div>
+      <button id="top" class="top-wrap">
         <img
-          class="user-img pc"
-          src="img/blue_user_Button.png"
-          alt="ユーザー情報表示ボタン"
+          id="logoicon"
+          class="logo pc"
+          src="./img/blue_PC_titlelogo_2.png"
+          alt="ロゴ"
         />
       </button>
-    </div>
-    <!-- ユーザー情報とログアウトリンク -->
-    <nav id="user-wrap" class="pc">
-      <div id="user-list" class="pc">
-        <ul>
-          <li><p class="pc">ログイン情報</p></li>
-          <li><p id="user_mail" class="pc">Email</p></li>
-          <li><a id="logout" class="pc">ログアウトする</a></li>
-          <li>
-            <div class="close pc"><p>×閉じる</p></div>
-          </li>
-        </ul>
+
+      <!-- ユーザーボタン -->
+      <div class="user pc" ontouchstart="">
+        <button type="button" class="user_button">
+          <img
+            class="user-img"
+            src="img/blue_user_Button.png"
+            alt="ユーザー情報表示ボタン"
+          />
+        </button>
       </div>
-    </nav>
+      <!-- ユーザー情報とログアウトリンク -->
+      <nav id="user-wrap" class="pc">
+        <div id="user-list" class="pc" ontouchstart="">
+          <ul>
+            <li><p class="pc user-title">ログイン情報</p></li>
+            <li><p id="user_mail" class="pc">Email</p></li>
+            <li><a id="logout" class="pc">ログアウトする</a></li>
+            <li>
+              <div class="close pc"><p>×閉じる</p></div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- スマホ用ヘッダー -->
+    <header class="sp" ontouchstart="">
+      <div class="bar_back sp">
+        <img src="./img/blue_Sm_top.png" alt="縦長画面用のヘッダー背景" />
+      </div>
+      <div class="logo-txt sp"><p>編集</p></div>
+      <!-- ユーザーボタン -->
+      <div class="user-sp sp" ontouchstart="">
+        <button type="button" class="user_button-sp">
+          <img
+            class="user-img-sp"
+            src="img/blue_user_Button.png"
+            alt="ユーザー情報表示ボタン"
+          />
+        </button>
+      </div>
+      <!-- ひとつ前に戻るボタン -->
+      <button id="back_button" class="back_button sp" ontouchstart="">
+        <img
+          class="back_img"
+          src="./img/blue_back_Button.png"
+          alt="ひとつ前に戻る"
+        />
+      </button>
+      <!-- ユーザー情報とログアウトリンク -->
+      <nav id="user-wrap-sp" class="sp">
+        <div id="user-list-sp" class="sp" ontouchstart="">
+          <ul>
+            <li><p class="sp user-title">ログイン情報</p></li>
+            <li><p id="user_mail-sp" class="sp">Email</p></li>
+            <li><a id="logout-sp" class="sp">ログアウトする</a></li>
+            <li>
+              <div class="close-sp sp"><p>×閉じる</p></div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- サイドバーとラベル(PC用) -->
+    <img
+      id="sidebar"
+      class="pc"
+      src="./img/blue_PC_side.png"
+      alt="サイドバー"
+    />
+    <img id="label" class="pc" src="./img/blue_PC_label.png" alt="ラベル" />
+    <img
+      id="labeltext"
+      class="pc"
+      src="./img/text_hensyu.png"
+      alt="PCラベルテキスト「編集」"
+    />
+
+    <!-- 各種機能ボタン-->
     <div class="function_button">
-      <!--PCのみの機能ボタン-->
       <img
         id="saveicon"
+        class="pc"
         src="./img/PC_save_icon.png"
         alt="PC画面用セーブボタン"
         ontouchstart=""
@@ -82,126 +131,165 @@
         draggable="false"
       />
       <img
-        id="emphasisButton"
-        src="./img/kyotyo.png"
-        alt="「強調する」ボタン"
-        ontouchstart=""
-        draggable="false"
-      />
-      <img
-        id="maButton"
-        src="./img/ma.png"
-        alt="「間をおく」ボタン"
-        ontouchstart=""
-        draggable="false"
-      />
-      <img
-        id="miwaButton"
-        src="./img/miwa.png"
-        alt="「見わたす」ボタン"
-        ontouchstart=""
-        draggable="false"
-      />
-      <img
-        id="kyukeiButton"
-        src="./img/kyukei.png"
-        alt="「休憩する」ボタン"
-        ontouchstart=""
-        draggable="false"
-      />
-    </div>
-    <div class="sm_function">
-      <!--スマホの機能ボタン-->
-      <img
-        id="saveicon_2"
-        src="./img/white_hozon_Button.png"
-        alt="スマホ画面用セーブボタン"
-        ontouchstart=""
-        draggable="false"
-        ontouchend=""
+        id="download_pc"
+        class="pc"
+        src="./img/download_pc.png"
+        alt="PC用ダウンロードボタン"
       />
 
-      <img
-        id="back_button"
-        src="./img/blue_back_Button.png"
-        alt="スマホ画面用戻るボタン"
-        ontouchstart=""
-        draggable="false"
-      />
-      <img
-        id="home"
-        src="./img/blue_home_Button.png"
-        alt="スマホ画面用ホームに戻るボタン"
-      />
+      <table class="func-sp sp">
+        <tr>
+          <td>
+            <img
+              id="saveicon_2"
+              class="sp"
+              src="./img/white_hozon_Button.png"
+              alt="スマホ画面用セーブボタン"
+              ontouchstart=""
+              draggable="false"
+              ontouchend=""
+            />
+          </td>
+          <td>
+            <img
+              id="download_sm"
+              class="sp"
+              src="./img/download_sm.png"
+              alt="スマホ用ダウンロードボタン"
+            />
+          </td>
+        </tr>
+      </table>
+
+      <!-- 強調機能 -->
+      <table class="emp_funcbuttons">
+        <tr>
+          <td>
+            <img
+              id="emphasisButton"
+              src="./img/kyotyo.png"
+              alt="「強調する」ボタン"
+              ontouchstart=""
+              draggable="false"
+            />
+          </td>
+          <td>
+            <img
+              id="maButton"
+              src="./img/ma.png"
+              alt="「間をおく」ボタン"
+              ontouchstart=""
+              draggable="false"
+            />
+          </td>
+          <td>
+            <img
+              id="miwaButton"
+              src="./img/miwa.png"
+              alt="「見わたす」ボタン"
+              ontouchstart=""
+              draggable="false"
+            />
+          </td>
+          <td>
+            <img
+              id="kyukeiButton"
+              src="./img/kyukei.png"
+              alt="「休憩する」ボタン"
+              ontouchstart=""
+              draggable="false"
+            />
+          </td>
+        </tr>
+      </table>
     </div>
 
-    <div class="textbox">
-      <span class="mojisu-label">文字</span>
-      <input
-        type="number"
-        inputmode="numeric"
-        class="mojisu"
-        placeholder="目標文字数"
-        onkeyup="updateTime(value);"
-      />
-      <p id="nonumber"></p>
-      <span class="time-label">分</span>
-      <input
-        type="number"
-        inputmode="numeric"
-        class="time"
-        placeholder="目標時間"
-        onkeyup="updateMojisu(value);"
-      />
-      <br />
-      <input
-        type="text"
-        class="genko_title"
-        placeholder="タイトル（未入力・空白文字は無効）"
-      />
-      <br />
-      <br />
-      <textarea
-        id="textarea"
-        name="main"
-        placeholder="本文"
-        onkeyup="Length(value);"
-      ></textarea>
-      <br />
-      <span class="explain_moji_label">現在の文字数</span>
-      <p id="inputlength"></p>
-      <span class="gen_mojisu_label">文字</span>
-      <span class="exprain_yomi_label">読み上げ時間</span>
-      <p id="inputtime"></p>
-      <span class="gen_mojisu_time">分</span>
-    </div>
+    <!-- 文字数の任意入力欄 -->
+    <table class="input_ideal_area">
+      <tr>
+        <td class="put_area">
+          <input
+            type="number"
+            inputmode="numeric"
+            id="mojisu"
+            class="mojisu"
+            placeholder="目標文字数"
+            onkeyup="updateTime(value);"
+          />
+        </td>
+        <td class="m_area"><span class="mojisu-label">文字</span></td>
+        <!-- 目標時間の任意入力欄 -->
+        <td class="put_area_t">
+          <input
+            type="number"
+            inputmode="numeric"
+            id="time"
+            class="time"
+            placeholder="目標分"
+            onkeyup="updateMojisuWithMin(value);"
+          />
+        </td>
+        <td class="t_area"><span class="time-label">分</span></td>
+        <td class="put_area_t">
+          <input
+            type="number"
+            id="time_second"
+            inputmode="numeric"
+            class="time_second"
+            placeholder="目標秒"
+            onkeyup="updateMojisuWithSec(value);"
+          />
+        </td>
+        <td class="t_area"><span class="second-label">秒</span></td>
+      </tr>
+    </table>
 
-    <!-- 原稿ダウンロード -->
-    <img
-      id="download_pc"
-      src="./img/download_pc.png"
-      alt="PC用ダウンロードボタン"
-      style="
-        z-index: 9999;
-        position: fixed;
-        width: 45px;
-        top: 300px;
-        left: 20px;
-        opacity: 0.8;
-        cursor: pointer;
-      "
+    <!-- 原稿タイトル入力欄 -->
+    <br />
+    <input
+      type="text"
+      id="genko_title"
+      class="genko_title"
+      placeholder="タイトル（未入力・空白文字は無効）"
     />
-    <img
-      id="download_sm"
-      src="./img/download_sm.png"
-      alt="スマホ用ダウンロードボタン"
-    />
+    <br />
+    <br />
+
+    <!-- 本文入力欄 -->
+    <textarea
+      id="textarea"
+      name="main"
+      class="textbox"
+      placeholder="本文"
+      onkeyup="Length(value);"
+    ></textarea>
+    <br />
+
+    <!-- 現在の状況表示 -->
+    <table class="inputnow">
+      <tr>
+        <td colspan="2" class="sub-title">
+          <span class="explain_moji_label">現在の文字数</span>
+        </td>
+        <td colspan="4" class="sub-title">
+          <span class="exprain_yomi_label">読み上げ時間</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-content"><p id="inputlength"></p></td>
+        <td class="p-content"><span class="gen_mojisu_label">文字</span></td>
+        <td class="time-content"><p id="inputtime"></p></td>
+        <td class="t-content"><span class="gen_mojisu_time">分</span></td>
+        <td class="time-content"><p id="inputsec"></p></td>
+        <td class="t-content"><span class="gen_mojisu_sec">秒</span></td>
+      </tr>
+    </table>
 
     <script type="text/javascript" src="private.js"></script>
     <script type="module" src="js/edit.js"></script>
-    <script type="text/javascript" src="js/edit_2.js"></script>
+    <script type="text/javascript" src="js/new_base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/edit_jquery.js"></script>
+    <script type="text/javascript" src="js/edit_jquery.js"></script>
   </body>
 </html>
