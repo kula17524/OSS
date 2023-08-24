@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <link rel="shortcut icon" href="./icon/icon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=4,user-scalable=yes"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <!--
     <link
       rel="stylesheet"
       type="text/css"
@@ -21,18 +14,13 @@
       rel="stylesheet"
       media="screen and (max-width:600px)"
       href="css/practice-screen_Sm.css"
-    />
-    <link rel="icon" href="icon/icon.ico" />
+    />-->
 
-    <title>ReO.com-練習画面</title>
+    <link rel="stylesheet" type="text/css" href="css/practice.css" />
+    <link rel="icon" href="icon/icon.ico" />
+    <title>ReO.com-練習</title>
   </head>
   <body>
-    <div class="background">
-      <div class="side"><img id="sidebar" src="./img/blue_PC_side.png" /></div>
-      <img id="label" src="./img/blue_PC_label.png" />
-      <img id="labeltext" src="./img/text_happyorenshu.png" />
-      <img id="labeltext_sm" src="./img/text_happyoreshu_black.png" />
-    </div>
     <!-- PC用ヘッダー -->
     <header class="pc">
       <div class="bar_back pc" ontouchstart="">
@@ -49,9 +37,9 @@
 
       <!-- ユーザーボタン -->
       <div class="user pc" ontouchstart="">
-        <button type="button" class="user_button pc">
+        <button type="button" class="user_button">
           <img
-            class="user-img pc"
+            class="user-img"
             src="img/blue_user_Button.png"
             alt="ユーザー情報表示ボタン"
           />
@@ -73,36 +61,24 @@
     </header>
 
     <!-- スマホ用ヘッダー -->
-    <div class="function_button">
-      <img
-        id="exiticon"
-        src="./img/PC_door_icon.png"
-        alt="PC画面用戻るボタン"
-        ontouchstart=""
-        draggable="false"
-      />
-    </div>
     <header class="sp" ontouchstart="">
       <div class="bar_back sp">
         <img src="./img/blue_Sm_top.png" alt="縦長画面用のヘッダー背景" />
       </div>
       <div class="logo-txt sp"><p>発表練習</p></div>
       <!-- ユーザーボタン -->
-      <!--スマホのみの機能ボタン-->
       <div class="user-sp sp" ontouchstart="">
-        <button type="button" class="user_button-sp sp">
+        <button type="button" class="user_button-sp">
           <img
-            id="home"
-            class="user-img-sp sp"
-            src="img/blue_home_Button.png"
-            alt="スマホ画面用ホームに戻るボタン"
+            class="user-img-sp"
+            src="img/blue_user_Button.png"
+            alt="ユーザー情報表示ボタン"
           />
         </button>
       </div>
       <!-- ひとつ前に戻るボタン -->
-      <button id="back" class="back_button sp" ontouchstart="">
+      <button id="back_button" class="back_button sp" ontouchstart="">
         <img
-          id="back_button"
           class="back_img"
           src="./img/blue_back_Button.png"
           alt="ひとつ前に戻る"
@@ -123,238 +99,111 @@
       </nav>
     </header>
 
-    <!--文字表示-->
-    <div class="textbox">
-      <span class="taitoru">タイトル</span>
-      <input type="text" class="genko_title" oninput="validateInput(this)" />
-      <span class="moji_label_1">文字数</span>
-      <p id="inputlength">0</p>
-      <span class="moji_label_2">文字</span>
-      <span class="yomi_label_1">目安時間</span>
-      <p id="inputtime">0</p>
-      <span class="moji_time">分</span>
-      <span class="yomi_label_2">経過時間</span>
-      <p id="timerLabel">00:00</p>
-      <textarea id="textarea" name="main" onkeyup="Length(value);"></textarea>
+    <!-- サイドバーとラベル(PC用) -->
+    <img
+      id="sidebar"
+      class="pc"
+      src="./img/blue_PC_side.png"
+      alt="サイドバー"
+    />
+    <img id="label" class="pc" src="./img/blue_PC_label.png" alt="ラベル" />
+    <img
+      id="labeltext"
+      class="pc"
+      src="./img/text_happyorenshu.png"
+      alt="PCラベルテキスト「発表練習」"
+    />
+
+    <!-- 各種機能ボタン-->
+    <div class="function_button">
+      <img
+        id="exiticon"
+        src="./img/PC_door_icon.png"
+        alt="PC画面用戻るボタン"
+        ontouchstart=""
+        draggable="false"
+      />
+
+      <div id="Control">
+        <!--マイク使用許可-->
+        <div class="message-wrap">
+          <img
+            id="message"
+            class="message"
+            src="img/blue_message.png"
+            alt="使用方法説明"
+          />
+          <button id="MicOn">
+            <img id="rec_start" src="img/start.png" alt="マイク使用許可" />
+          </button>
+        </div>
+        <!--録音-->
+        <div class="start-button">
+          <button type="button" id="startBtn">
+            <img
+              id="blue_mike_Button"
+              src="./img/microphone_start.png"
+              alt="録音ボタン"
+            />
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!--録音-再生--><!--タイマー-->
-    <div id="Control">
-      <!--録音開始-->
-      <div class="start-button">
-        <button type="button" id="startBtn" onclick="start()">
-          <img id="blue_mike_Button" src="./img/blue_mike_Button.png" />
-        </button>
-      </div>
-      <!--録音終了-->
-      <div class="end-button">
-        <button type="button" id="RecStop" onclick="stop()" disabled>
-          <img id="rokuonkanryo_Button" src="./img/rokuonkanryo_Button.png" />
-        </button>
-      </div>
-      <div class="again-button">
-        <div id="RecMime"></div>
-        <button type="button" id="Reset" onclick="reset()">
-          <img id="yarinaosu_Button" src="./img/yarinaosu_Button.png" />
-        </button>
-      </div>
-      <button id="MicOn">マイクの使用を開始</button>
-    </div>
+    <!--目安表示-->
+    <table class="base_list">
+      <tr>
+        <td colspan="2" class="sub-title">
+          <span class="moji_label">文字数</span>
+        </td>
+        <td colspan="4" class="sub-title">
+          <span class="sample_time_label">目安時間</span>
+        </td>
+        <td colspan="4" class="sub-title">
+          <span class="real_time_label">経過時間</span>
+        </td>
+      </tr>
+      <tr>
+        <!-- 文字数 -->
+        <td class="text-content"><p id="inputlength"></p></td>
+        <td class="p-content"><span class="mojisu_label">文字</span></td>
+        <!-- 目安時間 -->
+        <td class="time-content"><p id="inputtime"></p></td>
+        <td class="t-content"><span class="min_label">分</span></td>
+        <td class="time-content"><p id="inputsec"></p></td>
+        <td class="t-content"><span class="sec_label">秒</span></td>
+        <!-- タイマー時間 -->
+        <td class="time-content"><p id="timer_min">0</p></td>
+        <td class="t-content"><span class="real_min_label">分</span></td>
+        <td class="time-content"><p id="timer_sec">0</p></td>
+        <td class="t-content"><span class="real_sec_label">秒</span></td>
+      </tr>
+    </table>
 
-    <script>
-      // 録音再生
-      var TMamMicRec = function (
-        control,
-        micOnBtn,
-        recStartBtn,
-        recStopBtn,
-        recMime
-      ) {
-        this.control = control;
-        this.micOnBtn = micOnBtn;
-        this.recStartBtn = recStartBtn;
-        this.recStopBtn = recStopBtn;
-        this.recMime = recMime;
+    <!-- 原稿タイトル -->
+    <span class="title_label">タイトル</span>
+    <input
+      type="text"
+      id="genko_title"
+      class="genko_title"
+      placeholder="タイトル"
+      disabled
+    />
 
-        this.stream = null;
-        this.mediaRecorder = null;
-        this.chunks = [];
-        this.recStartBtn.setAttribute("disabled", true);
-        this.recStopBtn.setAttribute("disabled", true);
-        this.type = null;
+    <!-- 本文 -->
+    <textarea
+      id="textarea"
+      name="main"
+      class="textbox"
+      placeholder="本文"
+      disabled
+    ></textarea>
 
-        this.micOnBtn.addEventListener(
-          "click",
-          function () {
-            if (navigator.mediaDevices == undefined) {
-              alert("未対応ブラウザ 又は HTTPS接続していません");
-              return;
-            }
-            navigator.mediaDevices
-              .getUserMedia({ audio: true })
-              .then(
-                function (stream) {
-                  this.stream = stream;
-
-                  this.mediaRecorder = new MediaRecorder(this.stream);
-                  this.mediaRecorder.addEventListener(
-                    "dataavailable",
-                    function (event) {
-                      this.chunks.push(event.data);
-                      console.log(event.data);
-                    }.bind(this)
-                  );
-                  this.mediaRecorder.addEventListener(
-                    "stop",
-                    function (e) {
-                      // audio/webm;codecs=opus audio/ogg; codecs=opus
-                      this.type = this.chunks[0].type;
-                      this.recMime.innerHTML = this.type;
-                      let blob = new Blob(this.chunks, { type: this.type });
-                      this.chunks = [];
-
-                      //録音したblobをDataURIスキームに変換して<audio>タグでそのまま再生する
-                      let fileReaderAudio = new FileReader();
-                      fileReaderAudio.addEventListener(
-                        "load",
-                        function (event) {
-                          let audio_play =
-                            document.body.querySelector("#audio_play");
-                          if (audio_play == null) {
-                            audio_play = document.createElement("audio");
-                            audio_play.setAttribute("controls", "true");
-                            audio_play.setAttribute("id", "audio_play");
-                            audio_play.setAttribute("playsinline", "");
-                            this.control.appendChild(audio_play);
-                            //document.getElementById("Control").appendChild(audio_play);
-                          } else {
-                            audio_play.pause();
-                            audio_play.currentTime = 0;
-                          }
-                          audio_play.setAttribute("src", event.target.result);
-                          //audio_play.src=this.result;
-                          audio_play.load();
-                          audio_play.play();
-                        }.bind(this)
-                      );
-                      fileReaderAudio.readAsDataURL(blob);
-
-                      this.recStartBtn.removeAttribute("disabled");
-                      this.recStopBtn.setAttribute("disabled", true);
-                    }.bind(this)
-                  );
-                  this.recStartBtn.removeAttribute("disabled");
-                  this.micOnBtn.setAttribute("disabled", true);
-                }.bind(this)
-              )
-              .catch(
-                function (e) {
-                  console.log(e);
-                  document.getElementById("alert").innerHTML = e;
-                }.bind(this)
-              );
-          }.bind(this)
-        );
-        this.recStartBtn.addEventListener(
-          "click",
-          function () {
-            this.recStartBtn.setAttribute("disabled", true);
-            this.recStopBtn.removeAttribute("disabled");
-            this.mediaRecorder.start();
-          }.bind(this)
-        );
-        this.recStopBtn.addEventListener(
-          "click",
-          function () {
-            this.mediaRecorder.stop();
-          }.bind(this)
-        );
-      };
-      window.addEventListener("DOMContentLoaded", function () {
-        mamMicRec = new TMamMicRec(
-          document.getElementById("Control"),
-          document.getElementById("MicOn"),
-          document.getElementById("startBtn"),
-          document.getElementById("RecStop"),
-          document.getElementById("RecMime")
-        );
-      });
-
-      //タイマー
-      var status = 0; // 0:停止中 1:動作中
-      var time = 0;
-      var startBtn = document.getElementById("startBtn");
-      var timerLabel = document.getElementById("timerLabel");
-
-      // STARTボタン
-      function start() {
-        // 動作中にする
-        status = 1;
-        // スタートボタンを押せないようにする
-        startBtn.disabled = true;
-
-        timer();
-      }
-
-      // STOPボタン
-      function stop() {
-        // 停止中にする
-        status = 0;
-        // スタートボタンを押せるようにする
-        startBtn.disabled = false;
-      }
-
-      // RESETボタン
-      function reset() {
-        // 停止中にする
-        status = 0;
-        // タイムを0に戻す
-        time = 0;
-        // タイマーラベルをリセット
-        timerLabel.innerHTML = "00:00";
-        // スタートボタンを押せるようにする
-        startBtn.disabled = false;
-      }
-
-      function timer() {
-        // ステータスが動作中の場合のみ実行
-        if (status == 1) {
-          setTimeout(function () {
-            time++;
-
-            // 分・秒・ミリ秒を計算
-            var min = Math.floor(time / 100 / 60);
-            var sec = Math.floor(time / 100);
-            var mSec = time % 100;
-
-            if (min < 10) min = "0" + min;
-            if (sec >= 60) sec = sec % 60;
-            if (sec < 10) sec = "0" + sec;
-
-            // タイマーラベルを更新
-            timerLabel.innerHTML = min + ":" + sec;
-
-            // 再びtimer()を呼び出す
-            timer();
-          }, 10);
-        }
-      }
-
-      document.onkeydown = function (event) {
-        if (event) {
-          if (event.keyCode == 32 || event.which == 32) {
-            if (status == 1) {
-              stop();
-            } else if (status == 0) {
-              start();
-            }
-          }
-        }
-      };
-    </script>
     <script type="text/javascript" src="private.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="module" src="js/practice-screen.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="js/practice-screen_jquery.js"></script>
+    <script type="text/javascript" src="js/practice-screen_jquery.js"></script>
+    <script type="text/javascript" src="js/practice.js"></script>
   </body>
 </html>

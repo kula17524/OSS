@@ -7,14 +7,7 @@ import {
 import {
   getFirestore,
   doc,
-  updateDoc,
-  setDoc,
   getDoc,
-  serverTimestamp,
-  deleteDoc,
-  collection,
-  query,
-  where,
 } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
 //情報設定
@@ -33,9 +26,9 @@ const db = getFirestore(app);
 
 //htmlと連携
 let logout = document.getElementById("logout");
+let logout_sp = document.getElementById("logout-sp");
 let logoicon = document.getElementById("logoicon");
 let exiticon = document.getElementById("exiticon");
-let home = document.getElementById("home");
 let back_button = document.getElementById("back_button");
 
 // ログイン状況を確認し、未ログインならログイン画面に遷移
@@ -47,12 +40,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     const doc_id = param.get("docid");
     const userId = user.uid;
 
+    // ドキュメントがなければリストへ戻る
+    if (doc_id == "" || doc_id == null || doc_id == undefined) {
+      location.href = "practicelist.html";
+    }
+
     if (user) {
       const user = auth.currentUser;
       const email = user.email;
       document.getElementById("user_mail").innerText = email;
-      //document.getElementById("user_mail-sp").innerText = email;
-      // ↑ HTMLを見るにPC版のみになっているから「user_mail-sp」がHTML内にない
+      document.getElementById("user_mail-sp").innerText = email;
 
       // ドキュメントIDからデータを取得
       try {
@@ -65,7 +62,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             const textarea = document.getElementById("textarea");
             const word = document.getElementById("inputlength"); //原稿文字数
             const time = document.getElementById("inputtime"); //読み上げ時間
+            const sec = document.getElementById("inputsec");
             const title = document.getElementsByClassName("genko_title")[0];
+
             // 反映
             if (data.title == undefined || data.title == null) {
               title.value = "無題";
@@ -87,10 +86,20 @@ document.addEventListener("DOMContentLoaded", async function () {
             } else {
               time.innerHTML = data.time_input;
             }
+            if (data.sec_input == undefined || data.sec_input == null) {
+              sec.innerText = "0";
+            } else {
+              sec.innerText = data.sec_input;
+            }
           } else {
-            alert(
-              "ユーザーの UIDが一致していません。ログアウトしてやり直してください。"
-            );
+            Swal.fire({
+              type: "error",
+              title: "ユーザーエラー",
+              html: "ユーザーの UIDが一致していません。<br>ログアウトしてやり直してください。",
+              showConfirmButton: true,
+              confirmButtonText: "ＯＫ",
+              confirmButtonColor: "#d33",
+            });
           }
         } else {
           console.log("No such document!");
@@ -99,14 +108,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log("Error getting document:", error);
       }
     } else {
-      // ログインしていない場合の処理
-      alert("ログインしてください。");
       location.href = "login.html";
     }
   });
 
   // ログアウトボタンを押下
   logout.addEventListener("click", () => {
+    signOut(auth)
+      .then(() => {
+        location.href = "login.html";
+      })
+      .catch((error) => {
+        console.log(`ログアウト時にエラーが発生しました (${error})`);
+      });
+  });
+  logout_sp.addEventListener("click", () => {
     signOut(auth)
       .then(() => {
         location.href = "login.html";
@@ -124,14 +140,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   exiticon.addEventListener("click", () => {
     location.href = "practicelist.html";
   });
-  // homeボタンをクリックするとメニュー画面に移動
-  home.addEventListener("click", () => {
-    location.href = "index.html";
-  });
   // ひとつ前に戻るボタンを押すとメニュー画面に移動
   back_button.addEventListener("click", () => {
     location.href = "practicelist.html";
   });
 });
-
-textarea;
