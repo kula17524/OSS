@@ -700,6 +700,7 @@ p {
   font-size: 0.9em;
   display: inline-block;
   border: 1px solid #ced3d8;
+  color: rgba(0, 0, 0, 0.5);
   border-radius: 3px;
   box-sizing: border-box;
   margin-left: 50px;
@@ -709,10 +710,14 @@ p {
   background-color: #fff;
 }
 .textarea_normal:focus {
-  outline: solid 1px rgb(117, 139, 168);
+  outline: none;
 }
 .textarea_normal::placeholder {
   color: #7b7b7b;
+}
+.textarea_normal::selection {
+  color: rgba(0, 0, 0, 1);
+  font-weight: bold;
 }
 
 /* スマホ表示の時 */
@@ -1218,7 +1223,7 @@ p {
   background-color: transparent;
   text-align: center;
   border: none;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   box-shadow: none;
   font-size: 50px;
   top: 110px;
@@ -1226,6 +1231,13 @@ p {
   transform: translateX(-50%);
   height: 70%;
   line-height: 2em;
+}
+.infull_t:focus {
+  outline: none;
+}
+.infull_t::selection {
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
 }
 .infull_list {
   color: #fff;

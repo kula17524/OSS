@@ -217,10 +217,28 @@ var TMamMicRec = function (control, start_button, microphone) {
     function () {
       if (count == 1) {
         this.mediaRecorder.start();
-        start();
+
+        // 強調表示開始
+        let u = new SpeechSynthesisUtterance(texts.value);
+        u.lang = "ja-JP";
+        u.rate = 0.8;
+        u.volume = 0;
+        u.addEventListener("boundary", (e) => {
+          //if (e.name != "word") return;
+          texts.focus();
+          texts.setSelectionRange(e.charIndex, e.charIndex + e.charLength);
+          console.log(e.charIndex);
+        });
+        u.addEventListener("end", () => texts.setSelectionRange(0, 0));
+        speechSynthesis.speak(u);
+        startTimer();
       } else if (count == 2) {
         this.mediaRecorder.stop();
-        stop();
+        stopTimer();
+
+        // 強調表示終了
+        if (!window.speechSynthesis) return;
+        speechSynthesis.cancel();
       } else {
         audio_play.remove();
         reset();
@@ -235,7 +253,7 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 // STARTボタン
-function start() {
+function startTimer() {
   // 動作中にする
   timer_flag = 1;
 
@@ -243,7 +261,7 @@ function start() {
 }
 
 // STOPボタン
-function stop() {
+function stopTimer() {
   // 停止中にする
   timer_flag = 0;
   // スタートボタンを押せるようにする
