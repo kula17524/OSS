@@ -941,6 +941,7 @@ p {
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 20000;
 }
 #blue_mike_Button {
   position: relative;
@@ -967,7 +968,7 @@ p {
   top: calc(90px + 40%);
   width: 250px;
   height: 250px;
-  z-index: 9999;
+  z-index: 19000;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -1065,7 +1066,7 @@ p {
     #startBtn {
       left: 50%;
       transform: translateX(-50%);
-      top: calc(270px + 40%);
+      top: calc(280px + 40%);
     }
     .message-wrap {
       left: 50%;
@@ -1076,13 +1077,13 @@ p {
       #audio_play {
         left: 50%;
         transform: translateX(-50%);
-        top: calc(370px + 40%);
+        top: calc(390px + 40%);
         width: 90%;
       }
       #startBtn {
         left: 50%;
         transform: translateX(-50%);
-        top: calc(290px + 40%);
+        top: calc(320px + 40%);
       }
       .message-wrap {
         left: 50%;
