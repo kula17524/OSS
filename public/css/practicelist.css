@@ -1,0 +1,828 @@
+@font-face {
+  font-family: "MS";
+  src: url("../font/MS-Gothic-01.ttf");
+}
+html {
+  font-family: "ＭＳゴシック", "MS", "ＭＳ Ｐゴシック", "MS PGothic",
+    "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+/* 画面設定と背景設定 */
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/blue_PC_background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #c2e7ef;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* ヘッダー */
+/* 通常はPC用表示 */
+.pc {
+  display: block;
+  color: #4e4e4e;
+  top: 0;
+}
+.sp {
+  display: none;
+  color: #4e4e4e;
+  top: 0;
+}
+.bar_back {
+  position: fixed;
+  text-align: center;
+  width: 200%;
+  top: -20px;
+  left: -300px;
+  z-index: 100;
+}
+.bar_back img {
+  width: 5000px;
+  height: 100px;
+  top: -20px;
+  left: -30px;
+  z-index: 100;
+}
+.logo {
+  position: fixed;
+  height: 70px;
+  width: auto;
+  z-index: 5000;
+}
+
+/* 縦長ならスマホ用画面になる */
+@media screen and (orientation: portrait) {
+  .pc {
+    display: none;
+    color: #4e4e4e;
+    top: 0;
+  }
+  .sp {
+    display: block;
+    color: #4e4e4e;
+  }
+  .bar_back {
+    position: fixed;
+    text-align: center;
+    width: 200%;
+    top: -80px;
+    left: -300px;
+    z-index: 100;
+  }
+  .bar_back img {
+    width: 5000px;
+    height: 250px;
+    top: -100px;
+    left: -30px;
+    z-index: 100;
+  }
+  .logo-txt {
+    width: 100%;
+    display: block;
+    position: fixed;
+    font-size: 45px;
+    font-weight: normal;
+    top: 50px;
+    text-align: center;
+    z-index: 100;
+    margin: 0;
+    color: #4e4e4e;
+  }
+  /* 縦長でも縦の長さが短ければPC表示にする */
+  @media screen and (max-height: 600px) {
+    .pc {
+      display: block;
+      color: #4e4e4e;
+      top: 0;
+    }
+    .sp {
+      display: none;
+      color: #4e4e4e;
+      top: 0;
+    }
+    .bar_back {
+      position: fixed;
+      text-align: center;
+      width: 100%;
+      top: -20px;
+      left: -300px;
+      z-index: 100;
+    }
+    .bar_back img {
+      width: 5000px;
+      height: 100px;
+      top: -20px;
+      left: -30px;
+      z-index: 100;
+    }
+    .logo {
+      position: fixed;
+      height: 70px;
+      width: auto;
+      z-index: 5000;
+    }
+  }
+}
+
+/* ロゴのボタン化 */
+.top-wrap {
+  text-align: right;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 5000;
+}
+
+.logo:hover {
+  opacity: 0.6;
+  z-index: 5000;
+}
+.logo:active {
+  position: relative;
+  z-index: 5000;
+  top: 3px;
+}
+
+/* ユーザボタン PC用 */
+li {
+  list-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.logo-txt {
+  text-align: center;
+  position: fixed;
+  z-index: 101;
+}
+
+/* ユーザーアイコン(PC) */
+.user {
+  position: fixed;
+  text-align: right;
+  display: block;
+  width: 100%;
+  height: 60px;
+  z-index: 1100;
+}
+.user_button {
+  display: inline;
+  text-align: right;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  margin-right: 20px;
+  margin-top: 5px;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+.user-img {
+  width: 60px;
+  height: 100%;
+}
+.user-img:hover {
+  opacity: 0.6;
+}
+.user-img:active {
+  position: relative;
+  top: 3px;
+}
+
+/* ユーザーアイコン(スマホ) */
+.user-sp {
+  position: fixed;
+  text-align: right;
+  display: block;
+  width: 100%;
+  height: 90px;
+  z-index: 500;
+}
+.user_button-sp {
+  display: inline;
+  text-align: right;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  margin-right: 20px;
+  margin-top: 55px;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 500;
+}
+.user-img-sp {
+  width: 90px;
+  height: 100%;
+}
+.user-img-sp:hover {
+  opacity: 0.6;
+}
+.user-img-sp:active {
+  position: relative;
+  top: 3px;
+}
+
+/* ひとつ前に戻るボタン(スマホ) */
+.back-wrap {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 90px;
+  z-index: 500;
+}
+.back_button {
+  position: fixed;
+  display: block;
+  height: 90px;
+  z-index: 500;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  margin-left: 20px;
+  margin-top: 55px;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 500;
+}
+.back_img {
+  width: 90px;
+  height: 100%;
+}
+.back_img:hover {
+  opacity: 0.6;
+}
+.back_img:active {
+  position: relative;
+  top: 3px;
+}
+
+/* ユーザー情報表示タブ(PC) */
+#user-wrap {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 6000;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  top: -0.5em;
+  right: -120%;
+  width: 200px;
+  height: 200px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+#user-list {
+  margin: 0;
+  padding: 0;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap.panelactive {
+  right: 0;
+}
+
+/*ナビゲーション*/
+#user-wrap ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 6000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+#user-wrap li {
+  margin: 0;
+  padding: 0;
+}
+.user-title {
+  font-weight: bolder;
+  font-size: 18px;
+}
+p {
+  margin: 0.6em;
+}
+.close {
+  margin-top: 2em;
+}
+.close p {
+  margin-bottom: 0.2em;
+  padding: 0.1em;
+  background-color: white;
+  font-weight: 600;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.close p:hover {
+  opacity: 70%;
+}
+.close p:focus {
+  opacity: 70%;
+}
+
+/* ユーザー情報表示タブ(スマホ) */
+#user-wrap-sp {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 6000;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  top: 9em;
+  right: -120%;
+  width: 200px;
+  height: 200px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+#user-list-sp {
+  margin: 0;
+  padding: 0;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#user-wrap-sp.panelactive {
+  right: 0;
+}
+
+/*ナビゲーション*/
+#user-wrap-sp ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 6000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.close-sp {
+  margin-top: 2em;
+}
+.close-sp p {
+  margin: 0.1em;
+  padding: 0.1em;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 600;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.close-sp p:hover {
+  opacity: 70%;
+}
+.close-sp p:focus {
+  opacity: 70%;
+}
+
+/* 横幅が狭ければボタンを小さくする */
+@media screen and (max-width: 300px) {
+  .logo-txt {
+    font-size: 35px;
+    top: 70px;
+  }
+  .back_button {
+    position: fixed;
+    display: block;
+    height: 70px;
+    z-index: 500;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 10px;
+    margin-top: 75px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+    z-index: 500;
+  }
+  .back_img {
+    width: 70px;
+    height: 100%;
+  }
+  .back_img:hover {
+    opacity: 0.6;
+  }
+  .back_img:active {
+    position: relative;
+    top: 3px;
+  }
+  .user-sp {
+    position: fixed;
+    text-align: right;
+    display: block;
+    width: 100%;
+    height: 70px;
+    z-index: 500;
+  }
+  .user_button-sp {
+    display: inline;
+    text-align: right;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-right: 10px;
+    margin-top: 75px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+    z-index: 500;
+  }
+  .user-img-sp {
+    width: 70px;
+    height: 100%;
+  }
+  .user-img-sp:hover {
+    opacity: 0.6;
+  }
+  .user-img-sp:active {
+    position: relative;
+    top: 3px;
+  }
+}
+
+/* メールの文字数制限 */
+#user_mail-sp {
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* メールの文字数制限 */
+#user_mail {
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* リンクの文字色 */
+#logout,
+#logout-sp {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#logout:visited,
+#logout-sp:visited {
+  color: #551a8b;
+  text-decoration: underline;
+}
+
+#logout:hover,
+#logout-sp:hover {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+#logout:focus,
+#logout-sp:focus {
+  color: #10bbeb;
+  text-decoration: underline;
+}
+
+#logout:active,
+#logout-sp:active {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* 原稿リストタイトル */
+.list-title {
+  position: fixed;
+  margin: 1em;
+  top: 80px;
+  color: #4e4e4e;
+  z-index: 8000;
+}
+h3 {
+  position: fixed;
+  top: 80px;
+}
+
+/* 原稿リスト */
+.manu-list {
+  position: fixed;
+  top: 120px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 75vh;
+  width: 97%;
+}
+.manu-list::-webkit-scrollbar {
+  width: 15px;
+}
+.manu-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+}
+.manu-list::-webkit-scrollbar-thumb {
+  background-image: url("../img/scroll_3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+/* 縦長ならスマホ用画面になる */
+@media screen and (orientation: portrait) {
+  .list-title {
+    position: fixed;
+    margin: 1em;
+    top: 150px;
+    color: #4e4e4e;
+    z-index: 8000;
+  }
+  .manu-list {
+    position: fixed;
+    top: 190px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 70vh;
+    width: 97%;
+  }
+  /* 縦長でも縦の長さが短ければPC表示にする */
+  @media screen and (max-height: 600px) {
+    .list-title {
+      position: fixed;
+      margin: 1em;
+      top: 80px;
+      color: #4e4e4e;
+      z-index: 8000;
+    }
+    .manu-list {
+      position: fixed;
+      top: 120px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 75vh;
+      width: 97%;
+    }
+  }
+}
+.all-list {
+  color: #4e4e4e;
+  width: 100%;
+  height: 100%;
+}
+.list-wrap {
+  table-layout: fixed;
+  text-align: center;
+  margin: auto;
+  margin-top: 0.5em;
+  width: 90%;
+  border: solid 1.5px #c2e7ef;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+td {
+  padding: 0.3em;
+}
+.title {
+  color: #4e4e4e;
+  width: 65%;
+  text-align: center;
+  border-bottom: solid 1.5px #c2e7ef;
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.date {
+  color: #4e4e4e;
+  width: 20%;
+  border-left: solid 1.5px #c2e7ef;
+  font-size: 0.9em;
+}
+.txt-img {
+  text-align: left;
+  padding-left: 1em;
+  width: 15%;
+  color: #4e4e4e;
+  font-size: 0.9em;
+}
+.time-img {
+  background-image: url(../img/blue_timer.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: padding-box;
+  padding-left: 1em;
+  width: 10%;
+  border-left: solid 1.5px #c2e7ef;
+}
+.txt {
+  color: #4e4e4e;
+  width: 20%;
+  text-align: right;
+  padding-right: 1em;
+  font-size: 0.9em;
+}
+.time {
+  color: #4e4e4e;
+  text-align: right;
+  width: 25%;
+  padding-right: 1em;
+  font-size: 0.9em;
+}
+/* 幅が狭い場合に対応 */
+@media screen and (max-width: 420px) {
+  .title {
+    color: #4e4e4e;
+    width: 60%;
+    text-align: center;
+    border-bottom: solid 1.5px #c2e7ef;
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .txt-img {
+    text-align: left;
+    padding: 0;
+    width: 15%;
+    color: #4e4e4e;
+    font-size: 0.7em;
+  }
+  .txt {
+    color: #4e4e4e;
+    width: 20%;
+    text-align: right;
+    padding: 0;
+    font-size: 0.7em;
+  }
+  .time {
+    color: #4e4e4e;
+    width: 25%;
+    padding: 0;
+    font-size: 0.7em;
+    text-align: right;
+  }
+  .date {
+    color: #4e4e4e;
+    width: 30%;
+    border-left: solid 1.5px #c2e7ef;
+    font-size: 0.7em;
+  }
+}
+.list-title {
+  position: fixed;
+}
+/* 3点リーダー */
+.point {
+  position: relative;
+  color: #4e4e4e;
+  width: 10%;
+  border-left: solid 1.5px #c2e7ef;
+  text-align: center;
+  vertical-align: middle;
+}
+.point_button {
+  display: inline;
+  margin: auto;
+  background: none;
+  width: 100%;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  z-index: 8000;
+}
+.point-img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+.point-img:hover {
+  opacity: 0.6;
+}
+.point-img:active {
+  position: relative;
+  top: 3px;
+}
+
+/* 3点リーダーの情報枠 */
+.reader-wrap {
+  color: #4e4e4e;
+  font-size: 1em;
+  position: absolute;
+  z-index: 9000;
+  text-align: center;
+  /*ナビのスタート位置と形状*/
+  width: 100px;
+  height: 100px; /*ナビの高さ*/
+  background-image: url("../img/blue_loginBack.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*動き*/
+  transition: all 0.6s;
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+.reader-wrap ul {
+  width: 70%;
+  height: auto;
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+.reader-edit-wrap {
+  padding-bottom: 0.7em;
+  border-bottom: solid 1.5px #c2e7ef;
+}
+.reader-delete-wrap {
+  padding-top: 0.7em;
+}
+/* 幅が狭い場合に対応 */
+@media screen and (max-width: 800px) {
+  .reader-wrap {
+    color: #4e4e4e;
+    font-size: 0.8em;
+    position: absolute;
+    right: -15px;
+    z-index: 9000;
+    text-align: center;
+    /*ナビのスタート位置と形状*/
+    width: 80px;
+    height: 80px; /*ナビの高さ*/
+    background-image: url("../img/blue_loginBack.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*動き*/
+    transition: all 0.6s;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+  }
+}
+.hidden {
+  display: none;
+}
+/* タブ内のボタン文字の表示 */
+.reader-edit,
+.reader-delete {
+  cursor: pointer;
+  color: #4e4e4e;
+}
+
+.reader-edit:hover,
+.reader-delete:hover {
+  color: #747171;
+  opacity: 0.6;
+}
+.reader-edit:focus,
+.reader-delete:focus {
+  color: #747171;
+  opacity: 0.6;
+}
+
+.reader-edit:active,
+.reader-delete:active {
+  color: #747171;
+  position: relative;
+  top: 3px;
+}
+.center-align {
+  text-align: center;
+  vertical-align: middle;
+}
