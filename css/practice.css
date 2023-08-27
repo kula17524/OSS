@@ -212,6 +212,43 @@ ul {
   position: relative;
   top: 3px;
 }
+/* ハンバーガーメニュー */
+.hmb-sp {
+  position: fixed;
+  text-align: right;
+  display: block;
+  width: 100%;
+  height: 90px;
+  z-index: 500;
+}
+.hmb_button-sp {
+  display: inline;
+  text-align: right;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  margin-right: 20px;
+  margin-top: 55px;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  z-index: 500;
+}
+.hmb-img-sp {
+  width: 90px;
+  height: 100%;
+}
+.hmb-img-sp:hover {
+  opacity: 0.6;
+}
+.hmb-img-sp:focus {
+  opacity: 0.6;
+}
+.hmb-img-sp:active {
+  position: relative;
+  top: 3px;
+}
 
 /* ユーザーアイコン(スマホ) */
 .user-sp {
@@ -220,7 +257,8 @@ ul {
   display: block;
   width: 100%;
   height: 90px;
-  z-index: 500;
+  z-index: 499;
+  display: none !important;
 }
 .user_button-sp {
   display: inline;
@@ -234,7 +272,7 @@ ul {
   overflow: visible;
   cursor: pointer;
   padding: 0;
-  z-index: 500;
+  z-index: 499;
 }
 .user-img-sp {
   width: 90px;
@@ -249,6 +287,30 @@ ul {
 .user-img-sp:active {
   position: relative;
   top: 3px;
+}
+/* フルスクリーン(スマホ) */
+#fullicon-sp {
+  position: fixed;
+  text-align: right;
+  font-size: 0;
+  line-height: 0;
+  right: 20px;
+  margin-top: 55px;
+  width: 90px;
+  overflow: visible;
+  padding: 0;
+  z-index: 499;
+  cursor: pointer;
+}
+#fullicon-sp:hover {
+  opacity: 0.7;
+}
+#fullicon-sp:focus {
+  opacity: 0.7;
+}
+#fullicon-sp:active {
+  position: fixed;
+  margin-top: 203px;
 }
 
 /* ひとつ前に戻るボタン(スマホ) */
@@ -457,13 +519,40 @@ p {
     position: relative;
     top: 3px;
   }
-  .user-sp {
+  .hmb-sp {
     position: fixed;
     text-align: right;
     display: block;
     width: 100%;
     height: 70px;
     z-index: 500;
+  }
+  .hmb_button-sp {
+    display: inline;
+    text-align: right;
+    background: none;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    margin-right: 10px;
+    margin-top: 75px;
+    overflow: visible;
+    cursor: pointer;
+    padding: 0;
+    z-index: 500;
+  }
+  .hmb-img-sp {
+    width: 70px;
+    height: 100%;
+  }
+  .user-sp {
+    position: fixed;
+    text-align: right;
+    display: block;
+    width: 100%;
+    height: 70px;
+    z-index: 499;
+    display: none !important;
   }
   .user_button-sp {
     display: inline;
@@ -477,7 +566,7 @@ p {
     overflow: visible;
     cursor: pointer;
     padding: 0;
-    z-index: 500;
+    z-index: 499;
   }
   .user-img-sp {
     width: 70px;
@@ -492,6 +581,29 @@ p {
   .user-img-sp:active {
     position: relative;
     top: 3px;
+  }
+  #fullicon-sp {
+    position: fixed;
+    text-align: right;
+    font-size: 0;
+    line-height: 0;
+    right: 10px;
+    margin-top: 75px;
+    width: 70px;
+    overflow: visible;
+    padding: 0;
+    z-index: 499;
+    cursor: pointer;
+  }
+  #fullicon-sp:hover {
+    opacity: 0.7;
+  }
+  #fullicon-sp:focus {
+    opacity: 0.7;
+  }
+  #fullicon-sp:active {
+    position: fixed;
+    margin-top: 233px;
   }
 }
 
@@ -630,24 +742,6 @@ p {
 #fullicon:active {
   position: fixed;
   top: 208px;
-}
-#fullicon-sp {
-  position: fixed;
-  width: 40px;
-  z-index: 1000;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-}
-#fullicon-sp:hover {
-  opacity: 0.7;
-}
-#fullicon-sp:focus {
-  opacity: 0.7;
-}
-#fullicon-sp:active {
-  position: fixed;
-  top: 8px;
 }
 /*原稿タイトル*/
 :disabled {
