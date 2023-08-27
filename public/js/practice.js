@@ -52,6 +52,15 @@ function switchFullScreen(event) {
         document.webkitCancelFullScreen();
       } else if (document.msExitFullscreen) {
         document.msExitFullscreen();
+      } else {
+        Swal.fire({
+          type: "error",
+          title: "未対応",
+          html: "フルスクリーン表示未対応の機種またはブラウザです。",
+          showConfirmButton: true,
+          confirmButtonText: "ＯＫ",
+          confirmButtonColor: "#d33",
+        });
       }
 
       // 通常表示ならフルスクリーン表示にする
@@ -64,6 +73,15 @@ function switchFullScreen(event) {
         full_target.webkitRequestFullscreen();
       } else if (full_target.msRequestFullscreen) {
         full_target.msRequestFullscreen();
+      } else {
+        Swal.fire({
+          type: "error",
+          title: "未対応",
+          html: "フルスクリーン表示未対応の機種またはブラウザです。",
+          showConfirmButton: true,
+          confirmButtonText: "ＯＫ",
+          confirmButtonColor: "#d33",
+        });
       }
     }
   }
