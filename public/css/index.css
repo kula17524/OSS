@@ -328,3 +328,50 @@ a:active {
   opacity: 1;
   transition: 0.5s;
 }
+
+/* クレジット */
+.credit_button {
+  position: fixed;
+  margin-left: 10px;
+  margin-top: 20px;
+  background: none;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+  cursor: pointer;
+  padding: 0;
+  width: 130px;
+  height: auto;
+  z-index: 200;
+}
+.credit {
+  width: 100%;
+  text-align: center;
+}
+.credit:hover {
+  opacity: 0.6;
+}
+.credit:active {
+  position: relative;
+  top: 3px;
+}
+.swal2-content {
+  font-size: 0.9em !important;
+  text-align: left !important;
+}
+.swal2-title {
+  font-size: 1em !important;
+}
+.swal2-styled.swal2-confirm {
+  font-size: 0.9em !important;
+}
+.swal2-styled {
+  padding: 0.3em 1em !important;
+}
+@media screeen and (max-width: 300px) {
+  .swal2-content {
+    font-size: 0.6em !important;
+    text-align: left !important;
+  }
+}
