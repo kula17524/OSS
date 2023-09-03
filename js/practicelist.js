@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
           // ドキュメントIDを取得
           const doc_id = doc_get.id;
           // 枠を作成
-          const tbody = document.createElement("tbody");
           const list_wrap = document.createElement("table");
           list_wrap.className = "list-wrap";
           const title_wrap = document.createElement("tr");
@@ -155,8 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
           reader_delete.innerHTML = "削除する";
 
           // HTMLに反映
-          document.getElementById("all-list").appendChild(tbody);
-          tbody.appendChild(list_wrap);
+          document.getElementById("all-list").appendChild(list_wrap);
           list_wrap.appendChild(title_wrap);
           list_wrap.appendChild(data_wrap);
           title_wrap.appendChild(title);
